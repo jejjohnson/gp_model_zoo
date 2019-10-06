@@ -6,7 +6,7 @@ This is a poor name but I want to put all of the papers here that seek to improv
 ---
 ## Natural Gradients
 
-**Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models** - Salimbeni et. al. (2018) | [Paper](https://arxiv.org/abs/1803.09151) | [Code]()
+**Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models** - Salimbeni et. al. (2018) | [Paper](https://arxiv.org/abs/1803.09151) | [Code](https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py)
 
 
 

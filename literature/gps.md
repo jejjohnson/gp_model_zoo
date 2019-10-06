@@ -36,6 +36,16 @@ So I found a few resources that give papers as well as some codes and lectures t
 * Deep GPs Nonparametric - [Papers](https://github.com/otokonoko8/deep-Bayesian-nonparametrics-papers/blob/master/README.md)
 * GPs for Dynamical System Modeling - [Papers](http://dsc.ijs.si/jus.kocijan/GPdyn/)
 
+---
+## Other Reviews
+
+**When GPs meet big data** - [paper](https://arxiv.org/pdf/1807.01065.pdf)
+  > Probably the most comprehensive overview of GPs and how they can be scaled. You won't be able to learn each and every algorithm through this paper. But you will find almost all known algorithms for scaling standard GPs. **Note**: I don't think they mention Deep GPs.
+
+
+**A Unifying View of Sparse Approximate Gaussian Process Regression** - Quiñonero-Candela & Rasmussen (2005) - [Paper](https://dl.acm.org/citation.cfm?id=1194909)
+
+**Understanding probabilistic sparse Gaussian process approximations** - Bauer et. al. (2016) - [Paper](https://dl.acm.org/citation.cfm?id=3157268)
 
 ---
 ## Algorithms
