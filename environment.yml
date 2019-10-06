@@ -1,0 +1,14 @@
+name: gp_gpy
+channels:
+- defaults
+- conda-forge
+dependencies:
+- scipy
+- numpy
+- scikit-learn
+- matplotlib
+- GPy
+- pandas
+- pip
+- pip:
+    - GPy
