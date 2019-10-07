@@ -1,10 +1,11 @@
 # Gaussian Process Model Zoo
 
-I have included some of the algorithms I work with or have worked with during my PhD. My [lab](https://isp.uv.es/) works with kernel methods and we frequently use GPs for different applications, e.g. emulation, ocean applications and parameter retrievals. We typically use GPs because 
+I have included some of the algorithms I work with or have worked with during my PhD. My [lab](https://isp.uv.es/) works with kernel methods and we frequently use GPs for different applications, e.g. emulation, ocean applications and parameter retrievals. We typically use GPs for the following reasons with #1 being the most important (as it with research groups whether they admit it or not).
 
-1. We are a kernel lab and GPs are essentially a Bayesian treatment of kernel methods for regression and classification
-2. The GP treatment of uncertainty via confidence intervals is essentially when dealing with physical data
-3. We can often use sensible priors and built-in regularization makes us a bit more confident in the models we use.
+1. It's what we've been doing... We are a kernel lab, use mainly kernel methods and GPs are essentially a Bayesian treatment of kernel methods for regression and classification applications.
+2. The GP treatment of uncertainty via confidence intervals is essentially when dealing with physical data.
+3. We can often use sensible priors and a fairly consistent way of tuning the hyperparameters.
+4. Somewhat robust to overfitting via built-in regularization.
 
 I created this repo because I didn't want my code to go to waste in case there were people who are new to GPs and want to see a few key algorithms implemented. Also, it allows me to centralize my code for all my projects. Hopefully it will be of some use to others.
 
@@ -24,7 +25,7 @@ Often times if I have a The [sklearn docs](https://scikit-learn.org/stable/modul
 
 ### **[GPy](gpy/README.md)**
 
-GPy is the most **comprehensive research library** I have found to date. It has the most number of different special case GP algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are good but I personally found the [docs](https://gpy.readthedocs.io/en/deploy/) very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on. I typically wrap some typical GP algorithms within the sklearn `.fit()`, `.predict()`, `.score()` framework. The standard algorithms will include some like the Sparse GP, Heteroscedastic GP and Bayesian GPLVM. I typically use this library if my dataset is between 1,000 and 10,000 points. It also doesn't get updated very often so I'm assuming the devs have moved on to other things. There are rumors of a GPy2 library that's based on MXFusion but I have failed to see anything concrete yet.
+GPy is the most **comprehensive research library** I have found to date. It has the most number of different special case GP algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are good but I personally found the [docs](https://gpy.readthedocs.io/en/deploy/) very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on. I typically wrap some typical GP algorithms within the sklearn `.fit()`, `.predict()`, `.score()` framework. The standard algorithms will include some like the Sparse GP, Heteroscedastic GP and Bayesian GPLVM. I typically use this library if my dataset is between 2,000 and 10,000 points. It also doesn't get updated very often so I'm assuming the devs have moved on to other things. There are rumors of a GPy2 library that's based on MXFusion but I have failed to see anything concrete yet.
 
 ### **[GPyTorch](gpytorch/README.md) (TODO)**
 
@@ -33,7 +34,7 @@ This is my defacto library for **applying GPs** to large scale data. Anything ab
 
 ### **[Pyro](pyro/README.md) (TODO)**
 
-This is my defacto library for doing **research with GPs**. In particular for GPs, I find it to be, I find the library super easy to mix and match priors and parameters for my GP models. Also pyro has a great [forum](https://forum.pyro.ai/) which is very active. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
+This is my defacto library for doing **research with GPs**. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. Also pyro has a great [forum](https://forum.pyro.ai/) which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
 
 ### **[GPFlow](gpflow/README.md) (TODO)**
 
