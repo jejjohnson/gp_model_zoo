@@ -6,6 +6,12 @@ These are models that I deem 'special' in the sense that they're not exactly wha
 * MultiTask
 * MultiFidelity
 
+
+#### Dynamical Models
+
+* [Scaling GPR with Derivatives](https://arxiv.org/abs/1810.12283) - Eriksson et. al. (2018) | [Code]()
+  > They use MVM methods to enable one to solve for functions and their derivatives at the same time at scale.
+
 #### Multi-Fidelity Modeling
 
 > The users look at the case of multi-fidelity modeling using Deep GPs.
