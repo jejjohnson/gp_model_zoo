@@ -25,29 +25,35 @@ Often times if I have a The [sklearn docs](https://scikit-learn.org/stable/modul
 
 ### **[GPy](gpy/README.md)**
 
+<details>
 GPy is the most **comprehensive research library** I have found to date. It has the most number of different special case GP algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are good but I personally found the [docs](https://gpy.readthedocs.io/en/deploy/) very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on. I typically wrap some typical GP algorithms within the sklearn `.fit()`, `.predict()`, `.score()` framework. The standard algorithms will include some like the Sparse GP, Heteroscedastic GP and Bayesian GPLVM. I typically use this library if my dataset is between 2,000 and 10,000 points. It also doesn't get updated very often so I'm assuming the devs have moved on to other things. There are rumors of a GPy2 library that's based on MXFusion but I have failed to see anything concrete yet.
+</details>
 
 ### **[GPyTorch](gpytorch/README.md) (TODO)**
-
+<details>
 This is my defacto library for **applying GPs** to large scale data. Anything above 10,000 points, and I will resort to this library. It has GPU acceleration and a large suite of different GP algorithms depending upon your problem. I think this is the dominant GP library for actually using GPs and I highly recommend it for utility. I still find it a bit difficult to really customize anything under the hood. But if you can figure out how to mix and match each of the modular parts, then it should work for you.
-
+</details>
 
 ### **[Pyro](pyro/README.md) (TODO)**
-
+<details>
 This is my defacto library for doing **research with GPs**. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. Also pyro has a great [forum](https://forum.pyro.ai/) which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
-
+</details>
+  
 ### **[GPFlow](gpflow/README.md) (TODO)**
-
+<details>
 What Pyro is to PyTorch, GPFlow is to TensorFlow. A few of the devs from GPy went to GPFlow so it has a very similar style as GPy. But it is a lot cleaner due to the use of autograd which eliminates all of the code used to track the gradients. Many researchers use this library as a backend for their own research code so I would say it is the second most used library in the research domain. I didn't find it particularly easy to customize in tensorflow =<1.14 because of the session tracking which wasn't clear to me from the beginning. But now with the addition of tensorflow 2.0 and GPFlow adopting that new framework, I am eager to try it out again.
-
+</details>
+  
 ### **[TensorFlow Probability](tensorflow/README.md) (TODO)** 
-
+<details>
 This library is built into Tensorflow already and they have a few GP modules that allow you to train GP algorithms. In edition, they have a keras-like GP layer which is very useful for using a GP as a final layer in probabilistic neural networks. The GP community is quite small for TFP so I haven't seen too many examples for this.
+</details>
 
 ### **[Edward2](edward2/README.md) (TODO)** 
-
+<details>
 This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras `model.fit()`. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.
-
+</details>
+  
 ---
 ## Library Classification
 
