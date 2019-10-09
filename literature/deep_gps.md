@@ -8,6 +8,8 @@ These are GP models that stack GPs one after the other. As far as understanding,
 * Neil Lawrence @ MLSS 2019
     > I would say this is the best lecture to understand the nature of GPs and why we would might want to use them.
   * [Blog](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Lecture](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Slides](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html)
+* Neil Lawrence @ GPSS 2019
+  * [Notes](http://inverseprobability.com/talks/notes/introduction-to-deep-gps.html) | [Lecture](https://youtu.be/eS_na-6ZlCI)
 * Maurizio Filippone @ DeepBayes.ru 2018
   > I would say this is the second best lecture because Maurizio gives a nice overview of the GP methods there already are (at the time).
   * [Lecture](https://www.youtube.com/watch?v=zBEV5ezyYmI) | [Slides](http://www.eurecom.fr/~filippon/Talks/talk_dgps_deep_bayes_summer_school_2018.pdf) | [New Slides](http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf)
