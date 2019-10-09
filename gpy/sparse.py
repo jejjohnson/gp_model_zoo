@@ -91,6 +91,6 @@ class SparseGPR(BaseEstimator, RegressorMixin):
             mean, var = self.gp_model.predict(X)
 
         if return_std:
-            return mean, var
+            return mean, np.sqrt(var)
         else:
             return mean

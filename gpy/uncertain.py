@@ -17,7 +17,7 @@ class SparseGPR(BaseEstimator, RegressorMixin):
         optimizer="scg",
         n_restarts=10,
         verbose=None,
-        alpha=.5
+        batch_size=None,
     ):
         self.kernel = kernel
         self.n_inducing = n_inducing
@@ -27,7 +27,7 @@ class SparseGPR(BaseEstimator, RegressorMixin):
         self.optimizer = optimizer
         self.n_restarts = n_restarts
         self.verbose = verbose
-        self.alpha = alpha
+        self.batch_size = batch_size
 
     def fit(self, X, y):
 
@@ -43,26 +43,43 @@ class SparseGPR(BaseEstimator, RegressorMixin):
         # Get Variance
         X_variance = self._check_X_variance(self.X_variance, X)
         
-
-        # Kernel matrix
-        gp_model = GPy.models.SparseGPRegression(
-            X, y, 
-            kernel=self.kernel, 
-            Z=z,
-            X_variance=X_variance
-        )
-
-        # set the fitc inference
+        # Inference function
         if self.inference.lower() == 'vfe' or X_variance is not None:
-            gp_model.inference_method = GPy.inference.latent_function_inference.VarDTC()
+            inference_method = GPy.inference.latent_function_inference.VarDTC()
             
         elif self.inference.lower() == 'fitc':
-            gp_model.inference_method = GPy.inference.latent_function_inference.FITC()
+            inference_method = GPy.inference.latent_function_inference.FITC()
             
-        elif self.inference.lower() == 'pep':
-            gp_model.inference_method = GPy.inference.latent_function_inference.PEP(self.alpha)
         else:
-            raise ValueError(f'Unrecognized inference method: {self.inference}')
+            raise ValueError(f'Unrecognized inference method: {self.inference}')        
+
+        # Kernel matrix
+        if self.batch_size is None:
+            gp_model = \
+                GPy.models.SparseGPRegression(
+                X, y, 
+                kernel=self.kernel, 
+                Z=z,
+                X_variance=X_variance
+            )
+        else:
+            gp_model = \
+                GPy.models.bayesian_gplvm_minibatch.BayesianGPLVMMiniBatch(
+                Y=y,
+                X=X,
+                input_dim=X.shape[1],
+                kernel=self.kernel,     
+                Z=z,
+                X_variance=X_variance,
+                inference_method=inference_method,
+                batchsize=self.batch_size,
+                likelihood=GPy.likelihoods.Gaussian(),
+                stochastic=False,
+                missing_data=False,
+            )
+
+        # set the fitc inference
+
         # Optimize
         gp_model.optimize(
             self.optimizer, messages=self.verbose, max_iters=self.max_iters
@@ -121,6 +138,7 @@ class SparseGPR(BaseEstimator, RegressorMixin):
             mean, var = self.gp_model.predict(X)
 
         if return_std:
-            return mean, var
+            return mean, np.sqrt(var)
         else:
             return mean
+
