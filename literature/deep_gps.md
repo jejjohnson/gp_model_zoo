@@ -70,3 +70,7 @@ I don’t think there is any best one because I’m almost certain noone has don
   > This paper shows how some of the kernel compositions give very bad estimates of the functions between layers; similar to how residual NN do much better.
 
 ### Relations to Neural Networks
+
+
+* [Building Bayesian Neural Networks with Blocks:
+On Structure, Interpretability and Uncertainty](https://arxiv.org/pdf/1806.03563.pdf) - Zhou et. al. (2018)

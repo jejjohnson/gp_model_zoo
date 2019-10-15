@@ -17,3 +17,9 @@ All papers in this section look at applications in Earth observation e.g. parame
 
 **Physics-aware Gaussian processes in remote sensing** - Camps-Valls et. al. (2018) | [Paper](https://www.sciencedirect.com/science/article/pii/S1568494618301431)
 
+
+---
+## Other Arguments
+
+* [GPs for Little Data](https://medium.com/panoramic/gaussian-processes-for-little-data-2501518964e4)
+
