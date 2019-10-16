@@ -230,7 +230,7 @@ So after all of this literature, what is the next step for the community? I have
 
 #### 1. Apply these algorithms to different problems (other than dynamical systems)
 
-It's clear to me that there are a LOT of different algorithms. But in almost every study above, I many see any applications outside of dynamical systems. I would love to see the community use these algorithms. Like Neil Lawrence said in a recent MLSS talk; "we need to stop jacking around with GPs and actually **apply them**" (paraphrased). There are many little goodies to be had from all of these methods; like the linearized GP predictive variance estimate for better variance estimates is something you get almost for free. So why not use it? 
+It's clear to me that there are a LOT of different algorithms. But in almost every study above, I don't see many applications outside of dynamical systems. I would love to see the community use these algorithms. Like Neil Lawrence said in a recent MLSS talk; "we need to stop jacking around with GPs and actually **apply them**" (paraphrased). There are many little goodies to be had from all of these methods; like the linearized GP predictive variance estimate for better variance estimates is something you get almost for free. So why not use it? 
 
 #### 2. Improve the Kernel Expectation Calculations
 
