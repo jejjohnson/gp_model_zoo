@@ -2,6 +2,7 @@
 
 * Author: J. Emmanuel Johnson
 * Email : jemanjohnson34@gmail.com
+* Website: jejjohnson.netlify.com
 
 #### Introduction 
 
@@ -44,7 +45,19 @@ Below is a list of methods which are not as prevelant in the literature but that
 
 **[Gaussian Processes](gps.md)**
 
-This file some recommended resources as well as some SOTA algorithms and key improvements over the years. It also includes sparse GPs and the treatment of random fourier features. At some point I will do a timeline of some of the most import GP papers within the literature. **Note**: I may split the sparse section away from the GP section in the future.
+This file some recommended resources as well as some SOTA algorithms and key improvements over the years. It also includes sparse GPs and the treatment of random fourier features. At some point I will do a timeline of some of the most import GP papers within the literature. 
+
+**[Sparse Gaussian Processes](sparse_gps.md)**
+
+This contains some of the main GP algorithms that you need to know in the way of scaling. If your dataset is larger than 2K then you should probably start using one of these sparse methods.
+
+**[Latent Variable Models](latent_variable.md)**
+
+These algorithms are when we assume that the input $X$ is not determinant but instead an unknown. The applications of this range from dimensionality reduction to uncertain inputs and even applications in missing data and semi-supervised learning.
+
+**[Sparse Spectrum](fourier.md)**
+
+These algorithms make use of the Bochner theorem which states that we can represent kernel functions as an infinite series with weights that stem from a Gaussian distribution. These (what are essentially Fourier transformations) are typically known as Sparse Spectrum GPs in the community.
 
 **[Uncertain Inputs](uncertain.md)**
 
