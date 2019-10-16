@@ -1,6 +1,37 @@
 # Uncertain Inputs in Gaussian Processes
 
 
+
+- [Uncertain Inputs in Gaussian Processes](#uncertain-inputs-in-gaussian-processes)
+  - [Motivation](#motivation)
+  - [Algorithms](#algorithms)
+    - [Error-In-Variables Regression](#error-in-variables-regression)
+    - [Monte Carlo Sampling](#monte-carlo-sampling)
+    - [Taylor Expansion](#taylor-expansion)
+    - [Moment Matching](#moment-matching)
+    - [Covariance Functions](#covariance-functions)
+    - [Iterative](#iterative)
+    - [Linearized (Unscented) Approximation](#linearized-unscented-approximation)
+    - [Heteroscedastic Likelihood Models](#heteroscedastic-likelihood-models)
+    - [Latent Variable Models](#latent-variable-models)
+    - [Latent Covariates](#latent-covariates)
+    - [Variational Strategies](#variational-strategies)
+  - [Next Steps?](#next-steps)
+      - [1. Apply these algorithms to different problems (other than dynamical systems)](#1-apply-these-algorithms-to-different-problems-other-than-dynamical-systems)
+      - [2. Improve the Kernel Expectation Calculations](#2-improve-the-kernel-expectation-calculations)
+      - [3. Think about the problem differently](#3-think-about-the-problem-differently)
+      - [4. Think about pragmatic solutions](#4-think-about-pragmatic-solutions)
+      - [5. Figure Out how to extend it to Deep GPs](#5-figure-out-how-to-extend-it-to-deep-gps)
+  - [Appendix](#appendix)
+    - [Kernel Expectations](#kernel-expectations)
+    - [Connecting Concepts](#connecting-concepts)
+      - [Moment Matching](#moment-matching-1)
+      - [Derivatives of GPs](#derivatives-of-gps)
+      - [Extended Kalman Filter](#extended-kalman-filter)
+    - [Uncertain Inputs in other ML fields](#uncertain-inputs-in-other-ml-fields)
+    - [Key Equations](#key-equations)
+---
+
 ## Motivation
 
 
@@ -25,8 +56,6 @@ This isn't really GPs per say but it is probably the first few papers that actua
 ### Monte Carlo Sampling
 
 So almost all of the papers in the first few years mention that you can do this. But I haven't seen a paper explicitly walking through the pros and cons of doing this. However, you can see the most implementations of the PILCO method as well as the Deep GP method do implement some form of this.
-
----
 ### Taylor Expansion
 
 
