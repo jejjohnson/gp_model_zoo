@@ -85,7 +85,7 @@ These are key elements of the GP algorithm that have been studied in the 'specia
 
 I have a section where you can find stuff on different kernel methods that have specific use cases.
 
-**[Software](software.md)**
+**[Software](./../software.md)**
 
 The fun part. Here is where I look at all the latest software that one can use to run some of the SOTA algorithms. It will python libraries only because it's the language I personally use to code.  
 
