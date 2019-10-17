@@ -169,6 +169,7 @@ $$\begin{aligned}
 <details>
 
 * [Heteroscedastic Gaussian Process Regression]() - Le et. al. (2005)
+* [Most Likely Heteroscedastic Gaussian Process Regression]() - Kersting et al (2007)
 * [Variational Heteroscedastic Gaussian Process Regression]() - Lázaro-Gredilla & Titsias (2011)
 * [Heteroscedastic Gaussian Processes for Uncertain and Incomplete Data]() - Almosallam (2017) [**Thesis**]
 * [Large-scale Heteroscedastic Regression via Gaussian Process](https://arxiv.org/abs/1811.01179) - Lui et. al. (2019) [**arxiv**] | [Code](https://github.com/LiuHaiTao01/SVSHGP)
