@@ -65,7 +65,7 @@ These algorithms are when we assume that the input $X$ is not determinant but in
 
 These algorithms make use of the Bochner theorem which states that we can represent kernel functions as an infinite series with weights that stem from a Gaussian distribution. These (what are essentially Fourier transformations) are typically known as Sparse Spectrum GPs in the community.
 
-**[Uncertain Inputs](uncertain.md)**
+**[Uncertain Inputs](uncertain_inputs.md)**
 
 This is directly related to my research so I'll pay special attention to this. I look at the literature spanned from the beginning up until now. This will mostly be about moment-matching algorithms and algorithms that use variational inference.
 
