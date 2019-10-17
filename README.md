@@ -2,7 +2,7 @@
 
 * Author: J. Emmanuel Johnson
 * Email: jemanjohnson34@gmail.com
-* Website: jejjohnson.netlify.com
+* Website: [jejjohnson.netlify.com](https://jejjohnson.netlify.com)
 
 ---
 ## Motivation
