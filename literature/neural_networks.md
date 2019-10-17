@@ -2,6 +2,13 @@
 
 
 ---
+## Neural Networks & Deep Gaussian Processes
+
+* [Building Bayesian Neural Networks with Blocks:
+On Structure, Interpretability and Uncertainty](https://arxiv.org/pdf/1806.03563.pdf) - Zhou et. al. (2018)
+
+
+---
 ## Deep Kernel Learning
 
 This is a Probabilistic Neural Network (PNN). It's when we try to learn features through a Neural Network and then on the last layer, we fit a Gaussian Process. It's a great idea and I think that this has a lot of potential. One of the criticisms of people in the GP community ([Bonilla et. al., 2016](https://arxiv.org/abs/1610.05392)) is that we don't typically use very expressive kernels. That's where the power of GPs come from. So if we can have kernels from Neural Networks (one of the most expressive ML methods available to date), then we can get a potentially great ML algorithm. Even in practice, [a developer](https://fehiepsi.github.io/blog/deep-gaussian-process/) have stated that we can get state-of-the-art results with some minimum tweaking of the architecture.
