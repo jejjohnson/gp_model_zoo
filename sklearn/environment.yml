@@ -1,0 +1,12 @@
+name: gp_sklearn
+channels:
+- defaults
+- conda-forge
+dependencies:
+- scipy
+- numpy
+- scikit-learn
+- matplotlib
+- GPy
+- numba
+- pandas
