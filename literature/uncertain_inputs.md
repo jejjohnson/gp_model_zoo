@@ -205,9 +205,16 @@ $$\begin{aligned}
 ---
 ### Variational Strategies
 
-**Literature**
 
 <details>
+
+
+
+</details>
+
+**Literature**
+
+
 
 * [Bayesian Gaussian Process Latent Variable Model]() - Titsias & Lawrence (2010)
 * [Nonlinear Modelling and Control using GPs]() - McHutchon (2014) [**Thesis**]
@@ -221,7 +228,7 @@ $$\begin{aligned}
   * Chapter II (2.4, 2.5) - Sparse GPs, Variational Bayesian GPLVM
 
 
-</details>
+
 
 ---
 ## Next Steps?

@@ -2,9 +2,63 @@
 
 Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
 
+## Library Classification
 
 
-## Table of Contents
+<p align="center">
+  <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/spectrum-of-workflows.png" alt="drawing" width="600"/>
+</p>
+
+**Figure**: Photo Credit - Francois Chollet
+
+So how to classify a library's worth is impossible because it's completely subjective. But I've
+
+---
+## Python Packages
+
+|       **Package**        | **Backend** | **GPU Support** |
+| :----------------------: | :---------: | :-------------: |
+|           GPy            |    Numpy    |        ✓        |
+|       Scikit-Learn       |    Numpy    |        ✗        |
+|          PyMC3           |   Theano    |        ✓        |
+| TensorFlow (Probability) | TensorFlow  |        ✓        |
+|          Edward          | TensorFlow  |        ✓        |
+|          GPFlow          | TensorFlow  |        ✓        |
+|       Pyro.contrib       |   PyTorch   |        ✓        |
+|         GPyTorch         |   PyTorch   |        ✓        |
+|          PyMC4           | TensorFlow  |        ✓        |
+
+
+---
+## Algorithms Implemented
+
+|        **Package**        | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
+| :-----------------------: | :-----: | :--------------: | :-------: | :--------------------------: | :--------: | :------: | :----------: |
+|           Exact           |    ✓    |        ✓         |     ✓     |              ✓               |     ✓      |    ✓     |      ✓       |
+|           MMGP            |    ✓    |                  |     ✓     |                              |     ✓      |    ✓     |      ✓       |
+|      SparseGP - FITC      |    ✓    |                  |     ✓     |                              |     ✓      |    ✓     |      ✓       |
+|      SparseSP - VFE       |    ✓    |                  |           |                              |     ✓      |    ✓     |      ✓       |
+|      Variational GP       |    ✓    |                  |           |              ✓               |     ✓      |    ✓     |
+| Stochastic Variational GP |    ✓    |                  |           |                              |     ✓      |    ✓     |      ✓       |
+|          Deep GP          |         |                  |           |                              |            |    ✓     |      D       |
+|   Deep Kernel Learning    |         |                  |           |              S               |            |    S     |      ✓       |
+|           GPLVM           |    ✓    |                  |           |                              |            |    ✓     |      ✓       |
+|      Bayesian GPLVM       |    ✓    |                  |           |                              |     ✓      |    ✓     |
+|         SKI/KISS          |         |                  |           |                              |            |          |      ✓       |
+|           LOVE            |         |                  |           |                              |            |          |      ✓       |
+
+
+**Key**
+
+| **✓** | **Implemented** |
+| :---: | :-------------: |
+|   ✗   | Not Implemented |
+|   D   |   Development   |
+|   S   |    Supported    |
+| S(?)  | Maybe Supported |
+
+---
+## Libraries
 
 
 ### **[Sklearn](sklearn/README.md)**
@@ -31,20 +85,27 @@ This library is built into Tensorflow already and they have a few GP modules tha
 
 ### **[Edward2](./../edward2/README.md) (TODO)** 
 This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras `model.fit()`. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.
-  
+
+
+
 ---
 ## Library Classification
 
 Below you have a few plots which show the complexity vs flexible scale of different architectures for software. The goal of keras and tensorflow is to accommodate ends of that scale. 
 
-![Spectrum of Keras workflows](https://keras-dev.s3.amazonaws.com/tutorials-img/spectrum-of-workflows.png)
+
+<p align="center">
+  <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/model-building-spectrum.png" alt="drawing" width="800"/>
+</p>
 
 **Figure**: Photo Credit - Francois Chollet
 
-![Model definition: spectrum of workflows](https://keras-dev.s3.amazonaws.com/tutorials-img/model-building-spectrum.png)
+<p align="center">
+  <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/model-training-spectrum.png" alt="drawing" width="800"/>
+</p>
 
 **Figure**: Photo Credit - Francois Chollet
 
-![Model training: spectrum of workflows](https://keras-dev.s3.amazonaws.com/tutorials-img/model-training-spectrum.png)
 
-**Figure**: Photo Credit - Francois Chollet
+
+
