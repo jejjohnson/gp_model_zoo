@@ -59,6 +59,7 @@ I don’t think there is any best one because I’m almost certain noone has don
 
 ### Importance Weighted Sampling 
 
+This paper uses the idea that our noisy inputs are instead 'latent covariates' instead of additive noise or that our input itself is a latent covariate. They also propose a way to do importance sampling coupled with variational inference to improve single layer and multiple layer GPs and have shown that they can get equivalent or better results than just standard variational inference. The latent variables alone will improve performance for both the IWVI and the VI training procedures.
 * [Paper](https://arxiv.org/abs/1905.05435) | [Code](https://github.com/hughsalimbeni/DGPs_with_IWVI) | [Video](https://slideslive.com/38917895/gaussian-processes) | [Poster](https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1)  | [ICML 2019 Slides](https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf) | [Workshop Slides](http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf) 
 
 

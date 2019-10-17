@@ -35,3 +35,9 @@ I've only seen one paper that attempts to extend this method to account for unce
 
 * [Prediction under Uncertainty in Sparse Spectrum Gaussian Processes with Applications to Filtering and Control](http://proceedings.mlr.press/v70/pan17a.html) - Pan et. al. (2017) 
   > This is the only paper I've seen that tries to extend this method
+
+
+---
+### Latest
+
+* [Know Your Boundaries: Constraining Gaussian Processes by Variational Harmonic Features](https://paperswithcode.com/paper/know-your-boundaries-constraining-gaussian) - Solin & Kok (2019)

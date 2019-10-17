@@ -22,8 +22,16 @@
 * [A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation](http://jmlr.org/papers/volume18/16-603/16-603.pdf) - Bui (2017)
   > A good summary of all of the methods under one unified framework called the Power Expectation Propagation formula.
 
+---
+### Latest
 
-#### Thesis Explain
+* [Deep Structured Mixtures of Gaussian Processes](https://arxiv.org/abs/1910.04536) - Trapp et. al. (2019)
+  > Going back to the old days of improving the local-expert technique. 
+
+
+
+---
+## Thesis Explain
 
 Often times the papers that people publish in conferences in Journals don't have enough information in them. Sometimes it's really difficult to go through some of the mathematics that people put  in their articles especially with cryptic explanations like "it's easy to show that..." or "trivially it can be shown that...". For most of us it's not easy nor is it trivial. So I've included a few thesis that help to explain some of the finer details. I've arranged them in order starting from the easiest to the most difficult.
 

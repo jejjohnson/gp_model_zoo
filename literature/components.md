@@ -1,32 +1,59 @@
 # Components
 
+
+
 This is a poor name but I want to put all of the papers here that seek to improve specific components within the GP algorithms, e.g. the inference scheme.
 
+---
+**Table of Contents**
+
+- [Components](#components)
+  - [Variational Inference](#variational-inference)
+  - [Regularization](#regularization)
 
 ---
-## Natural Gradients
+## Variational Inference
 
-**Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models** - Salimbeni et. al. (2018) | [Paper](https://arxiv.org/abs/1803.09151) | [Code](https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py)
+This section outlines a few interesting papers I found where they are trying to improve how we do variational inference. I try to stick to methods where people have tried and succeeded at applying them to GPs.
 
+---
+**[Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models](https://arxiv.org/abs/1803.09151)** - Salimbeni et. al. (2018) | [Code](https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py)
 
-
-> This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters $q_\phi(u)$ as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime.
-
-
-
-
-
-
-**Related Papers & Code**
-
-  * [Noisy Natural Gradient as Variational Inference](https://arxiv.org/abs/1712.02390) - Zhang (2018) - [Code](https://github.com/wlwkgus/NoisyNaturalGradient)
-  * [Parallel training of DNNs with Natural Gradient and Parameter Averaging](https://arxiv.org/abs/1410.7455) - Povey et. al. (2014) | [Code](https://github.com/YiwenShaoStephen/NGD-SGD)
+> This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters $q_\phi(u)$ as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime. I imagine this would also be super useful for the BayesianGPLVM where we also have variational parameters for our inputs as well.
+* [Noisy Natural Gradient as Variational Inference](https://arxiv.org/abs/1712.02390) - Zhang (2018) - [Code](https://github.com/wlwkgus/NoisyNaturalGradient)
 * [PyTorch](https://github.com/wiseodd/natural-gradients/tree/master/pytorch)
 
+---
+**[Parallel training of DNNs with Natural Gradient and Parameter Averaging](https://arxiv.org/abs/1410.7455)** - Povey et. al. (2014) | [Code](https://github.com/YiwenShaoStephen/NGD-SGD) | [Blog](https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/)
+> A seamingly drop-in replacement for stochastic gradient descent with some added benefits of being shown to improve generalization tasks, stability of the training, and can help obtain high quality uncertainty estimates.
 
 ---
-## Generalized Variational Inference
+**[Deep Gaussian Processes with Importance-Weighted Variational Inference](https://github.com/hughsalimbeni/DGPs_with_IWVI)** - Salimbeni et. al. (2019)
 
-> In this paper, the author looks at a generalized variational inference technique that can be applied to deep GPs.
+> They propose a way to do importance sampling coupled with variational inference to improve single layer and multi-layer GPs and have shown that they can get equivalent or better results than just standard variational inference.
+* [Paper](https://arxiv.org/abs/1905.05435) | [Code](https://github.com/hughsalimbeni/DGPs_with_IWVI) | [Video](https://slideslive.com/38917895/gaussian-processes) | [Poster](https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1)  | [ICML 2019 Slides](https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf) | [Workshop Slides](http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf) 
 
-[VI](https://arxiv.org/pdf/1904.02063.pdf) | [DeepGP](https://arxiv.org/pdf/1904.02303.pdf)
+
+---
+**[Stein Variational Gradient Descent: A General Purpose Bayesian Inference Algorithm](https://paperswithcode.com/paper/stein-variational-gradient-descent-a-general)** - Lui & Wang (2016)
+> A tractable approach for learning high dimensional prob dist using Functional Gradient Descent in RKHS. It's from a connection with the derivative of the KL divergence and the Stein's identity.
+* Stein's Method [Webpage](https://sites.google.com/site/steinsmethod/home)
+* [Pyro Implementation](http://docs.pyro.ai/en/stable/inference_algos.html#module-pyro.infer.svgd)
+
+---
+**[Generalized Variational Inference](https://paperswithcode.com/paper/generalized-variational-inference)** - Knoblauch et. al. (2019)
+> A generalized Bayesian inference framework. It goes into a different variational family related to Renyi's family of Information theoretic methods; which isn't very typical because normally we look at the Shannon perspective. They had success applying it to Bayesian Neural Networks and Deep Gaussian Processes.
+  * [Deep GP paper](https://arxiv.org/abs/1904.02303)
+
+
+---
+## Regularization
+
+* [Regularized Sparse Gaussian Processes](https://paperswithcode.com/paper/regularized-sparse-gaussian-processes) - Meng & Lee (2019) [**arxiv**]
+  > Impose a regularization coefficient on the KL term in the Sparse GP implementation. Addresses issue where the distribution of the inducing inputs fail to capture the distribution of the training inputs.
+
+
+
+
+
+
