@@ -11,7 +11,7 @@ Software for Gaussian processes (GPs) have really been improving for quite a whi
 
 **Figure**: Photo Credit - Francois Chollet
 
-So how to classify a library's worth is impossible because it's completely subjective. But I've
+So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users.
 
 ---
 ## Python Packages
