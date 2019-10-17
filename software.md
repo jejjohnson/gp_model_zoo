@@ -35,27 +35,28 @@ So how to classify a library's worth is impossible because it's completely subje
 |        **Package**        | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
 | :-----------------------: | :-----: | :--------------: | :-------: | :--------------------------: | :--------: | :------: | :----------: |
 |           Exact           |    ✓    |        ✓         |     ✓     |              ✓               |     ✓      |    ✓     |      ✓       |
-|           MMGP            |    ✓    |                  |     ✓     |                              |     ✓      |    ✓     |      ✓       |
-|      SparseGP - FITC      |    ✓    |                  |     ✓     |                              |     ✓      |    ✓     |      ✓       |
-|      SparseSP - VFE       |    ✓    |                  |           |                              |     ✓      |    ✓     |      ✓       |
-|      Variational GP       |    ✓    |                  |           |              ✓               |     ✓      |    ✓     |
-| Stochastic Variational GP |    ✓    |                  |           |                              |     ✓      |    ✓     |      ✓       |
-|          Deep GP          |         |                  |           |                              |            |    ✓     |      D       |
-|   Deep Kernel Learning    |         |                  |           |              S               |            |    S     |      ✓       |
-|           GPLVM           |    ✓    |                  |           |                              |            |    ✓     |      ✓       |
-|      Bayesian GPLVM       |    ✓    |                  |           |                              |     ✓      |    ✓     |
-|         SKI/KISS          |         |                  |           |                              |            |          |      ✓       |
-|           LOVE            |         |                  |           |                              |            |          |      ✓       |
+|    Moment Matching GP     |    ✓    |        ✗         |     ✓     |              ✗               |     S      |    S     |      ✓       |
+|      SparseGP - FITC      |    ✓    |        ✗         |     ✓     |              ✗               |     ✓      |    ✓     |      ✓       |
+|      SparseGP - PEP       |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✗       |
+|      SparseSP - VFE       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
+|      Variational GP       |    ✓    |        ✗         |     ✗     |              ✓               |     ✓      |    ✓     |      ✗       |
+| Stochastic Variational GP |    ✓    |        ✗         |     ✗     |              S               |     ✓      |    ✓     |      ✓       |
+|          Deep GP          |    ✗    |        ✗         |     ✗     |              S               |     S      |    ✓     |      D       |
+|   Deep Kernel Learning    |    ✗    |        ✗         |     ✗     |              S               |     S      |    S     |      ✓       |
+|           GPLVM           |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✓     |      ✓       |
+|      Bayesian GPLVM       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✗       |
+|         SKI/KISS          |         |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
+|           LOVE            |    ✗    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
 
 
 **Key**
-
-| **✓** | **Implemented** |
-| :---: | :-------------: |
-|   ✗   | Not Implemented |
-|   D   |   Development   |
-|   S   |    Supported    |
-| S(?)  | Maybe Supported |
+| Symbol |     Status      |
+| :----: | :-------------: |
+| **✓**  | **Implemented** |
+|   ✗    | Not Implemented |
+|   D    |   Development   |
+|   S    |    Supported    |
+|  S(?)  | Maybe Supported |
 
 ---
 ## Libraries
