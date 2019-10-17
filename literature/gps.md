@@ -11,6 +11,7 @@ These are the best resources to use
 * Foundations of Machine Learning: GPs - Deisenroth (2018-2019)
     * [Slides](https://deisenroth.co.uk/teaching/2018-19/foundations-of-machine-learning/lecture_gaussian_processes.pdf) 
     * [A Practical Guide to GPs](https://drafts.distill.pub/gp/)
+* Intro to GPs Demo by Damianou - [Jupyter Notebook](http://adamian.github.io/talks/Damianou_GP_tutorial.html)
 
 ### Other Resources
 
