@@ -27,7 +27,7 @@
 
 * [Deep Structured Mixtures of Gaussian Processes](https://arxiv.org/abs/1910.04536) - Trapp et. al. (2019)
   > Going back to the old days of improving the local-expert technique. 
-
+* [Sparse Gaussian Process Regression Beyond Variational Inference]() - Jankowiak et. al. (2019)
 
 
 ---
