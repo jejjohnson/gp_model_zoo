@@ -5,18 +5,17 @@ from sklearn.metrics import r2_score
 from scipy.cluster.vq import kmeans2
 
 
-
 class SparseGPR(BaseEstimator, RegressorMixin):
     def __init__(
         self,
         kernel=None,
-        inference='vfe',
+        inference="vfe",
         n_inducing=10,
         max_iters=200,
         optimizer="scg",
         n_restarts=10,
         verbose=None,
-        alpha=.5
+        alpha=0.5,
     ):
         self.kernel = kernel
         self.n_inducing = n_inducing
@@ -42,39 +41,38 @@ class SparseGPR(BaseEstimator, RegressorMixin):
         gp_model = GPy.models.SparseGPRegression(X, y, kernel=self.kernel, Z=z)
 
         # set the fitc inference
-        if self.inference.lower() == 'vfe':
+        if self.inference.lower() == "vfe":
             gp_model.inference_method = GPy.inference.latent_function_inference.VarDTC()
-            
-        elif self.inference.lower() == 'fitc':
+
+        elif self.inference.lower() == "fitc":
             gp_model.inference_method = GPy.inference.latent_function_inference.FITC()
-            
-        elif self.inference.lower() == 'pep':
-            gp_model.inference_method = GPy.inference.latent_function_inference.PEP(self.alpha)
+
+        elif self.inference.lower() == "pep":
+            gp_model.inference_method = GPy.inference.latent_function_inference.PEP(
+                self.alpha
+            )
         else:
-            raise ValueError(f'Unrecognized inference method: {self.inference}')
+            raise ValueError(f"Unrecognized inference method: {self.inference}")
         # Optimize
         gp_model.optimize(
             self.optimizer, messages=self.verbose, max_iters=self.max_iters
         )
-        
+
         # Make likelihood variance low to start
         gp_model.Gaussian_noise.variance = 0.01
-        
+
         # Optimization
         if self.n_restarts >= 1:
             gp_model.optimize_restarts(
                 num_restarts=self.n_restarts,
-                robust=True, 
+                robust=True,
                 verbose=self.verbose,
-                max_iters=self.max_iters
+                max_iters=self.max_iters,
             )
         else:
             gp_model.optimize(
-                self.optimizer, 
-                messages=self.verbose, 
-                max_iters=self.max_iters
+                self.optimizer, messages=self.verbose, max_iters=self.max_iters
             )
-        
 
         self.gp_model = gp_model
 
@@ -85,10 +83,14 @@ class SparseGPR(BaseEstimator, RegressorMixin):
 
     def predict(self, X, return_std=False, noiseless=True):
 
-        if noiseless:
-            mean, var = self.gp_model.predict_noiseless(X)
+        if noiseless == True:
+            include_likelihood = False
+        elif noiseless == False:
+            include_likelihood = True
         else:
-            mean, var = self.gp_model.predict(X)
+            raise ValueError(f"Unrecognized argument for noiseless: {noiseless}")
+
+        mean, var = self.gp_model.predict(X, include_likelihood=include_likelihood)
 
         if return_std:
             return mean, np.sqrt(var)

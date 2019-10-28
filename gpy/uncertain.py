@@ -386,10 +386,14 @@ class UncertainSGPR(BaseEstimator, RegressorMixin):
 
     def predict(self, X, return_std=False, noiseless=True):
 
-        if noiseless:
-            mean, var = self.gp_model.predict_noiseless(X)
+        if noiseless == True:
+            include_likelihood = False
+        elif noiseless == False:
+            include_likelihood = True
         else:
-            mean, var = self.gp_model.predict(X)
+            raise ValueError(f"Unrecognized argument for noiseless: {noiseless}")
+
+        mean, var = self.gp_model.predict(X, include_likelihood=include_likelihood)
 
         if return_std:
             return mean, np.sqrt(var)
