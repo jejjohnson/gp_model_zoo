@@ -49,51 +49,51 @@ Below is a list of methods which are not as prevalent in the literature that you
 ---
 ## Table of Contents
 
-**[Gaussian Processes](gps.md)**
+### [Gaussian Processes](literature/gps.md)
 
 This file some recommended resources as well as some SOTA algorithms and key improvements over the years. It also includes sparse GPs and the treatment of random fourier features. At some point I will do a timeline of some of the most import GP papers within the literature. 
 
-**[Sparse Gaussian Processes](sparse_gps.md)**
+*### Sparse Gaussian Processes](literature/sparse_gps.md)**
 
 This contains some of the main GP algorithms that you need to know in the way of scaling. If your dataset is larger than 2K then you should probably start using one of these sparse methods.
 
-**[Latent Variable Models](latent_variable.md)**
+### [Latent Variable Models](literature/latent_variable.md)
 
 These algorithms are when we assume that the input $X$ is not determinant but instead an unknown. The applications of this range from dimensionality reduction to uncertain inputs and even applications in missing data and semi-supervised learning.
 
-**[Sparse Spectrum](fourier.md)**
+### [Sparse Spectrum](literature/fourier.md)
 
 These algorithms make use of the Bochner theorem which states that we can represent kernel functions as an infinite series with weights that stem from a Gaussian distribution. These (what are essentially Fourier transformations) are typically known as Sparse Spectrum GPs in the community.
 
-**[Uncertain Inputs](uncertain_inputs.md)**
+### [Uncertain Inputs](literature/uncertain_inputs.md)
 
 This is directly related to my research so I'll pay special attention to this. I look at the literature spanned from the beginning up until now. This will mostly be about moment-matching algorithms and algorithms that use variational inference.
 
-**[Deep GPs](deep_gps.md)**
+### [Deep GPs](literature/deep_gps.md)
 
 I have made this a special section because I think it's quite an interesting topic. It's still a fairly young aspect of GPs (last 7 years or so) so it won't have such a depth of literature like the other topics. I'll also include stuff related to how Deep GPs are related to neural networks.
 
-**[Neural Networks and GPs](neural_networks.md)**
+### [Neural Networks and GPs](literature/neural_networks.md)
 
 This section is made up of the papers that talk about the connections between neural networks and GPs as well as some specific cases where people have used neural networks to extract features as inputs for GPs (i.e. Deep Kernel Learning).
 
-**[Components](components.md)**
+### [Components](literature/components.md)
 
 These are key elements of the GP algorithm that have been studied in the 'special interest' listed above, e.g. input uncertainty, training procedures, parameter estimation.
 
-**[Kernels](kernels.md)**
+### [Kernels](literature/kernels.md)
 
 I have a section where you can find stuff on different kernel methods that have specific use cases.
 
-**[Software](./../software.md)**
+### [Software](software.md)
 
 The fun part. Here is where I look at all the latest software that one can use to run some of the SOTA algorithms. It will python libraries only because it's the language I personally use to code.  
 
 
-**[Applications](applications.md)**
+### [Applications](applications.md)
 
 This consists of papers which have applied GPs to their respective fields. I'll focus more on Earth observation applications but I'll put up any others if I find them of interest.
 
-**[Special](special.md)**
+### [Special](special.md)
 
 This will include all of the GP algorithms that I consider 'corner cases', i.e. GPs modified that apply to a specific application where some modification was necessary to make the GP work their use case. 

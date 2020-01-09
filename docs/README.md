@@ -1,4 +1,4 @@
-# Gaussian Process Literature and Model Zoo
+# Gaussian Process Model Zoo
 
 * Author: J. Emmanuel Johnson
 * Email: jemanjohnson34@gmail.com
@@ -26,15 +26,15 @@ I will focus a bit more on utilizing the GP models to accommodate uncertain inpu
 ---
 ## What you'll find here
 
-* [**Literature**](docs/literature/README.md)
+* [**Literature**](literature/README.md)
 
 There are many resources on the internet and I try to compile as much as I can.
 
-* [**Software**](docs/software.md)
+* [**Software**](software.md)
 
 I like to keep track of what's going on. So I've listed the libraries that I am aware of as well as some things I've noticed about them. 
 
-* [**Model Zoo**](docs/model_zoo.md)
+* [**Model Zoo**](model_zoo.md)
 
 I've only just started to finish cleaning everything but I have wrapped algorithms in a few libraries such as [GPy](https://sheffieldml.github.io/GPy/), [GPFlow](https://www.gpflow.org/), [Pyro](https://pyro.ai/), and [GPyTorch](https://gpytorch.ai/). Each library has its pros and cons but I like tinkering so I tend to try things out. I'll keep a running list of stuff that I have already implemented [here](model_zoo.md).
 

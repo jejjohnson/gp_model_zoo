@@ -24,6 +24,8 @@
       - [5. Figure Out how to extend it to Deep GPs](#5-figure-out-how-to-extend-it-to-deep-gps)
   - [Appendix](#appendix)
     - [Kernel Expectations](#kernel-expectations)
+      - [Literature](#literature)
+      - [Toolboxes](#toolboxes)
     - [Connecting Concepts](#connecting-concepts)
       - [Moment Matching](#moment-matching-1)
       - [Derivatives of GPs](#derivatives-of-gps)
@@ -47,8 +49,6 @@ This is my complete literature review of all the ways the GPs have been modified
 
 This isn't really GPs per say but it is probably the first few papers that actually publish about this problem in the Bayesian community (that we know of).
 
-**Literature**
-
 * [Bayesian Analysis of Error-in-Variables Regression Models]() - Dellaportas & Stephens (1995)
 * [Error in Variables Regression: What is the Appropriate Model?](http://orca.cf.ac.uk/54629/1/U585018.pdf) - Gillard et. al. (2007) [**Thesis**]
 
@@ -56,11 +56,10 @@ This isn't really GPs per say but it is probably the first few papers that actua
 ### Monte Carlo Sampling
 
 So almost all of the papers in the first few years mention that you can do this. But I haven't seen a paper explicitly walking through the pros and cons of doing this. However, you can see the most implementations of the PILCO method as well as the Deep GP method do implement some form of this.
+
 ### Taylor Expansion
 
 
-
-**Literature**
 
 * [Learning a Gaussian Process Model with Uncertain Inputs]() - Girard & Murray-Smith (2003) [**Technical Report**]
 
@@ -69,6 +68,12 @@ So almost all of the papers in the first few years mention that you can do this.
 ---
 ### Moment Matching
 
+
+
+
+This is where we approximate the mean function and the predictive variance function to be Gaussian by taking the mean and variance (the moments needed to describe the distribution).
+
+<details>
 
 $$\begin{aligned}
 m(\mu_{x_*}, \Sigma_{x_*}) &= \mu(\mu_{x_*})\\
@@ -79,11 +84,8 @@ v(\mu_{x_*}, \Sigma_{x_*}) &= \nu^2(\mu_{x_*}) +
 \frac{1}{2} \text{Tr}\left\{ \frac{\partial^2 \nu^2(\mu_{x_*})}{\partial x_* \partial x_*^\top}  \Sigma_{x_*}\right\}
 \end{aligned}$$
 
-This is where we approximate the mean function and the predictive variance function to be Gaussian by taking the mean and variance (the moments needed to describe the distribution).
+</details>
 
-<details>
-
-**Literature**
 
 * [Gaussian Process Priors With Uncertain Inputs – Application to Multiple-Step Ahead Time Series Forecasting]() - Girard et. al. (2003)
 * [Approximate Methods for Propagation of Uncertainty in GP Models]() - Girard (2004) [**Thesis**]
@@ -93,11 +95,12 @@ This is where we approximate the mean function and the predictive variance funct
     * Code - [TensorFlow](https://github.com/nrontsis/PILCO) | [GPyTorch](https://github.com/jaztsong/PILCO-gpytorch) | [MXFusion I](https://github.com/amzn/MXFusion/blob/master/examples/notebooks/pilco.ipynb) | [MXFusion II](https://github.com/amzn/MXFusion/blob/master/examples/notebooks/pilco_neurips2018_mloss_slides.ipynb)
 * [Efficient Reinforcement Learning using Gaussian Processes]() - Deisenroth (2010) [**Thesis**]
   * Chapter IV - Finding Uncertain Patterns in GPs (Lit review at the end)
-</details>
+
 
 ---
 ### Covariance Functions
 
+<details>
 
 Daillaire constructed a modification to the RBF covariance function that takes into account the input noise.
 
@@ -109,18 +112,17 @@ $$K_{ij}=\sigma_f^2$$
 
 for $i=j$. This was shown to have bad results if this $\Sigma_x$ is not known. You can see the full explanation in the thesis of McHutchon (section 2.2.1) which can be found in Iterative section below.
 
-**Literature**
 
-<details>
+</details>
+
 
 * [An approximate inference with Gaussian process to latent functions from uncertain data]() - Dallaire et. al. (2011) | [Prezi](https://s3.amazonaws.com/academia.edu.documents/31116309/presentation_iconip09.pdf?response-content-disposition=inline%3B%20filename%3DLearning_Gaussian_Process_Models_from_Un.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20191016%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191016T123012Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=92785eb3561f2822752b538ea8f232fc127d9bc6db94a307e165ac73e62a3601) | [Code](https://github.com/maka89/noisy-gp)
 
-</details>
 
 ---
 ### Iterative
 
-<details>
+
 
 * [Gaussian Process Training with Input Noise]() - McHutchon & Rasmussen (2011) | [Code](https://github.com/HildoBijl/GPRT/tree/master/NIGP)
   * [Nonlinear Modelling and Control using GPs]() - McHutchon (2014) [**Thesis**] 
@@ -129,12 +131,13 @@ for $i=j$. This was shown to have bad results if this $\Sigma_x$ is not known. Y
   * [Gaussian Process Regression Techniques]() - Bijl (2018) [**Thesis**] | [Code](https://github.com/HildoBijl/GPRT)
     * Chapter V - Noisy Input GPR
 
-</details>
 
 ---
 ### Linearized (Unscented) Approximation
 
 This is the linearized version of the Moment-Matching approach mentioned above. Also known as unscented GP. In this approximation, we only change the predictive variance. You can find an example colab notebook [here](https://colab.research.google.com/drive/1AOtGvOVRzqPaLkAzSH5tjkG-8OKOJ43R) with an example of how to use this with the GPy library.
+
+<details>
 
 $$\begin{aligned}
 \tilde{\mu}_f(x_*) &= \underbrace{k_*^\top K^{-1}y}_{\mu_f(x_*)} \\
@@ -143,10 +146,9 @@ $$\begin{aligned}
 
 **Note**: The inspiration of this comes from the Extended Kalman Filter (links below) which tries to find an approximation to a non-linear transformation, $f$ of $x$ when $x$ comes from a distribution $x \sim \mathcal{N}(\mu_x, \Sigma_x)$.
 
+</details>
 
-**Literature** 
 
-<details>
 
 * [GP-BayesFilters: Bayesian Filtering Using Gaussian Process Prediction]() - Ko and Fox (2008)
   > They originally came up with the linearized (unscented) approximation to the moment-matching method. They used it in the context of the extended Kalman filter which has a few more elaborate steps in addition to the input uncertainty propagation.
@@ -159,14 +161,10 @@ $$\begin{aligned}
 * [Unscented Gaussian Process Latent Variable Model: learning from uncertain inputs with intractable kernels]() - Souza et. al. (2019) [**arxiv**]
   > A very recent paper that's been on arxiv for a while. They give a formulation for approximating the linearized (unscented) version of the moment matching approach. Apparently it works better that the quadrature, monte carlo and the kernel expectations approach.
 
-</details>
+
 
 ---
 ### Heteroscedastic Likelihood Models
-
-**Literature**
-
-<details>
 
 * [Heteroscedastic Gaussian Process Regression]() - Le et. al. (2005)
 * [Most Likely Heteroscedastic Gaussian Process Regression]() - Kersting et al (2007)
@@ -174,46 +172,25 @@ $$\begin{aligned}
 * [Heteroscedastic Gaussian Processes for Uncertain and Incomplete Data]() - Almosallam (2017) [**Thesis**]
 * [Large-scale Heteroscedastic Regression via Gaussian Process](https://arxiv.org/abs/1811.01179) - Lui et. al. (2019) [**arxiv**] | [Code](https://github.com/LiuHaiTao01/SVSHGP)
 
-</details>
-
 ---
 ### Latent Variable Models
 
-**Literature**
-
-<details>
 
 * [Gaussian Process Latent Variable Models for Visualisation of High Dimensional Data]() - Lawrence (2004)
 * [Generic Inference in Latent Gaussian Process Models]() - Bonilla et. al. (2016)
 * [A review on Gaussian Process Latent Variable Models]() - Li & Chen (2016)
 
-</details>
 
 ---
 ### Latent Covariates
-
-**Literature**
-
-<details>
 
 * [Gaussian Process Regression with Heteroscedastic or Non-Gaussian Residuals]() - Wang & Neal (2012)
 * [Gaussian Process Conditional Density Estimation](https://arxiv.org/pdf/1810.12750.pdf) - Dutordoir et. al. (2018)
 * [Decomposing feature-level variation with Covariate Gaussian Process Latent Variable Models]() - Martens et. al. (2019)
 * [Deep Gaussian Processes with Importance-Weighted Variational Inference]() - Salimbeni et. al. (2019)
 
-</details>
-
 ---
 ### Variational Strategies
-
-
-<details>
-
-
-
-</details>
-
-**Literature**
 
 
 
@@ -266,7 +243,12 @@ So the original Deep GP is just a stack of BGPLVMs and more recent GPs have regr
 ### Kernel Expectations
 
 
-So [Girard 2003] came up with a name of something we call kernel expectations $\{\mathbf{\xi, \Omega, \Phi}\}$-statistics. These are basically calculated by taking the expectation of a kernel or product of two kernels w.r.t. some distribution. Typically this distribution is normal but in the variational literature it is a variational distribution. The three kernel expectations that surface are:
+So [Girard 2003] came up with a name of something we call kernel expectations $\{\mathbf{\xi, \Omega, \Phi}\}$-statistics. These are basically calculated by taking the expectation of a kernel or product of two kernels w.r.t. some distribution. Typically this distribution is normal but in the variational literature it is a variational distribution. 
+
+
+<details>
+
+The three kernel expectations that surface are:
 
 $$\mathbf \xi(\mathbf{\mu, \Sigma}) = \int_X \mathbf k(\mathbf x, \mathbf x)\mathcal{N}(\mathbf x|\mathbf \mu,\mathbf  \Sigma)d\mathbf x$$
 
@@ -274,12 +256,12 @@ $$\mathbf \Omega(\mathbf{y, \mu, \Sigma}) = \int_X \mathbf k(\mathbf x, \mathbf 
 
 $$\mathbf \Phi(\mathbf{y, z, \mu, \Sigma}) = \int_X \mathbf k(\mathbf x, \mathbf y)k(\mathbf x, \mathbf z)\mathcal{N}(\mathbf x|\mathbf \mu,\mathbf  \Sigma)d\mathbf x$$
 
+</details>
 
 To my knowledge, I only know of the following kernels that have analytically calculated sufficient statistics: Linear, RBF, ARD and Spectral Mixture. And furthermore, the connection is how these kernel statistics show up in many other GP literature than just uncertain inputs of GPs; for example in Bayesian GP-LVMs and Deep GPs.
 
-**Literature**
+#### Literature
 
-<details>
 
 * Oxford M:
   * [Sampling for Inference in Probabilistic Models with Fast Bayesian Quadrature]() - Gunter et. al. (2014)
@@ -308,9 +290,9 @@ To my knowledge, I only know of the following kernels that have analytically cal
         * [Gaussian Hermite]()
       * [Taylor GPQ+D w. RBF Kernel](https://github.com/jacobnzw/SSMToybox/blob/master/ssmtoybox/mtran.py#L668)
 
-</details>
 
-**Toolboxes**
+
+#### Toolboxes
 
 * [Emukit](https://nbviewer.jupyter.org/github/amzn/emukit/blob/master/notebooks/Emukit-tutorial-Bayesian-quadrature-introduction.ipynb)
 
