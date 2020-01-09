@@ -2,7 +2,8 @@
 
 * Author: J. Emmanuel Johnson
 * Email: jemanjohnson34@gmail.com
-* Website: [jejjohnson.netlify.com](https://jejjohnson.netlify.com)
+* Docsify Website: [jejjohnson.github.io/gp_model_zoo/](https://jejjohnson.github.io/gp_model_zoo/)
+* Personal Website: [jejjohnson.netlify.com](https://jejjohnson.netlify.com)
 
 ---
 ## Motivation
