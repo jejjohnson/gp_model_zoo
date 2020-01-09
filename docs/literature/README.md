@@ -54,7 +54,7 @@ Below is a list of methods which are not as prevalent in the literature that you
 
 This file some recommended resources as well as some SOTA algorithms and key improvements over the years. It also includes sparse GPs and the treatment of random fourier features. At some point I will do a timeline of some of the most import GP papers within the literature. 
 
-### Sparse Gaussian Processes](literature/sparse_gps.md)
+### [Sparse Gaussian Processes](literature/sparse_gps.md)
 
 This contains some of the main GP algorithms that you need to know in the way of scaling. If your dataset is larger than 2K then you should probably start using one of these sparse methods.
 
@@ -98,3 +98,6 @@ This consists of papers which have applied GPs to their respective fields. I'll 
 ### [Special](special.md)
 
 This will include all of the GP algorithms that I consider 'corner cases', i.e. GPs modified that apply to a specific application where some modification was necessary to make the GP work their use case. 
+
+## Literature
+

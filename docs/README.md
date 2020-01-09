@@ -19,8 +19,7 @@ I have included some of the algorithms that I use or have worked with during my 
 
 I created this repo because I didn't want my code to go to waste in case there were people who are new to GPs and want to see a few key algorithms implemented. Also, it allows me to centralize my code for all my projects. Hopefully it will be of some use to others.
 
----
-## Special Interest
+#### Special Interest
 
 I will focus a bit more on utilizing the GP models to accommodate uncertain inputs. This is a peculiar research topic of mine so there will be a bit of emphasis on that aspect within the repo.
 
@@ -38,7 +37,3 @@ I like to keep track of what's going on. So I've listed the libraries that I am 
 * [**Model Zoo**](model_zoo.md)
 
 I've only just started to finish cleaning everything but I have wrapped algorithms in a few libraries such as [GPy](https://sheffieldml.github.io/GPy/), [GPFlow](https://www.gpflow.org/), [Pyro](https://pyro.ai/), and [GPyTorch](https://gpytorch.ai/). Each library has its pros and cons but I like tinkering so I tend to try things out. I'll keep a running list of stuff that I have already implemented [here](model_zoo.md).
-
-
-
-  
