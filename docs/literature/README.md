@@ -2,7 +2,8 @@
 
 * Author: J. Emmanuel Johnson
 * Email : jemanjohnson34@gmail.com
-* Website: jejjohnson.netlify.com
+* Docsify Website: [jejjohnson.github.io/gp_model_zoo/](https://jejjohnson.github.io/gp_model_zoo/)
+* Personal Website: [jejjohnson.netlify.com](https://jejjohnson.netlify.com)
 
 ## Introduction 
 
@@ -53,7 +54,7 @@ Below is a list of methods which are not as prevalent in the literature that you
 
 This file some recommended resources as well as some SOTA algorithms and key improvements over the years. It also includes sparse GPs and the treatment of random fourier features. At some point I will do a timeline of some of the most import GP papers within the literature. 
 
-*### Sparse Gaussian Processes](literature/sparse_gps.md)**
+### Sparse Gaussian Processes](literature/sparse_gps.md)
 
 This contains some of the main GP algorithms that you need to know in the way of scaling. If your dataset is larger than 2K then you should probably start using one of these sparse methods.
 
