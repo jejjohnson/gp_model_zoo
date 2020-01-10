@@ -27,7 +27,7 @@ I will focus a bit more on utilizing the GP models to accommodate uncertain inpu
 ---
 ## What you'll find here
 
-* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/#/literature/README)
+* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/#/literature)
 
 There are many resources on the internet and I try to compile as much as I can.
 
