@@ -26,7 +26,7 @@ I will focus a bit more on utilizing the GP models to accommodate uncertain inpu
 ---
 ## What you'll find here
 
-* [**Literature**](literature/README.md)
+* [**Literature**](literature.md)
 
 There are many resources on the internet and I try to compile as much as I can.
 
