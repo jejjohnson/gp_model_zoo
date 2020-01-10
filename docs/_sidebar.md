@@ -2,7 +2,7 @@
 * [Home Page](README.md)
 * [Model Zoo](model_zoo.md)
 * [Software](software.md)
-* [Literature](literature/README.md)
+* [Literature](literature.md)
 
 **Gaussian Process Algorithms**
   * [GPs](literature/gps.md)

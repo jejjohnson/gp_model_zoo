@@ -98,6 +98,3 @@ This consists of papers which have applied GPs to their respective fields. I'll 
 ### [Special](special.md)
 
 This will include all of the GP algorithms that I consider 'corner cases', i.e. GPs modified that apply to a specific application where some modification was necessary to make the GP work their use case. 
-
-## Literature
-
