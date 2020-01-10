@@ -17,7 +17,7 @@
   * [Applications](literature/applications.md)
   * [Special](literature/special.md)
 
----
+<!-- ---
 **Software**
 
 * **Numpy**
@@ -29,4 +29,4 @@
   * [Edward2]()
 * **PyTorch**
   * [GPyTorch]()
-  * [Pyro]()
+  * [Pyro]() -->
