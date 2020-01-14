@@ -1,5 +1,7 @@
 # Software
 
+
+
 Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
 
 ## Library Classification
@@ -11,61 +13,16 @@ Software for Gaussian processes (GPs) have really been improving for quite a whi
 
 **Figure**: Photo Credit - Francois Chollet
 
-So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users.
+So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users.Libraries
+
+## Quick Overview
 
 ---
-## Python Packages
 
-|       **Package**        | **Backend** | **GPU Support** |
-| :----------------------: | :---------: | :-------------: |
-|           GPy            |    Numpy    |        ✓        |
-|       Scikit-Learn       |    Numpy    |        ✗        |
-|          PyMC3           |   Theano    |        ✓        |
-| TensorFlow (Probability) | TensorFlow  |        ✓        |
-|          Edward          | TensorFlow  |        ✓        |
-|          GPFlow          | TensorFlow  |        ✓        |
-|       Pyro.contrib       |   PyTorch   |        ✓        |
-|         GPyTorch         |   PyTorch   |        ✓        |
-|          PyMC4           | TensorFlow  |        ✓        |
+### Sklearn
 
----
-## Algorithms Implemented
+The GP implementation in the [scikit-learn](https://scikit-learn.org/stable/modules/gaussian_process.html) library are already sufficient to get people started with GPs in scikit-learn. Often times when I'm data wrangling and I'm exploring possible algorithms, I'll already have the sklearn library installed in my conda environment so I typically start there myself especially for datasets less than 2,000 points. 
 
-|        **Package**        | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
-| :-----------------------: | :-----: | :--------------: | :-------: | :--------------------------: | :--------: | :------: | :----------: |
-|           Exact           |    ✓    |        ✓         |     ✓     |              ✓               |     ✓      |    ✓     |      ✓       |
-|    Moment Matching GP     |    ✓    |        ✗         |     ✓     |              ✗               |     S      |    S     |      ✓       |
-|      SparseGP - FITC      |    ✓    |        ✗         |     ✓     |              ✗               |     ✓      |    ✓     |      ✓       |
-|      SparseGP - PEP       |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✗       |
-|      SparseSP - VFE       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
-|      Variational GP       |    ✓    |        ✗         |     ✗     |              ✓               |     ✓      |    ✓     |      ✗       |
-| Stochastic Variational GP |    ✓    |        ✗         |     ✗     |              S               |     ✓      |    ✓     |      ✓       |
-|          Deep GP          |    ✗    |        ✗         |     ✗     |              S               |     S      |    ✓     |      D       |
-|   Deep Kernel Learning    |    ✗    |        ✗         |     ✗     |              S               |     S      |    S     |      ✓       |
-|           GPLVM           |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✓     |      ✓       |
-|      Bayesian GPLVM       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✗       |
-|         SKI/KISS          |         |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
-|           LOVE            |    ✗    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
-
-
-**Key**
-| Symbol |     Status      |
-| :----: | :-------------: |
-| **✓**  | **Implemented** |
-|   ✗    | Not Implemented |
-|   D    |   Development   |
-|   S    |    Supported    |
-|  S(?)  | Maybe Supported |
-
----
-## Libraries
-
-
-### **[Sklearn](sklearn/README.md)**
-
-Often times if I have a The [sklearn docs](https://scikit-learn.org/stable/modules/gaussian_process.html) are already sufficient to get people started with GPs in scikit-learn. However, I have a few algorithms in there that I personally use. I often use the sklearn library when I want to apply GPs for datasets less than 2000 points. 
-
-**Note**: I do want to point out that the likelihood is absent in the GP model and you have to instead use the white kernel. This threw me off at first and I made many mistakes with this and tbh I think this should be made clear and fixed.
 
 #### Sample Code Snippet
 
@@ -100,17 +57,19 @@ The sklearn implementation is as basic as it gets. If you are familiar with the 
    y_pred, y_std = gpr_model.predict(Xtest, return_std=True)
    ```
 
-Again, this is the simplest API you will find and for small data problems, you'll find that this works fine out-of-the-box. I highly recommend this when starting. What I showed above is as complicated as it gets. Any more customization outside of this is a bit difficult as the scikit-learn API for GPs isn't very modular and wasn't designed as such. But as a first pass, it's good enough.
+Again, this is the simplest API you will find and for small data problems, you'll find that this works fine out-of-the-box. I highly recommend this when starting especially if you're not a GP connoisseur. What I showed above is as complicated as it gets. Any more customization outside of this is a bit difficult as the scikit-learn API for GPs isn't very modular and wasn't designed as such. But as a first pass, it's good enough.
 
 ---
 
 ### **[GPy](./../gpy/README.md)**
 
-GPy is the most **comprehensive research library** I have found to date. It has the most number of different special case GP algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are good but I personally found the [docs](https://gpy.readthedocs.io/en/deploy/) very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on. I typically wrap some typical GP algorithms within the sklearn `.fit()`, `.predict()`, `.score()` framework. The standard algorithms will include some like the Sparse GP, Heteroscedastic GP and Bayesian GPLVM. I typically use this library if my dataset is between 2,000 and 10,000 points. It also doesn't get updated very often so I'm assuming the devs have moved on to other things. There are rumors of a GPy2 library that's based on MXFusion but I have failed to see anything concrete yet.
+GPy is the most **comprehensive research library** I have found to date. It has the most number of different special GP "corner case" algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are very comprehensive. The major caveat is that the [documentation](https://gpy.readthedocs.io/en/deploy/) is very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on because there is no automatic differentiation to reduce the computations so there can be a bit of redundancy. I typically wrap some typical GP algorithms with some common parameters that I use within the sklearn `.fit()`, `.predict()`, `.score()` framework and call it a day. The standard algorithms will include the Exact GP, the Sparse GP, and Bayesian GPLVM. A **warning** though: this library does not get updated very often so you will likely run into very silly bugs if you don't use strict package versions that are recommended. There are rumors of a GPy2 library that's based on [MXFusion](https://github.com/amzn/MXFusion) but I have failed to see anything concrete yet. 
+
+**Idea**: Some of the main algorithms such as the sparse GP implementations are mature enough to be dumped into the sklearn library. For small-medium data problems, I think this would be extremely beneficial to the community. Some of the key papers like the (e.g. the [FITC-SGP](https://papers.nips.cc/paper/2857-sparse-gaussian-processes-using-pseudo-inputs), [VFE-SGP](http://proceedings.mlr.press/v5/titsias09a.html), [Heteroscedastic GP](https://dl.acm.org/doi/10.1145/1273496.1273546), [GP-LVM](https://dl.acm.org/doi/10.5555/2981345.2981387)) certainly pass some of the [strict sklearn criteria](https://scikit-learn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms). But I suspect that it wouldn't be a joy to code because you would need to do some of the gradients from scratch. I do feel like it might make GPs a bit more popular if some of the mainstream methods were included in the scikit-learn library.
 
 #### Sample Code Snippet
 
-The sklearn implementation is as basic as it gets. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.
+The GPy implementation is also very basic. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.
 
 1. Define your GPR model with the appropriate `kernel_function`.
 
@@ -140,93 +99,54 @@ The sklearn implementation is as basic as it gets. If you are familiar with the 
 So as you can see, the API is very similar to the scikit-learn API with some small differences; the main one being that you have to initiate the GP model with the data. The rest is fairly similar. You should definitely take a look at the GPy docs if you are interested in some more advanced examples.
 
 ---
-
 ### **[GPyTorch](./../gpytorch/README.md) (TODO)**
-This is my defacto library for **applying GPs** to large scale data. Anything above 10,000 points, and I will resort to this library. It has GPU acceleration and a large suite of different GP algorithms depending upon your problem. I think this is the dominant GP library for actually using GPs and I highly recommend it for utility. I still find it a bit difficult to really customize anything under the hood. But if you can figure out how to mix and match each of the modular parts, then it should work for you.
+
+This is my defacto library for **applying GPs** to large scale data. Anything above 10,000 points, and I will resort to this library. It has GPU acceleration and a large suite of different GP algorithms depending upon your problem. I think this is currently the dominant GP library for actually using GPs and I highly recommend it for utility. They have many options available ranging from latent variables to multi-outputs. Recently they've just revamped their entire library and documentation with some I still find it a bit difficult to really customize anything under the hood. But if you can figure out how to mix and match each of the modular parts, then it should work for you.
 
 #### Sample Code Snippet
 
-In GPyTorch, the library follows the pythonic way of coding that became super popular for deep learning from scikit-learn and deep learning frameworks such as Chainer and subsequently PyTorch. It consists of a 4 step process:
+In GPyTorch, the library follows the pythonic way of coding that became super popular from deep learning frameworks such as Chainer and subsequently PyTorch. It consists of a 4 step process which is seen in the snippet below.
 
-1. We need to define our Gaussian process model where we put in our `mean_function` and `covariance_function`.
-
-```python
-# Create a GPModel Class
-class GPModel(gpytorch.models.ExactGP):
-    def __init__(self, train_x, train_y, likelihood):
-        super(ExactGPModel, self).__init__(train_x, train_y, likelihood)
-        # create a constant mean function
-        self.mean_function = gpytorch.means.ConstantMean()
-        
-        # create an RBF kernel function
-        self.covariance_function = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
-		
-    # Forward pass for the model 
-    def forward(self, x):
-        # get the mean value
-        mean_x = self.mean_function(x)
-        
-        # get the covariance
-        covar_x = self.covariance_function(x)
-        
-        # pass the mean and covariance through a Gaussian
-        # multivariate distribution
-        return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
-```
-
-2. Then we need to initialize our regression model which includes our `gaussian_process` and our `gaussian_likelihood`.
+1. Define your GP Prior explicitly
 
 ```python
-# initialize Gaussian Likelihood
-likelihood = gpytorch.likelihoods.GaussianLikelihood()
+# 1. Define GP Prior (including kernel)
+class MyGP(gpytorch.models.ExactGP):
+     def __init__(self, train_x, train_y, likelihood):
+         super().__init__(train_x, train_y, likelihood)
 
-# intialize full GP model with likelihood
-gpr_model = GPModel(train_x, train_y, likelihood)
+         # Mean Function
+         self.mean_module = gpytorch.means.ZeroMean()
+
+         # Kernel Function
+         self.covar_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
+
+     def forward(self, x):
+         mean = self.mean_module(x)
+         covar = self.covar_module(x)
+         return gpytorch.distributions.MultivariateNormal(mean, covar)
 ```
 
-3. Then we need to do an explicit training loop as we modify the parameters using automatic differentiation until convergence. If you have a GPU, this step will be much faster.
+2. Define Likelihood Function
 
 ```python
-# Put model in 'training mode'
-gpr_model.train()
-likelihood.train()
-
-# Optimizer for GPR - adam optimizer
-optimizer = torch.optim.Adam([
-    {'params': gpr_model.parameters()},  # Includes GaussianLikelihood parameters
-], lr=0.1)
-
-# Loss Function for GPR - the marginal log likelihood
-mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
-
-for i in range(training_iter):
-    # Zero gradients from previous iteration
-    optimizer.zero_grad()
-    # Output from model
-    output = gpr_model(train_x)
-    # Calc loss and backprop gradients
-    loss = -mll(output, train_y)
-    loss.backward()
-    # step forward for the optimization
-    optimizer.step()
-   
+ # train_x = ...; train_y = ...
+ likelihood = gpytorch.likelihoods.GaussianLikelihood()
 ```
 
-If you are used to PyTorch or TensorFlow 2.0 then this training loop will be very familiar to you. It's a bit cumbersome but you can easily through this into a training loop to make the code much cleaner.
+3. Initialize GP model
 
-4. Finally we can make predictions using our trained regression model.
+ ```python
+ model = MyGP(train_x, train_y, likelihood)
+ ```
+4. Get predictions
 
 ```python
-# Get into evaluation (predictive posterior) mode
-gpr_model.eval()
-likelihood.eval()
-
-# Make predictions by feeding model through likelihood
-with torch.no_grad(), gpytorch.settings.fast_pred_var():
-    observed_pred = likelihood(model(test_x))
-    mean = observed_pred.mean
-    lower, upper = observed_pred.confidence_region()
+ # test_x = ...;
+ model(test_x)  # Returns the GP latent function, f, at test_x
+ likelihood(model(test_x))  # Returns the (approximate) predictive posterior distribution, y, at test_x
 ```
+**[Source](https://gpytorch.readthedocs.io/en/latest/models.html#exactgp)** - GPyTorch Docs
 
 I am only scratching the surface with this quick snippet. But I wanted to highlight how this fits into
 
@@ -236,8 +156,8 @@ I am only scratching the surface with this quick snippet. But I wanted to highli
 This is my defacto library for doing **research with GPs**. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. Also pyro has a great [forum](https://forum.pyro.ai/) which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
 
 ---
-
 ### **[GPFlow](./../gpflow/README.md) (TODO)**
+
 What Pyro is to PyTorch, GPFlow is to TensorFlow. A few of the devs from GPy went to GPFlow so it has a very similar style as GPy. But it is a lot cleaner due to the use of autograd which eliminates all of the code used to track the gradients. Many researchers use this library as a backend for their own research code so I would say it is the second most used library in the research domain. I didn't find it particularly easy to customize in tensorflow =<1.14 because of the session tracking which wasn't clear to me from the beginning. But now with the addition of tensorflow 2.0 and GPFlow adopting that new framework, I am eager to try it out again.
 
 ---
@@ -249,8 +169,6 @@ This library is built into Tensorflow already and they have a few GP modules tha
 
 ### **[Edward2](./../edward2/README.md) (TODO)** 
 This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras `model.fit()`. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.
-
-
 
 ---
 ## Library Classification
@@ -271,5 +189,58 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 **Figure**: Photo Credit - Francois Chollet
 
 
+
+
+
+---
+
+## GPU Support
+
+|       **Package**        | **Backend** | **GPU Support** |
+| :----------------------: | :---------: | :-------------: |
+|           GPy            |    Numpy    |        ✓        |
+|       Scikit-Learn       |    Numpy    |        ✗        |
+|          PyMC3           |   Theano    |        ✓        |
+| TensorFlow (Probability) | TensorFlow  |        ✓        |
+|          Edward          | TensorFlow  |        ✓        |
+|          GPFlow          | TensorFlow  |        ✓        |
+|       Pyro.contrib       |   PyTorch   |        ✓        |
+|         GPyTorch         |   PyTorch   |        ✓        |
+|          PyMC4           | TensorFlow  |        ✓        |
+
+---
+
+## Algorithms Implemented
+
+|        **Package**        | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
+| :-----------------------: | :-----: | :--------------: | :-------: | :--------------------------: | :--------: | :------: | :----------: |
+|           Exact           |    ✓    |        ✓         |     ✓     |              ✓               |     ✓      |    ✓     |      ✓       |
+|    Moment Matching GP     |    ✓    |        ✗         |     ✓     |              ✗               |     S      |    S     |      ✓       |
+|      SparseGP - FITC      |    ✓    |        ✗         |     ✓     |              ✗               |     ✓      |    ✓     |      ✓       |
+|      SparseGP - PEP       |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✗       |
+|      SparseSP - VFE       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
+|      Variational GP       |    ✓    |        ✗         |     ✗     |              ✓               |     ✓      |    ✓     |      ✗       |
+| Stochastic Variational GP |    ✓    |        ✗         |     ✗     |              S               |     ✓      |    ✓     |      ✓       |
+|          Deep GP          |    ✗    |        ✗         |     ✗     |              S               |     S      |    ✓     |      D       |
+|   Deep Kernel Learning    |    ✗    |        ✗         |     ✗     |              S               |     S      |    S     |      ✓       |
+|           GPLVM           |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✓     |      ✓       |
+|      Bayesian GPLVM       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
+|         SKI/KISS          |         |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
+|           LOVE            |    ✗    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
+
+
+**Key**
+
+| Symbol |     Status      |
+| :----: | :-------------: |
+| **✓**  | **Implemented** |
+|   ✗    | Not Implemented |
+|   D    |   Development   |
+|   S    |    Supported    |
+|  S(?)  | Maybe Supported |
+
+---
+
+## 
 
 
