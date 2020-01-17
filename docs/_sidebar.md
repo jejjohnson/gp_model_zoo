@@ -4,7 +4,7 @@
 * [Software](software.md)
 * [Literature](literature.md)
 
-**Gaussian Process Algorithms**
+**GP Algorithms**
   * [GPs](literature/gps.md)
   * [Sparse GPs](literature/sparse_gps.md)
   * [Latent Variable Models](literature/latent_variable.md)
