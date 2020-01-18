@@ -6,12 +6,11 @@ Software for Gaussian processes (GPs) have really been improving for quite a whi
 
 ## Library Classification
 
-
 <p align="center">
   <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/spectrum-of-workflows.png" alt="drawing" width="600"/>
 </p>
 
-**Figure**: Photo Credit - Francois Chollet
+**Photo Credit**: Francois Chollet [Tweet](https://twitter.com/fchollet/status/1052228463300493312/photo/1)
 
 So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users.Libraries
 
@@ -196,48 +195,48 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 
 ## GPU Support
 
-|       **Package**        | **Backend** | **GPU Support** |
-| :----------------------: | :---------: | :-------------: |
-|           GPy            |    Numpy    |        ✓        |
-|       Scikit-Learn       |    Numpy    |        ✗        |
-|          PyMC3           |   Theano    |        ✓        |
-| TensorFlow (Probability) | TensorFlow  |        ✓        |
-|          Edward          | TensorFlow  |        ✓        |
-|          GPFlow          | TensorFlow  |        ✓        |
-|       Pyro.contrib       |   PyTorch   |        ✓        |
-|         GPyTorch         |   PyTorch   |        ✓        |
-|          PyMC4           | TensorFlow  |        ✓        |
+| **Package**              | **Backend** | **GPU Support** |
+|--------------------------|-------------|-----------------|
+| GPy                      | Numpy       | ✓               |
+| Scikit-Learn             | Numpy       | ✗               |
+| PyMC3                    | Theano      | ✓               |
+| TensorFlow (Probability) | TensorFlow  | ✓               |
+| Edward                   | TensorFlow  | ✓               |
+| GPFlow                   | TensorFlow  | ✓               |
+| Pyro.contrib             | PyTorch     | ✓               |
+| GPyTorch                 | PyTorch     | ✓               |
+| PyMC4                    | TensorFlow  | ✓               |
 
 ---
 
 ## Algorithms Implemented
 
-|        **Package**        | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
-| :-----------------------: | :-----: | :--------------: | :-------: | :--------------------------: | :--------: | :------: | :----------: |
-|           Exact           |    ✓    |        ✓         |     ✓     |              ✓               |     ✓      |    ✓     |      ✓       |
-|    Moment Matching GP     |    ✓    |        ✗         |     ✓     |              ✗               |     S      |    S     |      ✓       |
-|      SparseGP - FITC      |    ✓    |        ✗         |     ✓     |              ✗               |     ✓      |    ✓     |      ✓       |
-|      SparseGP - PEP       |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✗       |
-|      SparseSP - VFE       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
-|      Variational GP       |    ✓    |        ✗         |     ✗     |              ✓               |     ✓      |    ✓     |      ✗       |
-| Stochastic Variational GP |    ✓    |        ✗         |     ✗     |              S               |     ✓      |    ✓     |      ✓       |
-|          Deep GP          |    ✗    |        ✗         |     ✗     |              S               |     S      |    ✓     |      D       |
-|   Deep Kernel Learning    |    ✗    |        ✗         |     ✗     |              S               |     S      |    S     |      ✓       |
-|           GPLVM           |    ✓    |        ✗         |     ✗     |              ✗               |     ✗      |    ✓     |      ✓       |
-|      Bayesian GPLVM       |    ✓    |        ✗         |     ✗     |              ✗               |     ✓      |    ✓     |      ✓       |
-|         SKI/KISS          |         |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
-|           LOVE            |    ✗    |        ✗         |     ✗     |              ✗               |     ✗      |    ✗     |      ✓       |
+| **Package**               | **GPy** | **Scikit-Learn** | **PyMC3** | **TensorFlow (Probability)** | **GPFlow** | **Pyro** | **GPyTorch** |
+|---------------------------|---------|------------------|-----------|------------------------------|------------|----------|--------------|
+| Exact                     | ✓       | ✓                | ✓         | ✓                            | ✓          | ✓        | ✓            |
+| Moment Matching GP        | ✓       | ✗                | ✓         | ✗                            | S          | S        | ✓            |
+| SparseGP - FITC           | ✓       | ✗                | ✓         | ✗                            | ✓          | ✓        | ✓            |
+| SparseGP - PEP            | ✓       | ✗                | ✗         | ✗                            | ✗          | ✗        | ✗            |
+| SparseSP - VFE            | ✓       | ✗                | ✗         | ✗                            | ✓          | ✓        | ✓            |
+| Variational GP            | ✓       | ✗                | ✗         | ✓                            | ✓          | ✓        | ✗            |
+| Stochastic Variational GP | ✓       | ✗                | ✗         | S                            | ✓          | ✓        | ✓            |
+| Deep GP                   | ✗       | ✗                | ✗         | S                            | S          | ✓        | D            |
+| Deep Kernel Learning      | ✗       | ✗                | ✗         | S                            | S          | S        | ✓            |
+| GPLVM                     | ✓       | ✗                | ✗         | ✗                            | ✗          | ✓        | ✓            |
+| Bayesian GPLVM            | ✓       | ✗                | ✗         | ✗                            | ✓          | ✓        | ✓            |
+| SKI/KISS                  |         | ✗                | ✗         | ✗                            | ✗          | ✗        | ✓            |
+| LOVE                      | ✗       | ✗                | ✗         | ✗                            | ✗          | ✗        | ✓            |
 
 
 **Key**
 
-| Symbol |     Status      |
-| :----: | :-------------: |
+| Symbol | Status          |
+|--------|-----------------|
 | **✓**  | **Implemented** |
-|   ✗    | Not Implemented |
-|   D    |   Development   |
-|   S    |    Supported    |
-|  S(?)  | Maybe Supported |
+| ✗      | Not Implemented |
+| D      | Development     |
+| S      | Supported       |
+| S(?)   | Maybe Supported |
 
 ---
 
