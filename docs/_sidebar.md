@@ -1,8 +1,8 @@
 
 * [Home Page](README.md)
-* [Model Zoo](model_zoo.md)
-* [Software](software.md)
 * [Literature](literature.md)
+* [Software](software.md)
+* [Model Zoo](model_zoo.md)
 
 **GP Algorithms**
   * [GPs](literature/gps.md)
