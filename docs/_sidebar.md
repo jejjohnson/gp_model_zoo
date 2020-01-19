@@ -1,3 +1,4 @@
+<!-- _sidebar.md -->
 
 * [Home Page](README.md)
 * [Literature](literature.md)
@@ -5,6 +6,7 @@
 * [Model Zoo](model_zoo.md)
 
 **GP Algorithms**
+
   * [GPs](literature/gps.md)
   * [Sparse GPs](literature/sparse_gps.md)
   * [Latent Variable Models](literature/latent_variable.md)
@@ -16,17 +18,3 @@
   * [Software](literature/software.md)
   * [Applications](literature/applications.md)
   * [Special](literature/special.md)
-
-<!-- ---
-**Software**
-
-* **Numpy**
-  * [Sklearn]()
-  * [GPy]()
-* **TensorFlow**
-  * [GPFlow]()
-  * [TensorFlow Probability]()
-  * [Edward2]()
-* **PyTorch**
-  * [GPyTorch]()
-  * [Pyro]() -->
