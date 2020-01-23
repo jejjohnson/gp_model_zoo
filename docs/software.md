@@ -3,7 +3,9 @@
 
 
 - [Software](#software)
+  
   - [Library Classification](#library-classification)
+  
   - [Quick Overview](#quick-overview)
     - [Sklearn](#sklearn)
     - [GPy](#gpy)
@@ -13,10 +15,20 @@
     - [TensorFlow Probability](#tensorflow-probability-todo)
     - [Edward2](#edward2)
     - [Other Libraries](#other-libraries)
+    
   - [Library Classification](#library-classification-1)
+  
   - [GPU Support](#gpu-support)
+  
   - [Algorithms Implemented](#algorithms-implemented)
-  Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
+  
+    
+  
+    ---
+  
+    
+  
+    Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
 
 ## Library Classification
 
@@ -246,7 +258,7 @@ opt_logs = opt.minimize(objective_closure,
 
 ---
 
-### TensorFlow Probability (TODO) 
+### [TensorFlow Probability](https://www.tensorflow.org/probability/)
 This library is built into Tensorflow already and they have a few GP modules that allow you to train GP algorithms. In edition, they have a keras-like GP layer which is very useful for using a GP as a final layer in probabilistic neural networks. The GP community is quite small for TFP so I haven't seen too many examples for this.
 
 <!-- tabs:start -->
