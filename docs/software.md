@@ -2,6 +2,38 @@
 
 
 
+- [Software](#software)
+  - [Library Classification](#library-classification)
+  - [Quick Overview](#quick-overview)
+    - [Sklearn](#sklearn)
+      - [Sample Code Snippet](#sample-code-snippet)
+      - [** Model **](#model)
+      - [** Training **](#training)
+      - [** Predictions **](#predictions)
+    - [GPy](#gpy)
+      - [Sample Code Snippet](#sample-code-snippet-1)
+      - [** Model **](#model-1)
+      - [** Training **](#training-1)
+      - [** Predictions **](#predictions-1)
+    - [GPyTorch](#gpytorch)
+      - [Sample Code Snippet](#sample-code-snippet-2)
+      - [** Model **](#model-2)
+    - [Pyro](#pyro)
+      - [** Model **](#model-3)
+      - [** Training **](#training-2)
+    - [GPFlow](#gpflow)
+      - [** Model **](#model-4)
+      - [** Training **](#training-3)
+    - [TensorFlow Probability (TODO)](#tensorflow-probability-todo)
+      - [** Model **](#model-5)
+      - [** Keras Training **](#keras-training)
+    - [Edward2](#edward2)
+      - [** Model **](#model-6)
+      - [** Custom Training **](#custom-training)
+    - [Other Libraries](#other-libraries)
+  - [Library Classification](#library-classification-1)
+  - [GPU Support](#gpu-support)
+  - [Algorithms Implemented](#algorithms-implemented)
 Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
 
 ## Library Classification
@@ -12,13 +44,13 @@ Software for Gaussian processes (GPs) have really been improving for quite a whi
 
 **Photo Credit**: Francois Chollet [Tweet](https://twitter.com/fchollet/status/1052228463300493312/photo/1)
 
-So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users.Libraries
+So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users. But libraries typically can be classified on this spectrum. The same breakdown of Deep Learning algorithms into Models and Training can be done for GPs as well. Since GPs aren't super mainstream yet, most modern large scale GP libraries will fall in the fully flexible category. But recently, with the edition of TensorFlow probability and Edward2, we have more modern GPs that will fall into the Easy to use category (but not necessarily easy to train...).
 
 ## Quick Overview
 
 ---
 
-### Sklearn
+### [Sklearn](https://scikit-learn.org/stable/modules/gaussian_process.html)
 
 The GP implementation in the [scikit-learn](https://scikit-learn.org/stable/modules/gaussian_process.html) library are already sufficient to get people started with GPs in scikit-learn. Often times when I'm data wrangling and I'm exploring possible algorithms, I'll already have the sklearn library installed in my conda environment so I typically start there myself especially for datasets less than 2,000 points. 
 
@@ -65,7 +97,7 @@ Again, this is the simplest API you will find and for small data problems, you'l
 
 ---
 
-### GPy
+### [GPy](https://sheffieldml.github.io/GPy/)
 
 GPy is the most **comprehensive research library** I have found to date. It has the most number of different special GP "corner case" algorithms of any package available. The GPy [examples](https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html) and [tutorials](https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb) are very comprehensive. The major caveat is that the [documentation](https://gpy.readthedocs.io/en/deploy/) is very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on because there is no automatic differentiation to reduce the computations so there can be a bit of redundancy. I typically wrap some typical GP algorithms with some common parameters that I use within the sklearn `.fit()`, `.predict()`, `.score()` framework and call it a day. The standard algorithms will include the Exact GP, the Sparse GP, and Bayesian GPLVM. A **warning** though: this library does not get updated very often so you will likely run into very silly bugs if you don't use strict package versions that are recommended. There are rumors of a GPy2 library that's based on [MXFusion](https://github.com/amzn/MXFusion) but I have failed to see anything concrete yet. 
 
@@ -110,7 +142,7 @@ y_pred, y_std = gpr_model.predict(Xtest)
 So as you can see, the API is very similar to the scikit-learn API with some small differences; the main one being that you have to initiate the GP model with the data. The rest is fairly similar. You should definitely take a look at the GPy docs if you are interested in some more advanced examples.
 
 ---
-### GPyTorch
+### [GPyTorch](https://gpytorch.ai/)
 
 This is my defacto library for **applying GPs** to large scale data. Anything above 10,000 points, and I will resort to this library. It has GPU acceleration and a large suite of different GP algorithms depending upon your problem. I think this is currently the dominant GP library for actually using GPs and I highly recommend it for utility. They have many options available ranging from latent variables to multi-outputs. Recently they've just revamped their entire library and documentation with some I still find it a bit difficult to really customize anything under the hood. But if you can figure out how to mix and match each of the modular parts, then it should work for you.
 
@@ -151,10 +183,8 @@ I am only scratching the surface with this quick snippet. But I wanted to highli
 
 ---
 
-### Pyro
-This is my defacto library for doing **research with GPs**. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. Also pyro has a great [forum](https://forum.pyro.ai/) which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
-
-#### 
+### [Pyro](http://pyro.ai/)
+This is my personal defacto library for doing research with GPs with PyTorch. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. I'm more comfortable with PyTorch so it was easy for me to Also pyro has a great [forum](https://forum.pyro.ai/) which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. 
 
 <!-- tabs:start -->
 
@@ -192,19 +222,129 @@ for i in range(num_steps):
 **[Source](http://pyro.ai/examples/gp.html)**: Pyro Docs
 
 ---
-### GPFlow (TODO)
 
-What Pyro is to PyTorch, GPFlow is to TensorFlow. A few of the devs from GPy went to GPFlow so it has a very similar style as GPy. But it is a lot cleaner due to the use of autograd which eliminates all of the code used to track the gradients. Many researchers use this library as a backend for their own research code so I would say it is the second most used library in the research domain. I didn't find it particularly easy to customize in tensorflow =<1.14 because of the session tracking which wasn't clear to me from the beginning. But now with the addition of tensorflow 2.0 and GPFlow adopting that new framework, I am eager to try it out again.
+### [GPFlow](https://github.com/GPflow/GPflow)
+
+What Pyro is to PyTorch, GPFlow is to TensorFlow. This library is the successor to the GPy library. It is very comprehensive with a lot of SOTA algorithms. I definitely think ifA few of the devs from GPy went to GPFlow so it has a very similar style as GPy. But it is a lot cleaner due to the use of autograd which eliminates all of the code used to track the gradients. Many researchers use this library as a backend for their own research code so I would say it is the second most used library in the research domain. I didn't find it particularly easy to customize in tensorflow =<1.1 because of the session tracking which wasn't clear to me from the beginning. But now with the addition of tensorflow 2.0 and GPFlow adopting that new framework, I am eager to try it out again. They have a new [public slack group](https://github.com/GPflow/GPflow#the-gpflow-community) so their network is going to grow hopefully.
+
+<!-- tabs:start -->
+
+#### ** Model **
+
+```python
+# define kernel function
+k = gpflow.kernels.Matern52()
+
+# define GP model
+gpr_model = gpflow.models.GPR(data=(X, Y), kernel=k, mean_function=None)
+```
+
+#### ** Training **
+
+```python
+# define optimizer
+optimizer = gpflow.optimizers.Scipy()
+
+# define loss function
+def objective_closure():
+    return - m.log_marginal_likelihood()
+num_steps = 1_000
+
+# optimize function
+opt_logs = opt.minimize(objective_closure,
+                        m.trainable_variables,
+                        options=dict(maxiter=100))
+```
+
+<!-- tabs:end -->
+
+
+
+**Source**: [GPFlow Docs](https://gpflow.readthedocs.io/en/develop/notebooks/basics/regression.html)
 
 ---
 
 ### TensorFlow Probability (TODO) 
 This library is built into Tensorflow already and they have a few GP modules that allow you to train GP algorithms. In edition, they have a keras-like GP layer which is very useful for using a GP as a final layer in probabilistic neural networks. The GP community is quite small for TFP so I haven't seen too many examples for this.
 
+<!-- tabs:start -->
+
+#### ** Model **
+
+```python
+# define kernel function
+kernel = tfp.math.psd_kernels.ExponentiatedQuadratic()
+
+# Define the model.
+model = tfp.layers.VariationalGaussianProcess(
+    num_inducing_points=512, 
+    kernel_provider=kernel
+)
+```
+
+#### ** Keras Training **
+
+```python
+# Custom Loss Function
+loss = lambda y, rv_y: rv_y.variational_loss(
+    y, 
+    kl_weight=np.array(batch_size, x.dtype) / x.shape[0]
+)
+
+# TF2.0 Keras Training Loop
+model.compile(optimizer=tf.optimizers.Adam(learning_rate=0.01), loss=loss)
+model.fit(x, y, batch_size=batch_size, epochs=1000, verbose=False)
+```
+
+<!-- tabs:end -->
+
 ---
 
-### Edward2 (TODO)
-This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras `model.fit()`. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.
+### [Edward2](https://github.com/google/edward2)
+This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras `model.fit()`. With this API, we will be able to prototype very quickly and really start applying GPs out-of-the-box. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.
+
+<!-- tabs:start -->
+
+#### ** Model **
+
+```python
+# define kernel function
+kernel = ExponentiatedQuadratic()
+
+# Define the model.
+model = ed.layers.SparseGaussianProcess(3, num_inducing=512, covariance_fn=kernel)
+predictions = model(features)
+```
+
+#### ** Custom Training **
+
+```python
+# Custom Loss Function
+def loss_fn(features, labels):
+  preds = model(features)
+  nll = -tf.reduce_mean(predictions.distribution.log_prob(labels))
+  kl = sum(model.losses) / total_dataset_size
+  return nll + kl
+
+# TF2.0 Custom Training loop#
+num_steps = 1000
+for _ in range(num_steps):
+  with tf.GradientTape() as tape:
+    loss = loss_fn(features, labels)
+  gradients = tape.gradient(loss, model.variables)  # use any optimizer here
+```
+
+---
+
+### Other Libraries
+
+* PyMC3 | PyMC4
+* MXFusion
+* Stan
+
+<!-- tabs:end -->
+<!-- 
+**Source**: [Edward2 Github](https://github.com/google/edward2/tree/master/edward2/tensorflow/layers)
 
 ---
 ## Library Classification
@@ -224,7 +364,7 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 
 **Figure**: Photo Credit - Francois Chollet
 
-
+ -->
 
 
 
@@ -274,9 +414,4 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 | D      | Development     |
 | S      | Supported       |
 | S(?)   | Maybe Supported |
-
----
-
-## 
-
 
