@@ -24,11 +24,9 @@
   
     
   
-    ---
+---  
   
-    
-  
-    Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
+Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.
 
 ## Library Classification
 
