@@ -2,18 +2,18 @@
 
 I did a light wrapper of the following algorithms:
 
-1. [Exact GP](exact.py)
-2. [Sparse GP (FITC, VFE, PEP)](sparse.py)
-3. [Variational GP](variational.py)
-4. Uncertain Inputs
-    * Linearized Moment-Matching (**TODO**)
-      * Exact GP
-      * Sparse GP
-    * Moment-Matching (**TODO**)
-      * Exact
-      * Sparse
-    * Variational Prior
-      * [Sparse GP](uncertain.py)
+
+**Exact GP**
+
+* Linearized Uncertainty Estimates
+
+**Sparse GP**
+
+* Linearized Uncertainty Estimates
+
+**Sparse Variational GP**
+
+* Input Error
 
 ---
 ### Observations
