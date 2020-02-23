@@ -1,12 +1,25 @@
 # Gaussian Processes
 
-## Best Resources
+
+- [Best Lectures](#best-lectures)
+- [Best Visualize Explanations](#best-visualize-explanations)
+- [Best Books](#best-books)
+  - [1. Standard Book](#1-standard-book)
+  - [2. Better Book](#2-better-book)
+  - [3. Brief Overview](#3-brief-overview)
+- [Best Thesis Explanation](#best-thesis-explanation)
+- [Code Introductions](#code-introductions)
+  - [From Scratch](#from-scratch)
+  - [Using Libraries](#using-libraries)
+- [Other Resources](#other-resources)
+  - [Previously Compiled Stuff](#previously-compiled-stuff)
+
 
 This is fairly subjective but I have included the best tutorials that I could find for GPs on the internet. I focused on clarity and detail and I'm partial to resources with lots of plots. The resources range from lectures to blogs so hopefully by the end of this page you will find something that will ease you into understanding Gaussian processes.
 
 ---
 
-### Best Lectures
+## Best Lectures
 
 By far the best beginners lecture on GPs (that I have found) is by [Neil Lawrence](https://inverseprobability.com/); a prominent figure that you should know once you enter this field. The lecture video that I have included below are the most recent of his lectures and I personally think it gives the most intuition behind GPs without being too mathy. The blog that's listed are his entire lecture notes in notebook format so you can read more or less verbatim what was said in the lecture; although you might miss out on the nuggets of wisdom he tends to drop during his lectures.
 
@@ -18,7 +31,7 @@ I would say that the best slides that I have found are by [Marc Deisenroth](http
 
 ---
 
-### Best Visualize Explanations
+## Best Visualize Explanations
 
 If you are a visual person (like me) then you will appreciate resources where they go through step-by-step how a Gaussian process is formulated as well as the importance of the kernel and how one can train them.
 
@@ -26,21 +39,21 @@ If you are a visual person (like me) then you will appreciate resources where th
 
 ---
 
-### Best Books
+## Best Books
 
-#### 1. Standard Book
+### 1. Standard Book
 
 [Gaussian Processes for Machine Learning](http://www.gaussianprocess.org/gpml/) - Rasmussen (2006)
 
 >  This is the standard book that everyone recommends. It gives a fantastic overview with a few different approaches to explaining. However, for details about the more mathy bits, it may not be the best.
 
-#### 2. Better Book
+### 2. Better Book
 
 [Pattern Recognition and Machine Learning](https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/) - Bishop (2006)
 
 > I find this a much better book which highlights a lot of the mathy bits (e.g. being able to fully manipulate joint Gaussian distributions to arrive at the GP).
 
-#### 3. Brief Overview
+### 3. Brief Overview
 
 [Machine Learning: A Probabilistic Perspective](https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation-ebook-dp-B00AF1AYTQ/dp/B00AF1AYTQ/ref=mt_kindle?_encoding=UTF8&me=&qid=) - Murphy (2012)
 
@@ -48,7 +61,7 @@ If you are a visual person (like me) then you will appreciate resources where th
 
 ---
 
-### Best Thesis Explanation
+## Best Thesis Explanation
 
 Often times the papers that people publish in conferences in Journals don't have enough information in them. Sometimes it's really difficult to go through some of the mathematics that people put  in their articles especially with cryptic explanations like "it's easy to show that..." or "trivially it can be shown that...". For most of us it's not easy nor is it trivial. So I've included a thesis that I found extremely helpful when going step-by-step. It definitely trumps every other thesis that I've read which all assume the reader has some knowledge. The notation is a bit weird at first but once you get used to it, it becomes clearer and clearer.
 
@@ -57,13 +70,13 @@ Often times the papers that people publish in conferences in Journals don't have
 
 ---
 
-### Code Introductions
+## Code Introductions
 
 These resources are the best resources that explain GPs while also walking you through the code. I like going through it step-by-step using code because for some reason, when I have to code things, all of the sudden details start to click. When you can make a program do it from scratch then I think that is where the understanding kicks in. I have also included tutorials where they use python packages if you're interesting in just jumping in.
 
 
 
-#### From Scratch
+### From Scratch
 
 * [Gaussian Processes](http://krasserm.github.io/2018/03/19/gaussian-processes/) - Martin Krasser (2018)
 
@@ -86,7 +99,7 @@ These resources are the best resources that explain GPs while also walking you t
 
   > I like this blog post because it goes over everything in a simple way and also includes some nice nuggets such as acquisition functions for Bayesian Optimization and the derivation of the posterior function which you can find in Bishop. I like the format.
 
-#### Using Libraries
+### Using Libraries
 
 * [Fitting GP models with Python](https://blog.dominodatalab.com/fitting-gaussian-process-models-python/) - Chris Fonnesbeck (2017)
 
@@ -98,10 +111,10 @@ These resources are the best resources that explain GPs while also walking you t
 
 ---
 
-### Other Resources
+## Other Resources
 
 
-#### Previously Compiled Stuff
+### Previously Compiled Stuff
 
 So I found a few resources that give papers as well as some codes and lectures that you can look at.
 
