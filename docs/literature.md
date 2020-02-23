@@ -5,9 +5,30 @@
 * Docsify Website: [jejjohnson.github.io/gp_model_zoo/](https://jejjohnson.github.io/gp_model_zoo/)
 * Personal Website: [jejjohnson.netlify.com](https://jejjohnson.netlify.com)
 
+
 ## Introduction 
 
 This folder contains lists of papers and code bases that deal with Gaussian processes and applications. I also try to keep up with the literature and show some state-of-the-art (SOTA) algorithms and code bases. I'm quite fond of GPs because they are mathematically beautiful and they have many nice properties. They also work with one of the nicest distributions to work with: the Guassian distribution. They deal with uncertainty and because they are function based, they work well with small (and large datasets) with sophisticated interpolation schemes. The biggest problem of GPs back in the day was that they did not scale but nowadays that isn't the case as there are dozens of sparse methods that allow us to scale GPs to 100K+ up to even 1 million data points.
+
+---
+
+- [Introduction](#introduction)
+- [My Perspective](#my-perspective)
+- [My Special Interests](#my-special-interests)
+- [Topics](#topics)
+  - [Gaussian Processes](#gaussian-processes)
+  - [Sparse Gaussian Processes](#sparse-gaussian-processes)
+  - [Latent Variable Models](#latent-variable-models)
+  - [Sparse Spectrum](#sparse-spectrum)
+  - [Uncertain Inputs](#uncertain-inputs)
+  - [Deep GPs](#deep-gps)
+  - [Neural Networks and GPs](#neural-networks-and-gps)
+  - [Components](#components)
+  - [Kernels](#kernels)
+  - [Software](#software)
+  - [Applications](#applications)
+  - [Special](#special)
+
 
 ---
 ## My Perspective
@@ -34,7 +55,7 @@ I think that the GP literature is fairly spread over many fields but there is no
 In reality, almost all of the methods you'll find in the literature come within these subfields or a combination of a 2 or more more or less in the order I've listed. That's not to say that what people do isn't important or impressive, but it would be nice if we had some better structure to how we classify GP algorithms and improvements we make.
 
 ---
-## Special Interest 
+## My Special Interests
 
 There are a few questions and issues which I think have not been answered but are steadily improving with time. They are individual components of the GP algorithms that I consider a bit weak and I think they can be improved by taking knowledge from other fields. A good example would be how the treatment of Matrix-Vector-Multiplication (MVM) was used for scaling GP algorithms. Back in the day, the dominant community was various ways to subsample the data. The MVM community was fairly small within the main GP community but now it has risen as the most scalable and customizable method to date with a dominant python package. Just goes to show how other fields can really come in and improve some of the little intricate aspects of the algorithms and make huge improvements.
 
@@ -48,7 +69,7 @@ Below is a list of methods which are not as prevalent in the literature that you
 6. Expressive Kernels
 
 ---
-## Table of Contents
+## Topics
 
 ### [Gaussian Processes](literature/gps.md)
 
