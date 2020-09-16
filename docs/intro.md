@@ -1,21 +1,16 @@
+---
+title: Intro to GPs
+description: Introduction to GPs
+authors:
+    - J. Emmanuel Johnson
+path: docs/
+source: intro.md
+---
 # Gaussian Processes
 
+!!! abstract "About"
 
-- [Best Lectures](#best-lectures)
-- [Best Visualize Explanations](#best-visualize-explanations)
-- [Best Books](#best-books)
-  - [1. Standard Book](#1-standard-book)
-  - [2. Better Book](#2-better-book)
-  - [3. Brief Overview](#3-brief-overview)
-- [Best Thesis Explanation](#best-thesis-explanation)
-- [Code Introductions](#code-introductions)
-  - [From Scratch](#from-scratch)
-  - [Using Libraries](#using-libraries)
-- [Other Resources](#other-resources)
-  - [Previously Compiled Stuff](#previously-compiled-stuff)
-
-
-This is fairly subjective but I have included the best tutorials that I could find for GPs on the internet. I focused on clarity and detail and I'm partial to resources with lots of plots. The resources range from lectures to blogs so hopefully by the end of this page you will find something that will ease you into understanding Gaussian processes.
+    This is fairly subjective but I have included the best tutorials that I could find for GPs on the internet. I focused on clarity and detail and I'm partial to resources with lots of plots. The resources range from lectures to blogs so hopefully by the end of this page you will find something that will ease you into understanding Gaussian processes.
 
 ---
 
