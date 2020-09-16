@@ -11,23 +11,23 @@
         <meta name="description" content="Literature & Code for all things GP">
       
       
-        <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/prezi/tf2/docs/plugin/markdown/example/">
+        <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/other_software/">
       
       
         <meta name="author" content="J. Emmanuel Johnson">
       
-      <link rel="shortcut icon" href="../../../../../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.3">
     
     
       
-        <title>Markdown Demo - GP Model Zoo</title>
+        <title>Other software - GP Model Zoo</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.62d34fff.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.62d34fff.min.css">
       
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.c8acc6db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.c8acc6db.min.css">
       
       
         
@@ -45,11 +45,11 @@
     
     
     
-      <link rel="stylesheet" href="../../../../../../css/ansi-colours.css">
+      <link rel="stylesheet" href="../css/ansi-colours.css">
     
-      <link rel="stylesheet" href="../../../../../../css/jupyter-cells.css">
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
     
-      <link rel="stylesheet" href="../../../../../../css/pandas-dataframe.css">
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
     
     
       
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#markdown-demo" class="md-skip">
+        <a href="#pyro" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Markdown Demo
+              Other software
             
           </span>
         </div>
@@ -196,7 +196,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../.." title="Home" class="md-nav__link">
+    <a href=".." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -208,7 +208,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../software/" title="Software" class="md-nav__link">
+    <a href="../software/" title="Software" class="md-nav__link">
       Software
     </a>
   </li>
@@ -220,7 +220,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../intro/" title="Intro to GPs" class="md-nav__link">
+    <a href="../intro/" title="Intro to GPs" class="md-nav__link">
       Intro to GPs
     </a>
   </li>
@@ -257,7 +257,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/" title="About" class="md-nav__link">
+    <a href="../literature/" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -269,7 +269,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/kernels/" title="Kernels" class="md-nav__link">
+    <a href="../literature/kernels/" title="Kernels" class="md-nav__link">
       Kernels
     </a>
   </li>
@@ -281,7 +281,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/sparse_gps/" title="Sparse GPs" class="md-nav__link">
+    <a href="../literature/sparse_gps/" title="Sparse GPs" class="md-nav__link">
       Sparse GPs
     </a>
   </li>
@@ -293,7 +293,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/inference/" title="Inference" class="md-nav__link">
+    <a href="../literature/inference/" title="Inference" class="md-nav__link">
       Inference
     </a>
   </li>
@@ -305,7 +305,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/deep_gps/" title="Deep GPs" class="md-nav__link">
+    <a href="../literature/deep_gps/" title="Deep GPs" class="md-nav__link">
       Deep GPs
     </a>
   </li>
@@ -317,7 +317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../literature/multioutput/" title="Multi-Output" class="md-nav__link">
+    <a href="../literature/multioutput/" title="Multi-Output" class="md-nav__link">
       Multi-Output
     </a>
   </li>
@@ -329,7 +329,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../../softwarev2/" title="SWE" class="md-nav__link">
+    <a href="../softwarev2/" title="SWE" class="md-nav__link">
       SWE
     </a>
   </li>
@@ -354,8 +354,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -366,44 +364,83 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#external-11" class="md-nav__link">
-    External 1.1
+  <a href="#pyro" class="md-nav__link">
+    Pyro
   </a>
+  
+    <nav class="md-nav" aria-label="Pyro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    ** Model **
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    ** Training **
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-12" class="md-nav__link">
-    External 1.2
+  <a href="#tensorflow-probability" class="md-nav__link">
+    TensorFlow Probability
   </a>
+  
+    <nav class="md-nav" aria-label="TensorFlow Probability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model_1" class="md-nav__link">
+    ** Model **
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keras-training" class="md-nav__link">
+    ** Keras Training **
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#external-2" class="md-nav__link">
-    External 2
+  <a href="#edward2" class="md-nav__link">
+    Edward2
+  </a>
+  
+    <nav class="md-nav" aria-label="Edward2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model_2" class="md-nav__link">
+    ** Model **
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#external-31" class="md-nav__link">
-    External 3.1
+        
+          <li class="md-nav__item">
+  <a href="#custom-training" class="md-nav__link">
+    ** Custom Training **
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#external-32" class="md-nav__link">
-    External 3.2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#external-33" class="md-nav__link">
-    External 3.3
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -419,7 +456,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/jejjohnson/gp_model_zoo/edit/master/docs/prezi/tf2/docs/plugin/markdown/example.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/jejjohnson/gp_model_zoo/edit/master/docs/other_software.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -427,20 +464,100 @@
                   
                 
                 
-                <h1 id="markdown-demo">Markdown Demo<a class="headerlink" href="#markdown-demo" title="Permanent link">&para;</a></h1>
-<h2 id="external-11">External 1.1<a class="headerlink" href="#external-11" title="Permanent link">&para;</a></h2>
-<p>Content 1.1</p>
-<p>Note: This will only appear in the speaker notes window.</p>
-<h2 id="external-12">External 1.2<a class="headerlink" href="#external-12" title="Permanent link">&para;</a></h2>
-<p>Content 1.2</p>
-<h2 id="external-2">External 2<a class="headerlink" href="#external-2" title="Permanent link">&para;</a></h2>
-<p>Content 2.1</p>
-<h2 id="external-31">External 3.1<a class="headerlink" href="#external-31" title="Permanent link">&para;</a></h2>
-<p>Content 3.1</p>
-<h2 id="external-32">External 3.2<a class="headerlink" href="#external-32" title="Permanent link">&para;</a></h2>
-<p>Content 3.2</p>
-<h2 id="external-33">External 3.3<a class="headerlink" href="#external-33" title="Permanent link">&para;</a></h2>
-<p><img alt="External Image" src="https://s3.amazonaws.com/static.slid.es/logo/v2/slides-symbol-512x512.png" /></p>
+                  <h1>Other software</h1>
+                
+                <h3 id="pyro"><a href="http://pyro.ai/">Pyro</a><a class="headerlink" href="#pyro" title="Permanent link">&para;</a></h3>
+<p>This is my personal defacto library for doing research with GPs with PyTorch. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. I'm more comfortable with PyTorch so it was easy for me to Also pyro has a great <a href="https://forum.pyro.ai/">forum</a> which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. </p>
+<!-- tabs:start -->
+
+<h4 id="model">** Model **<a class="headerlink" href="#model" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="n">kernel2</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">RBF</span><span class="p">(</span>
+    <span class="n">input_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+    <span class="n">variance</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">lengthscale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">gpr_model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GPRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel2</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
+</code></pre></div>
+
+<h4 id="training">** Training **<a class="headerlink" href="#training" title="Permanent link">&para;</a></h4>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># define optimizer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">gpr</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+
+<span class="c1"># define loss function</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">infer</span><span class="o">.</span><span class="n">Trace_ELBO</span><span class="p">()</span><span class="o">.</span><span class="n">differentiable_loss</span>
+<span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1_000</span>
+
+<span class="c1"># typical PyTorch boilerplate code</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">gpr</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">gpr</span><span class="o">.</span><span class="n">guide</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</code></pre></div>
+<!-- tabs:end --></p>
+<p><strong><a href="http://pyro.ai/examples/gp.html">Source</a></strong>: Pyro Docs</p>
+<hr />
+<h3 id="tensorflow-probability"><a href="https://www.tensorflow.org/probability/">TensorFlow Probability</a><a class="headerlink" href="#tensorflow-probability" title="Permanent link">&para;</a></h3>
+<p>This library is built into Tensorflow already and they have a few GP modules that allow you to train GP algorithms. In edition, they have a keras-like GP layer which is very useful for using a GP as a final layer in probabilistic neural networks. The GP community is quite small for TFP so I haven't seen too many examples for this.</p>
+<!-- tabs:start -->
+
+<h4 id="model_1">** Model **<a class="headerlink" href="#model_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">psd_kernels</span><span class="o">.</span><span class="n">ExponentiatedQuadratic</span><span class="p">()</span>
+
+<span class="c1"># Define the model.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">VariationalGaussianProcess</span><span class="p">(</span>
+    <span class="n">num_inducing_points</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> 
+    <span class="n">kernel_provider</span><span class="o">=</span><span class="n">kernel</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<h4 id="keras-training">** Keras Training **<a class="headerlink" href="#keras-training" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Custom Loss Function</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">rv_y</span><span class="p">:</span> <span class="n">rv_y</span><span class="o">.</span><span class="n">variational_loss</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">,</span> 
+    <span class="n">kl_weight</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># TF2.0 Keras Training Loop</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+<!-- tabs:end -->
+
+<hr />
+<h3 id="edward2"><a href="https://github.com/google/edward2">Edward2</a><a class="headerlink" href="#edward2" title="Permanent link">&para;</a></h3>
+<p>This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras <code>model.fit()</code>. With this API, we will be able to prototype very quickly and really start applying GPs out-of-the-box. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.</p>
+<!-- tabs:start -->
+
+<h4 id="model_2">** Model **<a class="headerlink" href="#model_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">ExponentiatedQuadratic</span><span class="p">()</span>
+
+<span class="c1"># Define the model.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SparseGaussianProcess</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_inducing</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">covariance_fn</span><span class="o">=</span><span class="n">kernel</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="custom-training">** Custom Training **<a class="headerlink" href="#custom-training" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Custom Loss Function</span>
+<span class="k">def</span> <span class="nf">loss_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+  <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+  <span class="n">nll</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+  <span class="n">kl</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_dataset_size</span>
+  <span class="k">return</span> <span class="n">nll</span> <span class="o">+</span> <span class="n">kl</span>
+
+<span class="c1"># TF2.0 Custom Training loop#</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+  <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+  <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>  <span class="c1"># use any optimizer here</span>
+</code></pre></div>
+
+<hr />
                 
               
               
@@ -504,20 +621,20 @@
       
     </div>
     
-      <script src="../../../../../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-      <script src="../../../../../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.f81b9e8b.min.js"></script>
+      <script src="../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "../../../../../..",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "../../../../../../assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
       
-        <script src="../../../../../../javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

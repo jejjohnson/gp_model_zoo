@@ -4,35 +4,15 @@
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/model_zoo/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://jejjohnson.github.io/gp_model_zoo/software/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/applications/</loc>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/intro/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/components/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/deep_gps/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/fourier/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/gps/</loc>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -40,11 +20,15 @@
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/large_scale/</loc>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/sparse_gps/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/latent_variable/</loc>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/inference/</loc>
+     <lastmod>2020-09-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/deep_gps/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -52,31 +36,7 @@
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/neural_networks/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/sparse_gps/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/special/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/uncertain_inputs/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/prezi/tf2/slides/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/prezi/tf2/docs/css/theme/</loc>
-     <lastmod>2020-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://jejjohnson.github.io/gp_model_zoo/prezi/tf2/docs/plugin/markdown/example/</loc>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/softwarev2/</loc>
      <lastmod>2020-09-16</lastmod>
      <changefreq>daily</changefreq>
     </url>

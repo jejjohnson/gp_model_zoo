@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Literature & Code for all things GP">
+        <meta name="description" content="Python Packages for GPs">
       
       
         <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/software/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Software - GP Model Zoo</title>
+        <title>Software</title>
       
     
     
@@ -206,30 +206,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../literature/" title="Literature" class="md-nav__link">
-      Literature
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../model_zoo/" title="Model Zoo" class="md-nav__link">
-      Model Zoo
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -267,58 +243,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#library-classification" class="md-nav__link">
-    Library Classification
+  <a href="#what-is-deep-learning" class="md-nav__link">
+    What is Deep Learning?
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-overview" class="md-nav__link">
-    Quick Overview
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Overview">
+    <nav class="md-nav" aria-label="What is Deep Learning?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sklearn" class="md-nav__link">
-    Sklearn
-  </a>
-  
-    <nav class="md-nav" aria-label="Sklearn">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet" class="md-nav__link">
-    Sample Code Snippet
+  <a href="#anatomy-of-good-dl-software" class="md-nav__link">
+    Anatomy of good DL software
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#model" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictions" class="md-nav__link">
-    ** Predictions **
+  <a href="#convergence-of-the-libraries" class="md-nav__link">
+    Convergence of the Libraries
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+    scikit-learn
+  </a>
   
 </li>
         
@@ -327,93 +289,12 @@
     GPy
   </a>
   
-    <nav class="md-nav" aria-label="GPy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet_1" class="md-nav__link">
-    Sample Code Snippet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model_1" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_1" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictions_1" class="md-nav__link">
-    ** Predictions **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#gpytorch" class="md-nav__link">
     GPyTorch
   </a>
-  
-    <nav class="md-nav" aria-label="GPyTorch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet_2" class="md-nav__link">
-    Sample Code Snippet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model_2" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pyro" class="md-nav__link">
-    Pyro
-  </a>
-  
-    <nav class="md-nav" aria-label="Pyro">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_3" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_2" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -422,91 +303,17 @@
     GPFlow
   </a>
   
-    <nav class="md-nav" aria-label="GPFlow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_4" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_3" class="md-nav__link">
-    ** Training **
-  </a>
-  
 </li>
         
       </ul>
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tensorflow-probability" class="md-nav__link">
-    TensorFlow Probability
-  </a>
-  
-    <nav class="md-nav" aria-label="TensorFlow Probability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_5" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keras-training" class="md-nav__link">
-    ** Keras Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edward2" class="md-nav__link">
-    Edward2
-  </a>
-  
-    <nav class="md-nav" aria-label="Edward2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_6" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-training" class="md-nav__link">
-    ** Custom Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#other-libraries" class="md-nav__link">
     Other Libraries
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -536,18 +343,30 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../intro/" title="Intro to GPs" class="md-nav__link">
+      Intro to GPs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-4">
       Literature
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Literature" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -562,8 +381,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/applications/" title="Applications" class="md-nav__link">
-      Applications
+    <a href="../literature/" title="About" class="md-nav__link">
+      About
     </a>
   </li>
 
@@ -574,8 +393,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/components/" title="Components" class="md-nav__link">
-      Components
+    <a href="../literature/kernels/" title="Kernels" class="md-nav__link">
+      Kernels
     </a>
   </li>
 
@@ -586,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/deep_gps/" title="Deep Gaussian Processes" class="md-nav__link">
-      Deep Gaussian Processes
+    <a href="../literature/sparse_gps/" title="Sparse GPs" class="md-nav__link">
+      Sparse GPs
     </a>
   </li>
 
@@ -598,8 +417,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/fourier/" title="Fourier" class="md-nav__link">
-      Fourier
+    <a href="../literature/inference/" title="Inference" class="md-nav__link">
+      Inference
     </a>
   </li>
 
@@ -610,8 +429,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/gps/" title="Gaussian Processes" class="md-nav__link">
-      Gaussian Processes
+    <a href="../literature/deep_gps/" title="Deep GPs" class="md-nav__link">
+      Deep GPs
     </a>
   </li>
 
@@ -622,8 +441,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/kernels/" title="Kernel Functions" class="md-nav__link">
-      Kernel Functions
+    <a href="../literature/multioutput/" title="Multi-Output" class="md-nav__link">
+      Multi-Output
     </a>
   </li>
 
@@ -634,327 +453,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../literature/large_scale/" title="Large scale" class="md-nav__link">
-      Large scale
+    <a href="../softwarev2/" title="SWE" class="md-nav__link">
+      SWE
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/latent_variable/" title="Latent variable" class="md-nav__link">
-      Latent variable
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/multioutput/" title="Multioutput" class="md-nav__link">
-      Multioutput
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/neural_networks/" title="Neural Networks and Gaussian Processes" class="md-nav__link">
-      Neural Networks and Gaussian Processes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/sparse_gps/" title="Sparse gps" class="md-nav__link">
-      Sparse gps
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/special/" title="Special Models" class="md-nav__link">
-      Special Models
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../literature/uncertain_inputs/" title="Uncertain Inputs in Gaussian Processes" class="md-nav__link">
-      Uncertain Inputs in Gaussian Processes
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Prezi
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Prezi" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Prezi
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1">
-    
-    <label class="md-nav__link" for="nav-6-1">
-      Tf2
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Tf2" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Tf2
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../prezi/tf2/slides/" title="TF2.X and PyTorch" class="md-nav__link">
-      TF2.X and PyTorch
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1-2" type="checkbox" id="nav-6-1-2">
-    
-    <label class="md-nav__link" for="nav-6-1-2">
-      Docs
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Docs" data-md-level="3">
-      <label class="md-nav__title" for="nav-6-1-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Docs
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1-2-1" type="checkbox" id="nav-6-1-2-1">
-    
-    <label class="md-nav__link" for="nav-6-1-2-1">
-      Css
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Css" data-md-level="4">
-      <label class="md-nav__title" for="nav-6-1-2-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Css
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1-2-1-1" type="checkbox" id="nav-6-1-2-1-1">
-    
-    <label class="md-nav__link" for="nav-6-1-2-1-1">
-      Theme
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Theme" data-md-level="5">
-      <label class="md-nav__title" for="nav-6-1-2-1-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Theme
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../prezi/tf2/docs/css/theme/" title="Index" class="md-nav__link">
-      Index
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1-2-2" type="checkbox" id="nav-6-1-2-2">
-    
-    <label class="md-nav__link" for="nav-6-1-2-2">
-      Plugin
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Plugin" data-md-level="4">
-      <label class="md-nav__title" for="nav-6-1-2-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Plugin
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1-2-2-1" type="checkbox" id="nav-6-1-2-2-1">
-    
-    <label class="md-nav__link" for="nav-6-1-2-2-1">
-      Markdown
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Markdown" data-md-level="5">
-      <label class="md-nav__title" for="nav-6-1-2-2-1">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Markdown
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../prezi/tf2/docs/plugin/markdown/example/" title="Markdown Demo" class="md-nav__link">
-      Markdown Demo
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -989,58 +490,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#library-classification" class="md-nav__link">
-    Library Classification
+  <a href="#what-is-deep-learning" class="md-nav__link">
+    What is Deep Learning?
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-overview" class="md-nav__link">
-    Quick Overview
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Overview">
+    <nav class="md-nav" aria-label="What is Deep Learning?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sklearn" class="md-nav__link">
-    Sklearn
-  </a>
-  
-    <nav class="md-nav" aria-label="Sklearn">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet" class="md-nav__link">
-    Sample Code Snippet
+  <a href="#anatomy-of-good-dl-software" class="md-nav__link">
+    Anatomy of good DL software
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#model" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictions" class="md-nav__link">
-    ** Predictions **
+  <a href="#convergence-of-the-libraries" class="md-nav__link">
+    Convergence of the Libraries
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packages" class="md-nav__link">
+    Python Packages
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+    scikit-learn
+  </a>
   
 </li>
         
@@ -1049,93 +536,12 @@
     GPy
   </a>
   
-    <nav class="md-nav" aria-label="GPy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet_1" class="md-nav__link">
-    Sample Code Snippet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model_1" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_1" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictions_1" class="md-nav__link">
-    ** Predictions **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#gpytorch" class="md-nav__link">
     GPyTorch
   </a>
-  
-    <nav class="md-nav" aria-label="GPyTorch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-code-snippet_2" class="md-nav__link">
-    Sample Code Snippet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model_2" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pyro" class="md-nav__link">
-    Pyro
-  </a>
-  
-    <nav class="md-nav" aria-label="Pyro">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_3" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_2" class="md-nav__link">
-    ** Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1144,91 +550,17 @@
     GPFlow
   </a>
   
-    <nav class="md-nav" aria-label="GPFlow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_4" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#training_3" class="md-nav__link">
-    ** Training **
-  </a>
-  
 </li>
         
       </ul>
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tensorflow-probability" class="md-nav__link">
-    TensorFlow Probability
-  </a>
-  
-    <nav class="md-nav" aria-label="TensorFlow Probability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_5" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keras-training" class="md-nav__link">
-    ** Keras Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edward2" class="md-nav__link">
-    Edward2
-  </a>
-  
-    <nav class="md-nav" aria-label="Edward2">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#model_6" class="md-nav__link">
-    ** Model **
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-training" class="md-nav__link">
-    ** Custom Training **
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#other-libraries" class="md-nav__link">
     Other Libraries
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1264,91 +596,176 @@
                 
                 
                   
+                    
+
+
+  
+
+
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs//software.md" title="software.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h1>
-<ul>
-<li>
-<p><a href="#software">Software</a></p>
-</li>
-<li>
-<p><a href="#library-classification">Library Classification</a></p>
-</li>
-<li>
-<p><a href="#quick-overview">Quick Overview</a></p>
-<ul>
-<li><a href="#sklearn">Sklearn</a></li>
-<li><a href="#gpy">GPy</a></li>
-<li><a href="#gpytorch">GPyTorch</a></li>
-<li><a href="#pyro">Pyro</a></li>
-<li><a href="#gpflow">GPFlow</a></li>
-<li><a href="#tensorflow-probability-todo">TensorFlow Probability</a></li>
-<li><a href="#edward2">Edward2</a></li>
-<li><a href="#other-libraries">Other Libraries</a></li>
-</ul>
-</li>
-<li>
-<p><a href="#library-classification-1">Library Classification</a></p>
-</li>
-<li>
-<p><a href="#gpu-support">GPU Support</a></p>
-</li>
-<li>
-<p><a href="#algorithms-implemented">Algorithms Implemented</a></p>
-</li>
-</ul>
-<hr />
 <p>Software for Gaussian processes (GPs) have really been improving for quite a while now. It is now a lot easier to not only to actually use the GP models, but also to modify them improve them.</p>
-<h2 id="library-classification">Library Classification<a class="headerlink" href="#library-classification" title="Permanent link">&para;</a></h2>
+<h2 id="what-is-deep-learning">What is Deep Learning?<a class="headerlink" href="#what-is-deep-learning" title="Permanent link">&para;</a></h2>
+<p>Before we get into the software, I just wanted to quickly define deep learning. A recent debate on <a href="https://twitter.com/yudapearl/status/1215174538087948288">twitter</a> got me thinking about an appropriate definition and it helped me think about how this definition relates to the software. It gave me perspective.</p>
+<p><strong>Definition 1</strong> by Yann LeCun - <a href="https://twitter.com/ylecun/status/1215286749477384192">tweet</a> (paraphrased)</p>
+<blockquote>
+<p>Deep Learning is methodology: building a model by assembling parameterized modules into (possibly dynamic) graphs and optimizing it with gradient-based methods.</p>
+</blockquote>
+<p><strong>Definition II</strong> by Danilo Rezende - <a href="https://twitter.com/DeepSpiker/status/1209862283368816641">tweet</a> (paraphrased)</p>
+<blockquote>
+<p>Deep Learning is a collection of tools to build complex modular differentiable functions.</p>
+</blockquote>
+<p>These definitions are more or less the same: deep learning is a tool to facilitate gradient-based optimization scheme for models. The data we use, the exact way we construct it, and how we train it aren't really in the definition. Most people might think a DL tool is the ensemble of different neural networks like <a href="https://pbs.twimg.com/media/EOWJc2KWsAA8xDF?format=jpg&amp;name=4096x4096">these</a>. But from henceforth, I refer to DL in the terms of facilitating the development of those neural networks, not the network library itself.</p>
+<p>So in terms of DL software, we need only a few components:</p>
+<ul>
+<li>Tensor structures</li>
+<li>Automatic differentiation (AutoGrad)</li>
+<li>Model Framework (Layers, etc)</li>
+<li>Optimizers</li>
+<li>Loss Functions</li>
+</ul>
+<p>Anything built on top of that can be special cases where we need special structures to create models for special cases. The simple example is a Multi-Layer Perceptron (MLP) model where we need some <code>weight</code> parameter, a <code>bias</code> parameter and an <code>activation</code> function. A library that allows you to train this model using an optimizer and a loss function, I would consider this autograd software (e.g. JAX). A library that has this functionality built-in (a.k.a. a <code>layer</code>), I would consider this deep learning software (e.g. TensorFlow, PyTorch). While the only difference is the level of encapsulation, the latter makes it much easier to build '<em>complex modular</em>' neural networks whereas the former, not so much. You could still do it with the autograd library but you would have to design your entire model structure from scratch as well. So, there are still a LOT of things we can do with parameters and autograd alone but I wouldn't classify it as DL software. This isn't super important in the grand scheme of things but I think it's important to think about when creating a programming language and/or package and thinking about the target user.</p>
+<hr />
+<h3 id="anatomy-of-good-dl-software">Anatomy of good DL software<a class="headerlink" href="#anatomy-of-good-dl-software" title="Permanent link">&para;</a></h3>
+<p>Francios Chollet (the creator of <code>keras</code>) has been very vocal about the benefits of how TensorFlow caters to a broad audience ranging from applied users and algorithm developers. Both sides of the audience have different needs so building software for both audiences can very, very challenging. Below I have included a really interesting figure which highlights the axis of operations.</p>
 <p align="center">
-  <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/spectrum-of-workflows.png" alt="drawing" width="600"/>
+
+  <img src="https://keras-dev.s3.amazonaws.com/tutorials-img/spectrum-of-workflows.png" alt="drawing" width="800"/>
 </p>
 
 <p><strong>Photo Credit</strong>: Francois Chollet <a href="https://twitter.com/fchollet/status/1052228463300493312/photo/1">Tweet</a></p>
-<p>So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users. But libraries typically can be classified on this spectrum. The same breakdown of Deep Learning algorithms into Models and Training can be done for GPs as well. Since GPs aren't super mainstream yet, most modern large scale GP libraries will fall in the fully flexible category. But recently, with the edition of TensorFlow probability and Edward2, we have more modern GPs that will fall into the Easy to use category (but not necessarily easy to train...).</p>
-<h2 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link">&para;</a></h2>
+<p>As shown, there are two axis which define one way to split the DL software styles: the x-axis covers the <strong>model</strong> construction process and the y-axis covers the <strong>training</strong> process. I am sure that this is just one way to break apart DL software but I find it a good abstract way to look at it because I find that we can classify most use cases somewhere along this graph. I'll briefly outline a few below:</p>
+<ul>
+<li><strong>Case 1</strong>: All I care about is using a prebuilt model on some new data that my company has given me. I would probably fall somewhere on the upper right corner of the graph with the <code>Sequential</code> model and the built-in <code>training</code> scheme.</li>
+<li><strong>Case II</strong>: I need a slightly more complex training scheme because I want to learn two models that share hidden nodes but they're not the same size. I also want to do some sort of cycle training, i.e. train one model first and then train the other. Then I would probably fall somewhere near the middle, and slightly to the right with the <code>Functional</code> model and a custom <code>training</code> scheme.</li>
+<li><strong>Case III</strong>: I am a DL researcher and I need to control every single aspect of my model. I belong to the left and on the bottom with the full <code>subclass</code> model and completely custom <code>training</code> scheme.</li>
+</ul>
+<p>So there are many more special cases but by now you can imagine that most general cases can be found on the graph. I would like to stress that designing software to do all of these cases is not easy as these cases require careful design individually. It needs to be flexible.</p>
+<p>Maybe I'm old school, but I like the modular way of design. So in essence, I think we should design libraries that focus on one aspect, one audience and do it well. I also like a standard practice and integration so that everything can fit together in the end and we can transfer information or products from one part to another. This is similar to how the Japanese revolutionized building cars by having one machine do one thing at a time and it all fit together via a standard assembly line. So in the end, I want people to be able to mix and match as they see fit. To try to please everyone with "<em>one DL library that rules them all</em>" seems a bit silly in my opinion because you're spreading out your resources. But then again, I've never built software from scratch and I'm not a mega coorperation like Google or Facebook, so what do I know? I'm just one user...in a sea of many.</p>
+<blockquote>
+<p>With great power, comes great responsibility - Uncle Ben</p>
+</blockquote>
+<p>On a side note, when you build popular libraries, you shape how a massive amount of people think about the problem. Just like expressiveness is only as good as your vocabulary and limited by your language, the software you create actively morphs how your users think about framing and solving their problems. Just something to think about.</p>
 <hr />
-<h3 id="sklearn"><a href="https://scikit-learn.org/stable/modules/gaussian_process.html">Sklearn</a><a class="headerlink" href="#sklearn" title="Permanent link">&para;</a></h3>
-<p>The GP implementation in the <a href="https://scikit-learn.org/stable/modules/gaussian_process.html">scikit-learn</a> library are already sufficient to get people started with GPs in scikit-learn. Often times when I'm data wrangling and I'm exploring possible algorithms, I'll already have the sklearn library installed in my conda environment so I typically start there myself especially for datasets less than 2,000 points. </p>
-<h4 id="sample-code-snippet">Sample Code Snippet<a class="headerlink" href="#sample-code-snippet" title="Permanent link">&para;</a></h4>
-<p>The sklearn implementation is as basic as it gets. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.</p>
-<!-- tabs:start -->
+<h3 id="convergence-of-the-libraries">Convergence of the Libraries<a class="headerlink" href="#convergence-of-the-libraries" title="Permanent link">&para;</a></h3>
+<p>Originally, there was a lot of differences between the deep learning libraries, e.g. <code>static</code> v.s. <code>dynamic</code>, <code>Sequential</code> v.s. <code>Subclass</code>. But now they are all starting to converge or at least have similar ways of constructing models and training. Below is a quick example of 4 deep learning libraries. If you know your python DL libraries trivia, try and guess which library do you think it is. Click on the details below to find out the answer.</p>
+<p align="center">
+  <img src="https://pbs.twimg.com/media/DppB0xJUUAAjGi-?format=jpg&name=4096x4096" alt="drawing" width="800"/>
+</p>
 
-<h4 id="model">** Model **<a class="headerlink" href="#model" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
-<span class="n">kernel</span> <span class="o">=</span> \
-<span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> \
-  <span class="o">+</span> <span class="n">WhiteKernel</span><span class="p">(</span><span class="n">noise_level</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<p><strong>Photo Credit</strong>: Francois Chollet <a href="https://twitter.com/fchollet/status/1052228463300493312/photo/1">Tweet</a></p>
+<details class="details"><summary><strong>Answer</strong></summary><p><center></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gluon</td>
+<td>TensorFlow</td>
+</tr>
+<tr>
+<td>PyTorch</td>
+<td>Chainer</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+</details>
+<p>It does begs the question: if all of the libraries are basically the same, why are their multiple libraries? That's a great question and I do not know the answer to that. I think options are good as competition generally stimulates innovation. But at some point, there should be a limit no? But then again, the companies backing each of these languages are quite huge (Google, Microsoft, Uber, Facebook, etc). So I'm sure they have more than enough employees to justify the existence of their own library. But then again, imagine if they all put their efforts into making one great library. It could be an epic success! Or an epic disaster. I guess we will never know.</p>
+<p>So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users. But libraries typically can be classified on this spectrum. The same breakdown of Deep Learning algorithms into Models and Training can be done for GPs as well. Since GPs aren't super mainstream yet, most modern large scale GP libraries will fall in the fully flexible category. But recently, with the edition of TensorFlow probability and Edward2, we have more modern GPs that will fall into the Easy to use category (but not necessarily easy to train...).</p>
+<details class="warning"><summary>Rant</summary><p>One thing I don't like about the GP community is that it is quite split in terms of SOTA. This is reflected in the software. You'll have Andrew Gordon Wilsons spin-off that works a lot with Black-Box Matrix Multiplication (BBMMs) and then you'll have James Hensen's spin-off group that works a lot with methods of inducing points. The GPyTorch library scales amazingly but the GPFlow library has the best multi-output configuration I've ever seen.</p>
+</details>
+<hr />
+<h2 id="python-packages">Python Packages<a class="headerlink" href="#python-packages" title="Permanent link">&para;</a></h2>
+<p>Below I list all of the GP packages available in Python.</p>
+<hr />
+<h3 id="scikit-learn"><a href="https://scikit-learn.org/stable/modules/gaussian_process.html">scikit-learn</a><a class="headerlink" href="#scikit-learn" title="Permanent link">&para;</a></h3>
+<figure>
+  <center>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1200px-Scikit_learn_logo_small.svg.png" width="100" />
+  <figcaption>Image caption</figcaption>
+  </center>
+</figure>
+
+<p><a href="https://GitHub.com/scikit-learn/scikit-learn/stargazers/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/scikit-learn/scikit-learn.svg?style=social&amp;label=Star&amp;maxAge=2592000" /></a> <a href="https://GitHub.com/scikit-learn/scikit-learn/issues/"><img alt="GitHub issues" src="https://img.shields.io/github/issues/scikit-learn/scikit-learn.svg" /></a> <a href="https://GitHub.com/scikit-learn/scikit-learn/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues-closed" src="https://img.shields.io/github/issues-closed/scikit-learn/scikit-learn.svg" /></a> <a href="https://GitHub.com/scikit-learn/scikit-learn/pull/"><img alt="GitHub pull-requests" src="https://img.shields.io/github/issues-pr/scikit-learn/scikit-learn.svg" /></a> <a href="https://GitHub.com/scikit-learn/scikit-learn/pull/"><img alt="GitHub pull-requests closed" src="https://img.shields.io/github/issues-pr-closed/scikit-learn/scikit-learn.svg" /></a></p>
+<p>So we can start with the one that everyone has installed on their machine. The GP implementation in the <a href="https://scikit-learn.org/stable/modules/gaussian_process.html">scikit-learn</a> library are already sufficient to get people started with GPs in scikit-learn. Often times when I'm data wrangling and I'm exploring possible algorithms, I'll already have the sklearn library installed in my conda environment so I typically start there myself especially for datasets with 100 points.</p>
+<details class="details"><summary>Sample Code</summary><p>The sklearn implementation is as basic as it gets. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.</p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Model</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># initialize kernel function</span>
+<span class="n">kernel1</span> <span class="o">=</span> <span class="n">RBF</span><span class="p">(</span><span class="n">length_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> \
+<span class="n">kernel2</span> <span class="o">=</span> <span class="n">WhiteKernel</span><span class="p">(</span><span class="n">noise_level</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel1</span> <span class="o">+</span> <span class="n">kernel2</span>
+
+<span class="c1"># initialize noise parameter</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1e-5</span>
+
+<span class="c1"># initialize optimizer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;fmin_l_bfgs_b&quot;</span>
 
 <span class="c1"># initialize GP model</span>
 <span class="n">gpr_model</span> <span class="o">=</span> <span class="n">GaussianProcessRegressor</span><span class="p">(</span>
   <span class="n">kernel</span><span class="o">=</span><span class="n">kernel_gpml</span><span class="p">,</span>
-  <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-  <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
-  <span class="n">normalize_y</span><span class="o">=</span><span class="kc">True</span>
+  <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+  <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span> 
 <span class="p">)</span>
 </code></pre></div>
 
-<h4 id="training">** Training **<a class="headerlink" href="#training" title="Permanent link">&para;</a></h4>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Training</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1"># train GP model</span>
 <span class="n">gpr_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
 </code></pre></div>
 
-<h4 id="predictions">** Predictions **<a class="headerlink" href="#predictions" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># get predictions</span>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Predictions</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># get predictions</span>
 <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_std</span> <span class="o">=</span> <span class="n">gpr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">,</span> <span class="n">return_std</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<!-- tabs:end --></p>
+
+</div>
+</div>
+<!-- tabs:end -->
+
+</details>
 <p>Again, this is the simplest API you will find and for small data problems, you'll find that this works fine out-of-the-box. I highly recommend this when starting especially if you're not a GP connoisseur. What I showed above is as complicated as it gets. Any more customization outside of this is a bit difficult as the scikit-learn API for GPs isn't very modular and wasn't designed as such. But as a first pass, it's good enough.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Resource</p>
+<ul>
+<li>By far the best you'll see is the <a href="https://scikit-learn.org/stable/modules/gaussian_process.html#gaussian-process">scikit-learn</a> documentation.</li>
+<li>If you're feeling adventurous, you can check out how some people have extended this with <a href="https://github.com/jmetzen/gp_extras">additional kernels</a>.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Verdict</p>
+<p>✔️ Simple</p>
+<p>✔️ Standard</p>
+<p>❌ Simple. No SOTA. No Sparse models. No tricks.</p>
+<p>❌ Hard to modify individual parts.</p>
+<p>❌ No Autograd</p>
+</div>
 <hr />
 <h3 id="gpy"><a href="https://sheffieldml.github.io/GPy/">GPy</a><a class="headerlink" href="#gpy" title="Permanent link">&para;</a></h3>
-<p>GPy is the most <strong>comprehensive research library</strong> I have found to date. It has the most number of different special GP "corner case" algorithms of any package available. The GPy <a href="https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html">examples</a> and <a href="https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb">tutorials</a> are very comprehensive. The major caveat is that the <a href="https://gpy.readthedocs.io/en/deploy/">documentation</a> is very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on because there is no automatic differentiation to reduce the computations so there can be a bit of redundancy. I typically wrap some typical GP algorithms with some common parameters that I use within the sklearn <code>.fit()</code>, <code>.predict()</code>, <code>.score()</code> framework and call it a day. The standard algorithms will include the Exact GP, the Sparse GP, and Bayesian GPLVM. A <strong>warning</strong> though: this library does not get updated very often so you will likely run into very silly bugs if you don't use strict package versions that are recommended. There are rumors of a GPy2 library that's based on <a href="https://github.com/amzn/MXFusion">MXFusion</a> but I have failed to see anything concrete yet. </p>
-<p><strong>Idea</strong>: Some of the main algorithms such as the sparse GP implementations are mature enough to be dumped into the sklearn library. For small-medium data problems, I think this would be extremely beneficial to the community. Some of the key papers like the (e.g. the <a href="https://papers.nips.cc/paper/2857-sparse-gaussian-processes-using-pseudo-inputs">FITC-SGP</a>, <a href="http://proceedings.mlr.press/v5/titsias09a.html">VFE-SGP</a>, <a href="https://dl.acm.org/doi/10.1145/1273496.1273546">Heteroscedastic GP</a>, <a href="https://dl.acm.org/doi/10.5555/2981345.2981387">GP-LVM</a>) certainly pass some of the <a href="https://scikit-learn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms">strict sklearn criteria</a>. But I suspect that it wouldn't be a joy to code because you would need to do some of the gradients from scratch. I do feel like it might make GPs a bit more popular if some of the mainstream methods were included in the scikit-learn library.</p>
-<h4 id="sample-code-snippet_1">Sample Code Snippet<a class="headerlink" href="#sample-code-snippet_1" title="Permanent link">&para;</a></h4>
-<p>The GPy implementation is also very basic. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.</p>
-<!-- tabs:start -->
-
-<h4 id="model_1">** Model **<a class="headerlink" href="#model_1" title="Permanent link">&para;</a></h4>
+<p><a href="https://GitHub.com/SheffieldML/GPy/stargazers/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/SheffieldML/GPy.svg?style=social&amp;label=Star&amp;maxAge=2592000" /></a> <a href="https://GitHub.com/SheffieldML/GPy/issues/"><img alt="GitHub issues" src="https://img.shields.io/github/issues/SheffieldML/GPy.svg" /></a> <a href="https://GitHub.com/SheffieldML/GPy/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues-closed" src="https://img.shields.io/github/issues-closed/SheffieldML/GPy.svg" /></a> <a href="https://GitHub.com/SheffieldML/GPy/pull/"><img alt="GitHub pull-requests" src="https://img.shields.io/github/issues-pr/SheffieldML/GPy.svg" /></a> <a href="https://GitHub.com/SheffieldML/GPy/pull/"><img alt="GitHub pull-requests closed" src="https://img.shields.io/github/issues-pr-closed/SheffieldML/GPy.svg" /></a></p>
+<p>GPy is the most <strong>comprehensive research library</strong> I have found to date. It has the most number of different special GP "corner case" algorithms of any package available. The GPy <a href="https://gpy.readthedocs.io/en/deploy/_modules/GPy/examples/regression.html">examples</a> and <a href="https://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/GPy/index.ipynb">tutorials</a> are very comprehensive. The major caveat is that the <a href="https://gpy.readthedocs.io/en/deploy/">documentation</a> is very difficult to navigate. I also found the code base to be a bit difficult to really understand what's going on because there is no automatic differentiation to reduce the computations so there can be a bit of redundancy. I typically wrap some typical GP algorithms with some common parameters that I use within the sklearn <code>.fit()</code>, <code>.predict()</code>, <code>.score()</code> framework and call it a day. The standard algorithms will include the Exact GP, the Sparse GP, and Bayesian GPLVM.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This library does not get updated very often so you will likely run into very silly bugs if you don't use strict package versions that are recommended. There are rumors of a GPy2 library that's based on <a href="https://github.com/amzn/MXFusion">MXFusion</a> but I have failed to see anything concrete yet.</p>
+</div>
+<p>??? note "Idea:
+    <strong>Idea</strong>: Some of the main algorithms such as the sparse GP implementations are mature enough to be dumped into the sklearn library. For small-medium data problems, I think this would be extremely beneficial to the community. Some of the key papers like the (e.g. the <a href="https://papers.nips.cc/paper/2857-sparse-gaussian-processes-using-pseudo-inputs">FITC-SGP</a>, <a href="http://proceedings.mlr.press/v5/titsias09a.html">VFE-SGP</a>, <a href="https://dl.acm.org/doi/10.1145/1273496.1273546">Heteroscedastic GP</a>, <a href="https://dl.acm.org/doi/10.5555/2981345.2981387">GP-LVM</a>) certainly pass some of the <a href="https://scikit-learn.org/stable/faq.html#what-are-the-inclusion-criteria-for-new-algorithms">strict sklearn criteria</a>. But I suspect that it wouldn't be a joy to code because you would need to do some of the gradients from scratch. I do feel like it might make GPs a bit more popular if some of the mainstream methods were included in the scikit-learn library.</p>
+<details class="details"><summary>Sample Code</summary><p>The GPy implementation is also very basic. If you are familiar with the scikit-learn API then you will have no problems using the GPR module. It's a three step process with very little things to change.</p>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Model</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
 <span class="n">kernel</span> <span class="o">=</span> <span class="n">GPy</span><span class="o">.</span><span class="n">kern</span><span class="o">.</span><span class="n">RBF</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">lengthscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
 
@@ -1359,184 +776,264 @@
 <span class="p">)</span>
 </code></pre></div>
 
-<h4 id="training_1">** Training **<a class="headerlink" href="#training_1" title="Permanent link">&para;</a></h4>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Training</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1"># train GP model</span>
-<span class="n">m</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">gpr_model</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-<h4 id="predictions_1">** Predictions **<a class="headerlink" href="#predictions_1" title="Permanent link">&para;</a></h4>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Predictions</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1"># get predictions</span>
 <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_std</span> <span class="o">=</span> <span class="n">gpr_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
 </code></pre></div>
 
-<!-- tabs:end -->
-
+</div>
+</div>
+</details>
 <p>So as you can see, the API is very similar to the scikit-learn API with some small differences; the main one being that you have to initiate the GP model with the data. The rest is fairly similar. You should definitely take a look at the GPy docs if you are interested in some more advanced examples.</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Resource</p>
+<ul>
+<li>By far the best you'll find are the GP Summer school <a href="http://gpss.cc/gpss20/labs">labs</a> that happen <a href="http://gpss.cc/">every year</a>. (<a href="http://gpss.cc/gpss20/"><strong>This year is virtual!</strong></a>)</li>
+<li>They have a lot of <a href="https://gpy.readthedocs.io/en/devel/GPy.examples.html">good examples</a> on the website.</li>
+<li>The documentation is <a href="https://gpy.readthedocs.io/en/devel/index.html">very extensive</a> but very difficult to get to the nitty gritty details.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Verdict</p>
+<p>✔️ Simple</p>
+<p>✔️ Legacy</p>
+<p>❌ Not industry battle-tested.</p>
+<p>❌ No Autograd</p>
+</div>
 <hr />
 <h3 id="gpytorch"><a href="https://gpytorch.ai/">GPyTorch</a><a class="headerlink" href="#gpytorch" title="Permanent link">&para;</a></h3>
+<p><a href="https://GitHub.com/cornellius-gp/gpytorch/stargazers/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/cornellius-gp/gpytorch.svg?style=social&amp;label=Star&amp;maxAge=2592000" /></a> <a href="https://GitHub.com/cornellius-gp/gpytorch/issues/"><img alt="GitHub issues" src="https://img.shields.io/github/issues/cornellius-gp/gpytorch.svg" /></a> <a href="https://GitHub.com/cornellius-gp/gpytorch/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues-closed" src="https://img.shields.io/github/issues-closed/cornellius-gp/gpytorch.svg" /></a> <a href="https://GitHub.com/cornellius-gp/gpytorch/pull/"><img alt="GitHub pull-requests" src="https://img.shields.io/github/issues-pr/cornellius-gp/gpytorch.svg" /></a> <a href="https://GitHub.com/cornellius-gp/gpytorch/pull/"><img alt="GitHub pull-requests closed" src="https://img.shields.io/github/issues-pr-closed/cornellius-gp/gpytorch.svg" /></a></p>
 <p>This is my defacto library for <strong>applying GPs</strong> to large scale data. Anything above 10,000 points, and I will resort to this library. It has GPU acceleration and a large suite of different GP algorithms depending upon your problem. I think this is currently the dominant GP library for actually using GPs and I highly recommend it for utility. They have many options available ranging from latent variables to multi-outputs. Recently they've just revamped their entire library and documentation with some I still find it a bit difficult to really customize anything under the hood. But if you can figure out how to mix and match each of the modular parts, then it should work for you.</p>
-<h4 id="sample-code-snippet_2">Sample Code Snippet<a class="headerlink" href="#sample-code-snippet_2" title="Permanent link">&para;</a></h4>
-<p>In GPyTorch, the library follows the pythonic way of coding that became super popular from deep learning frameworks such as Chainer and subsequently PyTorch. It consists of a 4 step process which is seen in the snippet below.</p>
-<!-- tabs:start -->
-
-<h4 id="model_2">** Model **<a class="headerlink" href="#model_2" title="Permanent link">&para;</a></h4>
+<details class="details"><summary>Sample Code</summary><p>In GPyTorch, the library follows the pythonic way of coding that became super popular from deep learning frameworks such as Chainer and subsequently PyTorch. It consists of a 4 step process which is seen in the snippet below.</p>
+<p><strong><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/01_Exact_GPs/Simple_GP_Regression.html">Source</a></strong> - GPyTorch Docs</p>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Model</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyGP</span><span class="p">(</span><span class="n">gpytorch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ExactGP</span><span class="p">):</span>
-     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">):</span>
-         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
 
-         <span class="c1"># Mean Function</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">means</span><span class="o">.</span><span class="n">ZeroMean</span><span class="p">()</span>
+        <span class="c1"># Mean Function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">means</span><span class="o">.</span><span class="n">ZeroMean</span><span class="p">()</span>
 
-         <span class="c1"># Kernel Function</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">ScaleKernel</span><span class="p">(</span><span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">RBFKernel</span><span class="p">())</span>
+        <span class="c1"># Kernel Function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">ScaleKernel</span><span class="p">(</span><span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">RBFKernel</span><span class="p">())</span>
 
-     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-         <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-         <span class="n">covar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-         <span class="k">return</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">MultivariateNormal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covar</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">covar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">MultivariateNormal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covar</span><span class="p">)</span>
 
- <span class="c1"># train_x = ...; train_y = ...</span>
- <span class="n">likelihood</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">likelihoods</span><span class="o">.</span><span class="n">GaussianLikelihood</span><span class="p">()</span> <span class="n">model</span> <span class="o">=</span> <span class="n">MyGP</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
- <span class="n">model</span> <span class="o">=</span> <span class="n">MyGP</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
+<span class="c1"># train_x = ...; train_y = ...</span>
+<span class="n">likelihood</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">likelihoods</span><span class="o">.</span><span class="n">GaussianLikelihood</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MyGP</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
 </code></pre></div>
 
-<!-- tabs:end -->
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Training</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># Put model in train mode</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">likelihood</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 
-<p><strong><a href="https://gpytorch.readthedocs.io/en/latest/models.html#exactgp">Source</a></strong> - GPyTorch Docs</p>
-<p>I am only scratching the surface with this quick snippet. But I wanted to highlight how this fits into</p>
-<hr />
-<h3 id="pyro"><a href="http://pyro.ai/">Pyro</a><a class="headerlink" href="#pyro" title="Permanent link">&para;</a></h3>
-<p>This is my personal defacto library for doing research with GPs with PyTorch. In particular for GPs, I find the library to be super easy to mix and match priors and parameters for my GP models. I'm more comfortable with PyTorch so it was easy for me to Also pyro has a great <a href="https://forum.pyro.ai/">forum</a> which is very active and the devs are always willing to help. It is backed by Uber and built off of PyTorch so it has a strong dev community. I also talked to the devs at the ICML conference in 2019 and found that they were super open and passionate about the project. </p>
-<!-- tabs:start -->
+<span class="c1"># Define optimizer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 
-<h4 id="model_3">** Model **<a class="headerlink" href="#model_3" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="n">kernel2</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">RBF</span><span class="p">(</span>
-    <span class="n">input_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-    <span class="n">variance</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
-    <span class="n">lengthscale</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">gpr_model</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GPRegression</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kernel2</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
-</code></pre></div>
+<span class="c1"># Define loss function the marginal log likelihood</span>
+<span class="n">mll</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">mlls</span><span class="o">.</span><span class="n">ExactMarginalLogLikelihood</span><span class="p">(</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
 
-<h4 id="training_2">** Training **<a class="headerlink" href="#training_2" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><span class="c1"># define optimizer</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">gpr</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
-
-<span class="c1"># define loss function</span>
-<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">pyro</span><span class="o">.</span><span class="n">infer</span><span class="o">.</span><span class="n">Trace_ELBO</span><span class="p">()</span><span class="o">.</span><span class="n">differentiable_loss</span>
-<span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1_000</span>
-
-<span class="c1"># typical PyTorch boilerplate code</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
+<span class="c1"># training step</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">training_iter</span><span class="p">):</span>
+    <span class="c1"># Zero gradients from previous iteration</span>
     <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">gpr</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">gpr</span><span class="o">.</span><span class="n">guide</span><span class="p">)</span>
+    <span class="c1"># Output from model</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+    <span class="c1"># Calc loss</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">mll</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+    <span class="c1">#  backprop gradients</span>
     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iter </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1"> - Loss: </span><span class="si">%.3f</span><span class="s1">   lengthscale: </span><span class="si">%.3f</span><span class="s1">   noise: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">training_iter</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">covar_module</span><span class="o">.</span><span class="n">base_kernel</span><span class="o">.</span><span class="n">lengthscale</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">likelihood</span><span class="o">.</span><span class="n">noise</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="p">))</span>
     <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </code></pre></div>
-<!-- tabs:end --></p>
-<p><strong><a href="http://pyro.ai/examples/gp.html">Source</a></strong>: Pyro Docs</p>
+
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">Predictions</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># get the predictive mean class</span>
+<span class="n">f_preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+
+<span class="c1"># can do the same with we want the noise model</span>
+<span class="n">y_preds</span> <span class="o">=</span> <span class="n">likelihood</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">test_x</span><span class="p">))</span>
+
+<span class="c1"># predictive mean</span>
+<span class="n">f_mean</span> <span class="o">=</span> <span class="n">f_preds</span><span class="o">.</span><span class="n">mean</span>
+
+<span class="c1"># predictive variance</span>
+<span class="n">f_var</span> <span class="o">=</span> <span class="n">f_preds</span><span class="o">.</span><span class="n">variance</span>
+
+<span class="c1"># predictive covariance</span>
+<span class="n">f_covar</span> <span class="o">=</span> <span class="n">f_preds</span><span class="o">.</span><span class="n">covariance_matrix</span>
+
+<span class="c1"># sample from posterior distribution</span>
+<span class="n">f_samples</span> <span class="o">=</span> <span class="n">f_preds</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">sample_shape</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">1000</span><span class="p">,))</span>
+</code></pre></div>
+
+</div>
+</div>
+</details>
+<p>I am only scratching the surface with this quick snippet. But I wanted to highlight how this fits into</p>
+<div class="admonition tip">
+<p class="admonition-title">Best Resource</p>
+<ul>
+<li>By far the best you'll see are form the <a href="https://gpytorch.ai/"><strong>GPyTorch documentation</strong></a>:<ul>
+<li><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/01_Exact_GPs/Simple_GP_Regression.html">The Tutorial</a></li>
+<li><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/00_Basic_Usage/index.html">The Examples</a>. There are a lot.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/bayesgroup/deepbayes-2019/blob/master/seminars/day4/gp/GP/gp_solution.ipynb">Gaussian Processes (GP) with GPyTorch</a> by <a href="https://bayesgroup.ru/">DeepBayes.ru</a></p>
+<blockquote>
+<p>A good tutorial from an outside perspective. Similar to the GPy tutorial.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Verdict</p>
+<p>✔️ All working pieces to GP Model customizable</p>
+<p>✔️ Lots of SOTA models</p>
+<p>✔️ Super responsive devs</p>
+<p>✔️ Integration with PyTorch and Pyro</p>
+<p>❌ Difficult for absolute beginners</p>
+<p>❌ Very difficult to contribute actual code</p>
+<p>❌ Boilerplate Code</p>
+</div>
 <hr />
 <h3 id="gpflow"><a href="https://github.com/GPflow/GPflow">GPFlow</a><a class="headerlink" href="#gpflow" title="Permanent link">&para;</a></h3>
+<figure>
+  <center>
+  <img src="https://github.com/GPflow/GPflow/raw/develop/doc/source/_static/gpflow_logo.svg" width="100" />
+  <figcaption>GPFlow Logo</figcaption>
+  </center>
+</figure>
+
+<p><a href="https://GitHub.com/GPflow/GPflow/stargazers/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/GPflow/GPflow.svg?style=social&amp;label=Star&amp;maxAge=2592000" /></a> <a href="https://GitHub.com/GPflow/GPflow/issues/"><img alt="GitHub issues" src="https://img.shields.io/github/issues/GPflow/GPflow.svg" /></a> <a href="https://GitHub.com/GPflow/GPflow/issues?q=is%3Aissue+is%3Aclosed"><img alt="GitHub issues-closed" src="https://img.shields.io/github/issues-closed/GPflow/GPflow.svg" /></a> <a href="https://GitHub.com/GPflow/GPflow/pull/"><img alt="GitHub pull-requests" src="https://img.shields.io/github/issues-pr/GPflow/GPflow.svg" /></a> <a href="https://GitHub.com/GPflow/GPflow/pull/"><img alt="GitHub pull-requests closed" src="https://img.shields.io/github/issues-pr-closed/GPflow/GPflow.svg" /></a></p>
 <p>What Pyro is to PyTorch, GPFlow is to TensorFlow. This library is the successor to the GPy library. It is very comprehensive with a lot of SOTA algorithms. I definitely think ifA few of the devs from GPy went to GPFlow so it has a very similar style as GPy. But it is a lot cleaner due to the use of autograd which eliminates all of the code used to track the gradients. Many researchers use this library as a backend for their own research code so I would say it is the second most used library in the research domain. I didn't find it particularly easy to customize in tensorflow =&lt;1.1 because of the session tracking which wasn't clear to me from the beginning. But now with the addition of tensorflow 2.0 and GPFlow adopting that new framework, I am eager to try it out again. They have a new <a href="https://github.com/GPflow/GPflow#the-gpflow-community">public slack group</a> so their network is going to grow hopefully.</p>
 <!-- tabs:start -->
 
-<h4 id="model_4">** Model **<a class="headerlink" href="#model_4" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
-<span class="n">k</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">Matern52</span><span class="p">()</span>
+<details class="details"><summary>Sample Code</summary><div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Model</label><div class="tabbed-content">
+<p><strong>Source</strong>: <a href="https://gpflow.readthedocs.io/en/develop/notebooks/basics/regression.html">GPFlow Docs</a></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># kernel function</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">Matern52</span><span class="p">()</span>
+
+<span class="c1"># mean function</span>
+<span class="n">meanf</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">mean_functions</span><span class="o">.</span><span class="n">Linear</span><span class="p">()</span>
 
 <span class="c1"># define GP model</span>
-<span class="n">gpr_model</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GPR</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span> <span class="n">kernel</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">mean_function</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">gpr_model</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">GPR</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span> <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">mean_function</span><span class="o">=</span><span class="n">meanf</span>
+<span class="p">)</span>
 </code></pre></div>
 
-<h4 id="training_3">** Training **<a class="headerlink" href="#training_3" title="Permanent link">&para;</a></h4>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Training</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1"># define optimizer</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Scipy</span><span class="p">()</span>
 
-<span class="c1"># define loss function</span>
-<span class="k">def</span> <span class="nf">objective_closure</span><span class="p">():</span>
-    <span class="k">return</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">log_marginal_likelihood</span><span class="p">()</span>
+<span class="c1"># optimize function</span>
 <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1_000</span>
 
-<span class="c1"># optimize function</span>
-<span class="n">opt_logs</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">objective_closure</span><span class="p">,</span>
-                        <span class="n">m</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">,</span>
-                        <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
-</code></pre></div>
-
-<!-- tabs:end -->
-
-<p><strong>Source</strong>: <a href="https://gpflow.readthedocs.io/en/develop/notebooks/basics/regression.html">GPFlow Docs</a></p>
-<hr />
-<h3 id="tensorflow-probability"><a href="https://www.tensorflow.org/probability/">TensorFlow Probability</a><a class="headerlink" href="#tensorflow-probability" title="Permanent link">&para;</a></h3>
-<p>This library is built into Tensorflow already and they have a few GP modules that allow you to train GP algorithms. In edition, they have a keras-like GP layer which is very useful for using a GP as a final layer in probabilistic neural networks. The GP community is quite small for TFP so I haven't seen too many examples for this.</p>
-<!-- tabs:start -->
-
-<h4 id="model_5">** Model **<a class="headerlink" href="#model_5" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
-<span class="n">kernel</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">psd_kernels</span><span class="o">.</span><span class="n">ExponentiatedQuadratic</span><span class="p">()</span>
-
-<span class="c1"># Define the model.</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">VariationalGaussianProcess</span><span class="p">(</span>
-    <span class="n">num_inducing_points</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> 
-    <span class="n">kernel_provider</span><span class="o">=</span><span class="n">kernel</span>
+<span class="n">opt_logs</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">training_loss</span><span class="p">,</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="n">num_steps</span><span class="p">)</span>
 <span class="p">)</span>
 </code></pre></div>
 
-<h4 id="keras-training">** Keras Training **<a class="headerlink" href="#keras-training" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Custom Loss Function</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">rv_y</span><span class="p">:</span> <span class="n">rv_y</span><span class="o">.</span><span class="n">variational_loss</span><span class="p">(</span>
-    <span class="n">y</span><span class="p">,</span> 
-    <span class="n">kl_weight</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="p">)</span>
-
-<span class="c1"># TF2.0 Keras Training Loop</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div>
-
-<!-- tabs:end -->
-
-<hr />
-<h3 id="edward2"><a href="https://github.com/google/edward2">Edward2</a><a class="headerlink" href="#edward2" title="Permanent link">&para;</a></h3>
-<p>This is the most exciting one in my opinion because this library will allow GPs (and Deep GPs) to be used for the most novice users and engineers. It features the GP and sparse GP as bayesian keras-like layers. So you can stack as many of them as you want and then call the keras <code>model.fit()</code>. With this API, we will be able to prototype very quickly and really start applying GPs out-of-the-box. I think this is a really great feature and will put GPs on the map because it doesn't get any easier than this.</p>
-<!-- tabs:start -->
-
-<h4 id="model_6">** Model **<a class="headerlink" href="#model_6" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># define kernel function</span>
-<span class="n">kernel</span> <span class="o">=</span> <span class="n">ExponentiatedQuadratic</span><span class="p">()</span>
-
-<span class="c1"># Define the model.</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">SparseGaussianProcess</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_inducing</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">covariance_fn</span><span class="o">=</span><span class="n">kernel</span><span class="p">)</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-</code></pre></div>
-
-<h4 id="custom-training">** Custom Training **<a class="headerlink" href="#custom-training" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Custom Loss Function</span>
-<span class="k">def</span> <span class="nf">loss_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
-  <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-  <span class="n">nll</span> <span class="o">=</span> <span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
-  <span class="n">kl</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_dataset_size</span>
-  <span class="k">return</span> <span class="n">nll</span> <span class="o">+</span> <span class="n">kl</span>
-
-<span class="c1"># TF2.0 Custom Training loop#</span>
-<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_steps</span><span class="p">):</span>
-  <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-  <span class="n">gradients</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>  <span class="c1"># use any optimizer here</span>
-</code></pre></div>
-
-<hr />
-<h3 id="other-libraries">Other Libraries<a class="headerlink" href="#other-libraries" title="Permanent link">&para;</a></h3>
+</div>
+</div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Best Resource</p>
 <ul>
-<li>PyMC3 | PyMC4</li>
-<li>MXFusion</li>
-<li>Stan</li>
+<li>By far the best you'll see are form the <a href="https://gpflow.readthedocs.io/en/develop/index.html"><strong>GPFlow documentation</strong></a>:<ul>
+<li><a href="https://gpflow.readthedocs.io/en/develop/notebooks/intro.html">Tutorials</a></li>
+<li><a href="https://gpflow.readthedocs.io/en/develop/notebooks/intro_to_gpflow2.html">Integration with TensorFlow</a>. There are a lot.</li>
 </ul>
+</li>
+<li><a href="https://github.com/GPflow/GPflow#slack-workspace">Slack Channel</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/gpflow">StackOverFlow</a></li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Verdict</p>
+<p>✔️ Customizable <strong>BUT</strong> GPy Familiar</p>
+<p>✔️ Lots of SOTA models</p>
+<p>✔️ Super responsive devs</p>
+<p>✔️ Integration with TensorFlow and TensorFlow-probability</p>
+<p>❌ Difficult for absolute beginners</p>
+<p>❌ Very difficult to contribute actual code</p>
+<p>❌ Missing some SOTA</p>
+</div>
+<hr />
+<h2 id="other-libraries">Other Libraries<a class="headerlink" href="#other-libraries" title="Permanent link">&para;</a></h2>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Language</th>
+<th align="center">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://docs.pymc.io/nb_examples/index.html">PyMC3</a></td>
+<td align="center">Python (Theano)</td>
+<td align="center">Probabilistic programming with exact and sparse implementations and HMC/NUTS inference.</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/google/edward2/tree/master/edward2/tensorflow/layers">Edward2</a></td>
+<td align="center">Python (TensorFlow)</td>
+<td align="center">Implements drop-in GPs and Sparse GPs as keras layers.</td>
+</tr>
+<tr>
+<td align="center"><a href="https://www.mathworks.com/help/stats/gaussian-process-regression-models.html">MATLAB</a></td>
+<td align="center">MATLAB</td>
+<td align="center">They have their own native implementations (straight from Rasmussen)</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/alshedivat/gpml">gpml</a></td>
+<td align="center">MATLAB</td>
+<td align="center">Examples and code used in Rasmussen &amp; Williams</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/gpstuff-dev/gpstuff">GPstuff</a></td>
+<td align="center">MATLAB</td>
+<td align="center">A library with a wide range of inference methods. Including HMC.</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/STOR-i/GaussianProcesses.jl">GaussianProcess.jl</a></td>
+<td align="center">Julia</td>
+<td align="center">GP library utilising Julia's fast JIT compilation</td>
+</tr>
+<tr>
+<td align="center"><a href="https://mc-stan.org/">Stan</a></td>
+<td align="center">R, Python, shell, MATLAB, Julia, Stata</td>
+<td align="center">Probabilistic programming using MCMC that can be easily be used to model GPs</td>
+</tr>
+</tbody>
+</table>
 <!-- tabs:end -->
 
-<!-- 
+<!--
 **Source**: [Edward2 Github](https://github.com/google/edward2/tree/master/edward2/tensorflow/layers)
 
 ---
@@ -1561,6 +1058,7 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 
 <hr />
 <h2 id="gpu-support">GPU Support<a class="headerlink" href="#gpu-support" title="Permanent link">&para;</a></h2>
+<p><center></p>
 <table>
 <thead>
 <tr>
@@ -1617,8 +1115,10 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 </tr>
 </tbody>
 </table>
+<p></center></p>
 <hr />
 <h2 id="algorithms-implemented">Algorithms Implemented<a class="headerlink" href="#algorithms-implemented" title="Permanent link">&para;</a></h2>
+<p><center></p>
 <table>
 <thead>
 <tr>
@@ -1765,6 +1265,7 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 </tr>
 </tbody>
 </table>
+<p></center></p>
 <p><strong>Key</strong></p>
 <table>
 <thead>
@@ -1797,6 +1298,8 @@ Below you have a few plots which show the complexity vs flexible scale of differ
 </tbody>
 </table>
                 
+                  
+                
               
               
                 
@@ -1814,7 +1317,7 @@ Below you have a few plots which show the complexity vs flexible scale of differ
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../model_zoo/" title="Model Zoo" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -1823,19 +1326,19 @@ Below you have a few plots which show the complexity vs flexible scale of differ
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Model Zoo
+                Home
               </div>
             </div>
           </a>
         
         
-          <a href="../literature/applications/" title="Applications" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../intro/" title="Intro to GPs" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Applications
+                Intro to GPs
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
