@@ -107,3 +107,46 @@ It would be nice to demonstrate some neat plotting features in all of the tutori
 * Bokeh - pymc3 tutorial with [Mauna Loa](https://docs.pymc.io/notebooks/GP-MaunaLoa.html)
 * [GPy](https://gpy.readthedocs.io/en/deploy/GPy.plotting.html) - All the plotting functions from the GP library
 * [Probflow](https://github.com/brendanhasz/probflow) - All of the Bayesian stuff from the Probflow library
+
+
+## Misc Resources
+
+
+### JAX + GPs
+
+**GPs w. Tensorflow**
+
+* Exact GP 
+  * [Marginal Likelihood](https://www.tensorflow.org/probability/api_docs/python/tfp/substrates/jax/distributions/GaussianProcessRegressionModel#optimize_model_parameters_via_maximum_marginal_likelihood)
+  * [MCMC Sampling](https://www.tensorflow.org/probability/api_docs/python/tfp/substrates/jax/distributions/GaussianProcessRegressionModel#marginalization_of_model_hyperparameters)
+* Variational GP
+  * [ELBO](https://www.tensorflow.org/probability/api_docs/python/tfp/substrates/jax/distributions/VariationalGaussianProcess#usage_examples)
+
+**GPs + Numpyro**
+
+* Exact GP
+  * [NUTS Sampler](http://pyro.ai/numpyro/examples/gp.html)
+
+
+## Library Tutorials
+
+### TensorFlow 2.0
+
+* [Eat TensorFlow2 in 30 Days](https://github.com/lyhue1991/eat_tensorflow2_in_30_days)
+
+
+### PyMC3
+
+* [Bayesian Regression in PYMC3 using MCMC & Variational Inference](https://alexioannides.com/2018/11/07/bayesian-regression-in-pymc3-using-mcmc-variational-inference/)
+
+
+## Algorithms
+
+
+### Inference
+
+
+#### Expectation Propagation
+
+* Deep Gaussian Processes for Regression using Approximate Expectation Propagation - [Paper](http://jmlr.org/proceedings/papers/v48/bui16.pdf) | [Code](https://github.com/thangbui/deepGP_approxEP/) | [Code v2](https://github.com/thangbui/geepee)
+* A Unifying Framework for Sparse Gaussian Process Approximation using Power Expectation Propagation - [Paper](https://arxiv.org/abs/1605.07066) | [Code](https://github.com/thangbui/sparseGP_powerEP/)

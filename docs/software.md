@@ -88,9 +88,9 @@ It does begs the question: if all of the libraries are basically the same, why a
 
 So how to classify a library's worth is impossible because it's completely subjective. But I like this chart by Francois Chollet who put the different depths a package can go to in order to create a package that caters to different users. But libraries typically can be classified on this spectrum. The same breakdown of Deep Learning algorithms into Models and Training can be done for GPs as well. Since GPs aren't super mainstream yet, most modern large scale GP libraries will fall in the fully flexible category. But recently, with the edition of TensorFlow probability and Edward2, we have more modern GPs that will fall into the Easy to use category (but not necessarily easy to train...).
 
-??? warning "Rant"
+??? danger "Rant"
 
-    One thing I don't like about the GP community is that it is quite split in terms of SOTA. This is reflected in the software. You'll have Andrew Gordon Wilsons spin-off that works a lot with Black-Box Matrix Multiplication (BBMMs) and then you'll have James Hensen's spin-off group that works a lot with methods of inducing points. The GPyTorch library scales amazingly but the GPFlow library has the best multi-output configuration I've ever seen.
+    One thing I don't like about the GP community is that it is quite split in terms of SOTA. This is reflected in the software. You'll have Andrew Gordon Wilson's spin-off that works a lot with Black-Box Matrix Multiplication (BBMMs) and then you'll have James Hensen's spin-off group that works a lot with methods of inducing points. The GPyTorch library scales amazingly but the GPFlow library has the best multi-output configuration I've ever seen. Either they don't know or they don't have time. But it would be nice if there was a one stop shop for all the algorithms so we can really get some cool benchmarks going when it comes to SOTA. Imagine something like [this](https://github.com/OATML/bdl-benchmarks/tree/alpha/baselines/diabetic_retinopathy_diagnosis), [this](https://github.com/google/uncertainty-baselines) or [this](https://github.com/dionhaefner/pyhpc-benchmarks) but with GPs from one library. I mean, I shouldn't complain, it's **leagues** better than it was. But we can do better...! :)
 
 ---
 
@@ -103,23 +103,28 @@ Below I list all of the GP packages available in Python. After this section, the
 
 ### TLDR - My Recommendations
 
-**Jump Right In** - [fastai](https://docs.fast.ai/)
+**Already Installed** - [scikit-learn](https://scikit-learn.org/stable/modules/gaussian_process.html)
 
-> If you're interesting in applying your models to new and interesting datasets and are not necessarily interested in development then I suggest you start with fastai. This is a library that simplifies deep learning usage with all of the SOTA tricks built-in so I think it would save the average user a lot of time.
+> If you're already installed python through anaconda of some sort then `scikit-learn` will be there close to being default. It should be in everyone's toolbox so it's really easy to whip out a GP method with this library. If you don't have a lot of data points (10-1_000) then just use this. It will do the job.
+
+**Python Standard** - [PyMC3](https://docs.pymc.io/)
+
+> This is the standard probabilistic programming language for doing Bayesian modeling in (more or less) standard Python. I personally think this library should also be in everyone's simple toolnox. The only thing that I don't like is that it uses [Theano](https://docs.pymc.io/PyMC3_and_Theano.html); it's not impossible but it's another API that you need to understand the moment you start trying to customize. However, the devs did a great job at making most of that API no necessary and it's very scalable on CPUs. So out of the box, you should be good! 
 
 **From Scratch** - [JAX](https://github.com/google/jax)
 
-> If you like to do things from scratch in a very numpy-like way but also want all of the benefits of autograd on CPU/GPU/TPUs, then this is for you.
+> If you like to do things from scratch in a very numpy-like way but also want all of the benefits of autograd on CPU/GPU/TPUs, then this is for you. If you want access to some distributions, you can always use [numpyro](https://pyro.ai/numpyro/) or [tensorflow-probability](https://www.tensorflow.org/probability/examples/TensorFlow_Probability_on_JAX) which both use JAX and have a JAX-backend respectively.
 
-**Deep Learning Researcher** - [PyTorch](https://pytorch.org/)
+**Standard / Researcher** - [GPFlow](https://www.tensorflow.org/)
 
-> If you're doing research, then I suggest you use PyTorch. It is currently the most popular library for doing ML research. If you're looking at many of the SOTA algorithms, you'll find most of them being written in PyTorch these days. The API is similar to TensorFlow so you can easily transfer your skills to TF if needed.
+> I think the GPFlow library has the best balance of ease of use and customizability. It has a lot of nice little features that make it really nice to use out of the box while also allowing for customization. The only thing is that you're not going to get the most scalable nor does it inherit many SOTA methods in the GP community.
 
-**Production/Industry** - [TensorFlow](https://www.tensorflow.org/)
+**Researcher / Production** - [PyTorch](https://pytorch.org/)
 
-> TensorFlow holds the market in production. By far. So if you're looking to go into industry, it's highly likely that you'll be using TensorFlow. There are still a lot of researchers that use TF too. Fortunately, the API is similar to PyTorch if you use the subclass system so the skills are transferable.
+> If you're doing GP research and you really know how to program, then I suggest you use GPyTorch. It is currently the most popular library for doing GP research and it hosts an entire suite of SOTA ready to go. In addition, it is the most scalable library to date. While the developers made it super easy to play with on the surface, you need to dig deep and put on your coder hat in order to get to things under the hood. So maybe contributing stuff might have a barrier.
 
-!> **Warning**: The machine learning community changes rapidly so any trends you observe are extremely volatile. Just like the machine learning literature, what's popular today can change within 6 months. So don't ever lock yourself in and stay flexible to cope with the changes. But also don't jump on bandwagons either as you'll be jumping every weekend. Keep a good balance and maintain your mental health.
+!!! warning "Things Change"
+    The machine learning community changes rapidly so any trends you observe are extremely volatile. Just like the machine learning literature, what's popular today can change within 6 months. So don't ever lock yourself in and stay flexible to cope with the changes. But also don't jump on bandwagons either as you'll be jumping every weekend. Keep a good balance and maintain your mental health.
 
 ---
 

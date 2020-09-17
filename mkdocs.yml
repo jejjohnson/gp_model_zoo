@@ -37,7 +37,9 @@ nav:
     - Inference: "literature/inference.md"
     - Deep GPs: "literature/deep_gps.md"
     - Multi-Output: "literature/multioutput.md"
-    - SWE: "softwarev2.md"
+  - Demos:
+    - Overview: "demos/README.md"
+    - 1D Example: "demos/1d_example.md"
 
 # Copyright
 copyright: Copyright &copy; 2020 J. Emmanuel Johnson

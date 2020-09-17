@@ -46,3 +46,7 @@ I created this repo because I didn't want my code to go to waste in case there w
 ### [**Software**](software.md)
 
 > I like to keep track of what's going on. So I've listed the libraries that I am aware of as well as some things I've noticed about them.
+
+#### [**Demos**](demos/README.md)
+
+> I have a few demos where I will go through, mostly for learning and teaching purposes. It might be useful for some people.
