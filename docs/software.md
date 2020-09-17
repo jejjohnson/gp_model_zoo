@@ -96,7 +96,30 @@ So how to classify a library's worth is impossible because it's completely subje
 
 ## Python Packages
 
-Below I list all of the GP packages available in Python.
+Below I list all of the GP packages available in Python. After this section, there will be more information on packages outside of the python ecosystem including some super intersting and well like `GaussianProcess.jl` for Julia and `Stan` as the universal programming language with many bindings. 
+
+!!! tip "Tip"
+    If you're new to python, then I highly recommend you check out my other resource gatherings. It can be found [**here**](https://jejjohnson.github.io/research_journal/resources/)
+
+### TLDR - My Recommendations
+
+**Jump Right In** - [fastai](https://docs.fast.ai/)
+
+> If you're interesting in applying your models to new and interesting datasets and are not necessarily interested in development then I suggest you start with fastai. This is a library that simplifies deep learning usage with all of the SOTA tricks built-in so I think it would save the average user a lot of time.
+
+**From Scratch** - [JAX](https://github.com/google/jax)
+
+> If you like to do things from scratch in a very numpy-like way but also want all of the benefits of autograd on CPU/GPU/TPUs, then this is for you.
+
+**Deep Learning Researcher** - [PyTorch](https://pytorch.org/)
+
+> If you're doing research, then I suggest you use PyTorch. It is currently the most popular library for doing ML research. If you're looking at many of the SOTA algorithms, you'll find most of them being written in PyTorch these days. The API is similar to TensorFlow so you can easily transfer your skills to TF if needed.
+
+**Production/Industry** - [TensorFlow](https://www.tensorflow.org/)
+
+> TensorFlow holds the market in production. By far. So if you're looking to go into industry, it's highly likely that you'll be using TensorFlow. There are still a lot of researchers that use TF too. Fortunately, the API is similar to PyTorch if you use the subclass system so the skills are transferable.
+
+!> **Warning**: The machine learning community changes rapidly so any trends you observe are extremely volatile. Just like the machine learning literature, what's popular today can change within 6 months. So don't ever lock yourself in and stay flexible to cope with the changes. But also don't jump on bandwagons either as you'll be jumping every weekend. Keep a good balance and maintain your mental health.
 
 ---
 

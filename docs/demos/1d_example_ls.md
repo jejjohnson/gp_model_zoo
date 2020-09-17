@@ -16,7 +16,7 @@ source: 1d_example_ls.md
     | :------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
     |  PyMC3   | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vbDP0vtILN6-FLO_kHOyebSMHeOYR5Y1?usp=sharing) |
     |  GPFlow  | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_ip2kWmp344GC76Dj7IX3vYfTZsz-S-S?usp=sharing) |
-    | GPyTorch | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vbDP0vtILN6-FLO_kHOyebSMHeOYR5Y1?usp=sharing) |
+    | GPyTorch | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15o9-BWW98fP6corLWOew5a0sZq-_3Yvl?usp=sharing) |
 
     </center>
 
@@ -258,3 +258,7 @@ X, y = X[:, np.newaxis], y[:, np.newaxis]
     </center>
 
 === "GPyTorch"
+
+    <center>
+    ![Placeholder](pics/1d_example_ls/gpytorch_fit_ls.png){: loading=lazy }
+    </center>
