@@ -1,3 +1,21 @@
+---
+title: Fourier
+description: GPs and Fourier Representation
+authors:
+    - J. Emmanuel Johnson
+path: docs/literature/
+source: fourier.md
+---
+# GPs + Fourier Representations
+
+> Any content related to GPs and Fourier representations
+
+## Key Words
+
+* Random Fourier Features
+* Sparse Spectrum
+
+
 ### Sparse Spectrum Gaussian Processes
 
 These are essentially the analogue to the random fourier features for Gaussian processes.
@@ -17,7 +35,7 @@ with Applications to Filtering and Control - Pan et. al. (2017) - [PDF](http://p
 
 #### Variational SSGPs
 
-So according to [this paper]() the SSGP algorithm had a tendency to overfit. So they added some additional parameters to account for the noise in the inputs making the marginal likelihood term intractable. They added variational methods to deal with the 
+The SSGP algorithm had a tendency to overfit. So they added some additional parameters to account for the noise in the inputs making the marginal likelihood term intractable. They added variational methods to deal with the 
 1. Improving the Gaussian Process Sparse Spectrum Approximation by Representing Uncertainty in Frequency Inputs - Gal et. al. (2015) 
    > "...proposed variational inference in a sparse spectrum model that is derived from a GP model." - Hensman et. al. (2018)
 2. Variational Fourier Features for Gaussian Processes -  Hensman et al (2018)  

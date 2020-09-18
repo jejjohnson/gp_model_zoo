@@ -14,11 +14,12 @@ source: intro.md
 
 ---
 
-## Best Lectures
+## 👨🏽‍🏫 | 👩🏽‍🏫 Best Lectures
 
 By far the best beginners lecture on GPs (that I have found) is by [Neil Lawrence](https://inverseprobability.com/); a prominent figure that you should know once you enter this field. The lecture video that I have included below are the most recent of his lectures and I personally think it gives the most intuition behind GPs without being too mathy. The blog that's listed are his entire lecture notes in notebook format so you can read more or less verbatim what was said in the lecture; although you might miss out on the nuggets of wisdom he tends to drop during his lectures.
 
-* Neil Lawrence Lecture @ MLSS 2019 - [Blog](http://inverseprobability.com/talks/notes/gaussian-processes.html) | [Lecture](http://inverseprobability.com/talks/notes/gaussian-processes.html) | [Slides](http://inverseprobability.com/talks/notes/gaussian-processes.html)
+**Neil Lawrence Lecture** @ MLSS 2019
+> [Blog](http://inverseprobability.com/talks/notes/gaussian-processes.html) | [Lecture](http://inverseprobability.com/talks/notes/gaussian-processes.html) | [Slides](http://inverseprobability.com/talks/notes/gaussian-processes.html)
 
 I would say that the best slides that I have found are by [Marc Deisenroth](https://deisenroth.cc/). Unfortunately, I cannot find the video lectures online. I think these lecture slides are by far the best I've seen. It's fairly math intensive but there arent't too many proofs. These don't have proofs so you'll have to look somewhere else for that. Bishop's book (below) will be able to fill in any gaps. He also has a [distill.pub]() page which has a nice introduction with a few practical tips and tricks to use.
 
@@ -26,7 +27,7 @@ I would say that the best slides that I have found are by [Marc Deisenroth](http
 
 ---
 
-## Best Visualize Explanations
+## 📉 Best Visualize Explanations
 
 If you are a visual person (like me) then you will appreciate resources where they go through step-by-step how a Gaussian process is formulated as well as the importance of the kernel and how one can train them.
 
@@ -34,7 +35,7 @@ If you are a visual person (like me) then you will appreciate resources where th
 
 ---
 
-## Best Books
+## 📗 Best Books
 
 ### 1. Standard Book
 
@@ -56,7 +57,7 @@ If you are a visual person (like me) then you will appreciate resources where th
 
 ---
 
-## Best Thesis Explanation
+## 📖 Best Thesis Explanation
 
 Often times the papers that people publish in conferences in Journals don't have enough information in them. Sometimes it's really difficult to go through some of the mathematics that people put  in their articles especially with cryptic explanations like "it's easy to show that..." or "trivially it can be shown that...". For most of us it's not easy nor is it trivial. So I've included a thesis that I found extremely helpful when going step-by-step. It definitely trumps every other thesis that I've read which all assume the reader has some knowledge. The notation is a bit weird at first but once you get used to it, it becomes clearer and clearer.
 
@@ -65,13 +66,13 @@ Often times the papers that people publish in conferences in Journals don't have
 
 ---
 
-## Code Introductions
+## 🌐 Blog Posts
 
 These resources are the best resources that explain GPs while also walking you through the code. I like going through it step-by-step using code because for some reason, when I have to code things, all of the sudden details start to click. When you can make a program do it from scratch then I think that is where the understanding kicks in. I have also included tutorials where they use python packages if you're interesting in just jumping in.
 
 
 
-### From Scratch
+### 📝 From Scratch
 
 * [Gaussian Processes](http://krasserm.github.io/2018/03/19/gaussian-processes/) - Martin Krasser (2018)
 
@@ -106,7 +107,7 @@ These resources are the best resources that explain GPs while also walking you t
 
 ---
 
-## Other Resources
+## 🗃 Other Resources
 
 
 ### Previously Compiled Stuff

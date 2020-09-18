@@ -12,21 +12,23 @@ source: 1d_example.md
 
     <center>
 
-    |   Name   |                                                                           Colab Notebook                                                                            |
-    | :------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-    | Sklearn  | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vbDP0vtILN6-FLO_kHOyebSMHeOYR5Y1?usp=sharing) |
-    |  GPFlow  | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_ip2kWmp344GC76Dj7IX3vYfTZsz-S-S?usp=sharing) |
-    | GPyTorch | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15o9-BWW98fP6corLWOew5a0sZq-_3Yvl?usp=sharing) |
+    |     Name     |                                                                           Colab Notebook                                                                            |
+    | :----------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+    | scikit-learn | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vbDP0vtILN6-FLO_kHOyebSMHeOYR5Y1?usp=sharing) |
+    |    GPFlow    | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_ip2kWmp344GC76Dj7IX3vYfTZsz-S-S?usp=sharing) |
+    |   GPyTorch   | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15o9-BWW98fP6corLWOew5a0sZq-_3Yvl?usp=sharing) |
 
     </center>
 
-This post we will go over some of the 1D .
+This post we will go over a 1D example where I show how one can fit a Gaussian process using the [scikit-learn](), [GPFlow]() and [GPyTorch]() libraries. Each of these libraries range in complexity with scikit-learn being the simplest, GPyTorch being the most complicated and GPFlow being somewhere in between. For newcomers, it's good to see the differences before making your decision.
+
+In this demo, we will do a small data problem; just 25 samples. This is where a GP tends to excel because of 
 
 ---
 
 ## Data
 
-The way we generate the data will be the same for all packages
+The way we generate the data will be the same for all packages. Here is the code and demo data that we're working with; 
 
 
 ??? code "Code"
@@ -61,7 +63,7 @@ The way we generate the data will be the same for all packages
 
 ## GP Model
 
-=== "Scikit-Learn"
+??? code "Scikit-Learn"
 
     In `scikit-learn` we just need the `.fit()`, `.predict()`, and `.score()`.
 
@@ -83,7 +85,7 @@ The way we generate the data will be the same for all packages
     )
     ```
 
-=== "GPFlow"
+??? code "GPFlow"
 
     **Mean & Kernel Function**
     
@@ -130,7 +132,7 @@ The way we generate the data will be the same for all packages
     ??? tip "Numpy 2 Tensor"
         Notice how I didn't do anything about changing from the `np.ndarray` to the `tf.tensor`? Well that's because GPFlow is awesome and does it for you. Little things like that make the coding experience so much better.
 
-=== "GPyTorch"
+??? code "GPyTorch"
 
     !!! warning "Numpy to Tensor"
 
@@ -185,7 +187,20 @@ The way we generate the data will be the same for all packages
 
 ## Training Step
 
-=== "Scikit-Learn"
+!!! tip "Training Time"
+    <center>
+
+    | Data Points | scikit-learn |   GPFlow   |  GPyTorch  |
+    | :---------: | :----------: | :--------: | :--------: |
+    |   **25**    |  0.009 secs  | 0.352 secs | 0.328 secs |
+    |   **100**   |  0.044 secs  | 0.339 secs | 0.735 secs |
+    |   **500**   |  0.876 secs  | 1.47 secs  | 3.14 secs  |
+    |  **1,000**  |  3.93 secs   |  6.5 secs  |  4.5 secs  |
+    |  **2,000**  |  17.7 secs   |  32 secs   |  16 secs   |
+
+    </center>
+
+??? code "Scikit-Learn"
 
     It doesn't get any simpler than this...
 
@@ -196,7 +211,7 @@ The way we generate the data will be the same for all packages
     
     It's because everything is under the hood within the `.fit` method.
 
-=== "GPFlow"
+??? code "GPFlow"
 
     ```python linenums="1"
     # define optimizer and params
@@ -231,7 +246,7 @@ The way we generate the data will be the same for all packages
     ╘═════════════════════════╧═══════════╧══════════════════╧═════════╧═════════════╧═════════╧═════════╧═════════════════════╛
     ```
 
-=== "GPyTorch"
+??? code "GPyTorch"
 
     So admittedly, this is where we start to enter into boilerplate code because this is stuff that needs to be done almost always.
 
@@ -324,7 +339,7 @@ The way we generate the data will be the same for all packages
 
 ## Predictions
 
-=== "Scikit-Learn"
+??? code "Scikit-Learn"
 
     Predictions are also very simple. You simply call the `.predict` method and you will get your predictive mean. If you want the predictive variance, you need to put the `return_std` flag as `True`.
 
@@ -344,7 +359,7 @@ The way we generate the data will be the same for all packages
         There is no way to turn off or no the likelihood noise or not (i.e. the predictive mean `y` of the predictive mean `f`). It is always `y` so the standard deviations will be a little high. To not use the `y`, you will need
         to actually subtract the `WhiteKernel` and the `alpha` from your predictive standard deviation.
 
-=== "GPFlow"
+??? code "GPFlow"
 
     ```python
     # generate some points for plotting
@@ -370,8 +385,7 @@ The way we generate the data will be the same for all packages
         y_upper = tf.squeeze(y_mean + 2 * tf.sqrt(y_var))
         ```
 
-
-=== "GPyTorch"
+??? code "GPyTorch"
 
     We're still now out of it yet. We still need to do a few extra stuff to get predictions. Here we can simply
 
@@ -461,18 +475,18 @@ The way we generate the data will be the same for all packages
 
 
     <center>
-    ![Placeholder](pics/1d_example/sklearn_fit.png){: loading=lazy }
+    ![Placeholder](pics/1d_example/sklearn_fit.png)
     </center>
 
 === "GPFlow"
 
     <center>
-    ![Placeholder](pics/1d_example/gpflow_fit.png){: loading=lazy }
+    ![Placeholder](pics/1d_example/gpflow_fit.png)
     </center>
 
 === "GPyTorch"
 
     <center>
-    ![Placeholder](pics/1d_example/gpytorch_fit.png){: loading=lazy }
+    ![Placeholder](pics/1d_example/gpytorch_fit.png)
     </center>
 

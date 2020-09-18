@@ -1,22 +1,35 @@
+---
+title: Deep Gaussian Processes
+description: Deep Gaussian Processes
+authors:
+    - J. Emmanuel Johnson
+path: docs/literature
+source: deep_gps.md
+---
 # Deep Gaussian Processes
 
 These are GP models that stack GPs one after the other. As far as understanding, the best would be lectures as I have highlighted below.
 
 ---
-## Resources
+## 👨🏽‍🏫 | 👩🏽‍🏫 Resources
 
-* Neil Lawrence @ MLSS 2019
-    > I would say this is the best lecture to understand the nature of GPs and why we would might want to use them.
-  * [Blog](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Lecture](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Slides](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html)
-* Neil Lawrence @ GPSS 2019
-  * [Notes](http://inverseprobability.com/talks/notes/introduction-to-deep-gps.html) | [Lecture](https://youtu.be/eS_na-6ZlCI)
-* Maurizio Filippone @ DeepBayes.ru 2018
+**Neil Lawrence @ MLSS 2019**
+> I would say this is the best lecture to understand the nature of GPs and why we would might want to use them.
+>
+> [Blog](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Lecture](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html) | [Slides](http://inverseprobability.com/talks/notes/deep-gaussian-processes.html)
+
+**Neil Lawrence @ GPSS 2019**
+  > [Notes](http://inverseprobability.com/talks/notes/introduction-to-deep-gps.html) | [Lecture](https://youtu.be/eS_na-6ZlCI)
+
+**Maurizio Filippone @ DeepBayes.ru 2018**
   > I would say this is the second best lecture because Maurizio gives a nice overview of the GP methods there already are (at the time).
-  * [Lecture](https://www.youtube.com/watch?v=zBEV5ezyYmI) | [Slides](http://www.eurecom.fr/~filippon/Talks/talk_dgps_deep_bayes_summer_school_2018.pdf) | [New Slides](http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf)
+  >
+  > [Lecture](https://www.youtube.com/watch?v=zBEV5ezyYmI) | [Slides](http://www.eurecom.fr/~filippon/Talks/talk_dgps_deep_bayes_summer_school_2018.pdf) | [New Slides](http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf)
 
 
 
 ---
+
 ## Algorithms
 
 The literature isn’t so big but there a number of different implementations depending on the lab:
@@ -33,13 +46,13 @@ The literature isn’t so big but there a number of different implementations de
 I don’t think there is any best one because I’m almost certain noone has done any complete comparison. I can say that the VI one is the most studied because that lab is still working on it. In the meantime, personally I would try to use implementations in standard libraries where the devs have ironed out the bugs and allowed for easy customization and configuration; so basically the doubly stochastic. 
 
 ---
+
 ### Variational Inference
 
 **[Deep Gaussian Processes](http://adamian.github.io/publications.html#DeepGPs)** - Damianou & Lawrence (2013)
 
 > This paper is the original method of Deep GPs. It might not be useful for production but there are still many insights to be had from the originators.
-
-[Code](http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html)
+> [Code](http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html)
 
 **[Nested Variational Compression in Deep Gaussian Processes]()** - Hensman & Lawrence (2014)
 
@@ -51,6 +64,7 @@ I don’t think there is any best one because I’m almost certain noone has don
 
 
 ---
+
 ### Random Fourier Features
 
 
@@ -64,6 +78,7 @@ I don’t think there is any best one because I’m almost certain noone has don
 
 
 ---
+
 ### MC Sampling
 
 **[Learning deep latent Gaussian models with Markov chain Monte Carlo]()** - Hoffman (2017)
@@ -71,6 +86,7 @@ I don’t think there is any best one because I’m almost certain noone has don
 **[Inference in Deep Gaussian Processes Using Stochastic Gradient Hamiltonian Monte Carlo](https://arxiv.org/abs/1806.05490)** - Havasi et. al. (2018)
 
 ---
+
 ### Expectation Propagation
 
 **[Deep Gaussian Processes for Regression using Approximate Expectation Propagation](https://arxiv.org/abs/1602.04133)** - Bui et. al. (2016)
@@ -80,6 +96,7 @@ I don’t think there is any best one because I’m almost certain noone has don
 [Paper](https://arxiv.org/abs/1602.04133) | [Code](https://github.com/thangbui/geepee)
 
 ---
+
 ### Hybrids
 
 **[Deep Gaussian Processes with Importance-Weighted Variational Inference](https://github.com/hughsalimbeni/DGPs_with_IWVI)** - Salimbeni et. al. (2019)
@@ -89,6 +106,7 @@ This paper uses the idea that our noisy inputs are instead 'latent covariates' i
 
 
 ---
+
 ## Insights
 
 
@@ -96,6 +114,3 @@ This paper uses the idea that our noisy inputs are instead 'latent covariates' i
 
 * Deep Gaussian Process Pathologies - [Paper](http://proceedings.mlr.press/v33/duvenaud14.pdf)
   > This paper shows how some of the kernel compositions give very bad estimates of the functions between layers; similar to how residual NN do much better.
-
-
-

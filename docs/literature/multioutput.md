@@ -25,6 +25,18 @@ Firstly, there is some confusion about the terminology. I've heard the following
 These definitions come from a discussion I had with the [GPFlow Community](https://gpflow.slack.com/archives/C144SAH60/p1588941862010600). I have yet to see a paper that is consistent with how these are done. I have broken up each section based off of their name but as seen from the names, there is a lot of overlap.
 
 
+## New!
+
+??? info "Scalable Exact Inference in Multi-Output Gaussian Processes - Bruinsma et al (2020)"
+    > They show a nice trick where you learn an invertible projection on your output space to reduce the crazy amount of outputs.
+
+    📜 [Paper](https://arxiv.org/abs/1911.06287)
+
+    💻📝 [Code](https://github.com/wesselb/oilmm) | [Julia](https://github.com/willtebbutt/OILMMs.jl)
+
+    📺 [ICML Prezi](https://slideslive.com/38928160/scalable-exact-inference-in-multioutput-gaussian-processes?ref=speaker-37219-latest)
+
+
 ## Lectures
 
 * GPSS 2017 Summer School - Alvarez - [Video](https://youtu.be/ttgUJtVJthA) | [Slides](http://gpss.cc/gpss17/slides/multipleOutputGPs.pdf)

@@ -22,6 +22,12 @@
 * [A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation](http://jmlr.org/papers/volume18/16-603/16-603.pdf) - Bui (2017)
   > A good summary of all of the methods under one unified framework called the Power Expectation Propagation formula.
 
+
+**Rates of Convergence for Sparse Variational Gaussian Process Regression** - Burt et. al. (2019)
+> [Paper](https://arxiv.org/abs/1903.03571) | 💻 [Code](https://github.com/DavidBurt2/Rates-of-Convergence-SGPR)
+
+
+
 ---
 ### Latest
 

@@ -263,7 +263,7 @@ So as you can see, the API is very similar to the scikit-learn API with some sma
 
 ---
 
-### [GPyTorch](https://gpytorch.ai/)
+###  [GPyTorch](https://gpytorch.ai/)
 
 [![GitHub stars](https://img.shields.io/github/stars/cornellius-gp/gpytorch.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/cornellius-gp/gpytorch/stargazers/) [![GitHub issues](https://img.shields.io/github/issues/cornellius-gp/gpytorch.svg)](https://GitHub.com/cornellius-gp/gpytorch/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/cornellius-gp/gpytorch.svg)](https://GitHub.com/cornellius-gp/gpytorch/issues?q=is%3Aissue+is%3Aclosed) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/cornellius-gp/gpytorch.svg)](https://GitHub.com/cornellius-gp/gpytorch/pull/) [![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/cornellius-gp/gpytorch.svg)](https://GitHub.com/cornellius-gp/gpytorch/pull/)
 

@@ -1,7 +1,15 @@
+---
+title: Applications
+description: Different Applications using GPs
+authors:
+    - J. Emmanuel Johnson
+path: docs/applications
+source: overview.md
+---
 # Applications
 
 ---
-## Earth Observation
+## Surveys
 
 All papers in this section look at applications in Earth observation e.g. parameter retrieval, time-scale modeling, remote sensing, and any data dealing with multi/hyperspectral imagery.
 
@@ -18,8 +26,8 @@ All papers in this section look at applications in Earth observation e.g. parame
 **Physics-aware Gaussian processes in remote sensing** - Camps-Valls et. al. (2018) | [Paper](https://www.sciencedirect.com/science/article/pii/S1568494618301431)
 
 
----
+
+<!-- ---
 ## Other Arguments
 
-* [GPs for Little Data](https://medium.com/panoramic/gaussian-processes-for-little-data-2501518964e4)
-
+* [GPs for Little Data](https://medium.com/panoramic/gaussian-processes-for-little-data-2501518964e4) -->

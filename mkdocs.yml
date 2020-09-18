@@ -35,11 +35,18 @@ nav:
     - Kernels: "literature/kernels.md"
     - Sparse GPs: "literature/sparse_gps.md"
     - Inference: "literature/inference.md"
+    - Large Scale: "literature/large_scale.md"
+    - Fourier: "literature/fourier.md"
     - Deep GPs: "literature/deep_gps.md"
     - Multi-Output: "literature/multioutput.md"
+    - Applications: 
+      - Overview: "literature/applications/overview.md"
+      - Emulation: "literature/applications/emulation.md"
+      - Bayesian Opt.: "literature/applications/bayes_opt.md"
   - Demos:
     - Overview: "demos/README.md"
     - 1D Example: "demos/1d_example.md"
+    - 1D Example (Large Scale): "demos/1d_example_ls.md"
 
 # Copyright
 copyright: Copyright &copy; 2020 J. Emmanuel Johnson
