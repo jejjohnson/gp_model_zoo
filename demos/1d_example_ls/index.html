@@ -408,6 +408,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    Background
+  </a>
+  
+    <nav class="md-nav" aria-label="Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-sparse" class="md-nav__link">
+    Method 1 - Sparse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-black-box-matrix-matrix-bbmm" class="md-nav__link">
+    Method 2 - Black-Box Matrix-Matrix (BBMM)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data" class="md-nav__link">
     Data
   </a>
@@ -487,7 +514,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">PyMC3</td>
+<td align="center">scikit-learn</td>
 <td align="center"><a href="https://colab.research.google.com/drive/1vbDP0vtILN6-FLO_kHOyebSMHeOYR5Y1?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></td>
 </tr>
 <tr>
@@ -502,9 +529,41 @@
 </table>
 <p></center></p>
 </div>
-<p>This post we will go over some of the 1D .</p>
+<p>This demo we will demonstrate how different algorithms compare when</p>
+<hr />
+<h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
+<p>In exact GP estimation, we try to minimize the negative marginal log-likelihood term given by:</p>
+<div>
+<div class="MathJax_Preview">
+\log \mathcal{N}(y | 0, K + \sigma^2I) =
+- \frac{1}{2} y^\top\left(  K + \sigma^2I \right)^{-1}y 
+- \frac{1}{2}\log \left| K + \sigma^2 \right| - \frac{n}{2}\log 2\pi
+</div>
+<script type="math/tex; mode=display">
+\log \mathcal{N}(y | 0, K + \sigma^2I) =
+- \frac{1}{2} y^\top\left(  K + \sigma^2I \right)^{-1}y 
+- \frac{1}{2}\log \left| K + \sigma^2 \right| - \frac{n}{2}\log 2\pi
+</script>
+</div>
+<p>So typically any <strong>exact</strong> GP estimation, there will be two expensive parts to this algorithm: <span><span class="MathJax_Preview">K^{-1}</span><script type="math/tex">K^{-1}</script></span> and <span><span class="MathJax_Preview">\log |K|</span><script type="math/tex">\log |K|</script></span> which has a computational cost of <span><span class="MathJax_Preview">\mathcal{O}(N^3)</span><script type="math/tex">\mathcal{O}(N^3)</script></span>. <strong>This is bad and very expensive</strong>. Unless you have Google Cloud Platform computational services, you will suffer on a graduate student's laptop. We're talking an upper limit of 10K points if you're willing to be patient.</p>
+<h3 id="method-1-sparse">Method 1 - Sparse<a class="headerlink" href="#method-1-sparse" title="Permanent link">&para;</a></h3>
+<p>One thing we can do is to reduce the amount of points that we invert. These representative points are known as <strong>inducing points</strong>. This results in the Nyström approximation which changes our likelihood term from  <span><span class="MathJax_Preview">\log p(y|X,\theta)</span><script type="math/tex">\log p(y|X,\theta)</script></span> to:</p>
+<div>
+<div class="MathJax_Preview">\log \mathcal{N}(y | 0, K + \sigma^2I) \approx \log \mathcal{N}(y | 0, \tilde{K} + \sigma^2I)</div>
+<script type="math/tex; mode=display">\log \mathcal{N}(y | 0, K + \sigma^2I) \approx \log \mathcal{N}(y | 0, \tilde{K} + \sigma^2I)</script>
+</div>
+<p>Notice how we haven't actually changing our formulation because we still have to calculate the inverse of <span><span class="MathJax_Preview">\tilde{K}</span><script type="math/tex">\tilde{K}</script></span> which is <span><span class="MathJax_Preview">\mathbb{R}^{N \times N}</span><script type="math/tex">\mathbb{R}^{N \times N}</script></span>. Using the <a href="https://en.wikipedia.org/wiki/Woodbury_matrix_identity">Woodbury matrix identity</a> for the kernel approximation form (<a href="https://en.wikipedia.org/wiki/Sherman%E2%80%93Morrison_formula">Sherman-Morrison Formula</a>):</p>
+<div>
+<div class="MathJax_Preview">(\tilde{K} + \sigma^2 I)^{-1}=\sigma^{-2}I - \sigma^{-4}K_z(K_{zz}+\sigma^{-2}K_z^{\top}K_z)^{-1}K_z^{\top}</div>
+<script type="math/tex; mode=display">(\tilde{K} + \sigma^2 I)^{-1}=\sigma^{-2}I - \sigma^{-4}K_z(K_{zz}+\sigma^{-2}K_z^{\top}K_z)^{-1}K_z^{\top}</script>
+</div>
+<p>Now the matrix that we need to invert is <span><span class="MathJax_Preview">(K_{zz}+\sigma^{-2}K_z^{\top}K_z)^{-1}</span><script type="math/tex">(K_{zz}+\sigma^{-2}K_z^{\top}K_z)^{-1}</script></span> which is <span><span class="MathJax_Preview">(M \times M)</span><script type="math/tex">(M \times M)</script></span> which is considerably smaller if <span><span class="MathJax_Preview">M &lt;&lt; N</span><script type="math/tex">M << N</script></span>. So the overall computational complexity reduces from <span><span class="MathJax_Preview">\mathcal{O}(N^3)</span><script type="math/tex">\mathcal{O}(N^3)</script></span> to <span><span class="MathJax_Preview">\mathcal{O}(MN^2)</span><script type="math/tex">\mathcal{O}(MN^2)</script></span> where <span><span class="MathJax_Preview">M&lt;&lt;N</span><script type="math/tex">M<<N</script></span> <span><span class="MathJax_Preview">\mathcal{O}(NM^2)</span><script type="math/tex">\mathcal{O}(NM^2)</script></span>.</p>
+<h3 id="method-2-black-box-matrix-matrix-bbmm">Method 2 - Black-Box Matrix-Matrix (BBMM)<a class="headerlink" href="#method-2-black-box-matrix-matrix-bbmm" title="Permanent link">&para;</a></h3>
+<p>This uses good ol' matrix multiplication strategies that you saw in your numerical methods class but perhaps never paid attention to. It uses a modified batched version of the conjugate gradients for the most expensive parts of the algorithm. It also uses preconditioning strategies to speed up the convergence. So remember, GPU acceleration is powerful <strong>because</strong> it's comprised of many cores that utilize matrix multiplication. So this is why this is much faster and it scales in the settings of GPUs. So the overall computational complexity reduces from <span><span class="MathJax_Preview">\mathcal{O}(N^3)</span><script type="math/tex">\mathcal{O}(N^3)</script></span> to <span><span class="MathJax_Preview">\mathcal{O}(N^2)</span><script type="math/tex">\mathcal{O}(N^2)</script></span>.</p>
+<p>Below, let's see how these methods do in approximating a 1D dataset in terms of speed.</p>
 <hr />
 <h2 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h2>
+<p>Let's generate a more complex example which would definitely require more than 25 data points to capture. (OK, Maybe not 10K but enough)...</p>
 <div>
 <div class="MathJax_Preview">
 f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
@@ -513,7 +572,7 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 </script>
 </div>
-<div class="highlight"><pre><span></span><code><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10_000</span>
+<details class="info"><summary>Code</summary><div class="highlight"><pre><span></span><code><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10_000</span>
 
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">*</span> <span class="mf">3.14</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mf">3.14</span><span class="p">)</span>
@@ -525,11 +584,31 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 </code></pre></div>
 
+</details>
+<p><center>
+<strong>10,000 Data Points!</strong>
+<img alt="Placeholder" loading="lazy" src="../pics/1d_example_ls/1d_example_ls.png" />
+</center></p>
 <p><strong>Source</strong>: <a href="https://gpflow.readthedocs.io/en/develop/notebooks/advanced/gps_for_big_data.html">GPFlow - Big Data Tutorial</a></p>
 <hr />
 <h2 id="gp-model">GP Model<a class="headerlink" href="#gp-model" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">GPFlow</label><div class="tabbed-content">
-<p><strong>Kernel &amp; Mean Function</strong></p>
+<p>For this example, we'll just show the 3 different methods using the standard <code>linear</code> mention function and the <code>RBF</code> kernel matrix.. The code will be <strong>very identical</strong>. The only major difference is that the sparse approximations need some inducing points (representative points).</p>
+<details class="code"><summary>GPFlow (Exact)</summary><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gpflow.mean_functions</span> <span class="kn">import</span> <span class="n">Linear</span>
+<span class="kn">from</span> <span class="nn">gpflow.kernels</span> <span class="kn">import</span> <span class="n">RBF</span>
+<span class="kn">from</span> <span class="nn">gpflow.models</span> <span class="kn">import</span> <span class="n">GPR</span>
+
+<span class="c1"># define the kernel</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">RBF</span><span class="p">()</span>
+
+<span class="c1"># define mean function</span>
+<span class="n">mean_f</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">()</span>
+
+<span class="c1"># define GP Model</span>
+<span class="n">gp_model</span> <span class="o">=</span> <span class="n">GPR</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">mean_function</span><span class="o">=</span><span class="n">mean_f</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<details class="code"><summary>GPFlow (Sparse)</summary><p><strong>Kernel &amp; Mean Function</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gpflow.mean_functions</span> <span class="kn">import</span> <span class="n">Linear</span>
 <span class="kn">from</span> <span class="nn">gpflow.kernels</span> <span class="kn">import</span> <span class="n">RBF</span>
 
@@ -558,7 +637,7 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 <img alt="Placeholder" loading="lazy" src="../pics/1d_example_ls/gpflow_fit_ls_z.png" />
 </center></p>
 <p><strong>GP Model</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gpflow.models</span> <span class="kn">import</span> <span class="n">SVGP</span><span class="p">,</span> <span class="n">SGPR</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gpflow.models</span> <span class="kn">import</span> <span class="n">SGPR</span>
 
 <span class="c1"># define GP Model</span>
 <span class="n">sgpr_model</span> <span class="o">=</span> <span class="n">SGPR</span><span class="p">(</span>
@@ -573,29 +652,142 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 <span class="n">print_summary</span><span class="p">(</span><span class="n">sgpr_model</span><span class="p">,</span> <span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>╒═════════════════════════╤═══════════╤══════════════════╤═════════╤═════════════╤═════════╤═════════╤═════════╕
-│ name                    │ class     │ transform        │ prior   │ trainable   │ shape   │ dtype   │ value   │
-╞═════════════════════════╪═══════════╪══════════════════╪═════════╪═════════════╪═════════╪═════════╪═════════╡
-│ GPR.mean_function.A     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span>  │ float64 │ <span class="o">[[</span><span class="m">1</span>.<span class="o">]]</span>  │
-├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────┤
-│ GPR.mean_function.b     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>,<span class="o">)</span>    │ float64 │ <span class="o">[</span><span class="m">0</span>.<span class="o">]</span>    │
-├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────┤
-│ GPR.kernel.variance     │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0     │
-├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────┤
-│ GPR.kernel.lengthscales │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0     │
-├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────┤
-│ GPR.likelihood.variance │ Parameter │ Softplus + Shift │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0     │
+<div class="highlight"><pre><span></span><code>╒══════════════════════════╤═══════════╤══════════════════╤═════════╤═════════════╤═════════╤═════════╤════════════╕
+│ name                     │ class     │ transform        │ prior   │ trainable   │ shape   │ dtype   │ value      │
+╞══════════════════════════╪═══════════╪══════════════════╪═════════╪═════════════╪═════════╪═════════╪════════════╡
+│ SGPR.mean_function.A     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span>  │ float64 │ <span class="o">[[</span><span class="m">1</span>.<span class="o">]]</span>     │
+├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼────────────┤
+│ SGPR.mean_function.b     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>,<span class="o">)</span>    │ float64 │ <span class="o">[</span><span class="m">0</span>.<span class="o">]</span>       │
+├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼────────────┤
+│ SGPR.kernel.variance     │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0        │
+├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼────────────┤
+│ SGPR.kernel.lengthscales │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0        │
+├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼────────────┤
+│ SGPR.likelihood.variance │ Parameter │ Softplus + Shift │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.0        │
+├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼────────────┤
+│ SGPR.inducing_variable.Z │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">50</span>, <span class="m">1</span><span class="o">)</span> │ float64 │ <span class="o">[[</span><span class="m">0</span>.118... │
+╘══════════════════════════╧═══════════╧══════════════════╧═════════╧═════════════╧═════════╧═════════╧════════════╛
 </code></pre></div>
 
 <details class="tip"><summary>Numpy 2 Tensor</summary><p>Notice how I didn't do anything about changing from the <code>np.ndarray</code> to the <code>tf.tensor</code>? Well that's because GPFlow is awesome and does it for you. Little things like that make the coding experience so much better.</p>
 </details>
+</details>
+<details class="code"><summary>GPyTorch (Exact BBMM)</summary><div class="admonition warning">
+<p class="admonition-title">Numpy to Tensor</p>
+<p>Unfortunately, this is one of those things where PyTorch becomes more involved to use. There is no automatic conversion from a <code>np.ndarray</code> to a <code>torch.Tensor</code>. So in your code bases, you need to ensure that you do this.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># convert to tensor</span>
+<span class="n">X_tensor</span><span class="p">,</span> <span class="n">y_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()),</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span>
+</code></pre></div>
+
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">GPyTorch</label><div class="tabbed-content"></div>
+<p><strong>Define GP Model</strong></p>
+<p>Again, this is involved. You need to create the GP model exactly how one would think about doing it. You need a mean function, a kernel function, a likelihood and some data. We inherit the <code>gpytorch.models.ExactGP</code> class and we're good to go.</p>
+<div class="highlight"><pre><span></span><code><span class="lineno" data-linenos=" 1 "></span><span class="c1"># We will use the simplest form of GP model, exact inference</span>
+<span class="lineno" data-linenos=" 2 "></span><span class="k">class</span> <span class="nc">GPModel</span><span class="p">(</span><span class="n">gpytorch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ExactGP</span><span class="p">):</span>
+<span class="lineno" data-linenos=" 3 "></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">mean_module</span><span class="p">,</span> <span class="n">covar_module</span><span class="p">):</span>
+<span class="lineno" data-linenos=" 4 "></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">)</span>
+<span class="lineno" data-linenos=" 5 "></span>        <span class="c1"># Constant Mean function</span>
+<span class="lineno" data-linenos=" 6 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span> <span class="o">=</span> <span class="n">mean_module</span>
+<span class="lineno" data-linenos=" 7 "></span>        <span class="c1"># RBF Kernel Function</span>
+<span class="lineno" data-linenos=" 8 "></span>        <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span> <span class="o">=</span> <span class="n">covar_module</span>
+<span class="lineno" data-linenos=" 9 "></span>
+<span class="lineno" data-linenos="10 "></span>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="lineno" data-linenos="11 "></span>        <span class="n">mean_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="lineno" data-linenos="12 "></span>        <span class="n">covar_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">covar_module</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="lineno" data-linenos="13 "></span>        <span class="k">return</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">MultivariateNormal</span><span class="p">(</span><span class="n">mean_x</span><span class="p">,</span> <span class="n">covar_x</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Initialize GP model</strong></p>
+<p>Now that we've defined our GP, we can intialize it with the appropriate parameters - <strong>mean function</strong>, <strong>kernel function</strong> and <strong>likelihood</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="lineno" data-linenos=" 1 "></span><span class="c1"># initialize mean function</span>
+<span class="lineno" data-linenos=" 2 "></span><span class="n">mean_f</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">means</span><span class="o">.</span><span class="n">ConstantMean</span><span class="p">()</span>
+<span class="lineno" data-linenos=" 3 "></span>
+<span class="lineno" data-linenos=" 4 "></span><span class="c1"># initialize kernel function</span>
+<span class="lineno" data-linenos=" 5 "></span><span class="n">kernel</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">ScaleKernel</span><span class="p">(</span><span class="n">gpytorch</span><span class="o">.</span><span class="n">kernels</span><span class="o">.</span><span class="n">RBFKernel</span><span class="p">())</span>
+<span class="lineno" data-linenos=" 6 "></span>
+<span class="lineno" data-linenos=" 7 "></span><span class="c1"># intialize the likelihood</span>
+<span class="lineno" data-linenos=" 8 "></span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">likelihoods</span><span class="o">.</span><span class="n">GaussianLikelihood</span><span class="p">()</span>
+<span class="lineno" data-linenos=" 9 "></span>
+<span class="lineno" data-linenos="10 "></span><span class="c1"># initialize the gp model with the likelihood</span>
+<span class="lineno" data-linenos="11 "></span><span class="n">gp_model</span> <span class="o">=</span> <span class="n">GPModel</span><span class="p">(</span><span class="n">X_tensor</span><span class="p">,</span> <span class="n">y_tensor</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">mean_f</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+</code></pre></div>
+
+<p>And we're done! So now you noticed that you learned a bit more than necessary to actually understand how the GP works because you had to build it from scratch (to some extent). This can be cumbersome but it might be more useful than the <code>sklearn</code> implementation because it gives us a bit more flexibility.</p>
+<div class="admonition important">
+<p class="admonition-title">GPU</p>
+<p>So to get some scaling and faster training, we can use the GPU. For PyTorch, that means converting everything to a Tensor format.</p>
+<div class="highlight"><pre><span></span><code><span class="n">X_tensor</span> <span class="o">=</span> <span class="n">X_tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">y_tensor</span> <span class="o">=</span> <span class="n">y_tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">gp_model</span> <span class="o">=</span> <span class="n">gp_model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="n">likelihood</span> <span class="o">=</span> <span class="n">likelihood</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+</code></pre></div>
+
 </div>
+</details>
 <hr />
 <h2 id="training-step">Training Step<a class="headerlink" href="#training-step" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">GPFlow</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="c1"># define optimizer and params</span>
+<div class="admonition tip">
+<p class="admonition-title">Training Time</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">GPFlow (Exact)</th>
+<th align="center">GPFlow (Sparse)</th>
+<th align="center">GPyTorch (Exact)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">24 minutes</td>
+<td align="center"><strong>3 seconds</strong></td>
+<td align="center"><strong>30 seconds</strong></td>
+</tr>
+<tr>
+<td align="center">GPU</td>
+<td align="center">GPU</td>
+<td align="center">GPU</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+</div>
+<details><summary>GPFlow (Exact)</summary><div class="highlight"><pre><span></span><code><span class="c1"># define optimizer and params</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">gpflow</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Scipy</span><span class="p">()</span>
+<span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;L-BFGS-B&quot;</span>
+<span class="n">n_iters</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># optimize</span>
+<span class="n">opt_logs</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+    <span class="n">gp_model</span><span class="o">.</span><span class="n">training_loss</span><span class="p">,</span>
+    <span class="n">gp_model</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">,</span> 
+    <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">maxiter</span><span class="o">=</span><span class="n">n_iters</span><span class="p">),</span>
+    <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># print a summary of the results</span>
+<span class="n">print_summary</span><span class="p">(</span><span class="n">gp_model</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>╒═════════════════════════╤═══════════╤══════════════════╤═════════╤═════════════╤═════════╤═════════╤═════════════════════╕
+│ name                    │ class     │ transform        │ prior   │ trainable   │ shape   │ dtype   │ value               │
+╞═════════════════════════╪═══════════╪══════════════════╪═════════╪═════════════╪═════════╪═════════╪═════════════════════╡
+│ GPR.mean_function.A     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span>  │ float64 │ <span class="o">[[</span>-0.109<span class="o">]]</span>          │
+├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
+│ GPR.mean_function.b     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>,<span class="o">)</span>    │ float64 │ <span class="o">[</span>-0.027<span class="o">]</span>            │
+├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
+│ GPR.kernel.variance     │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.4583605690651238  │
+├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
+│ GPR.kernel.lengthscales │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.10119699753609418 │
+├─────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
+│ GPR.likelihood.variance │ Parameter │ Softplus + Shift │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.03981121449717302 │
+╘═════════════════════════╧═══════════╧══════════════════╧═════════╧═════════════╧═════════╧═════════╧═════════════════════╛
+CPU times: user 13min 42s, sys: 9min 57s, total: 23min 40s
+Wall time: 24min 43s
+</code></pre></div>
+
+</details>
+<details><summary>GPFlow (Sparse)</summary><div class="highlight"><pre><span></span><code><span class="c1"># define optimizer and params</span>
 <span class="n">minibatch_size</span> <span class="o">=</span> <span class="mi">128</span>
 
 <span class="c1"># turn of training for inducing points</span>
@@ -621,27 +813,126 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 <div class="highlight"><pre><span></span><code>╒══════════════════════════╤═══════════╤══════════════════╤═════════╤═════════════╤═════════╤═════════╤═════════════════════╕
 │ name                     │ class     │ transform        │ prior   │ trainable   │ shape   │ dtype   │ value               │
 ╞══════════════════════════╪═══════════╪══════════════════╪═════════╪═════════════╪═════════╪═════════╪═════════════════════╡
-│ SGPR.mean_function.A     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span>  │ float64 │ <span class="o">[[</span>-0.21<span class="o">]]</span>           │
+│ SGPR.mean_function.A     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>, <span class="m">1</span><span class="o">)</span>  │ float64 │ <span class="o">[[</span>-0.111<span class="o">]]</span>          │
 ├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
-│ SGPR.mean_function.b     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>,<span class="o">)</span>    │ float64 │ <span class="o">[</span><span class="m">0</span>.019<span class="o">]</span>             │
+│ SGPR.mean_function.b     │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">1</span>,<span class="o">)</span>    │ float64 │ <span class="o">[</span>-0.027<span class="o">]</span>            │
 ├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
-│ SGPR.kernel.variance     │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.161352313910884   │
+│ SGPR.kernel.variance     │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">1</span>.4608235231409987  │
 ├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
-│ SGPR.kernel.lengthscales │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.09574863612699928 │
+│ SGPR.kernel.lengthscales │ Parameter │ Softplus         │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.10123051205205866 │
 ├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
-│ SGPR.likelihood.variance │ Parameter │ Softplus + Shift │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.04012048665014923 │
+│ SGPR.likelihood.variance │ Parameter │ Softplus + Shift │         │ True        │ <span class="o">()</span>      │ float64 │ <span class="m">0</span>.03980796876613383 │
 ├──────────────────────────┼───────────┼──────────────────┼─────────┼─────────────┼─────────┼─────────┼─────────────────────┤
-│ SGPR.inducing_variable.Z │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">50</span>, <span class="m">1</span><span class="o">)</span> │ float64 │ <span class="o">[[</span>-0.786...         │
+│ SGPR.inducing_variable.Z │ Parameter │ Identity         │         │ True        │ <span class="o">(</span><span class="m">50</span>, <span class="m">1</span><span class="o">)</span> │ float64 │ <span class="o">[[</span><span class="m">0</span>.107...          │
 ╘══════════════════════════╧═══════════╧══════════════════╧═════════╧═════════════╧═════════╧═════════╧═════════════════════╛
+CPU times: user <span class="m">2</span>.01 s, sys: <span class="m">196</span> ms, total: <span class="m">2</span>.21 s
+Wall time: <span class="m">2</span>.24 s══════════╧═════════╧═════════════╧═════════╧═════════╧═════════════════════╛
 </code></pre></div>
 
+</details>
+<details><summary>GPyTorch (Exact BBMM)</summary><div class="admonition tip">
+<p class="admonition-title">Same as small data</p>
+<p>So this code is actually the same as the small data <a href="../1d_example/">1D Example</a>! We just have to change it to use the GPU and we're good to go!</p>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">GPyTorch</label><div class="tabbed-content"></div>
-</div>
+<p>So admittedly, this is where we start to enter into boilerplate code because this is stuff that needs to be done almost always.</p>
+<p><strong>Set Model and Likelihood in Training Mode</strong></p>
+<p>For this step, we need to let PyTorch know that we want all of the <code>layers</code> inside of our class primed and ready in train mode. </p>
+<details class="info"><summary>Note</summary><p>This is mostly from things like BatchNormalization and DropOut which tend to behave differently between train and test. But we inherited the commands.</p>
+</details>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># set model and likelihood in train mode</span>
+<span class="n">likelihood</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="n">gp_model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</code></pre></div>
+One nice thing is that it will give you a small overview of how the model looks as a tuple of tuples.</p>
+<div class="highlight"><pre><span></span><code>GPModel<span class="o">(</span>
+<span class="o">(</span>likelihood<span class="o">)</span>: GaussianLikelihood<span class="o">(</span>
+    <span class="o">(</span>noise_covar<span class="o">)</span>: HomoskedasticNoise<span class="o">(</span>
+    <span class="o">(</span>raw_noise_constraint<span class="o">)</span>: GreaterThan<span class="o">(</span><span class="m">1</span>.000E-04<span class="o">)</span>
+    <span class="o">)</span>
+<span class="o">)</span>
+<span class="o">(</span>mean_module<span class="o">)</span>: ConstantMean<span class="o">()</span>
+<span class="o">(</span>covar_module<span class="o">)</span>: ScaleKernel<span class="o">(</span>
+    <span class="o">(</span>base_kernel<span class="o">)</span>: RBFKernel<span class="o">(</span>
+    <span class="o">(</span>raw_lengthscale_constraint<span class="o">)</span>: Positive<span class="o">()</span>
+    <span class="o">)</span>
+    <span class="o">(</span>raw_outputscale_constraint<span class="o">)</span>: Positive<span class="o">()</span>
+<span class="o">)</span>
+<span class="o">)</span>
+</code></pre></div>
+
+<p><strong>Choose Optimizer and Loss</strong></p>
+<p>Now we define the optimizer as well as the loss function.</p>
+<div class="highlight"><pre><span></span><code><span class="lineno" data-linenos=" 1 "></span><span class="c1"># optimizer setup</span>
+<span class="lineno" data-linenos=" 2 "></span><span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="lineno" data-linenos=" 3 "></span>
+<span class="lineno" data-linenos=" 4 "></span><span class="c1"># Use the adam optimizer</span>
+<span class="lineno" data-linenos=" 5 "></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span>
+<span class="lineno" data-linenos=" 6 "></span>    <span class="n">gp_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span>
+<span class="lineno" data-linenos=" 7 "></span><span class="p">)</span> 
+<span class="lineno" data-linenos=" 8 "></span>
+<span class="lineno" data-linenos=" 9 "></span><span class="c1"># Loss Function - the marginal log likelihood</span>
+<span class="lineno" data-linenos="10 "></span><span class="n">mll</span> <span class="o">=</span> <span class="n">gpytorch</span><span class="o">.</span><span class="n">mlls</span><span class="o">.</span><span class="n">ExactMarginalLogLikelihood</span><span class="p">(</span><span class="n">likelihood</span><span class="p">,</span> <span class="n">gp_model</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Training</strong></p>
+<p>And now we can finally train our model! Now, all of this that comes after is boilerplate code. We have to do it almost every time when using PyTorch. No escaping unless you want to use another package (which you should; I'll demonstrate that in a later tutorial).</p>
+<div class="highlight"><pre><span></span><code><span class="lineno" data-linenos=" 1 "></span><span class="c1"># choose iterations</span>
+<span class="lineno" data-linenos=" 2 "></span><span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="lineno" data-linenos=" 3 "></span>
+<span class="lineno" data-linenos=" 4 "></span><span class="c1"># initialize progressbar</span>
+<span class="lineno" data-linenos=" 5 "></span><span class="k">with</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">trange</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+<span class="lineno" data-linenos=" 6 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
+<span class="lineno" data-linenos=" 7 "></span>        <span class="c1"># Zero gradients from previous iteration</span>
+<span class="lineno" data-linenos=" 8 "></span>        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<span class="lineno" data-linenos=" 9 "></span>
+<span class="lineno" data-linenos="10 "></span>        <span class="c1"># Output from model</span>
+<span class="lineno" data-linenos="11 "></span>        <span class="n">output</span> <span class="o">=</span> <span class="n">gp_model</span><span class="p">(</span><span class="n">X_tensor</span><span class="p">)</span>
+<span class="lineno" data-linenos="12 "></span>        <span class="c1"># Calc loss</span>
+<span class="lineno" data-linenos="13 "></span>        <span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">mll</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">y_tensor</span><span class="p">)</span>
+<span class="lineno" data-linenos="14 "></span>
+<span class="lineno" data-linenos="15 "></span>        <span class="c1"># backprop gradients</span>
+<span class="lineno" data-linenos="16 "></span>        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="lineno" data-linenos="17 "></span>
+<span class="lineno" data-linenos="18 "></span>        <span class="c1"># get parameters we want to track</span>
+<span class="lineno" data-linenos="19 "></span>        <span class="n">postfix</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="lineno" data-linenos="20 "></span>            <span class="n">Loss</span><span class="o">=</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+<span class="lineno" data-linenos="21 "></span>            <span class="n">scale</span><span class="o">=</span><span class="n">gp_model</span><span class="o">.</span><span class="n">covar_module</span><span class="o">.</span><span class="n">outputscale</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+<span class="lineno" data-linenos="22 "></span>            <span class="n">length_scale</span><span class="o">=</span><span class="n">gp_model</span><span class="o">.</span><span class="n">covar_module</span><span class="o">.</span><span class="n">base_kernel</span><span class="o">.</span><span class="n">lengthscale</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+<span class="lineno" data-linenos="23 "></span>            <span class="n">noise</span><span class="o">=</span><span class="n">gp_model</span><span class="o">.</span><span class="n">likelihood</span><span class="o">.</span><span class="n">noise</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="lineno" data-linenos="24 "></span>            <span class="p">)</span>
+<span class="lineno" data-linenos="25 "></span>
+<span class="lineno" data-linenos="26 "></span>        <span class="c1"># step forward in the optimization</span>
+<span class="lineno" data-linenos="27 "></span>        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="lineno" data-linenos="28 "></span>
+<span class="lineno" data-linenos="29 "></span>        <span class="c1"># update the progress bar</span>
+<span class="lineno" data-linenos="30 "></span>        <span class="n">pbar</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="n">postfix</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
 <hr />
 <h2 id="predictions">Predictions<a class="headerlink" href="#predictions" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">GPFlow</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="c1"># generate some points for plotting</span>
+<details class="code"><summary>GPFlow (Exact)</summary><div class="highlight"><pre><span></span><code><span class="c1"># generate some points for plotting</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+<span class="c1"># predictive mean and standard deviation</span>
+<span class="n">y_mean</span><span class="p">,</span> <span class="n">y_var</span> <span class="o">=</span> <span class="n">gp_model</span><span class="o">.</span><span class="n">predict_y</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># convert to numpy arrays</span>
+<span class="n">y_mean</span><span class="p">,</span> <span class="n">y_var</span> <span class="o">=</span> <span class="n">y_mean</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">y_var</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="c1"># confidence intervals</span>
+<span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_var</span><span class="p">)</span>
+<span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_var</span><span class="p">)</span>
+</code></pre></div>
+
+<details class="tip"><summary>Tensor 2 Numpy</summary><p>So we do have to convert to numpy arrays from tensors for the predictions. Note, you can plot tensors, but some of the commands might be different.</p>
+<p>E.g. </p>
+<div class="highlight"><pre><span></span><code><span class="n">y_upper</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">y_mean</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y_var</span><span class="p">))</span>
+</code></pre></div>
+
+</details>
+</details>
+<details class="code"><summary>GPFlow (Sparse)</summary><div class="highlight"><pre><span></span><code><span class="c1"># generate some points for plotting</span>
 <span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
 <span class="c1"># predictive mean and standard deviation</span>
@@ -665,9 +956,54 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 </code></pre></div>
 
 </details>
+</details>
+<details class="code"><summary>GPyTorch (Exact BBMM)</summary><div class="admonition tip">
+<p class="admonition-title">Same as small data<p>Again, this code is actually the same as the small data <a href="../1d_example/">1D Example</a>! We just have to port our input data to the GPU (always)!</p>
+</p>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">GPyTorch</label><div class="tabbed-content"></div>
-</div>
+<p>We're still now out of it yet. We still need to do a few extra stuff to get predictions. Here we can simply</p>
+<p><strong>Eval Mode</strong></p>
+<p>We need to put our model back in <code>.eval</code> mode. This will allow all layers to behave in eval mode.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># put the model in eval mode</span>
+<span class="n">gp_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">likelihood</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+</code></pre></div>
+
+<p>One nice thing is that the resulting <code>observed_pred</code> is actually a class with a few methods and properties, e.g. <code>mean</code>, <code>variance</code>, <code>confidence_region</code>. Very convenient for predictions.</p>
+<div class="highlight"><pre><span></span><code><span class="lineno" data-linenos=" 1 "></span><span class="c1"># generate some points for plotting</span>
+<span class="lineno" data-linenos=" 2 "></span><span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="lineno" data-linenos=" 3 "></span>
+<span class="lineno" data-linenos=" 4 "></span><span class="c1"># convert to tensor</span>
+<span class="lineno" data-linenos=" 5 "></span><span class="n">X_plot_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+<span class="lineno" data-linenos=" 6 "></span>
+<span class="lineno" data-linenos=" 7 "></span>
+<span class="lineno" data-linenos=" 8 "></span><span class="c1"># turn off the gradient-tracking</span>
+<span class="lineno" data-linenos=" 9 "></span><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+<span class="lineno" data-linenos="10 "></span>
+<span class="lineno" data-linenos="11 "></span>    <span class="c1"># generate data</span>
+<span class="lineno" data-linenos="12 "></span>    <span class="n">X_plot_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="lineno" data-linenos="13 "></span>
+<span class="lineno" data-linenos="14 "></span>    <span class="c1"># convert tensor to CUDA</span>
+<span class="lineno" data-linenos="15 "></span>    <span class="n">X_plot_tensor</span> <span class="o">=</span> <span class="n">X_plot_tensor</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span class="lineno" data-linenos="16 "></span>
+<span class="lineno" data-linenos="17 "></span>    <span class="c1"># get predictions</span>
+<span class="lineno" data-linenos="18 "></span>    <span class="n">observed_pred</span> <span class="o">=</span> <span class="n">likelihood</span><span class="p">(</span><span class="n">gp_model</span><span class="p">(</span><span class="n">X_plot_tensor</span><span class="p">))</span>
+<span class="lineno" data-linenos="19 "></span>
+<span class="lineno" data-linenos="20 "></span>    <span class="c1"># extract mean prediction</span>
+<span class="lineno" data-linenos="21 "></span>    <span class="n">y_mean_tensor</span> <span class="o">=</span> <span class="n">observed_pred</span><span class="o">.</span><span class="n">mean</span>
+<span class="lineno" data-linenos="22 "></span>
+<span class="lineno" data-linenos="23 "></span>    <span class="c1"># extract confidence intervals</span>
+<span class="lineno" data-linenos="24 "></span>    <span class="n">y_upper_tensor</span><span class="p">,</span> <span class="n">y_lower_tensor</span> <span class="o">=</span> <span class="n">observed_pred</span><span class="o">.</span><span class="n">confidence_region</span><span class="p">()</span>
+</code></pre></div>
+
+<p>And yes...we still have to convert our data to <code>np.ndarray</code>.
+<div class="highlight"><pre><span></span><code><span class="c1"># convert to numpy array</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">X_plot_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">y_mean_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_upper_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_lower_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</code></pre></div></p>
+</details>
 <hr />
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
 <details class="info"><summary>Plot Function</summary><p>It's the same for all libraries as I first convert everything to numpy arrays and then plot the results.</p>
@@ -703,14 +1039,19 @@ f(x) = \sin(3\pi x) + \frac{1}{3}\sin(9\pi x) + \frac{1}{2} \sin(7 \pi x)
 </code></pre></div>
 
 </details>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">GPFlow</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">GPFlow (Exact)</label><div class="tabbed-content">
 <p><center>
-<img alt="Placeholder" loading="lazy" src="../pics/1d_example_ls/gpflow_fit_ls.png" />
+<img alt="Placeholder" src="../pics/1d_example_ls/gpflow_fit_ls_exact.png" />
 </center></p>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">GPyTorch</label><div class="tabbed-content">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">GPFlow (Sparse)</label><div class="tabbed-content">
 <p><center>
-<img alt="Placeholder" loading="lazy" src="../pics/1d_example_ls/gpytorch_fit_ls.png" />
+<img alt="Placeholder" src="../pics/1d_example_ls/gpflow_fit_ls.png" />
+</center></p>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">GPyTorch (Exact BBMM)</label><div class="tabbed-content">
+<p><center>
+<img alt="Placeholder" src="../pics/1d_example_ls/gpytorch_fit_ls.png" />
 </center></p>
 </div>
 </div>
