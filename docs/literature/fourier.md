@@ -38,13 +38,14 @@ with Applications to Filtering and Control - Pan et. al. (2017) - [PDF](http://p
 The SSGP algorithm had a tendency to overfit. So they added some additional parameters to account for the noise in the inputs making the marginal likelihood term intractable. They added variational methods to deal with the 
 1. Improving the Gaussian Process Sparse Spectrum Approximation by Representing Uncertainty in Frequency Inputs - Gal et. al. (2015) 
    > "...proposed variational inference in a sparse spectrum model that is derived from a GP model." - Hensman et. al. (2018)
-2. Variational Fourier Features for Gaussian Processes -  Hensman et al (2018)  
+2. Variational Fourier Features for Gaussian Processes -  Hensman et al (2018)  [Paper](http://www.jmlr.org/papers/volume18/16-579/16-579.pdf)
    > "...our work aims to directly approximate the posterior of the true models using a variational representation." - Hensman et. al. (2018)
 
 * Yarin Gal's Stuff - [website](http://www.cs.ox.ac.uk/people/yarin.gal/website/publications.html#Gal2015Improving)
 * Code
   * [Numpy](https://github.com/marcpalaci689/SSGPR)
   * [Theano](https://github.com/yaringal/VSSGP)
+
 
 
 #### Uncertain Inputs

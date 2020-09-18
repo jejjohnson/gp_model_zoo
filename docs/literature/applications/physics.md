@@ -18,3 +18,5 @@ source: physics.md
     - Code - [Exoplanet](https://docs.exoplanet.codes/en/stable/) | [Celerite](https://github.com/dfm/celerite) | [Celerite2](https://github.com/dfm/celerite2) 
         - **Note**: All packages specialize in 1D computations.
 
+??? info "Exoplanet Validation with Machine Learning: 50 new validated Kepler planets - Armstrong et. al. (2020)"
+    -> [Paper](https://arxiv.org/abs/2008.10516v1)

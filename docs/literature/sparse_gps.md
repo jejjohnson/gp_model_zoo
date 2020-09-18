@@ -1,34 +1,82 @@
 ## Resources
 
-### Papers
-
-* Nystrom Approximation
-  * [Using Nystrom to Speed Up Kernel Machines](https://papers.nips.cc/paper/1866-using-the-nystrom-method-to-speed-up-kernel-machines.pdf) - Williams & Seeger (2001)
-* Fully Independent Training Conditional (FITC)
-  * [Sparse Gaussian Processes Using Pseudo-Inputs](http://www.gatsby.ucl.ac.uk/~snelson/SPGP_up.pdf) - Snelson and Ghahramani (2006)
-  * [Flexible and Efficient GP Models for Machine Learning](http://www.gatsby.ucl.ac.uk/~snelson/thesis.pdf) - Snelson (2007)
-* Variational Free Energy (VFE)
-  * [Variational Learning of Inducing Variables in Sparse GPs](https://pdfs.semanticscholar.org/9c13/b87b5efb4bb011acc89d90b15f637fa48593.pdf) - Titsias (2009)
-  * [On Sparse Variational meethods and the KL Divergence between Stochastic Processes](https://arxiv.org/pdf/1504.07027.pdf) - Matthews et. al. (2015)
-  * Stochastic Variational Inference 
-    * [Gaussian Processes for Big Data](https://arxiv.org/pdf/1309.6835.pdf) - Hensman et al. (2013)
-* [Sparse Spectrum GPR](http://quinonero.net/Publications/lazaro-gredilla10a.pdf) - Lazaro-Gredilla et al. (2010)
-  * SGD, SVI
-    * [Improving the GP SS Approximation by Representing Uncertainty in Frequency Inputs](http://proceedings.mlr.press/v37/galb15.html) - Gal et al. (2015)
-  * [Prediction under Uncertainty in SSGPs w/ Applications to Filtering and Control](http://proceedings.mlr.press/v70/pan17a/pan17a.pdf) - Pan et. al. (2017)
-  * [Variational Fourier Features for GPs](http://www.jmlr.org/papers/volume18/16-579/16-579.pdf) - Hensman (2018)
-* [Understanding Probabilistic Sparse GP Approx](https://arxiv.org/pdf/1606.04820.pdf) - Bauer et. al. (2016)
-  > A good paper which highlights some import differences between the FITC, DTC and VFE. It provides a clear notational differences and also mentions how VFE is a special case of DTC.
-* [A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation](http://jmlr.org/papers/volume18/16-603/16-603.pdf) - Bui (2017)
-  > A good summary of all of the methods under one unified framework called the Power Expectation Propagation formula.
+## 📜 Papers
 
 
-**Rates of Convergence for Sparse Variational Gaussian Process Regression** - Burt et. al. (2019)
-> [Paper](https://arxiv.org/abs/1903.03571) | 💻 [Code](https://github.com/DavidBurt2/Rates-of-Convergence-SGPR)
+### Subset Methods
+
+> All of these methods in some way shape or form, are trying to reduce the size of the kernel matrix.
+
+??? fire "Nystrom Approximation"
+    -> [Using Nystrom to Speed Up Kernel Machines](https://papers.nips.cc/paper/1866-using-the-nystrom-method-to-speed-up-kernel-machines.pdf)- Williams & Seeger (2001)
+
+    ---
+
+    -> [scikit-learn](https://scikit-learn.org/stable/modules/kernel_approximation.html#nystroem-kernel-approx)
+    
+    -> [KRR Setting](https://github.com/jejjohnson/kernellib/blob/04691f8a8c058d83addb2556ed99d342dc3c8dfc/kernellib/regression/large_scale.py#L98)
+
+    -> [Nice Blog](https://maelfabien.github.io/machinelearning/largescale/#iv-nystr%C3%B6m-approximation) (**Slow to Load**)
+
+??? fire "Fully Independent Training Conditional (FITC)"
+    -> [Sparse Gaussian Processes Using Pseudo-Inputs](http://www.gatsby.ucl.ac.uk/~snelson/SPGP_up.pdf) - Snelson and Ghahramani (2006)
+    
+    -> [Flexible and Efficient GP Models for Machine Learning](http://www.gatsby.ucl.ac.uk/~snelson/thesis.pdf) - Snelson (2007)
+
+    -> [Variational Orthogonal Features](https://paperswithcode.com/paper/variational-orthogonal-features) - by Burt et al (2020)
 
 
+## Posterior Approximation
+
+
+#### Variational Free Energy
+
+
+??? tip "Variational Learning of Inducing Variables in Sparse GPs - Titsias (2009)"
+    > The OG for this method. You'll see this paper cited a lot!
+
+    -> [Paper](https://pdfs.semanticscholar.org/9c13/b87b5efb4bb011acc89d90b15f637fa48593.pdf)
+
+??? tip "Understanding Probabilistic Sparse GP Approx - Bauer et. al. (2016)"
+    > A good paper which highlights some import differences between the FITC, DTC and VFE. It provides a clear notational differences and also mentions how VFE is a special case of DTC.
+
+    -> [Paper](https://arxiv.org/pdf/1606.04820.pdf)
+
+
+??? info "Other Papers"
+
+    -> [On Sparse Variational meethods and the KL Divergence between Stochastic Processes](https://arxiv.org/pdf/1504.07027.pdf) - Matthews et. al. (2015)
+
+#### Stochastic Variational Inference (SVI)
+
+??? tip "Gaussian Processes for Big Data - Hensman et al. (2013)"
+
+    -> [Paper](https://arxiv.org/pdf/1309.6835.pdf)
+    
+#### Expectation Propagation (EP)
+
+
+??? info "A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation - Bui (2017)"
+    > A good summary of all of the methods under one unified framework called the Power Expectation Propagation formula.
+
+    -> [Paper](http://jmlr.org/papers/volume18/16-603/16-603.pdf)
+
+    ---
+
+    -> [Code](https://github.com/thangbui/sparseGP_powerEP/tree/master/python/sgp): Exact and Sparse Power EP
+
+    -> [Updated](https://github.com/thangbui/geepee) | [Other](https://github.com/emakryo/gaussian_process/blob/master/gaussian_process/expectation_propagation.py)
+
+    -> [Related Code](https://github.com/AaltoML/kalman-jax)
+  
+
+??? fire "**Rates of Convergence for Sparse Variational Gaussian Process Regression** - Burt et. al. (2019)"
+    > All you need to do is cite this paper whenever people don't believe that Sparse GPs aren't good at approximating Exact GPs.
+    
+    -> [Paper](https://arxiv.org/abs/1903.03571) | 💻 [Code](https://github.com/DavidBurt2/Rates-of-Convergence-SGPR)
 
 ---
+
 ### Latest
 
 * [Deep Structured Mixtures of Gaussian Processes](https://arxiv.org/abs/1910.04536) - Trapp et. al. (2019)
