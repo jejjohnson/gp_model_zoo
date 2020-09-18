@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Literature & Code for all things GP">
+        <meta name="description" content="GPs and Fourier Representation">
       
       
         <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/fourier/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Fourier - GP Model Zoo</title>
+        <title>Fourier</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sparse-spectrum-gaussian-processes" class="md-skip">
+        <a href="#gps-fourier-representations" class="md-skip">
           Skip to content
         </a>
       
@@ -230,10 +230,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Literature
@@ -305,6 +307,119 @@
 
 
   <li class="md-nav__item">
+    <a href="../large_scale/" title="Large Scale" class="md-nav__link">
+      Large Scale
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Fourier
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Fourier" class="md-nav__link md-nav__link--active">
+      Fourier
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-words" class="md-nav__link">
+    Key Words
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sparse-spectrum-gaussian-processes" class="md-nav__link">
+    Sparse Spectrum Gaussian Processes
+  </a>
+  
+    <nav class="md-nav" aria-label="Sparse Spectrum Gaussian Processes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssgp" class="md-nav__link">
+    SSGP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variational-ssgps" class="md-nav__link">
+    Variational SSGPs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncertain-inputs" class="md-nav__link">
+    Uncertain Inputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latest" class="md-nav__link">
+    Latest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../deep_gps/" title="Deep GPs" class="md-nav__link">
       Deep GPs
     </a>
@@ -320,6 +435,72 @@
     <a href="../multioutput/" title="Multi-Output" class="md-nav__link">
       Multi-Output
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+    
+    <label class="md-nav__link" for="nav-4-9">
+      Applications
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Applications" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/emulation/" title="Emulation" class="md-nav__link">
+      Emulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/bayes_opt/" title="Bayesian Opt." class="md-nav__link">
+      Bayesian Opt.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -377,6 +558,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../demos/1d_example_ls/" title="1D Example (Large Scale)" class="md-nav__link">
+      1D Example (Large Scale)
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -396,6 +589,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -406,6 +601,14 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#key-words" class="md-nav__link">
+    Key Words
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Words">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#sparse-spectrum-gaussian-processes" class="md-nav__link">
     Sparse Spectrum Gaussian Processes
   </a>
@@ -438,11 +641,16 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#latest" class="md-nav__link">
     Latest
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -464,11 +672,30 @@
                 
                 
                   
+                    
+
+
+  
+
+
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs/literature//fourier.md" title="fourier.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+</a>
+                  
                 
                 
-                  <h1>Fourier</h1>
-                
-                <h3 id="sparse-spectrum-gaussian-processes">Sparse Spectrum Gaussian Processes<a class="headerlink" href="#sparse-spectrum-gaussian-processes" title="Permanent link">&para;</a></h3>
+                <h1 id="gps-fourier-representations">GPs + Fourier Representations<a class="headerlink" href="#gps-fourier-representations" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Any content related to GPs and Fourier representations</p>
+</blockquote>
+<h2 id="key-words">Key Words<a class="headerlink" href="#key-words" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Random Fourier Features</li>
+<li>Sparse Spectrum</li>
+</ul>
+<h3 id="sparse-spectrum-gaussian-processes">Sparse Spectrum Gaussian Processes<a class="headerlink" href="#sparse-spectrum-gaussian-processes" title="Permanent link">&para;</a></h3>
 <p>These are essentially the analogue to the random fourier features for Gaussian processes.</p>
 <h4 id="ssgp">SSGP<a class="headerlink" href="#ssgp" title="Permanent link">&para;</a></h4>
 <ol>
@@ -488,7 +715,7 @@ with Applications to Filtering and Control - Pan et. al. (2017) - <a href="http:
 <li><a href="https://github.com/jameshensman/VFF/blob/master/VFF/ssgp.py">GPFlow</a></li>
 </ol>
 <h4 id="variational-ssgps">Variational SSGPs<a class="headerlink" href="#variational-ssgps" title="Permanent link">&para;</a></h4>
-<p>So according to <a href="">this paper</a> the SSGP algorithm had a tendency to overfit. So they added some additional parameters to account for the noise in the inputs making the marginal likelihood term intractable. They added variational methods to deal with the 
+<p>The SSGP algorithm had a tendency to overfit. So they added some additional parameters to account for the noise in the inputs making the marginal likelihood term intractable. They added variational methods to deal with the 
 1. Improving the Gaussian Process Sparse Spectrum Approximation by Representing Uncertainty in Frequency Inputs - Gal et. al. (2015) </p>
 <blockquote>
 <p>"...proposed variational inference in a sparse spectrum model that is derived from a GP model." - Hensman et. al. (2018)
@@ -515,6 +742,8 @@ with Applications to Filtering and Control - Pan et. al. (2017) - <a href="http:
 <li><a href="https://paperswithcode.com/paper/know-your-boundaries-constraining-gaussian">Know Your Boundaries: Constraining Gaussian Processes by Variational Harmonic Features</a> - Solin &amp; Kok (2019)</li>
 </ul>
                 
+                  
+                
               
               
                 
@@ -528,6 +757,41 @@ with Applications to Filtering and Control - Pan et. al. (2017) - <a href="http:
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../large_scale/" title="Large Scale" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Large Scale
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../deep_gps/" title="Deep GPs" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Deep GPs
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

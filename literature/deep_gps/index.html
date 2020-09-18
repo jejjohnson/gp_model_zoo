@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Literature & Code for all things GP">
+        <meta name="description" content="Deep Gaussian Processes">
       
       
         <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/deep_gps/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Deep GPs - GP Model Zoo</title>
+        <title>Deep Gaussian Processes</title>
       
     
     
@@ -96,7 +96,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Deep GPs
+              Deep Gaussian Processes
             
           </span>
         </div>
@@ -305,6 +305,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../large_scale/" title="Large Scale" class="md-nav__link">
+      Large Scale
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fourier/" title="Fourier" class="md-nav__link">
+      Fourier
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -343,7 +367,7 @@
       
         <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
-    Resources
+    👨🏽‍🏫 | 👩🏽‍🏫 Resources
   </a>
   
 </li>
@@ -435,6 +459,72 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+    
+    <label class="md-nav__link" for="nav-4-9">
+      Applications
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Applications" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Applications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/emulation/" title="Emulation" class="md-nav__link">
+      Emulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../applications/bayes_opt/" title="Bayesian Opt." class="md-nav__link">
+      Bayesian Opt.
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -489,6 +579,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../demos/1d_example_ls/" title="1D Example (Large Scale)" class="md-nav__link">
+      1D Example (Large Scale)
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -521,7 +623,7 @@
       
         <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
-    Resources
+    👨🏽‍🏫 | 👩🏽‍🏫 Resources
   </a>
   
 </li>
@@ -612,24 +714,38 @@
                 
                 
                   
+                    
+
+
+  
+
+
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs/literature/deep_gps.md" title="deep_gps.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="deep-gaussian-processes">Deep Gaussian Processes<a class="headerlink" href="#deep-gaussian-processes" title="Permanent link">&para;</a></h1>
 <p>These are GP models that stack GPs one after the other. As far as understanding, the best would be lectures as I have highlighted below.</p>
 <hr />
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Neil Lawrence @ MLSS 2019
-    &gt; I would say this is the best lecture to understand the nature of GPs and why we would might want to use them.</li>
-<li><a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Blog</a> | <a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Lecture</a> | <a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Slides</a></li>
-<li>Neil Lawrence @ GPSS 2019</li>
-<li><a href="http://inverseprobability.com/talks/notes/introduction-to-deep-gps.html">Notes</a> | <a href="https://youtu.be/eS_na-6ZlCI">Lecture</a></li>
-<li>Maurizio Filippone @ DeepBayes.ru 2018<blockquote>
-<p>I would say this is the second best lecture because Maurizio gives a nice overview of the GP methods there already are (at the time).</p>
+<h2 id="resources">👨🏽‍🏫 | 👩🏽‍🏫 Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p><strong>Neil Lawrence @ MLSS 2019</strong></p>
+<blockquote>
+<p>I would say this is the best lecture to understand the nature of GPs and why we would might want to use them.</p>
+<p><a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Blog</a> | <a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Lecture</a> | <a href="http://inverseprobability.com/talks/notes/deep-gaussian-processes.html">Slides</a></p>
 </blockquote>
-</li>
-<li><a href="https://www.youtube.com/watch?v=zBEV5ezyYmI">Lecture</a> | <a href="http://www.eurecom.fr/~filippon/Talks/talk_dgps_deep_bayes_summer_school_2018.pdf">Slides</a> | <a href="http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf">New Slides</a></li>
-</ul>
+<p><strong>Neil Lawrence @ GPSS 2019</strong></p>
+<blockquote>
+<p><a href="http://inverseprobability.com/talks/notes/introduction-to-deep-gps.html">Notes</a> | <a href="https://youtu.be/eS_na-6ZlCI">Lecture</a></p>
+</blockquote>
+<p><strong>Maurizio Filippone @ DeepBayes.ru 2018</strong></p>
+<blockquote>
+<p>I would say this is the second best lecture because Maurizio gives a nice overview of the GP methods there already are (at the time).</p>
+<p><a href="https://www.youtube.com/watch?v=zBEV5ezyYmI">Lecture</a> | <a href="http://www.eurecom.fr/~filippon/Talks/talk_dgps_deep_bayes_summer_school_2018.pdf">Slides</a> | <a href="http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf">New Slides</a></p>
+</blockquote>
 <hr />
 <h2 id="algorithms">Algorithms<a class="headerlink" href="#algorithms" title="Permanent link">&para;</a></h2>
 <p>The literature isn’t so big but there a number of different implementations depending on the lab:</p>
@@ -656,9 +772,9 @@
 <h3 id="variational-inference">Variational Inference<a class="headerlink" href="#variational-inference" title="Permanent link">&para;</a></h3>
 <p><strong><a href="http://adamian.github.io/publications.html#DeepGPs">Deep Gaussian Processes</a></strong> - Damianou &amp; Lawrence (2013)</p>
 <blockquote>
-<p>This paper is the original method of Deep GPs. It might not be useful for production but there are still many insights to be had from the originators.</p>
+<p>This paper is the original method of Deep GPs. It might not be useful for production but there are still many insights to be had from the originators.
+<a href="http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html">Code</a></p>
 </blockquote>
-<p><a href="http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html">Code</a></p>
 <p><strong><a href="">Nested Variational Compression in Deep Gaussian Processes</a></strong> - Hensman &amp; Lawrence (2014)</p>
 <p><strong><a href="https://arxiv.org/abs/1705.08933">Doubly Stochastic Variational Inference for Deep Gaussian Processes</a></strong> - Salimbeni &amp; Deisenroth (2017)</p>
 <blockquote>
@@ -704,6 +820,8 @@
 </li>
 </ul>
                 
+                  
+                
               
               
                 
@@ -721,7 +839,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../inference/" title="Inference" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../fourier/" title="Fourier" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -730,7 +848,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Inference
+                Fourier
               </div>
             </div>
           </a>

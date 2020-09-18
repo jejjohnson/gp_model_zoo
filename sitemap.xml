@@ -28,6 +28,14 @@
      <lastmod>2020-09-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/large_scale/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/fourier/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://jejjohnson.github.io/gp_model_zoo/literature/deep_gps/</loc>
      <lastmod>2020-09-18</lastmod>
      <changefreq>daily</changefreq>
@@ -36,11 +44,27 @@
      <lastmod>2020-09-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/applications/overview/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/applications/emulation/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/literature/applications/bayes_opt/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://jejjohnson.github.io/gp_model_zoo/demos/</loc>
      <lastmod>2020-09-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://jejjohnson.github.io/gp_model_zoo/demos/1d_example/</loc>
+     <lastmod>2020-09-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://jejjohnson.github.io/gp_model_zoo/demos/1d_example_ls/</loc>
      <lastmod>2020-09-18</lastmod>
      <changefreq>daily</changefreq>
     </url>

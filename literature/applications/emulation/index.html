@@ -8,26 +8,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Introduction to GPs">
+        <meta name="description" content="Using GPs as Emulators">
       
       
-        <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/inference/">
+        <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/applications/emulation/">
       
       
         <meta name="author" content="J. Emmanuel Johnson">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.1.3">
     
     
       
-        <title>Intro to GPs</title>
+        <title>Emulation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.62d34fff.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.62d34fff.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.c8acc6db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.c8acc6db.min.css">
       
       
         
@@ -45,11 +45,11 @@
     
     
     
-      <link rel="stylesheet" href="../../css/ansi-colours.css">
+      <link rel="stylesheet" href="../../../css/ansi-colours.css">
     
-      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+      <link rel="stylesheet" href="../../../css/jupyter-cells.css">
     
-      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+      <link rel="stylesheet" href="../../../css/pandas-dataframe.css">
     
     
       
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inference" class="md-skip">
+        <a href="#emulation" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Intro to GPs
+              Emulation
             
           </span>
         </div>
@@ -196,7 +196,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
+    <a href="../../.." title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -208,7 +208,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../software/" title="Software" class="md-nav__link">
+    <a href="../../../software/" title="Software" class="md-nav__link">
       Software
     </a>
   </li>
@@ -220,7 +220,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../intro/" title="Intro to GPs" class="md-nav__link">
+    <a href="../../../intro/" title="Intro to GPs" class="md-nav__link">
       Intro to GPs
     </a>
   </li>
@@ -259,7 +259,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="About" class="md-nav__link">
+    <a href="../../" title="About" class="md-nav__link">
       About
     </a>
   </li>
@@ -271,7 +271,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../kernels/" title="Kernels" class="md-nav__link">
+    <a href="../../kernels/" title="Kernels" class="md-nav__link">
       Kernels
     </a>
   </li>
@@ -283,7 +283,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../sparse_gps/" title="Sparse GPs" class="md-nav__link">
+    <a href="../../sparse_gps/" title="Sparse GPs" class="md-nav__link">
       Sparse GPs
     </a>
   </li>
@@ -293,108 +293,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Inference
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Inference" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../inference/" title="Inference" class="md-nav__link">
       Inference
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#variational-inference" class="md-nav__link">
-    Variational Inference
-  </a>
-  
-    <nav class="md-nav" aria-label="Variational Inference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variational-evidence-lower-bound-elbo" class="md-nav__link">
-    Variational Evidence Lower Bound (ELBO)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#natural-gradients-ngs" class="md-nav__link">
-    Natural Gradients (NGs)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
-    Importance Weighted Variational Inference (IWVI)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictive-log-likelihood-pll" class="md-nav__link">
-    Predictive Log Likelihood (PLL)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generalized-variational-inference-gvi" class="md-nav__link">
-    Generalized Variational Inference (GVI)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradient-descent-regimes" class="md-nav__link">
-    Gradient Descent Regimes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regularization" class="md-nav__link">
-    Regularization
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -404,7 +307,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../large_scale/" title="Large Scale" class="md-nav__link">
+    <a href="../../large_scale/" title="Large Scale" class="md-nav__link">
       Large Scale
     </a>
   </li>
@@ -416,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../fourier/" title="Fourier" class="md-nav__link">
+    <a href="../../fourier/" title="Fourier" class="md-nav__link">
       Fourier
     </a>
   </li>
@@ -428,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../deep_gps/" title="Deep GPs" class="md-nav__link">
+    <a href="../../deep_gps/" title="Deep GPs" class="md-nav__link">
       Deep GPs
     </a>
   </li>
@@ -440,7 +343,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../multioutput/" title="Multi-Output" class="md-nav__link">
+    <a href="../../multioutput/" title="Multi-Output" class="md-nav__link">
       Multi-Output
     </a>
   </li>
@@ -450,10 +353,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9" checked>
     
     <label class="md-nav__link" for="nav-4-9">
       Applications
@@ -477,7 +382,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../applications/overview/" title="Overview" class="md-nav__link">
+    <a href="../overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -487,11 +392,60 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../applications/emulation/" title="Emulation" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Emulation
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Emulation" class="md-nav__link md-nav__link--active">
       Emulation
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#papers" class="md-nav__link">
+    Papers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#videos" class="md-nav__link">
+    📺 Videos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -501,7 +455,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../applications/bayes_opt/" title="Bayesian Opt." class="md-nav__link">
+    <a href="../bayes_opt/" title="Bayesian Opt." class="md-nav__link">
       Bayesian Opt.
     </a>
   </li>
@@ -548,7 +502,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../demos/" title="Overview" class="md-nav__link">
+    <a href="../../../demos/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -560,7 +514,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../demos/1d_example/" title="1D Example" class="md-nav__link">
+    <a href="../../../demos/1d_example/" title="1D Example" class="md-nav__link">
       1D Example
     </a>
   </li>
@@ -572,7 +526,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../demos/1d_example_ls/" title="1D Example (Large Scale)" class="md-nav__link">
+    <a href="../../../demos/1d_example_ls/" title="1D Example (Large Scale)" class="md-nav__link">
       1D Example (Large Scale)
     </a>
   </li>
@@ -609,63 +563,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#variational-inference" class="md-nav__link">
-    Variational Inference
-  </a>
-  
-    <nav class="md-nav" aria-label="Variational Inference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variational-evidence-lower-bound-elbo" class="md-nav__link">
-    Variational Evidence Lower Bound (ELBO)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#natural-gradients-ngs" class="md-nav__link">
-    Natural Gradients (NGs)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
-    Importance Weighted Variational Inference (IWVI)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#predictive-log-likelihood-pll" class="md-nav__link">
-    Predictive Log Likelihood (PLL)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generalized-variational-inference-gvi" class="md-nav__link">
-    Generalized Variational Inference (GVI)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gradient-descent-regimes" class="md-nav__link">
-    Gradient Descent Regimes
+  <a href="#papers" class="md-nav__link">
+    Papers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#regularization" class="md-nav__link">
-    Regularization
+  <a href="#videos" class="md-nav__link">
+    📺 Videos
   </a>
   
 </li>
@@ -682,7 +588,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/jejjohnson/gp_model_zoo/edit/master/docs/literature/inference.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/jejjohnson/gp_model_zoo/edit/master/docs/literature/applications/emulation.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -694,7 +600,7 @@
   
 
 
-<a href="https://github.com/jejjohnson/gp_model_zoo/docs//intro.md" title="intro.md" class="md-content__button md-icon">
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs/literature/applications/emulation.md" title="emulation.md" class="md-content__button md-icon">
   Source
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -702,118 +608,14 @@
                   
                 
                 
-                <h1 id="inference">Inference<a class="headerlink" href="#inference" title="Permanent link">&para;</a></h1>
-<hr />
-<h3 id="variational-inference">Variational Inference<a class="headerlink" href="#variational-inference" title="Permanent link">&para;</a></h3>
-<p>This section outlines a few interesting papers I found where they are trying to improve how we do variational inference. I try to stick to methods where people have tried and succeeded at applying them to GPs. Below are a few key SOTA objective functions that you may come across in the GP literature.  The most common is definitely the Variational ELBO but there are a few unknown objective functions that came out recently and I think they might be useful in the future. We just need to get them implemented and tested. Along the way there have been other modifications.</p>
-<hr />
-<h4 id="variational-evidence-lower-bound-elbo">Variational Evidence Lower Bound (ELBO)<a class="headerlink" href="#variational-evidence-lower-bound-elbo" title="Permanent link">&para;</a></h4>
-<p>This is the standard objective function that you will find the literature.</p>
-<p><strong><a href="https://arxiv.org/abs/1411.2005">Scalable Variational Gaussian Process Classification</a></strong> - Hensman et. al. (2015)</p>
-<details class="details"><summary>Details</summary><div>
-<div class="MathJax_Preview">
-\mathcal{L}_{ELBO} = \sum_{i=1}^{N} \mathbb{E}_{q(\mathbf{u})}
-\left[ \mathbb{E}_{f(f|\mathbf{u})} 
-\left[ \log p(y_i | f_i) \right] \right] - \beta 
-D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
-</div>
-<script type="math/tex; mode=display">
-\mathcal{L}_{ELBO} = \sum_{i=1}^{N} \mathbb{E}_{q(\mathbf{u})}
-\left[ \mathbb{E}_{f(f|\mathbf{u})} 
-\left[ \log p(y_i | f_i) \right] \right] - \beta 
-D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
-</script>
-</div>
-<p>where:</p>
-<ul>
-<li><span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> - number of data points </li>
-<li><span><span class="MathJax_Preview">p(\mathbf{u})</span><script type="math/tex">p(\mathbf{u})</script></span> - prior distribution for the inducing function values</li>
-<li><span><span class="MathJax_Preview">q(\mathbf{u})</span><script type="math/tex">q(\mathbf{u})</script></span> - variational distribution for the inducing function values</li>
-<li><span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> - free parameter for the <span><span class="MathJax_Preview">D_{KL}</span><script type="math/tex">D_{KL}</script></span> regularization penalization</li>
-</ul>
-</details>
-<hr />
-<h4 id="natural-gradients-ngs">Natural Gradients (NGs)<a class="headerlink" href="#natural-gradients-ngs" title="Permanent link">&para;</a></h4>
-<p><strong><a href="https://arxiv.org/abs/1803.09151">Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models</a></strong> - Salimbeni et. al. (2018) | <a href="https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py">Code</a></p>
+                <h1 id="emulation">Emulation<a class="headerlink" href="#emulation" title="Permanent link">&para;</a></h1>
+<h2 id="papers">Papers<a class="headerlink" href="#papers" title="Permanent link">&para;</a></h2>
+<p><a href="https://scholar.google.co.kr/citations?user=YNvV8EAAAAAJ&amp;hl=en#d=gs_md_cita-d&amp;u=%2Fcitations%3Fview_op%3Dview_citation%26hl%3Den%26user%3DYNvV8EAAAAAJ%26citation_for_view%3DYNvV8EAAAAAJ%3AqjMakFHDy7sC%26tzom%3D-120"><strong>Statistical biophysical parameter retrieval and emulation with Gaussian processes</strong></a> - Camps-Valls et. al. (2020)</p>
 <blockquote>
-<p>This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters <span><span class="MathJax_Preview">q_\phi(u)</span><script type="math/tex">q_\phi(u)</script></span> as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime. I imagine this would also be super useful for the BayesianGPLVM where we also have variational parameters for our inputs as well.</p>
+<p>A good overview of the field from an applied remote sensing perspective.</p>
 </blockquote>
-<ul>
-<li><a href="https://arxiv.org/abs/1712.02390">Noisy Natural Gradient as Variational Inference</a> - Zhang (2018) - <a href="https://github.com/wlwkgus/NoisyNaturalGradient">Code</a></li>
-<li><a href="https://github.com/wiseodd/natural-gradients/tree/master/pytorch">PyTorch Implementation</a></li>
-</ul>
-<hr />
-<h4 id="importance-weighted-variational-inference-iwvi">Importance Weighted Variational Inference (IWVI)<a class="headerlink" href="#importance-weighted-variational-inference-iwvi" title="Permanent link">&para;</a></h4>
-<p><strong><a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Deep Gaussian Processes with Importance-Weighted Variational Inference</a></strong> - Salimbeni et. al. (2019) -  <a href="https://arxiv.org/abs/1905.05435">Paper</a> | <a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Code</a> | <a href="https://slideslive.com/38917895/gaussian-processes">Video</a> | <a href="https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1">Poster</a>  | <a href="https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf">ICML 2019 Slides</a> | <a href="http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf">Workshop Slides</a></p>
-<blockquote>
-<p>They propose a way to do importance sampling coupled with variational inference to improve single layer and multi-layer GPs and have shown that they can get equivalent or better results than just standard variational inference.</p>
-</blockquote>
-<ul>
-<li><a href="https://papers.nips.cc/paper/7699-importance-weighting-and-variational-inference">Importance Weighting and Variational Inference</a> - Domke &amp; Sheldon (2018)</li>
-</ul>
-<hr />
-<h4 id="predictive-log-likelihood-pll">Predictive Log Likelihood (PLL)<a class="headerlink" href="#predictive-log-likelihood-pll" title="Permanent link">&para;</a></h4>
-<p><strong><a href="https://arxiv.org/abs/1910.07123">Sparse Gaussian Process Regression Beyond Variational Inference</a></strong> - Jankowiak et. al. (2019)</p>
-<details class="details"><summary>Details</summary><div>
-<div class="MathJax_Preview">
-\begin{aligned}
-\mathcal{L}_{PLL} &amp;= \mathbb{E}_{p_{data}(\mathbf{y}, \mathbf{x})}
-\left[ \log p(\mathbf{y|x})\right] - \beta 
-D_{KL}\left[ q(\mathbf{u}|| p(\mathbf{u})\right] \\
-&amp;\approx  \sum_{i=1}^{N} \log \mathbb{E}_{q(\mathbf{u})}
-\left[ \int p(y_i |f_i) p(f_i | \mathbf{u})df_i \right] - \beta 
-D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
-\end{aligned}
-</div>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\mathcal{L}_{PLL} &= \mathbb{E}_{p_{data}(\mathbf{y}, \mathbf{x})}
-\left[ \log p(\mathbf{y|x})\right] - \beta 
-D_{KL}\left[ q(\mathbf{u}|| p(\mathbf{u})\right] \\
-&\approx  \sum_{i=1}^{N} \log \mathbb{E}_{q(\mathbf{u})}
-\left[ \int p(y_i |f_i) p(f_i | \mathbf{u})df_i \right] - \beta 
-D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
-\end{aligned}
-</script>
-</div>
-<p>where:</p>
-<ul>
-<li><span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> - number of data points </li>
-<li><span><span class="MathJax_Preview">p(\mathbf{u})</span><script type="math/tex">p(\mathbf{u})</script></span> - prior distribution for the inducing function values</li>
-<li><span><span class="MathJax_Preview">q(\mathbf{u})</span><script type="math/tex">q(\mathbf{u})</script></span> - variational distribution for the inducing function values</li>
-</ul>
-</details>
-<hr />
-<h4 id="generalized-variational-inference-gvi">Generalized Variational Inference (GVI)<a class="headerlink" href="#generalized-variational-inference-gvi" title="Permanent link">&para;</a></h4>
-<p><strong><a href="https://paperswithcode.com/paper/generalized-variational-inference">Generalized Variational Inference</a></strong> - Knoblauch et. al. (2019)</p>
-<blockquote>
-<p>A generalized Bayesian inference framework. It goes into a different variational family related to Renyi's family of Information theoretic methods; which isn't very typical because normally we look at the Shannon perspective. They had success applying it to Bayesian Neural Networks and Deep Gaussian Processes.</p>
-</blockquote>
-<ul>
-<li><a href="https://arxiv.org/abs/1904.02303">Deep GP paper</a></li>
-</ul>
-<hr />
-<h2 id="gradient-descent-regimes">Gradient Descent Regimes<a class="headerlink" href="#gradient-descent-regimes" title="Permanent link">&para;</a></h2>
-<hr />
-<p><strong><a href="https://arxiv.org/abs/1410.7455">Parallel training of DNNs with Natural Gradient and Parameter Averaging</a></strong> - Povey et. al. (2014) | <a href="https://github.com/YiwenShaoStephen/NGD-SGD">Code</a> | <a href="https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/">Blog</a></p>
-<blockquote>
-<p>A seamingly drop-in replacement for stochastic gradient descent with some added benefits of being shown to improve generalization tasks, stability of the training, and can help obtain high quality uncertainty estimates.</p>
-</blockquote>
-<hr />
-<p><strong><a href="https://paperswithcode.com/paper/stein-variational-gradient-descent-a-general">Stein Variational Gradient Descent: A General Purpose Bayesian Inference Algorithm</a></strong> - Lui &amp; Wang (2016)</p>
-<blockquote>
-<p>A tractable approach for learning high dimensional prob dist using Functional Gradient Descent in RKHS. It's from a connection with the derivative of the KL divergence and the Stein's identity.
-* Stein's Method <a href="https://sites.google.com/site/steinsmethod/home">Webpage</a>
-* <a href="http://docs.pyro.ai/en/stable/inference_algos.html#module-pyro.infer.svgd">Pyro Implementation</a></p>
-</blockquote>
-<hr />
-<h2 id="regularization">Regularization<a class="headerlink" href="#regularization" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://paperswithcode.com/paper/regularized-sparse-gaussian-processes">Regularized Sparse Gaussian Processes</a> - Meng &amp; Lee (2019) [<strong>arxiv</strong>]<blockquote>
-<p>Impose a regularization coefficient on the KL term in the Sparse GP implementation. Addresses issue where the distribution of the inducing inputs fail to capture the distribution of the training inputs.</p>
-</blockquote>
-</li>
-</ul>
+<h2 id="videos">📺 Videos<a class="headerlink" href="#videos" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.youtube.com/watch?v=pSsFSie62Ko"><strong>Some thoughts on Gaussian processes for emulation of deterministic computer models: Michael Stein</strong></a> - Michael Stein (08-2019)</p>
                 
                   
                 
@@ -834,7 +636,7 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../sparse_gps/" title="Sparse GPs" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../overview/" title="Overview" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -843,19 +645,19 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Sparse GPs
+                Overview
               </div>
             </div>
           </a>
         
         
-          <a href="../large_scale/" title="Large Scale" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../bayes_opt/" title="Bayesian Opt." class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Large Scale
+                Bayesian Opt.
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -914,20 +716,20 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
-      <script src="../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../../assets/javascripts/vendor.f81b9e8b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.23546af0.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "../..",
+          base: "../../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
