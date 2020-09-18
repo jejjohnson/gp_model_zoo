@@ -318,12 +318,53 @@
     Resources
   </a>
   
-    <nav class="md-nav" aria-label="Resources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papers" class="md-nav__link">
+    📜 Papers
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 Papers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#papers" class="md-nav__link">
-    Papers
+  <a href="#subset-methods" class="md-nav__link">
+    Subset Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posterior-approximation" class="md-nav__link">
+    Posterior Approximation
+  </a>
+  
+    <nav class="md-nav" aria-label="Posterior Approximation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variational-free-energy" class="md-nav__link">
+    Variational Free Energy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-variational-inference-svi" class="md-nav__link">
+    Stochastic Variational Inference (SVI)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expectation-propagation-ep" class="md-nav__link">
+    Expectation Propagation (EP)
   </a>
   
 </li>
@@ -606,12 +647,53 @@
     Resources
   </a>
   
-    <nav class="md-nav" aria-label="Resources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#papers" class="md-nav__link">
+    📜 Papers
+  </a>
+  
+    <nav class="md-nav" aria-label="📜 Papers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#papers" class="md-nav__link">
-    Papers
+  <a href="#subset-methods" class="md-nav__link">
+    Subset Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posterior-approximation" class="md-nav__link">
+    Posterior Approximation
+  </a>
+  
+    <nav class="md-nav" aria-label="Posterior Approximation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variational-free-energy" class="md-nav__link">
+    Variational Free Energy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stochastic-variational-inference-svi" class="md-nav__link">
+    Stochastic Variational Inference (SVI)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expectation-propagation-ep" class="md-nav__link">
+    Expectation Propagation (EP)
   </a>
   
 </li>
@@ -685,40 +767,53 @@
                   <h1>Sparse GPs</h1>
                 
                 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<h3 id="papers">Papers<a class="headerlink" href="#papers" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Nystrom Approximation</li>
-<li><a href="https://papers.nips.cc/paper/1866-using-the-nystrom-method-to-speed-up-kernel-machines.pdf">Using Nystrom to Speed Up Kernel Machines</a> - Williams &amp; Seeger (2001)</li>
-<li>Fully Independent Training Conditional (FITC)</li>
-<li><a href="http://www.gatsby.ucl.ac.uk/~snelson/SPGP_up.pdf">Sparse Gaussian Processes Using Pseudo-Inputs</a> - Snelson and Ghahramani (2006)</li>
-<li><a href="http://www.gatsby.ucl.ac.uk/~snelson/thesis.pdf">Flexible and Efficient GP Models for Machine Learning</a> - Snelson (2007)</li>
-<li>Variational Free Energy (VFE)</li>
-<li><a href="https://pdfs.semanticscholar.org/9c13/b87b5efb4bb011acc89d90b15f637fa48593.pdf">Variational Learning of Inducing Variables in Sparse GPs</a> - Titsias (2009)</li>
-<li><a href="https://arxiv.org/pdf/1504.07027.pdf">On Sparse Variational meethods and the KL Divergence between Stochastic Processes</a> - Matthews et. al. (2015)</li>
-<li>Stochastic Variational Inference <ul>
-<li><a href="https://arxiv.org/pdf/1309.6835.pdf">Gaussian Processes for Big Data</a> - Hensman et al. (2013)</li>
-</ul>
-</li>
-<li><a href="http://quinonero.net/Publications/lazaro-gredilla10a.pdf">Sparse Spectrum GPR</a> - Lazaro-Gredilla et al. (2010)</li>
-<li>SGD, SVI<ul>
-<li><a href="http://proceedings.mlr.press/v37/galb15.html">Improving the GP SS Approximation by Representing Uncertainty in Frequency Inputs</a> - Gal et al. (2015)</li>
-</ul>
-</li>
-<li><a href="http://proceedings.mlr.press/v70/pan17a/pan17a.pdf">Prediction under Uncertainty in SSGPs w/ Applications to Filtering and Control</a> - Pan et. al. (2017)</li>
-<li><a href="http://www.jmlr.org/papers/volume18/16-579/16-579.pdf">Variational Fourier Features for GPs</a> - Hensman (2018)</li>
-<li><a href="https://arxiv.org/pdf/1606.04820.pdf">Understanding Probabilistic Sparse GP Approx</a> - Bauer et. al. (2016)<blockquote>
+<h2 id="papers">📜 Papers<a class="headerlink" href="#papers" title="Permanent link">&para;</a></h2>
+<h3 id="subset-methods">Subset Methods<a class="headerlink" href="#subset-methods" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>All of these methods in some way shape or form, are trying to reduce the size of the kernel matrix.</p>
+</blockquote>
+<details class="fire"><summary>Nystrom Approximation</summary><p>-&gt; <a href="https://papers.nips.cc/paper/1866-using-the-nystrom-method-to-speed-up-kernel-machines.pdf">Using Nystrom to Speed Up Kernel Machines</a>- Williams &amp; Seeger (2001)</p>
+<hr />
+<p>-&gt; <a href="https://scikit-learn.org/stable/modules/kernel_approximation.html#nystroem-kernel-approx">scikit-learn</a></p>
+<p>-&gt; <a href="https://github.com/jejjohnson/kernellib/blob/04691f8a8c058d83addb2556ed99d342dc3c8dfc/kernellib/regression/large_scale.py#L98">KRR Setting</a></p>
+<p>-&gt; <a href="https://maelfabien.github.io/machinelearning/largescale/#iv-nystr%C3%B6m-approximation">Nice Blog</a> (<strong>Slow to Load</strong>)</p>
+</details>
+<details class="fire"><summary>Fully Independent Training Conditional (FITC)</summary><p>-&gt; <a href="http://www.gatsby.ucl.ac.uk/~snelson/SPGP_up.pdf">Sparse Gaussian Processes Using Pseudo-Inputs</a> - Snelson and Ghahramani (2006)</p>
+<p>-&gt; <a href="http://www.gatsby.ucl.ac.uk/~snelson/thesis.pdf">Flexible and Efficient GP Models for Machine Learning</a> - Snelson (2007)</p>
+<p>-&gt; <a href="https://paperswithcode.com/paper/variational-orthogonal-features">Variational Orthogonal Features</a> - by Burt et al (2020)</p>
+</details>
+<h2 id="posterior-approximation">Posterior Approximation<a class="headerlink" href="#posterior-approximation" title="Permanent link">&para;</a></h2>
+<h4 id="variational-free-energy">Variational Free Energy<a class="headerlink" href="#variational-free-energy" title="Permanent link">&para;</a></h4>
+<details class="tip"><summary>Variational Learning of Inducing Variables in Sparse GPs - Titsias (2009)</summary><blockquote>
+<p>The OG for this method. You'll see this paper cited a lot!</p>
+</blockquote>
+<p>-&gt; <a href="https://pdfs.semanticscholar.org/9c13/b87b5efb4bb011acc89d90b15f637fa48593.pdf">Paper</a></p>
+</details>
+<details class="tip"><summary>Understanding Probabilistic Sparse GP Approx - Bauer et. al. (2016)</summary><blockquote>
 <p>A good paper which highlights some import differences between the FITC, DTC and VFE. It provides a clear notational differences and also mentions how VFE is a special case of DTC.</p>
 </blockquote>
-</li>
-<li><a href="http://jmlr.org/papers/volume18/16-603/16-603.pdf">A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation</a> - Bui (2017)<blockquote>
+<p>-&gt; <a href="https://arxiv.org/pdf/1606.04820.pdf">Paper</a></p>
+</details>
+<details class="info"><summary>Other Papers</summary><p>-&gt; <a href="https://arxiv.org/pdf/1504.07027.pdf">On Sparse Variational meethods and the KL Divergence between Stochastic Processes</a> - Matthews et. al. (2015)</p>
+</details>
+<h4 id="stochastic-variational-inference-svi">Stochastic Variational Inference (SVI)<a class="headerlink" href="#stochastic-variational-inference-svi" title="Permanent link">&para;</a></h4>
+<details class="tip"><summary>Gaussian Processes for Big Data - Hensman et al. (2013)</summary><p>-&gt; <a href="https://arxiv.org/pdf/1309.6835.pdf">Paper</a></p>
+</details>
+<h4 id="expectation-propagation-ep">Expectation Propagation (EP)<a class="headerlink" href="#expectation-propagation-ep" title="Permanent link">&para;</a></h4>
+<details class="info"><summary>A Unifying Framework for Gaussian Process Pseudo-Point Approximations using Power Expectation Propagation - Bui (2017)</summary><blockquote>
 <p>A good summary of all of the methods under one unified framework called the Power Expectation Propagation formula.</p>
 </blockquote>
-</li>
-</ul>
-<p><strong>Rates of Convergence for Sparse Variational Gaussian Process Regression</strong> - Burt et. al. (2019)</p>
-<blockquote>
-<p><a href="https://arxiv.org/abs/1903.03571">Paper</a> | 💻 <a href="https://github.com/DavidBurt2/Rates-of-Convergence-SGPR">Code</a></p>
+<p>-&gt; <a href="http://jmlr.org/papers/volume18/16-603/16-603.pdf">Paper</a></p>
+<hr />
+<p>-&gt; <a href="https://github.com/thangbui/sparseGP_powerEP/tree/master/python/sgp">Code</a>: Exact and Sparse Power EP</p>
+<p>-&gt; <a href="https://github.com/thangbui/geepee">Updated</a> | <a href="https://github.com/emakryo/gaussian_process/blob/master/gaussian_process/expectation_propagation.py">Other</a></p>
+<p>-&gt; <a href="https://github.com/AaltoML/kalman-jax">Related Code</a></p>
+</details>
+<details class="fire"><summary><strong>Rates of Convergence for Sparse Variational Gaussian Process Regression</strong> - Burt et. al. (2019)</summary><blockquote>
+<p>All you need to do is cite this paper whenever people don't believe that Sparse GPs aren't good at approximating Exact GPs.</p>
 </blockquote>
+<p>-&gt; <a href="https://arxiv.org/abs/1903.03571">Paper</a> | 💻 <a href="https://github.com/DavidBurt2/Rates-of-Convergence-SGPR">Code</a></p>
+</details>
 <hr />
 <h3 id="latest">Latest<a class="headerlink" href="#latest" title="Permanent link">&para;</a></h3>
 <ul>

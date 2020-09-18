@@ -386,24 +386,24 @@
       
         <li class="md-nav__item">
   <a href="#new" class="md-nav__link">
-    New!
+    🆕 New!
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#lectures" class="md-nav__link">
-    Lectures
+    📺 Lectures
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#literature" class="md-nav__link">
-    Literature
+    📜 Literature
   </a>
   
-    <nav class="md-nav" aria-label="Literature">
+    <nav class="md-nav" aria-label="📜 Literature">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -610,24 +610,24 @@
       
         <li class="md-nav__item">
   <a href="#new" class="md-nav__link">
-    New!
+    🆕 New!
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#lectures" class="md-nav__link">
-    Lectures
+    📺 Lectures
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#literature" class="md-nav__link">
-    Literature
+    📜 Literature
   </a>
   
-    <nav class="md-nav" aria-label="Literature">
+    <nav class="md-nav" aria-label="📜 Literature">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -678,8 +678,16 @@
                 
                 <h1 id="multi-output-models">Multi-Output Models<a class="headerlink" href="#multi-output-models" title="Permanent link">&para;</a></h1>
 <p>In regression, this is when we try to learn a function <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> or multiple functions to predict multiple output <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> .</p>
-<details class="details"><summary>Details</summary><p>Concretly, we are trying to predict <span><span class="MathJax_Preview">y\in \mathbb{R}^{N\times P}</span><script type="math/tex">y\in \mathbb{R}^{N\times P}</script></span> where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is the number of samples and <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> is the number of outputs.</p>
-</details>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>Concretly, we have a regression problem and we are trying to predict <span><span class="MathJax_Preview">y\in \mathbb{R}^{N\times P}</span><script type="math/tex">y\in \mathbb{R}^{N\times P}</script></span> where <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is the number of samples and <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> is the number of outputs. Now the question is, how do we model all of these outputs jointly? </p>
+<p>There are some questions:</p>
+<ul>
+<li>Are there correlations between the outputs or independent?</li>
+<li>Is there missing data?</li>
+<li>Do we actually need to model all of them at the same time and/or jointly?</li>
+</ul>
+</div>
 <h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
 <p>Firstly, there is some confusion about the terminology. I've heard the following names:</p>
 <div class="admonition info">
@@ -695,7 +703,7 @@
 <p>same as multi-output but catered more to situations where we know one of the outputs is of lower quality. e.g. a regression problem where one of the targets has less resolution or perhaps missing some data.</p>
 </div>
 <p>These definitions come from a discussion I had with the <a href="https://gpflow.slack.com/archives/C144SAH60/p1588941862010600">GPFlow Community</a>. I have yet to see a paper that is consistent with how these are done. I have broken up each section based off of their name but as seen from the names, there is a lot of overlap.</p>
-<h2 id="new">New!<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
+<h2 id="new">🆕 New!<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
 <details class="info"><summary>Scalable Exact Inference in Multi-Output Gaussian Processes - Bruinsma et al (2020)</summary><blockquote>
 <p>They show a nice trick where you learn an invertible projection on your output space to reduce the crazy amount of outputs.</p>
 </blockquote>
@@ -703,26 +711,36 @@
 <p>💻📝 <a href="https://github.com/wesselb/oilmm">Code</a> | <a href="https://github.com/willtebbutt/OILMMs.jl">Julia</a></p>
 <p>📺 <a href="https://slideslive.com/38928160/scalable-exact-inference-in-multioutput-gaussian-processes?ref=speaker-37219-latest">ICML Prezi</a></p>
 </details>
-<h2 id="lectures">Lectures<a class="headerlink" href="#lectures" title="Permanent link">&para;</a></h2>
-<ul>
-<li>GPSS 2017 Summer School - Alvarez - <a href="https://youtu.be/ttgUJtVJthA">Video</a> | <a href="http://gpss.cc/gpss17/slides/multipleOutputGPs.pdf">Slides</a></li>
-</ul>
-<h2 id="literature">Literature<a class="headerlink" href="#literature" title="Permanent link">&para;</a></h2>
+<h2 id="lectures">📺 Lectures<a class="headerlink" href="#lectures" title="Permanent link">&para;</a></h2>
+<details class="info"><summary>GPSS Summer School - Alvarez (2017)</summary><p>📺 <a href="https://youtu.be/ttgUJtVJthA">Video</a></p>
+<p>📋 <a href="http://gpss.cc/gpss17/slides/multipleOutputGPs.pdf">Slides</a></p>
+</details>
+<hr />
+<h2 id="literature">📜 Literature<a class="headerlink" href="#literature" title="Permanent link">&para;</a></h2>
 <h3 id="multi-task">Multi-Task<a class="headerlink" href="#multi-task" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Multi-task Gaussian Process prediction - Bonilla et al. 2007 - <a href="https://papers.nips.cc/paper/3189-multi-task-gaussian-process-prediction">paper</a> | <a href="http://gpss.cc/bark08/slides/3%20williams.pdf">GPSS 2008 Slides</a></li>
-</ul>
+<details class="info"><summary>Multi-task Gaussian Process prediction - Bonilla et al. (2007</summary><p>-&gt; <a href="https://papers.nips.cc/paper/3189-multi-task-gaussian-process-prediction">paper</a></p>
+<p>-&gt; <a href="http://gpss.cc/bark08/slides/3%20williams.pdf">GPSS 2008 Slides</a></p>
+</details>
+<hr />
 <h3 id="multi-output">Multi-Output<a class="headerlink" href="#multi-output" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Efficient multioutput Gaussian processes through variational inducing kernels - Alvarez et al. (2011) - <a href="http://proceedings.mlr.press/v9/alvarez10a.html">paper</a> </li>
-<li>Remarks on multi-output Gaussian process regression - Liu et. al. (2018) - <a href="http://memetic-computing.org/publication/journal/MOGP_Remarks.pdf">pdf</a></li>
-<li>Heterogeneous Multi-output Gaussian Process Prediction - Moreno-Muñez et. al. (2018) - <a href="https://arxiv.org/abs/1805.07633">paper</a> | <a href="https://github.com/pmorenoz/HetMOGP">code</a></li>
-</ul>
+<details class="info"><summary>Efficient multioutput Gaussian processes through variational inducing kernels - Alvarez et al. (2011)</summary><p>-&gt; <a href="http://proceedings.mlr.press/v9/alvarez10a.html">paper</a> </p>
+</details>
+<details class="info"><summary>Remarks on multi-output Gaussian process regression - Liu et. al. (2018)</summary><p>-&gt; <a href="http://memetic-computing.org/publication/journal/MOGP_Remarks.pdf">pdf</a></p>
+</details>
+<details class="info"><summary>Heterogeneous Multi-output Gaussian Process Prediction - Moreno-Muñez et. al. (2018)</summary><p>-&gt; <a href="https://arxiv.org/abs/1805.07633">paper</a></p>
+<p>-&gt; <a href="https://github.com/pmorenoz/HetMOGP">code</a></p>
+</details>
+<details class="info"><summary>Fast Approximate Multi-output Gaussian Processes - Joukov &amp; Kulic</summary><p>-&gt; <a href="https://arxiv.org/abs/2008.09848v1">paper</a></p>
+</details>
+<hr />
 <h3 id="multi-fidelity">Multi-Fidelity<a class="headerlink" href="#multi-fidelity" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Deep Multi-fidelity Gaussian Processes - Raissi &amp; Karniadakis (2016) - <a href="https://arxiv.org/abs/1604.07484">paper</a> | <a href="https://maziarraissi.github.io/research/4_multifidelity_modeling/">blog</a> | </li>
-<li>Deep Gaussian Processes for Multi-fidelity Modeling - Cutjar et. al. (2019) - <a href="https://arxiv.org/abs/1903.07320">paper</a> | <a href="https://github.com/amzn/emukit/tree/master/emukit/examples/multi_fidelity_dgp">notebook</a> | <a href="http://kurtcutajar.com/pres/bdl_poster.pdf">poster</a></li>
-</ul>
+<details class="info"><summary>Deep Multi-fidelity Gaussian Processes - Raissi &amp; Karniadakis (2016)</summary><p>-&gt; <a href="https://arxiv.org/abs/1604.07484">paper</a></p>
+<p>-&gt; <a href="https://maziarraissi.github.io/research/4_multifidelity_modeling/">blog</a></p>
+</details>
+<details class="info"><summary>Deep Gaussian Processes for Multi-fidelity Modeling - Cutjar et. al. (2019)</summary><p>-&gt; <a href="https://arxiv.org/abs/1903.07320">paper</a></p>
+<p>-&gt; <a href="https://github.com/amzn/emukit/tree/master/emukit/examples/multi_fidelity_dgp">notebook</a></p>
+<p>-&gt; <a href="http://kurtcutajar.com/pres/bdl_poster.pdf">poster</a></p>
+</details>
                 
               
               
