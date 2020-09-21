@@ -306,18 +306,25 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deep-kernel-learning" class="md-nav__link">
-    Deep Kernel Learning
+  <a href="#extrapolation" class="md-nav__link">
+    Extrapolation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extrapolation" class="md-nav__link">
-    Extrapolation
+  <a href="#structures" class="md-nav__link">
+    Structures
   </a>
   
-    <nav class="md-nav" aria-label="Extrapolation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-kernel-learning" class="md-nav__link">
+    Deep Kernel Learning
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Kernel Learning">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -595,18 +602,25 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#deep-kernel-learning" class="md-nav__link">
-    Deep Kernel Learning
+  <a href="#extrapolation" class="md-nav__link">
+    Extrapolation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extrapolation" class="md-nav__link">
-    Extrapolation
+  <a href="#structures" class="md-nav__link">
+    Structures
   </a>
   
-    <nav class="md-nav" aria-label="Extrapolation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-kernel-learning" class="md-nav__link">
+    Deep Kernel Learning
+  </a>
+  
+    <nav class="md-nav" aria-label="Deep Kernel Learning">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -664,6 +678,17 @@
                 
                 <h1 id="kernel-functions">Kernel Functions<a class="headerlink" href="#kernel-functions" title="Permanent link">&para;</a></h1>
 <hr />
+<h2 id="extrapolation">Extrapolation<a class="headerlink" href="#extrapolation" title="Permanent link">&para;</a></h2>
+<p>One interesting problem that is related to uncertainty is how well this extrapolates for unseen regions (whether it is spatially or temporally).</p>
+<hr />
+<h2 id="structures">Structures<a class="headerlink" href="#structures" title="Permanent link">&para;</a></h2>
+<details class="info"><summary>Kernel Interpolation for Scalable Structured Gaussian Processes (KISS-GP) by Wilson &amp; Nickisch (2015)</summary><p>-&gt; <a href="https://docs.gpytorch.ai/en/v1.2.0/examples/02_Scalable_Exact_GPs/KISSGP_Regression">Code</a></p>
+<p>-&gt; <a href="https://arxiv.org/abs/1503.01057">Paper</a></p>
+</details>
+<details class="info"><summary>Product Kernel Interpolation for Scalable Gaussian Processes by Gardner et. al. (2018)</summary><p>-&gt; <a href="">Paper</a></p>
+<p>-&gt; GPyTorch <a href="https://docs.gpytorch.ai/en/v1.2.0/examples/02_Scalable_Exact_GPs/Scalable_Kernel_Interpolation_for_Products_CUDA.html">Code</a></p>
+</details>
+<hr />
 <h2 id="deep-kernel-learning">Deep Kernel Learning<a class="headerlink" href="#deep-kernel-learning" title="Permanent link">&para;</a></h2>
 <p>This is a Probabilistic Neural Network (PNN). It's when we try to learn features through a Neural Network and then on the last layer, we fit a Gaussian Process. It's a great idea and I think that this has a lot of potential. One of the criticisms of people in the GP community (<a href="https://arxiv.org/abs/1610.05392">Bonilla et. al., 2016</a>) is that we don't typically use very expressive kernels. That's where the power of GPs come from. So if we can have kernels from Neural Networks (one of the most expressive ML methods available to date), then we can get a potentially great ML algorithm. Even in practice, <a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">a developer</a> have stated that we can get state-of-the-art results with some minimum tweaking of the architecture.</p>
 <div class="admonition comment">
@@ -674,14 +699,17 @@
 </ul>
 </div>
 <p><strong>Literature</strong></p>
+<details class="info"><summary>Deep Kernel Learning - Wilson et. al. (2015)</summary><p>-&gt; <a href="https://arxiv.org/abs/1511.02222">Paper</a></p>
+<p>-&gt; <a href="https://docs.gpytorch.ai/en/v1.2.0/examples/06_PyTorch_NN_Integration_DKL/KISSGP_Deep_Kernel_Regression_CUDA.html">GPyTorch</a></p>
+</details>
+<details class="info"><summary>Stochastic Variational Deep Kernel learning - Wilson et. al. (2016)</summary><p>-&gt; <a href="https://papers.nips.cc/paper/6426-stochastic-variational-deep-kernel-learning">Paper</a></p>
+<p>-&gt; <a href="https://docs.gpytorch.ai/en/v1.2.0/examples/06_PyTorch_NN_Integration_DKL/Deep_Kernel_Learning_DenseNet_CIFAR_Tutorial.html">GPyTorch</a></p>
+<p>-&gt; <a href="https://pyro.ai/examples/dkl.html">Pyro</a></p>
+<p>-&gt; <a href="https://gpflow.readthedocs.io/en/master/notebooks/tailor/gp_nn.html">GPFlow</a></p>
+</details>
 <ul>
-<li><a href="https://arxiv.org/abs/1511.02222">Deep Kernel Learning</a> - Wilson et. al. (2015)</li>
-<li><a href="https://papers.nips.cc/paper/6426-stochastic-variational-deep-kernel-learning">Stochastic Variational Deep Kernel learning</a> - Wilson et. al. (2016)</li>
 <li><a href="http://jmlr.org/papers/volume20/17-621/17-621.pdf">A Representer Theorem for Deep Kernel Learning</a> - Bohn et. al. (2019)</li>
 </ul>
-<hr />
-<h2 id="extrapolation">Extrapolation<a class="headerlink" href="#extrapolation" title="Permanent link">&para;</a></h2>
-<p>One interesting problem that is related to uncertainty is how well this extrapolates for unseen regions (whether it is spatially or temporally).</p>
 <hr />
 <h3 id="smart-combination-of-kernels">Smart Combination of Kernels<a class="headerlink" href="#smart-combination-of-kernels" title="Permanent link">&para;</a></h3>
 <p>A GP would be better at extrapolating if ones uses kernel that is better defined for extrapolation.</p>
