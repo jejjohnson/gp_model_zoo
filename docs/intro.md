@@ -117,6 +117,3 @@ So I found a few resources that give papers as well as some codes and lectures t
 * Into to GPs - [Super Compilation](https://ebonilla.github.io/gaussianprocesses/)
 * Deep GPs Nonparametric - [Papers](https://github.com/otokonoko8/deep-Bayesian-nonparametrics-papers/blob/master/README.md)
 * GPs for Dynamical System Modeling - [Papers](http://dsc.ijs.si/jus.kocijan/GPdyn/)
-
-
-

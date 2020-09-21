@@ -18,6 +18,21 @@
 
     -> [Nice Blog](https://maelfabien.github.io/machinelearning/largescale/#iv-nystr%C3%B6m-approximation) (**Slow to Load**)
 
+
+??? info "Random Fourier Features"
+
+
+
+
+??? info "FastFood"
+    -> [Fastfood: Approximate Kernel Expansions in Loglinear Time](https://arxiv.org/abs/1408.3060) by Viet Le et. al. (2014) | [Video](http://videolectures.net/nipsworkshops2012_smola_kernel/) | [Code](https://scikit-learn-extra.readthedocs.io/en/latest/generated/sklearn_extra.kernel_approximation.Fastfood.html)
+
+    -> [A la Carte - Learning Fast Kernels](https://arxiv.org/abs/1412.6493)  by Yang et. al. (2014)
+
+    -> [Efficient Approximate Inference with Walsh-Hadamard Variational Inference](https://arxiv.org/abs/1912.00015) by Rossi et. al. (2020)
+
+## Inducing Points
+
 ??? fire "Fully Independent Training Conditional (FITC)"
     -> [Sparse Gaussian Processes Using Pseudo-Inputs](http://www.gatsby.ucl.ac.uk/~snelson/SPGP_up.pdf) - Snelson and Ghahramani (2006)
     
@@ -25,6 +40,13 @@
 
     -> [Variational Orthogonal Features](https://paperswithcode.com/paper/variational-orthogonal-features) - by Burt et al (2020)
 
+??? fire "Parametric Gaussian Process Regressors by Jankowiak et. al. (2020)"
+    -> [Paper](https://arxiv.org/abs/1910.07123)
+
+    -> [GPyTorch Code](https://docs.gpytorch.ai/en/v1.2.0/examples/04_Variational_and_Approximate_GPs/Approximate_GP_Objective_Functions.html#Objective-Funtion-2)-The-Predictive-Log-Likelihood)
+
+??? fire "Rethinking Sparse Gaussian Processes: Bayesian Approaches to Inducing-Variable Approximations by Rossi et al (2020)"
+    -> [Paper](https://arxiv.org/abs/2003.03080)
 
 ## Posterior Approximation
 
@@ -69,6 +91,7 @@
 
     -> [Related Code](https://github.com/AaltoML/kalman-jax)
   
+#### Variational
 
 ??? fire "**Rates of Convergence for Sparse Variational Gaussian Process Regression** - Burt et. al. (2019)"
     > All you need to do is cite this paper whenever people don't believe that Sparse GPs aren't good at approximating Exact GPs.
@@ -101,6 +124,9 @@ Often times the papers that people publish in conferences in Journals don't have
   * Chapter II (2.1) - Lit Review
 * [Bringing Models to the Domain: Deploying Gaussian Processes in the Biological Sciences](http://etheses.whiterose.ac.uk/18492/1/MaxZwiesseleThesis.pdf) - Zwießele (2017)
   * Chapter II (2.4, 2.5) - Sparse GPs, Variational Bayesian GPLVM
+
+??? info "Sparse Gaussian Process Approximations and Applications by Van der Wilk (2018)"
+    -> [Thesis](https://markvdw.github.io/vanderwilk-thesis.pdf)
 
 ### Presentations
 

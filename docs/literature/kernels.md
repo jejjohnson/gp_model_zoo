@@ -2,6 +2,27 @@
 
 
 ---
+
+## Extrapolation
+
+One interesting problem that is related to uncertainty is how well this extrapolates for unseen regions (whether it is spatially or temporally).
+
+---
+
+## Structures
+
+??? info "Kernel Interpolation for Scalable Structured Gaussian Processes (KISS-GP) by Wilson & Nickisch (2015)"
+    -> [Code](https://docs.gpytorch.ai/en/v1.2.0/examples/02_Scalable_Exact_GPs/KISSGP_Regression)
+
+    -> [Paper](https://arxiv.org/abs/1503.01057)
+
+??? info "Product Kernel Interpolation for Scalable Gaussian Processes by Gardner et. al. (2018)"
+    -> [Paper]()
+
+    -> GPyTorch [Code](https://docs.gpytorch.ai/en/v1.2.0/examples/02_Scalable_Exact_GPs/Scalable_Kernel_Interpolation_for_Products_CUDA.html)
+
+
+---
 ## Deep Kernel Learning
 
 This is a Probabilistic Neural Network (PNN). It's when we try to learn features through a Neural Network and then on the last layer, we fit a Gaussian Process. It's a great idea and I think that this has a lot of potential. One of the criticisms of people in the GP community ([Bonilla et. al., 2016](https://arxiv.org/abs/1610.05392)) is that we don't typically use very expressive kernels. That's where the power of GPs come from. So if we can have kernels from Neural Networks (one of the most expressive ML methods available to date), then we can get a potentially great ML algorithm. Even in practice, [a developer](https://fehiepsi.github.io/blog/deep-gaussian-process/) have stated that we can get state-of-the-art results with some minimum tweaking of the architecture.
@@ -13,16 +34,25 @@ This is a Probabilistic Neural Network (PNN). It's when we try to learn features
 
 **Literature**
 
-* [Deep Kernel Learning](https://arxiv.org/abs/1511.02222) - Wilson et. al. (2015)
-* [Stochastic Variational Deep Kernel learning](https://papers.nips.cc/paper/6426-stochastic-variational-deep-kernel-learning) - Wilson et. al. (2016)
+??? info "Deep Kernel Learning - Wilson et. al. (2015)"
+    -> [Paper](https://arxiv.org/abs/1511.02222)
+
+    -> [GPyTorch](https://docs.gpytorch.ai/en/v1.2.0/examples/06_PyTorch_NN_Integration_DKL/KISSGP_Deep_Kernel_Regression_CUDA.html)
+
+??? info "Stochastic Variational Deep Kernel learning - Wilson et. al. (2016)"
+
+    -> [Paper](https://papers.nips.cc/paper/6426-stochastic-variational-deep-kernel-learning)
+
+    -> [GPyTorch](https://docs.gpytorch.ai/en/v1.2.0/examples/06_PyTorch_NN_Integration_DKL/Deep_Kernel_Learning_DenseNet_CIFAR_Tutorial.html)
+
+    -> [Pyro](https://pyro.ai/examples/dkl.html)
+
+    -> [GPFlow](https://gpflow.readthedocs.io/en/master/notebooks/tailor/gp_nn.html)
+
+
+
 * [A Representer Theorem for Deep Kernel Learning](http://jmlr.org/papers/volume20/17-621/17-621.pdf) - Bohn et. al. (2019)
 
-
----
-
-## Extrapolation
-
-One interesting problem that is related to uncertainty is how well this extrapolates for unseen regions (whether it is spatially or temporally).
 
 ---
 
