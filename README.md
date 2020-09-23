@@ -1,4 +1,4 @@
-# Gaussian Process Literature and Model Zoo
+# Gaussian Process Model Zoo [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/jejjohnson/gp_model_zoo)
 
 * Author: J. Emmanuel Johnson
 * Email: jemanjohnson34@gmail.com
