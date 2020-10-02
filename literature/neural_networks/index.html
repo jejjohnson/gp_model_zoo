@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Literature & Code for all things GP">
+        <meta name="description" content="Neural Networks & Their Relation to GPs.">
       
       
         <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/neural_networks/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Neural Networks and Gaussian Processes - GP Model Zoo</title>
+        <title>Neural Networks</title>
       
     
     
@@ -96,7 +96,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Neural Networks and Gaussian Processes
+              Neural Networks
             
           </span>
         </div>
@@ -352,18 +352,42 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../state_space/" title="State-Space" class="md-nav__link">
+      State-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uncertain_inputs/" title="Uncertain Inputs" class="md-nav__link">
+      Uncertain Inputs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-11" type="checkbox" id="nav-4-11">
     
-    <label class="md-nav__link" for="nav-4-9">
+    <label class="md-nav__link" for="nav-4-11">
       Applications
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Applications" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-9">
+      <label class="md-nav__title" for="nav-4-11">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -517,13 +541,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deep-kernel-learning" class="md-nav__link">
-    Deep Kernel Learning
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#latest" class="md-nav__link">
     Latest
   </a>
@@ -555,6 +572,18 @@
                 
                 
                   
+                    
+
+
+  
+
+
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs//neural_networks.md" title="neural_networks.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+</a>
+                  
                 
                 
                 <h1 id="neural-networks-and-gaussian-processes">Neural Networks and Gaussian Processes<a class="headerlink" href="#neural-networks-and-gaussian-processes" title="Permanent link">&para;</a></h1>
@@ -563,25 +592,8 @@
 <ul>
 <li><a href="https://arxiv.org/pdf/1806.03563.pdf">Building Bayesian Neural Networks with Blocks:
 On Structure, Interpretability and Uncertainty</a> - Zhou et. al. (2018)</li>
-</ul>
-<hr />
-<h2 id="deep-kernel-learning">Deep Kernel Learning<a class="headerlink" href="#deep-kernel-learning" title="Permanent link">&para;</a></h2>
-<p>This is a Probabilistic Neural Network (PNN). It's when we try to learn features through a Neural Network and then on the last layer, we fit a Gaussian Process. It's a great idea and I think that this has a lot of potential. One of the criticisms of people in the GP community (<a href="https://arxiv.org/abs/1610.05392">Bonilla et. al., 2016</a>) is that we don't typically use very expressive kernels. That's where the power of GPs come from. So if we can have kernels from Neural Networks (one of the most expressive ML methods available to date), then we can get a potentially great ML algorithm. Even in practice, <a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">a developer</a> have stated that we can get state-of-the-art results with some minimum tweaking of the architecture.</p>
-<p><strong>Comments</strong>: 
-* I've also heard this called "Deep Feature Extraction".
-* This is NOT a Deep GP. I've seen one paper that incorrectly called it that. A deep GP is where we stack GPs on top of each other. See the <a href="../deep_gps/">deep GP</a> guide for more details.</p>
-<p><strong>Literature</strong></p>
-<ul>
-<li><a href="https://arxiv.org/abs/1511.02222">Deep Kernel Learning</a> - Wilson et. al. (2015)</li>
-<li><a href="https://papers.nips.cc/paper/6426-stochastic-variational-deep-kernel-learning">Stochastic Variational Deep Kernel learning</a> - Wilson et. al. (2016)</li>
-<li><a href="http://jmlr.org/papers/volume20/17-621/17-621.pdf">A Representer Theorem for Deep Kernel Learning</a> - Bohn et. al. (2019)</li>
-</ul>
-<p><strong>Code</strong></p>
-<ul>
-<li><a href="https://github.com/tensorflow/probability/blob/master/tensorflow_probability/examples/jupyter_notebooks/Probabilistic_Layers_Regression.ipynb">TensorFlow Implementation</a> | <a href="https://www.tensorflow.org/probability/api_docs/python/tfp/distributions/VariationalGaussianProcess">GP Dist Example</a></li>
-<li><a href="https://pyro.ai/examples/dkl.html">Pyro Implementation</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/GPflow/GPflow/blob/develop-2.0/doc/source/notebooks/tailor/gp_nn.ipynb">GPFlow Implementation</a></li>
-<li><a href="https://gpytorch.readthedocs.io/en/latest/examples/05_Scalable_GP_Regression_Multidimensional/KISSGP_Deep_Kernel_Regression_CUDA.html">GPyTorch Implementation</a></li>
+<li><a href="https://arxiv.org/abs/2002.04033">Hierarchical Gaussian Process Priors for Bayesian Neural Network Weights</a>  - Karaletsos &amp; Bui (10-2020)</li>
+<li><a href="https://jmlr.org/papers/v21/20-017.html">Wide Neural Networks with Bottlenecks are Deep Gaussian Processes</a> - Agrawal et. al. (2020) | <a href="https://code.ornl.gov/d0a/bottleneck_nngp">Code</a></li>
 </ul>
 <hr />
 <h2 id="latest">Latest<a class="headerlink" href="#latest" title="Permanent link">&para;</a></h2>
@@ -597,6 +609,8 @@ On Structure, Interpretability and Uncertainty</a> - Zhou et. al. (2018)</li>
 </ul>
 <hr />
 <h2 id="sota">SOTA<a class="headerlink" href="#sota" title="Permanent link">&para;</a></h2>
+                
+                  
                 
               
               

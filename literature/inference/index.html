@@ -344,6 +344,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monte-carlo" class="md-nav__link">
+    Monte Carlo
+  </a>
+  
+    <nav class="md-nav" aria-label="Monte Carlo">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#natural-gradients-ngs" class="md-nav__link">
     Natural Gradients (NGs)
@@ -451,18 +464,42 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../state_space/" title="State-Space" class="md-nav__link">
+      State-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uncertain_inputs/" title="Uncertain Inputs" class="md-nav__link">
+      Uncertain Inputs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-11" type="checkbox" id="nav-4-11">
     
-    <label class="md-nav__link" for="nav-4-9">
+    <label class="md-nav__link" for="nav-4-11">
       Applications
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Applications" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-9">
+      <label class="md-nav__title" for="nav-4-11">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -623,6 +660,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monte-carlo" class="md-nav__link">
+    Monte Carlo
+  </a>
+  
+    <nav class="md-nav" aria-label="Monte Carlo">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#natural-gradients-ngs" class="md-nav__link">
     Natural Gradients (NGs)
@@ -704,10 +754,10 @@
                 
                 <h1 id="inference">Inference<a class="headerlink" href="#inference" title="Permanent link">&para;</a></h1>
 <hr />
-<h3 id="variational-inference">Variational Inference<a class="headerlink" href="#variational-inference" title="Permanent link">&para;</a></h3>
+<h2 id="variational-inference">Variational Inference<a class="headerlink" href="#variational-inference" title="Permanent link">&para;</a></h2>
 <p>This section outlines a few interesting papers I found where they are trying to improve how we do variational inference. I try to stick to methods where people have tried and succeeded at applying them to GPs. Below are a few key SOTA objective functions that you may come across in the GP literature.  The most common is definitely the Variational ELBO but there are a few unknown objective functions that came out recently and I think they might be useful in the future. We just need to get them implemented and tested. Along the way there have been other modifications.</p>
 <hr />
-<h4 id="variational-evidence-lower-bound-elbo">Variational Evidence Lower Bound (ELBO)<a class="headerlink" href="#variational-evidence-lower-bound-elbo" title="Permanent link">&para;</a></h4>
+<h3 id="variational-evidence-lower-bound-elbo">Variational Evidence Lower Bound (ELBO)<a class="headerlink" href="#variational-evidence-lower-bound-elbo" title="Permanent link">&para;</a></h3>
 <p>This is the standard objective function that you will find the literature.</p>
 <p><strong><a href="https://arxiv.org/abs/1411.2005">Scalable Variational Gaussian Process Classification</a></strong> - Hensman et. al. (2015)</p>
 <details class="details"><summary>Details</summary><div>
@@ -732,18 +782,36 @@ D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
 <li><span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> - free parameter for the <span><span class="MathJax_Preview">D_{KL}</span><script type="math/tex">D_{KL}</script></span> regularization penalization</li>
 </ul>
 </details>
+<div class="admonition info">
+<p class="admonition-title">The Variational Gaussian Process by Tran et. al. (2016)</p>
+<p>-&gt; <a href="https://arxiv.org/abs/1511.06499">Paper</a></p>
+<p>-&gt; <a href="">Code</a></p>
+<p>-&gt; <a href="http://videolectures.net/iclr2016_tran_variational_gaussian/">Video</a></p>
+</div>
+<p>-&gt; <a href="https://github.com/suhailshergill/ProPL-meetup/tree/master/talks/2016/08_18_Variational_Gaussian_Process">Slides</a></p>
+<blockquote>
+<p>Some excellent Slides</p>
+</blockquote>
 <hr />
-<h4 id="natural-gradients-ngs">Natural Gradients (NGs)<a class="headerlink" href="#natural-gradients-ngs" title="Permanent link">&para;</a></h4>
+<h2 id="monte-carlo">Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permanent link">&para;</a></h2>
+<details class="info"><summary>Automated Augmented Conjugate Inference for Non-conjugate Gaussian Process Models - Galy-Fajou et. al. (2020)</summary><p>-&gt; <a href="https://arxiv.org/abs/2002.11451">Paper</a></p>
+<p>-&gt; <a href="https://github.com/theogf/AugmentedGaussianProcesses.jl">Code</a></p>
+<p>-&gt; <a href="https://twitter.com/theo_gf/status/1233082060430020609?s=19">Tweet</a></p>
+</details>
+<hr />
+<h3 id="natural-gradients-ngs">Natural Gradients (NGs)<a class="headerlink" href="#natural-gradients-ngs" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://arxiv.org/abs/1803.09151">Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models</a></strong> - Salimbeni et. al. (2018) | <a href="https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py">Code</a></p>
 <blockquote>
 <p>This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters <span><span class="MathJax_Preview">q_\phi(u)</span><script type="math/tex">q_\phi(u)</script></span> as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime. I imagine this would also be super useful for the BayesianGPLVM where we also have variational parameters for our inputs as well.</p>
 </blockquote>
+<p>-&gt; <a href="https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/">Blog</a> - Agustinus Kristiadi</p>
+<p>-&gt; <a href="https://www.youtube.com/watch?v=eio6l-Po83o&amp;feature=youtu.be">Lecture 3.5 Natural Gradient Optimization (I) | Neural Networks | MLCV 2017</a></p>
 <ul>
 <li><a href="https://arxiv.org/abs/1712.02390">Noisy Natural Gradient as Variational Inference</a> - Zhang (2018) - <a href="https://github.com/wlwkgus/NoisyNaturalGradient">Code</a></li>
 <li><a href="https://github.com/wiseodd/natural-gradients/tree/master/pytorch">PyTorch Implementation</a></li>
 </ul>
 <hr />
-<h4 id="importance-weighted-variational-inference-iwvi">Importance Weighted Variational Inference (IWVI)<a class="headerlink" href="#importance-weighted-variational-inference-iwvi" title="Permanent link">&para;</a></h4>
+<h3 id="importance-weighted-variational-inference-iwvi">Importance Weighted Variational Inference (IWVI)<a class="headerlink" href="#importance-weighted-variational-inference-iwvi" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Deep Gaussian Processes with Importance-Weighted Variational Inference</a></strong> - Salimbeni et. al. (2019) -  <a href="https://arxiv.org/abs/1905.05435">Paper</a> | <a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Code</a> | <a href="https://slideslive.com/38917895/gaussian-processes">Video</a> | <a href="https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1">Poster</a>  | <a href="https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf">ICML 2019 Slides</a> | <a href="http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf">Workshop Slides</a></p>
 <blockquote>
 <p>They propose a way to do importance sampling coupled with variational inference to improve single layer and multi-layer GPs and have shown that they can get equivalent or better results than just standard variational inference.</p>
@@ -752,7 +820,7 @@ D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
 <li><a href="https://papers.nips.cc/paper/7699-importance-weighting-and-variational-inference">Importance Weighting and Variational Inference</a> - Domke &amp; Sheldon (2018)</li>
 </ul>
 <hr />
-<h4 id="predictive-log-likelihood-pll">Predictive Log Likelihood (PLL)<a class="headerlink" href="#predictive-log-likelihood-pll" title="Permanent link">&para;</a></h4>
+<h3 id="predictive-log-likelihood-pll">Predictive Log Likelihood (PLL)<a class="headerlink" href="#predictive-log-likelihood-pll" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://arxiv.org/abs/1910.07123">Sparse Gaussian Process Regression Beyond Variational Inference</a></strong> - Jankowiak et. al. (2019)</p>
 <details class="details"><summary>Details</summary><div>
 <div class="MathJax_Preview">
@@ -784,7 +852,7 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
 </ul>
 </details>
 <hr />
-<h4 id="generalized-variational-inference-gvi">Generalized Variational Inference (GVI)<a class="headerlink" href="#generalized-variational-inference-gvi" title="Permanent link">&para;</a></h4>
+<h3 id="generalized-variational-inference-gvi">Generalized Variational Inference (GVI)<a class="headerlink" href="#generalized-variational-inference-gvi" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://paperswithcode.com/paper/generalized-variational-inference">Generalized Variational Inference</a></strong> - Knoblauch et. al. (2019)</p>
 <blockquote>
 <p>A generalized Bayesian inference framework. It goes into a different variational family related to Renyi's family of Information theoretic methods; which isn't very typical because normally we look at the Shannon perspective. They had success applying it to Bayesian Neural Networks and Deep Gaussian Processes.</p>
@@ -794,18 +862,25 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
 </ul>
 <hr />
 <h2 id="gradient-descent-regimes">Gradient Descent Regimes<a class="headerlink" href="#gradient-descent-regimes" title="Permanent link">&para;</a></h2>
-<hr />
-<p><strong><a href="https://arxiv.org/abs/1410.7455">Parallel training of DNNs with Natural Gradient and Parameter Averaging</a></strong> - Povey et. al. (2014) | <a href="https://github.com/YiwenShaoStephen/NGD-SGD">Code</a> | <a href="https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/">Blog</a></p>
-<blockquote>
+<details class="info"><summary>Parallel training of DNNs with Natural Gradient and Parameter Averaging - Povey et. al. (2014)</summary><blockquote>
 <p>A seamingly drop-in replacement for stochastic gradient descent with some added benefits of being shown to improve generalization tasks, stability of the training, and can help obtain high quality uncertainty estimates.</p>
 </blockquote>
-<hr />
-<p><strong><a href="https://paperswithcode.com/paper/stein-variational-gradient-descent-a-general">Stein Variational Gradient Descent: A General Purpose Bayesian Inference Algorithm</a></strong> - Lui &amp; Wang (2016)</p>
-<blockquote>
-<p>A tractable approach for learning high dimensional prob dist using Functional Gradient Descent in RKHS. It's from a connection with the derivative of the KL divergence and the Stein's identity.
-* Stein's Method <a href="https://sites.google.com/site/steinsmethod/home">Webpage</a>
-* <a href="http://docs.pyro.ai/en/stable/inference_algos.html#module-pyro.infer.svgd">Pyro Implementation</a></p>
+<p>-&gt; <a href="https://arxiv.org/abs/1410.7455">Paper</a></p>
+<p>-&gt; <a href="https://github.com/YiwenShaoStephen/NGD-SGD">Code</a></p>
+<p>-&gt; <a href="https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/">Blog</a></p>
+</details>
+<details class="info"><summary>Stein Variational Gradient Descent: A General Purpose Bayesian Inference Algorithm - Lui &amp; Wang (2016)</summary><blockquote>
+<p>A tractable approach for learning high dimensional prob dist using Functional Gradient Descent in RKHS. It's from a connection with the derivative of the KL divergence and the Stein's identity.</p>
 </blockquote>
+<p>-&gt; Stein's Method <a href="https://sites.google.com/site/steinsmethod/home">Webpage</a></p>
+<p>-&gt; <a href="http://docs.pyro.ai/en/stable/inference_algos.html#module-pyro.infer.svgd">Pyro Implementation</a></p>
+</details>
+<details class="info"><summary>Robust, Accurate Stochastic Optimization for Variational Inference - Dhaka et. al. (09-2020)</summary><blockquote>
+<p>More robust stochastic variational inference method using Polyak-Ruppert averaging with MCMC.</p>
+</blockquote>
+<p>-&gt; <a href="https://arxiv.org/abs/2009.00666">Paper</a></p>
+<p>-&gt; <a href="https://twitter.com/avehtari/status/1301792837214797827?s=09">Tweet</a></p>
+</details>
 <hr />
 <h2 id="regularization">Regularization<a class="headerlink" href="#regularization" title="Permanent link">&para;</a></h2>
 <ul>

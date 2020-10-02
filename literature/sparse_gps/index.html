@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Literature & Code for all things GP">
+        <meta name="description" content="Sparse Gaussian Processes">
       
       
         <link rel="canonical" href="https://jejjohnson.github.io/gp_model_zoo/literature/sparse_gps/">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Sparse GPs - GP Model Zoo</title>
+        <title>Sparse GPs</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resources" class="md-skip">
+        <a href="#sparse-gps" class="md-skip">
           Skip to content
         </a>
       
@@ -288,6 +288,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Sparse GPs
@@ -304,6 +306,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -312,13 +316,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#papers" class="md-nav__link">
@@ -501,18 +498,42 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../state_space/" title="State-Space" class="md-nav__link">
+      State-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uncertain_inputs/" title="Uncertain Inputs" class="md-nav__link">
+      Uncertain Inputs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-11" type="checkbox" id="nav-4-11">
     
-    <label class="md-nav__link" for="nav-4-9">
+    <label class="md-nav__link" for="nav-4-11">
       Applications
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Applications" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-9">
+      <label class="md-nav__title" for="nav-4-11">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -647,6 +668,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -655,13 +678,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#papers" class="md-nav__link">
@@ -790,11 +806,21 @@
                 
                 
                   
+                    
+
+
+  
+
+
+<a href="https://github.com/jejjohnson/gp_model_zoo/docs/literature/sparse_gps.md" title="sparse_gps.md" class="md-content__button md-icon">
+  Source
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+</a>
+                  
                 
                 
-                  <h1>Sparse GPs</h1>
-                
-                <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+                <h1 id="sparse-gps">Sparse GPs<a class="headerlink" href="#sparse-gps" title="Permanent link">&para;</a></h1>
 <h2 id="papers">📜 Papers<a class="headerlink" href="#papers" title="Permanent link">&para;</a></h2>
 <h3 id="subset-methods">Subset Methods<a class="headerlink" href="#subset-methods" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -852,7 +878,8 @@
 <details class="fire"><summary><strong>Rates of Convergence for Sparse Variational Gaussian Process Regression</strong> - Burt et. al. (2019)</summary><blockquote>
 <p>All you need to do is cite this paper whenever people don't believe that Sparse GPs aren't good at approximating Exact GPs.</p>
 </blockquote>
-<p>-&gt; <a href="https://arxiv.org/abs/1903.03571">Paper</a> | 💻 <a href="https://github.com/DavidBurt2/Rates-of-Convergence-SGPR">Code</a></p>
+<p>-&gt; <a href="https://arxiv.org/abs/1903.03571">Paper</a> | 💻 <a href="https://github.com/DavidBurt2/Rates-of-Convergence-SGPR">Code</a>
+-&gt; <a href="http://jmlr.org/papers/v21/19-1015.html">Convergence of Sparse Variational Inference in Gaussian Processes Regression</a> | <a href="https://github.com/markvdw/RobustGP">Code</a></p>
 </details>
 <hr />
 <h3 id="latest">Latest<a class="headerlink" href="#latest" title="Permanent link">&para;</a></h3>
@@ -893,6 +920,8 @@
 <ul>
 <li><a href="https://gonzmg88.github.io/blog/2018/04/19/VariationalFreeEnergy">Variational Free Energy for Sparse GPs</a> - Gonzalo</li>
 </ul>
+                
+                  
                 
               
               
