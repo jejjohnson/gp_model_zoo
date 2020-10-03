@@ -103,6 +103,14 @@ Lastly, just use a neural network and slap a GP layer at the end and let the dat
 
 
 ---
+
+## Other Kernels
+
+
+[Random Forest Density Kernel](https://github.com/ksanjeevan/randomforest-density-python)
+
+
+---
 ## Software
 
 * Multiple Kernel Learning - [MKLpy](https://github.com/IvanoLauriola/MKLpy)

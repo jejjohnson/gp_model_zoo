@@ -39,7 +39,22 @@ source: large_scale.md
     * [Paper](https://arxiv.org/abs/1903.08114)
     * [Code](https://github.com/cornellius-gp/gpytorch/blob/master/examples/01_Simple_GP_Regression/Simple_MultiGPU_GP_Regression.ipynb)
 
+??? info "Randomly Projected Additive Gaussian Processes for Regression - Delbridge et. al. (12-2019)"
+    -> [Paper](https://arxiv.org/abs/1912.12834)
+
+    -> [Code](https://github.com/idelbrid/Randomly-Projected-Additive-GPs) (**PyTorch**)
+
+??? info "Efficiently Sampling Functions from Gaussian Process Posteriors - Wilson et. al. (16-2020)"
+    > Uses a path-wise sampling scheme.
+    
+    -> [Paper](https://arxiv.org/abs/2002.09309)
+
+    -> [Code](https://github.com/aterenin/SparseGaussianProcesses.jl)
+
 ??? tip "Fast Matrix Square Roots with Applications to Gaussian Processes and Bayesian Optimization by Pleiss et. al. (2020)"
     -> [Paper](https://arxiv.org/abs/2006.11267)
 
     -> [Code](https://docs.gpytorch.ai/en/v1.2.0/examples/02_Scalable_Exact_GPs/Exact_GP_Posterior_Sampling_with_CIQ.html)
+
+??? tip "Sparse Cholesky factorization by Kullback-Leibler minimization - Schafer et, al. (2020)"
+    -> [Paper](https://arxiv.org/abs/2004.14455)

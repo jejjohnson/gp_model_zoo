@@ -1,5 +1,11 @@
-
-
+---
+title: Latent Variable Models
+description: Latent Variable Models
+authors:
+    - J. Emmanuel Johnson
+path: docs/literature
+source: latent_variable.md
+---
 ## Algorithms
 
 

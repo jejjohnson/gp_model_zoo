@@ -1,4 +1,12 @@
-## Resources
+---
+title: Sparse GPs
+description: Sparse Gaussian Processes
+authors:
+    - J. Emmanuel Johnson
+path: docs/literature
+source: sparse_gps.md
+---
+# Sparse GPs
 
 ## 📜 Papers
 
@@ -22,14 +30,20 @@
 ??? info "Random Fourier Features"
 
 
-
-
 ??? info "FastFood"
     -> [Fastfood: Approximate Kernel Expansions in Loglinear Time](https://arxiv.org/abs/1408.3060) by Viet Le et. al. (2014) | [Video](http://videolectures.net/nipsworkshops2012_smola_kernel/) | [Code](https://scikit-learn-extra.readthedocs.io/en/latest/generated/sklearn_extra.kernel_approximation.Fastfood.html)
 
     -> [A la Carte - Learning Fast Kernels](https://arxiv.org/abs/1412.6493)  by Yang et. al. (2014)
 
     -> [Efficient Approximate Inference with Walsh-Hadamard Variational Inference](https://arxiv.org/abs/1912.00015) by Rossi et. al. (2020)
+
+### Mixture of Experts
+
+
+??? info "Deep Structured Mixtures of Gaussian Processes - Trapp et. al. (2020)"
+    -> [Paper](http://proceedings.mlr.press/v108/trapp20a/trapp20a.pdf)
+
+    -> [Cde](https://github.com/trappmartin/DeepStructuredMixtures)
 
 ## Inducing Points
 
@@ -69,11 +83,15 @@
 
     -> [On Sparse Variational meethods and the KL Divergence between Stochastic Processes](https://arxiv.org/pdf/1504.07027.pdf) - Matthews et. al. (2015)
 
+
 #### Stochastic Variational Inference (SVI)
 
 ??? tip "Gaussian Processes for Big Data - Hensman et al. (2013)"
 
     -> [Paper](https://arxiv.org/pdf/1309.6835.pdf)
+
+
+
     
 #### Expectation Propagation (EP)
 
@@ -97,6 +115,7 @@
     > All you need to do is cite this paper whenever people don't believe that Sparse GPs aren't good at approximating Exact GPs.
     
     -> [Paper](https://arxiv.org/abs/1903.03571) | 💻 [Code](https://github.com/DavidBurt2/Rates-of-Convergence-SGPR)
+    -> [Convergence of Sparse Variational Inference in Gaussian Processes Regression](http://jmlr.org/papers/v21/19-1015.html) | [Code](https://github.com/markvdw/RobustGP)
 
 ---
 
@@ -106,6 +125,13 @@
   > Going back to the old days of improving the local-expert technique. 
 * [Sparse Gaussian Process Regression Beyond Variational Inference]() - Jankowiak et. al. (2019)
 
+---
+
+## Other
+
+
+??? info "Adversarial Robustness Guarantees for Classification with Gaussian Processes - Blass et. al. (2020)"
+    -> [Paper](https://arxiv.org/abs/1905.11876)
 
 ---
 ## Thesis Explain

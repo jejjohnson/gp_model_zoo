@@ -39,6 +39,8 @@ nav:
     - Fourier: "literature/fourier.md"
     - Deep GPs: "literature/deep_gps.md"
     - Multi-Output: "literature/multioutput.md"
+    - State-Space: "literature/state_space.md"
+    - Uncertain Inputs: "literature/uncertain_inputs.md"
     - Applications: 
       - Overview: "literature/applications/overview.md"
       - Emulation: "literature/applications/emulation.md"
