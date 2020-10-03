@@ -358,15 +358,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#natural-gradients-ngs" class="md-nav__link">
-    Natural Gradients (NGs)
+  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
+    Importance Weighted Variational Inference (IWVI)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
-    Importance Weighted Variational Inference (IWVI)
+  <a href="#hybrid-schemes" class="md-nav__link">
+    Hybrid Schemes
   </a>
   
 </li>
@@ -393,6 +393,26 @@
         <li class="md-nav__item">
   <a href="#gradient-descent-regimes" class="md-nav__link">
     Gradient Descent Regimes
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradient Descent Regimes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#natural-gradients-ngs" class="md-nav__link">
+    Natural Gradients (NGs)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uncategorized" class="md-nav__link">
+    Uncategorized
   </a>
   
 </li>
@@ -674,15 +694,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#natural-gradients-ngs" class="md-nav__link">
-    Natural Gradients (NGs)
+  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
+    Importance Weighted Variational Inference (IWVI)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#importance-weighted-variational-inference-iwvi" class="md-nav__link">
-    Importance Weighted Variational Inference (IWVI)
+  <a href="#hybrid-schemes" class="md-nav__link">
+    Hybrid Schemes
   </a>
   
 </li>
@@ -709,6 +729,26 @@
         <li class="md-nav__item">
   <a href="#gradient-descent-regimes" class="md-nav__link">
     Gradient Descent Regimes
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradient Descent Regimes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#natural-gradients-ngs" class="md-nav__link">
+    Natural Gradients (NGs)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uncategorized" class="md-nav__link">
+    Uncategorized
   </a>
   
 </li>
@@ -788,6 +828,12 @@ D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
 <p>-&gt; <a href="">Code</a></p>
 <p>-&gt; <a href="http://videolectures.net/iclr2016_tran_variational_gaussian/">Video</a></p>
 </div>
+<details class="info"><summary>Scalable Training of Inference Networks for Gaussian-Process Models - Shi et. al. (2019)</summary><p>-&gt; <a href="https://arxiv.org/pdf/1905.10969.pdf">Paper</a></p>
+<p>-&gt; <a href="https://github.com/thjashin/gp-infer-net">Code</a></p>
+</details>
+<details class="info"><summary>Sparse Orthogonal Variational Inference for Gaussian Processes - Shi et. al. (2020)</summary><p>-&gt; <a href="https://arxiv.org/abs/1910.10596">Paper</a></p>
+<p>-&gt; <a href="https://github.com/thjashin/solvegp">Code</a></p>
+</details>
 <p>-&gt; <a href="https://github.com/suhailshergill/ProPL-meetup/tree/master/talks/2016/08_18_Variational_Gaussian_Process">Slides</a></p>
 <blockquote>
 <p>Some excellent Slides</p>
@@ -799,18 +845,6 @@ D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
 <p>-&gt; <a href="https://twitter.com/theo_gf/status/1233082060430020609?s=19">Tweet</a></p>
 </details>
 <hr />
-<h3 id="natural-gradients-ngs">Natural Gradients (NGs)<a class="headerlink" href="#natural-gradients-ngs" title="Permanent link">&para;</a></h3>
-<p><strong><a href="https://arxiv.org/abs/1803.09151">Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models</a></strong> - Salimbeni et. al. (2018) | <a href="https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py">Code</a></p>
-<blockquote>
-<p>This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters <span><span class="MathJax_Preview">q_\phi(u)</span><script type="math/tex">q_\phi(u)</script></span> as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime. I imagine this would also be super useful for the BayesianGPLVM where we also have variational parameters for our inputs as well.</p>
-</blockquote>
-<p>-&gt; <a href="https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/">Blog</a> - Agustinus Kristiadi</p>
-<p>-&gt; <a href="https://www.youtube.com/watch?v=eio6l-Po83o&amp;feature=youtu.be">Lecture 3.5 Natural Gradient Optimization (I) | Neural Networks | MLCV 2017</a></p>
-<ul>
-<li><a href="https://arxiv.org/abs/1712.02390">Noisy Natural Gradient as Variational Inference</a> - Zhang (2018) - <a href="https://github.com/wlwkgus/NoisyNaturalGradient">Code</a></li>
-<li><a href="https://github.com/wiseodd/natural-gradients/tree/master/pytorch">PyTorch Implementation</a></li>
-</ul>
-<hr />
 <h3 id="importance-weighted-variational-inference-iwvi">Importance Weighted Variational Inference (IWVI)<a class="headerlink" href="#importance-weighted-variational-inference-iwvi" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Deep Gaussian Processes with Importance-Weighted Variational Inference</a></strong> - Salimbeni et. al. (2019) -  <a href="https://arxiv.org/abs/1905.05435">Paper</a> | <a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Code</a> | <a href="https://slideslive.com/38917895/gaussian-processes">Video</a> | <a href="https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1">Poster</a>  | <a href="https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf">ICML 2019 Slides</a> | <a href="http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf">Workshop Slides</a></p>
 <blockquote>
@@ -819,6 +853,14 @@ D_{KL}\left[ q(\mathbf{u} || p(\mathbf{u})) \right]
 <ul>
 <li><a href="https://papers.nips.cc/paper/7699-importance-weighting-and-variational-inference">Importance Weighting and Variational Inference</a> - Domke &amp; Sheldon (2018)</li>
 </ul>
+<h3 id="hybrid-schemes">Hybrid Schemes<a class="headerlink" href="#hybrid-schemes" title="Permanent link">&para;</a></h3>
+<details class="info"><summary>Automated Augmented Conjugate Inference for Non-conjugate Gaussian Process Models - Galy-Fajou et. al. (2020)</summary><blockquote>
+<p>Combines SVI and Gibbs Sampling</p>
+</blockquote>
+<p>-&gt; <a href="http://proceedings.mlr.press/v108/galy-fajou20a/galy-fajou20a.pdf">Paper</a></p>
+<p>-&gt; <a href="https://github.com/theogf/AACI_EXP">Code</a></p>
+<p>-&gt; <a href="https://github.com/theogf/AugmentedGaussianProcesses.jl">Package</a></p>
+</details>
 <hr />
 <h3 id="predictive-log-likelihood-pll">Predictive Log Likelihood (PLL)<a class="headerlink" href="#predictive-log-likelihood-pll" title="Permanent link">&para;</a></h3>
 <p><strong><a href="https://arxiv.org/abs/1910.07123">Sparse Gaussian Process Regression Beyond Variational Inference</a></strong> - Jankowiak et. al. (2019)</p>
@@ -862,6 +904,17 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
 </ul>
 <hr />
 <h2 id="gradient-descent-regimes">Gradient Descent Regimes<a class="headerlink" href="#gradient-descent-regimes" title="Permanent link">&para;</a></h2>
+<h3 id="natural-gradients-ngs">Natural Gradients (NGs)<a class="headerlink" href="#natural-gradients-ngs" title="Permanent link">&para;</a></h3>
+<p><strong><a href="https://arxiv.org/abs/1803.09151">Natural Gradients in Practice: Non-Conjugate Variational Inference in Gaussian Process Models</a></strong> - Salimbeni et. al. (2018) | <a href="https://github.com/GPflow/GPflow/blob/develop/gpflow/training/natgrad_optimizer.py">Code</a></p>
+<blockquote>
+<p>This paper argues that training sparse GP algorithms with gradient descent can be quite slow due to the need to optimize the variational parameters <span><span class="MathJax_Preview">q_\phi(u)</span><script type="math/tex">q_\phi(u)</script></span> as well as the model parameters. So they propose to use the natural gradient for the variational parameters and then the standard gradient methods for the remaining parameters. They show that the SVGP and the DGP methods all converge much faster with this training regime. I imagine this would also be super useful for the BayesianGPLVM where we also have variational parameters for our inputs as well.</p>
+</blockquote>
+<p>-&gt; <a href="https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/">Blog</a> - Agustinus Kristiadi</p>
+<p>-&gt; <a href="https://www.youtube.com/watch?v=eio6l-Po83o&amp;feature=youtu.be">Lecture 3.5 Natural Gradient Optimization (I) | Neural Networks | MLCV 2017</a></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1712.02390">Noisy Natural Gradient as Variational Inference</a> - Zhang (2018) - <a href="https://github.com/wlwkgus/NoisyNaturalGradient">Code</a></li>
+<li><a href="https://github.com/wiseodd/natural-gradients/tree/master/pytorch">PyTorch Implementation</a></li>
+</ul>
 <details class="info"><summary>Parallel training of DNNs with Natural Gradient and Parameter Averaging - Povey et. al. (2014)</summary><blockquote>
 <p>A seamingly drop-in replacement for stochastic gradient descent with some added benefits of being shown to improve generalization tasks, stability of the training, and can help obtain high quality uncertainty estimates.</p>
 </blockquote>
@@ -881,6 +934,8 @@ D_{KL}\left[ q(\mathbf{u}) || p(\mathbf{u}) \right]
 <p>-&gt; <a href="https://arxiv.org/abs/2009.00666">Paper</a></p>
 <p>-&gt; <a href="https://twitter.com/avehtari/status/1301792837214797827?s=09">Tweet</a></p>
 </details>
+<hr />
+<h2 id="uncategorized">Uncategorized<a class="headerlink" href="#uncategorized" title="Permanent link">&para;</a></h2>
 <hr />
 <h2 id="regularization">Regularization<a class="headerlink" href="#regularization" title="Permanent link">&para;</a></h2>
 <ul>
