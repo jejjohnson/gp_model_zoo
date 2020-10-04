@@ -31,7 +31,7 @@ I will focus a bit more on utilizing the GP models to accommodate uncertain inpu
 
 Getting started with GPs can seem a bit daunting and there are many resources on the internet. I tried to compile the ones I could find and highlight my personal favourites.
 
-* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/#/literature)
+* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/literature)
 
 So. Much. Literature. Really. There are a lot. I try to keep a running record of the literature and also try to organize it somewhat by topic.
 
