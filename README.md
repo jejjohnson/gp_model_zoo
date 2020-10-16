@@ -27,17 +27,18 @@ I will focus a bit more on utilizing the GP models to accommodate uncertain inpu
 ---
 ## What you'll find here
 
-* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/#/literature)
+* [**Getting Started**](https://jejjohnson.github.io/gp_model_zoo/intro/)
 
-There are many resources on the internet and I try to compile as much as I can.
+Getting started with GPs can seem a bit daunting and there are many resources on the internet. I tried to compile the ones I could find and highlight my personal favourites.
 
-* [**Software**](https://jejjohnson.github.io/gp_model_zoo/#/software)
+* [**Literature**](https://jejjohnson.github.io/gp_model_zoo/literature)
 
-I like to keep track of what's going on. So I've listed the libraries that I am aware of as well as some things I've noticed about them. 
+So. Much. Literature. Really. There are a lot. I try to keep a running record of the literature and also try to organize it somewhat by topic.
 
-* [**Model Zoo**](https://jejjohnson.github.io/gp_model_zoo/#/model_zoo)
+* [**Software**](https://jejjohnson.github.io/gp_model_zoo/software)
 
-I've only just started to finish cleaning everything but I have wrapped algorithms in a few libraries such as [GPy](https://sheffieldml.github.io/GPy/), [GPFlow](https://www.gpflow.org/), [Pyro](https://pyro.ai/), and [GPyTorch](https://gpytorch.ai/). Each library has its pros and cons but I like tinkering so I tend to try things out. I'll keep a running list of stuff that I have already implemented [here](model_zoo.md).
+I like to keep track of what's going on in the software realm. So I've listed the libraries that I am aware of as well as some things I've noticed about them. I focus on **python** but I do mention some other resources. I will probably get into **Julia** at some point so stay tuned.
+
 
 
 
