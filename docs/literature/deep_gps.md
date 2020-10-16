@@ -111,17 +111,17 @@ This paper uses the idea that our noisy inputs are instead 'latent covariates' i
 ## Misc
 
 ??? tip "Inter-domain Deep Gaussian Processes - Rudner et. al. (2020)"
-   -> [Paper](https://proceedings.icml.cc/static/paper_files/icml/2020/5904-Paper.pdf)
+      -> [Paper](https://proceedings.icml.cc/static/paper_files/icml/2020/5904-Paper.pdf)
 
-   -> [Slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-19-00UTC-6718-inter-domain_de.pdf)
+      -> [Slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-19-00UTC-6718-inter-domain_de.pdf)
 
 ??? info "Interpretable Deep Gaussian Processes with Moments - Lu et. al. (2020)"
     -> [Paper](http://proceedings.mlr.press/v108/lu20b.html)
 
 ??? info "Beyond the Mean-Field: Structured Deep Gaussian Processes Improve the Predictive Uncertainties - LIngdinger et al (2020)"
-   -> [Paper](https://arxiv.org/abs/2005.11110)
+      -> [Paper](https://arxiv.org/abs/2005.11110)
 
-   -> [Code](https://github.com/boschresearch/Structured_DGP)
+      -> [Code](https://github.com/boschresearch/Structured_DGP)
 
 ---
 

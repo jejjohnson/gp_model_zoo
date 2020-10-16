@@ -21,10 +21,7 @@ theme:
 
 plugins:
   - search
-  - mknotebooks:
-      execute: false
-      write_markdown: true
-      timeout: 600
+  - mkdocs-jupyter
 
 nav:
   - Home: "README.md"
