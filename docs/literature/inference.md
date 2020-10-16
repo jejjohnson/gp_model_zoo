@@ -55,6 +55,21 @@ This is the standard objective function that you will find the literature.
 
     -> [Code](https://github.com/thjashin/solvegp)
 
+??? info "Automated Augmented Conjugate Inference for Non-conjugate Gaussian Process Models - Galy-Fajou et. al. (2020)"
+    -> [Paper](https://arxiv.org/abs/2002.11451)
+
+    -> [Video](https://www.youtube.com/watch?v=aR_viPWNv1U&feature=youtu.be) | [JuliaCon](https://live.juliacon.org/talk/CE7FZA)
+
+    -> [Twitter](https://twitter.com/theo_gf/status/1233082060430020609)
+
+    -> [Code](https://github.com/theogf/AugmentedGaussianProcesses.jl)
+
+??? info "Recyclable Gaussian Processes - Moreno-Munoz et. al. (2020)"
+    -> [Paper](https://arxiv.org/abs/2010.02554)
+
+    -> [Code](https://github.com/pmorenoz/RecyclableGP)
+
+    -> [Tweet](https://twitter.com/pablorenoz/status/1314525512606326790?s=19)
 
 -> [Slides](https://github.com/suhailshergill/ProPL-meetup/tree/master/talks/2016/08_18_Variational_Gaussian_Process)
 

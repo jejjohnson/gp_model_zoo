@@ -26,5 +26,13 @@ On Structure, Interpretability and Uncertainty](https://arxiv.org/pdf/1806.03563
 * [On the expected behaviour of noise regulariseddeep neural networks as Gaussian processes](https://paperswithcode.com/paper/on-the-expected-behaviour-of-noise) - Pretorius et al (2019) [**arxiv**]
   > They study the impact of noise regularization via droput on Deep Kernel learning.
 
+??? info "Hierarchical Gaussian Process Priors for Bayesian Neural Network Weights - Karaletsos & Bui (2020)"
+    -> [Paper](https://arxiv.org/abs/2002.04033)
+
 ---
-## SOTA
+## Neural Processes
+
+??? info "Neural Processes - Yann Dubois"
+    -> [Tweet](https://twitter.com/yanndubs/status/1315698933390282752?s=19)
+
+    -> [JupyterBook](https://yanndubs.github.io/Neural-Process-Family/text/Intro.html)

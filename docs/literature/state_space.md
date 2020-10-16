@@ -9,6 +9,23 @@ source: state_space.md
 # State Space
 
 
+??? info "Infinite-Horizon Gaussian Processes - Solin et al (2018)"
+    -> [Paper](https://arxiv.org/abs/1811.06588)
+
+    -> [Code](https://github.com/AaltoML/IHGP)
+
+    -> [Poster](https://users.aalto.fi/~asolin/documents/pdf/Solin-Hensman-Turner-2018-poster.pdf)
+
+??? info "State Space Gaussian Processes with Non-Gaussian Likelihood - Nickisch et. al. (2018)"
+    -> [Paper](http://proceedings.mlr.press/v80/nickisch18a.html)
+
+    -> [Poster](https://hannes.nickisch.org/papers/posters/nickisch18gp_ss.pdf)
+
+    -> [Blog](https://silo.ai/icml-2018-state-space-gaussian-processes-with-non-gaussian-likelihood/)
+
+    -> [Video](https://www.youtube.com/watch?v=sgiN7szYAI0)
+
+
 ??? info "Joint introduction to Gaussian Processes and Relevance Vector Machines with Connections to Kalman filtering and other Kernel Smoothers - Martino & Read (22-2020)"
     -> [Paper](https://arxiv.org/abs/2009.09217)
 
@@ -46,6 +63,10 @@ source: state_space.md
 
 
 ### Lectures
+
+
+??? info "Simo Särkkä: State Space Representation of Gaussian Process (2014)"
+    -> [Video](https://www.youtube.com/watch?v=saEmFeg3LB8)
 
 ??? info "ICML2020 - ML w. Signal Processing - Arno Solin"
 

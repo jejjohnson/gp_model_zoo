@@ -25,4 +25,6 @@ source: bayes_opt.md
 
 [**GPflowOpt**](https://github.com/GPflow/GPflowOpt) - Built on `gpflow`. Has a GP option for optimization.
 
+[**Trieste**](https://github.com/secondmind-labs/trieste) - Built on `gpflow` from secondmind.
+
 [**BoTorch**](https://botorch.org/ ) - Built on `GPyTorch` and `Ax`. Has a GP option for optimization.

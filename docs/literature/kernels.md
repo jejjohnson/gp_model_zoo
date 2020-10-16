@@ -53,6 +53,14 @@ This is a Probabilistic Neural Network (PNN). It's when we try to learn features
 
 * [A Representer Theorem for Deep Kernel Learning](http://jmlr.org/papers/volume20/17-621/17-621.pdf) - Bohn et. al. (2019)
 
+---
+## Misc
+
+??? info "Function-Space Distributions over Kernels - Benton et. al. (2019)"
+    - [Paper](https://arxiv.org/abs/1910.13565)
+    - [Slides](https://wjmaddox.github.io/assets/fkl-slides.pdf)
+    - [Code](https://github.com/wjmaddox/spectralgp) (PyTorch, GPyTorch)
+    - [Poster](https://wjmaddox.github.io/assets/fkl-poster.pdf)
 
 ---
 

@@ -163,6 +163,23 @@ Often times the papers that people publish in conferences in Journals don't have
 
 * [On the paper: Variational Learning of Inducing Variables in Sparse Gaussian Processees](http://mlg.eng.cam.ac.uk/thang/docs/talks/rcc_vargp.pdf) - Bui and Turner (2014)
 
-### Blogs
+## Gory Details Blogs
 
-* [Variational Free Energy for Sparse GPs](https://gonzmg88.github.io/blog/2018/04/19/VariationalFreeEnergy) - Gonzalo
+> Some resources that break down some of the intricate mathematical details that are sometimes lost within the literature.
+
+* Bill Engels
+  * [Inducing point methods to speed up GPs](https://bwengals.github.io/inducing-point-methods-to-speed-up-gps.html) - (01-06-2017)
+  * [FITC and VFE](https://bwengals.github.io/fitc-and-vfe.html) - (28-06-2018)
+  * [PyMC3 FITC/VFE implementation notes](https://bwengals.github.io/pymc3-fitcvfe-implementation-notes.html) - (29-06-2018)
+  * [VFE approximation for Gaussian processes, the gory details](https://bwengals.github.io/vfe-approximation-for-gaussian-processes-the-gory-details.html) - (20-08-2018)
+* [Variational Free Energy for Sparse GPs](https://gonzmg88.github.io/blog/2018/04/19/VariationalFreeEnergy) - Gonzalo (04-2018)
+* [Sparse and Variational Gaussian Process — What To Do When Data is Large](https://towardsdatascience.com/sparse-and-variational-gaussian-process-what-to-do-when-data-is-large-2d3959f430e7) - Wei Yi (06-2020) | [code](https://gist.github.com/jasonweiyi)
+* [A Cheatsheet for Sparse Variational Gaussian Processes](https://tiao.io/post/sparse-variational-gaussian-processes/) - Louis Tiao (09-2020)
+* [Derivation of SGPR Equations](https://gpflow.readthedocs.io/en/master/notebooks/theory/SGPR_notes.html)
+* [GaussianProcesses.jl](https://stor-i.github.io/GaussianProcesses.jl/latest/sparse/) - Lots of details in here.
+
+## Code Examples
+
+> Some examples where people have implemented the algorithms very didactically.
+
+* [SVGP](https://github.com/pmorenoz/RecyclableGP/blob/master/models/svgp.py) - Recyclable GP

@@ -113,7 +113,23 @@ I've only seen one paper that attempts to extend this method to account for unce
 
 ---
 
+## Other
+
+> Some other papers that are related but I haven't made the connection yet.
+
 ??? info "Deep Sigma Point Processes by Jankowiak et. al. (2020)"
     -> [Paper](https://arxiv.org/abs/2002.09112)
 
     -> [Code]()
+
+??? info "Function-Space Distributions over Kernels - Benton et. al. (2019)"
+    - [Paper](https://arxiv.org/abs/1910.13565)
+    - [Slides](https://wjmaddox.github.io/assets/fkl-slides.pdf)
+    - [Code](https://github.com/wjmaddox/spectralgp) (PyTorch, GPyTorch)
+    - [Poster](https://wjmaddox.github.io/assets/fkl-poster.pdf)
+
+??? info "Spectral Methods in Gaussian Modelling - Requiema & Bruinsma (2019)"
+    - [Spectrum Estimation](https://wesselb.github.io/assets/talks/Bruinsma,%20Topic%204,%20Spectrum%20Estimation.pdf)
+    - [Kernel Design](https://wesselb.github.io/assets/talks/Bruinsma,%20Topic%202,%20Kernel%20Design.pdf)
+    - [Variational Inference](https://wesselb.github.io/assets/talks/Bruinsma,%20Topic%203,%20Variational%20Inference.pdf)
+    - [Spectrum Estimation](https://wesselb.github.io/assets/talks/Bruinsma,%20Topic%204,%20Spectrum%20Estimation.pdf)

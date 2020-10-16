@@ -104,12 +104,24 @@ I don’t think there is any best one because I’m almost certain noone has don
 This paper uses the idea that our noisy inputs are instead 'latent covariates' instead of additive noise or that our input itself is a latent covariate. They also propose a way to do importance sampling coupled with variational inference to improve single layer and multiple layer GPs and have shown that they can get equivalent or better results than just standard variational inference. The latent variables alone will improve performance for both the IWVI and the VI training procedures.
 * [Paper](https://arxiv.org/abs/1905.05435) | [Code](https://github.com/hughsalimbeni/DGPs_with_IWVI) | [Video](https://slideslive.com/38917895/gaussian-processes) | [Poster](https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1)  | [ICML 2019 Slides](https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf) | [Workshop Slides](http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf) 
 
+
+
 ---
 
 ## Misc
 
+??? tip "Inter-domain Deep Gaussian Processes - Rudner et. al. (2020)"
+   -> [Paper](https://proceedings.icml.cc/static/paper_files/icml/2020/5904-Paper.pdf)
+
+   -> [Slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-19-00UTC-6718-inter-domain_de.pdf)
+
 ??? info "Interpretable Deep Gaussian Processes with Moments - Lu et. al. (2020)"
     -> [Paper](http://proceedings.mlr.press/v108/lu20b.html)
+
+??? info "Beyond the Mean-Field: Structured Deep Gaussian Processes Improve the Predictive Uncertainties - LIngdinger et al (2020)"
+   -> [Paper](https://arxiv.org/abs/2005.11110)
+
+   -> [Code](https://github.com/boschresearch/Structured_DGP)
 
 ---
 
