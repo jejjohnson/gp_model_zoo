@@ -426,6 +426,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exact-gp" class="md-nav__link">
+    Exact GP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sparse-gp" class="md-nav__link">
+    Sparse GP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -674,6 +701,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exact-gp" class="md-nav__link">
+    Exact GP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sparse-gp" class="md-nav__link">
+    Sparse GP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -722,12 +776,19 @@
 </div>
 <p>These definitions come from a discussion I had with the <a href="https://gpflow.slack.com/archives/C144SAH60/p1588941862010600">GPFlow Community</a>. I have yet to see a paper that is consistent with how these are done. I have broken up each section based off of their name but as seen from the names, there is a lot of overlap.</p>
 <h2 id="new">🆕 New!<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
-<details class="info"><summary>Scalable Exact Inference in Multi-Output Gaussian Processes - Bruinsma et al (2020)</summary><blockquote>
+<p>You'll find these below but I wanted to highlight them because they're pretty cool.</p>
+<details class="tip"><summary>Scalable Exact Inference in Multi-Output Gaussian Processes - Bruinsma et al (2020)</summary><blockquote>
 <p>They show a nice trick where you learn an invertible projection on your output space to reduce the crazy amount of outputs.</p>
 </blockquote>
 <p>📜 <a href="https://arxiv.org/abs/1911.06287">Paper</a></p>
 <p>💻📝 <a href="https://github.com/wesselb/oilmm">Code</a> | <a href="https://github.com/willtebbutt/OILMMs.jl">Julia</a></p>
 <p>📺 <a href="https://slideslive.com/38928160/scalable-exact-inference-in-multioutput-gaussian-processes?ref=speaker-37219-latest">ICML Prezi</a></p>
+</details>
+<details class="tip"><summary>A Framework for Interdomain and Multioutput Gaussian Processes - by Van der Wilk et al (2020)</summary><blockquote>
+<p>A full framework in GPFlow where they implement a framework that allows maximum flexibility when working with multi-output GPs.</p>
+</blockquote>
+<p>📜 <a href="https://arxiv.org/abs/2003.01115">Paper</a></p>
+<p>💻📝 <a href="https://gpflow.readthedocs.io/en/master/notebooks/advanced/multioutput.html">Demo Notebook</a></p>
 </details>
 <h2 id="lectures">📺 Lectures<a class="headerlink" href="#lectures" title="Permanent link">&para;</a></h2>
 <details class="info"><summary>GPSS Summer School - Alvarez (2017)</summary><p>📺 <a href="https://youtu.be/ttgUJtVJthA">Video</a></p>
@@ -736,6 +797,22 @@
 <hr />
 <h2 id="literature">📜 Literature<a class="headerlink" href="#literature" title="Permanent link">&para;</a></h2>
 <h3 id="multi-task">Multi-Task<a class="headerlink" href="#multi-task" title="Permanent link">&para;</a></h3>
+<p>Problems like these tend to be when we have a multi-output problem but we don't necessarily have all outputs. We also assume we have <strong>correlated dimensions</strong>.  From (Bonilla &amp; Williams, 2008), known as the <strong>intrinsic model of coregionalization</strong> (ICM), We have the form:</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+\text{cov}(f_i(X), f_j(X')) &amp;=k(X,X') \cdot B[i,j] \\
+\mathbf{B}&amp;=\mathbf{WW^\top} + \text{diag}(k)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\text{cov}(f_i(X), f_j(X')) &=k(X,X') \cdot B[i,j] \\
+\mathbf{B}&=\mathbf{WW^\top} + \text{diag}(k)
+\end{aligned}
+</script>
+</div>
+<p>This is useful for problems with a small number of dimensions because it's quite an expensive method.</p>
 <details class="info"><summary>Multi-task Gaussian Process prediction - Bonilla et al. (2007</summary><p>-&gt; <a href="https://papers.nips.cc/paper/3189-multi-task-gaussian-process-prediction">paper</a></p>
 <p>-&gt; <a href="http://gpss.cc/bark08/slides/3%20williams.pdf">GPSS 2008 Slides</a></p>
 </details>
@@ -748,7 +825,17 @@
 <details class="info"><summary>Heterogeneous Multi-output Gaussian Process Prediction - Moreno-Muñez et. al. (2018)</summary><p>-&gt; <a href="https://arxiv.org/abs/1805.07633">paper</a></p>
 <p>-&gt; <a href="https://github.com/pmorenoz/HetMOGP">code</a></p>
 </details>
-<details class="info"><summary>Fast Approximate Multi-output Gaussian Processes - Joukov &amp; Kulic</summary><p>-&gt; <a href="https://arxiv.org/abs/2008.09848v1">paper</a></p>
+<details class="tip"><summary>A Framework for Interdomain and Multioutput Gaussian Processes - by Van der Wilk et al (2020)</summary><p>-&gt; <a href="https://arxiv.org/abs/2003.01115">Paper</a></p>
+<p>-&gt; <a href="https://gpflow.readthedocs.io/en/master/notebooks/advanced/multioutput.html">Demo Notebook</a></p>
+</details>
+<details class="info"><summary>Fast Approximate Multi-output Gaussian Processes - Joukov &amp; Kulic (2020)</summary><p>-&gt; <a href="https://arxiv.org/abs/2008.09848v1">paper</a></p>
+</details>
+<details class="tip"><summary>Scalable Exact Inference in Multi-Output Gaussian Processes - Bruinsma et al (2020)</summary><blockquote>
+<p>They show a nice trick where you learn an invertible projection on your output space to reduce the crazy amount of outputs.</p>
+</blockquote>
+<p>📜 <a href="https://arxiv.org/abs/1911.06287">Paper</a></p>
+<p>💻📝 <a href="https://github.com/wesselb/oilmm">Code</a> | <a href="https://github.com/willtebbutt/OILMMs.jl">Julia</a></p>
+<p>📺 <a href="https://slideslive.com/38928160/scalable-exact-inference-in-multioutput-gaussian-processes?ref=speaker-37219-latest">ICML Prezi</a></p>
 </details>
 <hr />
 <h3 id="multi-fidelity">Multi-Fidelity<a class="headerlink" href="#multi-fidelity" title="Permanent link">&para;</a></h3>
@@ -758,6 +845,59 @@
 <details class="info"><summary>Deep Gaussian Processes for Multi-fidelity Modeling - Cutjar et. al. (2019)</summary><p>-&gt; <a href="https://arxiv.org/abs/1903.07320">paper</a></p>
 <p>-&gt; <a href="https://github.com/amzn/emukit/tree/master/emukit/examples/multi_fidelity_dgp">notebook</a></p>
 <p>-&gt; <a href="http://kurtcutajar.com/pres/bdl_poster.pdf">poster</a></p>
+<p>-&gt; <a href="https://github.com/apaleyes/emukit/tree/master/emukit/examples/multi_fidelity_dgp">Code</a></p>
+</details>
+<hr />
+<h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
+<p>I decided to include a special section about the software because there is no real go-to library for dealing with multioutput GPs as of now.</p>
+<h4 id="exact-gp">Exact GP<a class="headerlink" href="#exact-gp" title="Permanent link">&para;</a></h4>
+<details class="info"><summary><strong>GPFlow</strong></summary><ul>
+<li><a href="https://gpflow.readthedocs.io/en/master/notebooks/advanced/coregionalisation.html">Demo Notebook</a>.<blockquote>
+<p>Use this if you have correlated outputs with a low number of dimensions and samples.</p>
+</blockquote>
+</li>
+</ul>
+</details>
+<details class="tip"><summary><strong>GPyTorch</strong></summary><ul>
+<li>
+<p><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/03_Multitask_Exact_GPs/Multitask_GP_Regression.html">Coregionalization (Correlated Outputs)</a> </p>
+<blockquote>
+<p>Use this if you have correlated outputs with a low number of dimensions and samples.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/03_Multitask_Exact_GPs/Batch_Independent_Multioutput_GP.html">Batch Independent MultiOutput GP</a></p>
+<blockquote>
+<p>Use this if you assume independent outputs and the number of inputs and each output have the same size.</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/03_Multitask_Exact_GPs/ModelList_GP_Regression.html">ModelList (Multi-Output) GP Regression</a></p>
+<blockquote>
+<p>Use if you have a different independent GP models with no correlation between inputs and outputs.</p>
+</blockquote>
+</li>
+</ul>
+</details>
+<h4 id="sparse-gp">Sparse GP<a class="headerlink" href="#sparse-gp" title="Permanent link">&para;</a></h4>
+<details class="tip"><summary><strong>GPyTorch</strong></summary><ul>
+<li>
+<p><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/04_Variational_and_Approximate_GPs/SVGP_Multitask_GP_Regression.html#Types-of-Variational-Multitask-Models">Coregionalization (Correlated Outputs)</a> </p>
+<blockquote>
+<p>Use this if you have correlated outputs with a low number of dimensions and samples. Uses the Linear Model of Coregionalization (LMC).</p>
+</blockquote>
+</li>
+<li>
+<p><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/04_Variational_and_Approximate_GPs/SVGP_Multitask_GP_Regression.html#Types-of-Variational-Multitask-Models">Batch Independent MultiOutput GP</a></p>
+<blockquote>
+<p>Use this if you assume independent outputs and the number of inputs and each output have the same size.</p>
+</blockquote>
+</li>
+</ul>
+</details>
+<details class="tip"><summary><strong>GPFlow</strong></summary><ul>
+<li><a href="https://gpflow.readthedocs.io/en/master/notebooks/advanced/multioutput.html">Full Framework</a></li>
+</ul>
 </details>
                 
               

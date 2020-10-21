@@ -441,6 +441,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -728,6 +735,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    Software
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -802,46 +816,66 @@
 <p>I don’t think there is any best one because I’m almost certain noone has done any complete comparison. I can say that the VI one is the most studied because that lab is still working on it. In the meantime, personally I would try to use implementations in standard libraries where the devs have ironed out the bugs and allowed for easy customization and configuration; so basically the doubly stochastic. </p>
 <hr />
 <h3 id="variational-inference">Variational Inference<a class="headerlink" href="#variational-inference" title="Permanent link">&para;</a></h3>
-<p><strong><a href="http://adamian.github.io/publications.html#DeepGPs">Deep Gaussian Processes</a></strong> - Damianou &amp; Lawrence (2013)</p>
-<blockquote>
-<p>This paper is the original method of Deep GPs. It might not be useful for production but there are still many insights to be had from the originators.
-<a href="http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html">Code</a></p>
+<details class="info"><summary><strong>Deep Gaussian Processes</strong> - Damianou &amp; Lawrence (2013)</summary><blockquote>
+<p>This paper is the original method of Deep GPs. It might not be useful for production but there are still many insights to be had from the originators.</p>
 </blockquote>
-<p><strong><a href="">Nested Variational Compression in Deep Gaussian Processes</a></strong> - Hensman &amp; Lawrence (2014)</p>
-<p><strong><a href="https://arxiv.org/abs/1705.08933">Doubly Stochastic Variational Inference for Deep Gaussian Processes</a></strong> - Salimbeni &amp; Deisenroth (2017)</p>
-<blockquote>
+<ul>
+<li>
+<p><a href="http://adamian.github.io/publications.html#DeepGPs">Paper</a></p>
+</li>
+<li>
+<p><a href="http://htmlpreview.github.io/?https://github.com/SheffieldML/deepGP/blob/master/deepGP/html/index.html">Authors Code (PyDeepGP)</a></p>
+</li>
+</ul>
+</details>
+<details class="info"><summary><strong>Nested Variational Compression in Deep Gaussian Processes</strong> - Hensman &amp; Lawrence (2014)</summary></details>
+<details class="info"><summary><strong>Doubly Stochastic Variational Inference for Deep Gaussian Processes</strong> - Salimbeni &amp; Deisenroth (2017)</summary><blockquote>
 <p>This paper uses stochastic gradient descent for training the Deep GP. I think this achieves the state-of-the-art results thus far. It also has the most implementations in the standard literature.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/ICL-SML/Doubly-Stochastic-DGP">Code</a> | <a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">Pyro</a> | <a href="https://gpytorch.readthedocs.io/en/latest/examples/13_Deep_Gaussian_Processes/Deep_Gaussian_Processes.html">GPyTorch</a></li>
+<li>
+<p><a href="https://arxiv.org/abs/1705.08933">Paper</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ICL-SML/Doubly-Stochastic-DGP">Authors Code</a> | <a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">Pyro</a> | <a href="https://gpytorch.readthedocs.io/en/latest/examples/13_Deep_Gaussian_Processes/Deep_Gaussian_Processes.html">GPyTorch</a> | <a href="https://github.com/FelixOpolka/Deep-Gaussian-Process">GPFlow 2.0</a></p>
+</li>
 </ul>
+</details>
 <hr />
 <h3 id="random-fourier-features">Random Fourier Features<a class="headerlink" href="#random-fourier-features" title="Permanent link">&para;</a></h3>
-<p><strong><a href="https://arxiv.org/abs/1610.04386">Random Feature Expansions for Deep Gaussian Processes</a></strong> - Cutjar et. al. (2017)</p>
-<blockquote>
+<details class="info"><summary><strong>Random Feature Expansions for Deep Gaussian Processes</strong> - Cutjar et. al. (2017)</summary><blockquote>
 <p>This implementation uses ideas from random fourier features in conjunction with Deep GPs.</p>
 </blockquote>
 <ul>
+<li><a href="https://arxiv.org/abs/1610.04386">Paper</a></li>
 <li><a href="https://pdfs.semanticscholar.org/bafa/7e2d586e7bfe77d9a55ac1cff4eb2f6ff292.pdf">Paper II</a> |  <a href="https://vimeo.com/238221933">Video</a> | <a href="https://github.com/mauriziofilippone/deep_gp_random_features">Code</a></li>
 <li><a href="">Lecture I</a> | <a href="">Slides</a> | </li>
 <li><a href="https://www.youtube.com/watch?v=750fRY9-uq8&amp;list=PLe5rNUydzV9QHe8VDStpU0o8Yp63OecdW&amp;index=19&amp;t=0s">Lecture (Maurizio)</a> | <a href="http://www.eurecom.fr/~filippon/Talks/talk_deep_bayes_moscow_2019.pdf">Slides</a> | <a href="https://github.com/mauriziofilippone/deep_gp_random_features/blob/master/code/dgp_rff.py">Code</a></li>
 </ul>
+</details>
 <hr />
 <h3 id="mc-sampling">MC Sampling<a class="headerlink" href="#mc-sampling" title="Permanent link">&para;</a></h3>
-<p><strong><a href="">Learning deep latent Gaussian models with Markov chain Monte Carlo</a></strong> - Hoffman (2017)</p>
-<p><strong><a href="https://arxiv.org/abs/1806.05490">Inference in Deep Gaussian Processes Using Stochastic Gradient Hamiltonian Monte Carlo</a></strong> - Havasi et. al. (2018)</p>
+<details class="info"><summary><strong>Learning deep latent Gaussian models with Markov chain Monte Carlo</strong> - Hoffman (2017)</summary></details>
+<details class="info"><summary><strong>Inference in Deep Gaussian Processes Using Stochastic Gradient Hamiltonian Monte Carlo</strong> - Havasi et. al. (2018)</summary><ul>
+<li><a href="https://arxiv.org/abs/1806.05490">Paper</a></li>
+</ul>
+</details>
 <hr />
 <h3 id="expectation-propagation">Expectation Propagation<a class="headerlink" href="#expectation-propagation" title="Permanent link">&para;</a></h3>
-<p><strong><a href="https://arxiv.org/abs/1602.04133">Deep Gaussian Processes for Regression using Approximate Expectation Propagation</a></strong> - Bui et. al. (2016)</p>
-<blockquote>
+<details><summary><strong>Deep Gaussian Processes for Regression using Approximate Expectation Propagation</strong> - Bui et. al. (2016)</summary><blockquote>
 <p>This paper uses an approximate expectation method for the inference in Deep GPs. </p>
 </blockquote>
 <p><a href="https://arxiv.org/abs/1602.04133">Paper</a> | <a href="https://github.com/thangbui/geepee">Code</a></p>
+</details>
 <hr />
 <h3 id="hybrids">Hybrids<a class="headerlink" href="#hybrids" title="Permanent link">&para;</a></h3>
-<p><strong><a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Deep Gaussian Processes with Importance-Weighted Variational Inference</a></strong> - Salimbeni et. al. (2019)</p>
-<p>This paper uses the idea that our noisy inputs are instead 'latent covariates' instead of additive noise or that our input itself is a latent covariate. They also propose a way to do importance sampling coupled with variational inference to improve single layer and multiple layer GPs and have shown that they can get equivalent or better results than just standard variational inference. The latent variables alone will improve performance for both the IWVI and the VI training procedures.
-* <a href="https://arxiv.org/abs/1905.05435">Paper</a> | <a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Code</a> | <a href="https://slideslive.com/38917895/gaussian-processes">Video</a> | <a href="https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1">Poster</a>  | <a href="https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf">ICML 2019 Slides</a> | <a href="http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf">Workshop Slides</a> </p>
+<details class="info"><summary><strong>Deep Gaussian Processes with Importance-Weighted Variational Inference</strong> - Salimbeni et. al. (2019)</summary><blockquote>
+<p>This paper uses the idea that our noisy inputs are instead 'latent covariates' instead of additive noise or that our input itself is a latent covariate. They also propose a way to do importance sampling coupled with variational inference to improve single layer and multiple layer GPs and have shown that they can get equivalent or better results than just standard variational inference. The latent variables alone will improve performance for both the IWVI and the VI training procedures.</p>
+</blockquote>
+<ul>
+<li><a href="https://arxiv.org/abs/1905.05435">Paper</a> | <a href="https://github.com/hughsalimbeni/DGPs_with_IWVI">Code</a> | <a href="https://slideslive.com/38917895/gaussian-processes">Video</a> | <a href="https://twitter.com/HSalimbeni/status/1137856997930483712/photo/1">Poster</a>  | <a href="https://icml.cc/media/Slides/icml/2019/101(12-11-00)-12-12-05-4880-deep_gaussian_p.pdf">ICML 2019 Slides</a> | <a href="http://tugaut.perso.math.cnrs.fr/pdf/workshop02/salimbeni.pdf">Workshop Slides</a> </li>
+</ul>
+</details>
 <hr />
 <h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <details class="tip"><summary>Inter-domain Deep Gaussian Processes - Rudner et. al. (2020)</summary><p>-&gt; <a href="https://proceedings.icml.cc/static/paper_files/icml/2020/5904-Paper.pdf">Paper</a></p>
@@ -855,12 +889,55 @@
 <hr />
 <h2 id="insights">Insights<a class="headerlink" href="#insights" title="Permanent link">&para;</a></h2>
 <h3 id="problems-with-deep-gps">Problems with Deep GPs<a class="headerlink" href="#problems-with-deep-gps" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Deep Gaussian Process Pathologies - <a href="http://proceedings.mlr.press/v33/duvenaud14.pdf">Paper</a><blockquote>
+<details class="info"><summary>Deep Gaussian Process Pathologies</summary><blockquote>
 <p>This paper shows how some of the kernel compositions give very bad estimates of the functions between layers; similar to how residual NN do much better.</p>
 </blockquote>
-</li>
+<ul>
+<li><a href="http://proceedings.mlr.press/v33/duvenaud14.pdf">Paper</a></li>
 </ul>
+</details>
+<hr />
+<h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
+<p>There are scattered implementations throughout the page but this will centralize and suggest the most common/reliable packages available.</p>
+<p><strong>Variational Inference</strong></p>
+<details class="tip"><summary>GPFlow</summary><ul>
+<li><a href="https://github.com/ICL-SML/Doubly-Stochastic-DGP">Originals Authors Code (GPFlow 1.1)</a></li>
+<li><a href="https://github.com/FelixOpolka/Deep-Gaussian-Process">3<sup>rd</sup> Party (GPFlow 2.0)</a></li>
+</ul>
+</details>
+<details class="tip"><summary>GPyTorch</summary><ul>
+<li><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/05_Deep_Gaussian_Processes/Deep_Gaussian_Processes.html">Doubly Stochastic Deep GP</a></li>
+<li><a href="https://docs.gpytorch.ai/en/v1.2.0/examples/05_Deep_Gaussian_Processes/Deep_Sigma_Point_Processes.html">Deep Sigma Point Processes</a></li>
+</ul>
+</details>
+<details class="tip"><summary>Pyro</summary><ul>
+<li><a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">Blog Post</a> by a Pyro Developer</li>
+</ul>
+</details>
+<details class="tip"><summary>Edward2</summary><ul>
+<li><a href="https://github.com/google/edward2/tree/master/edward2/tensorflow/layers">Bayesian Layers</a> - keras-like with Exact and sparse GPs</li>
+</ul>
+</details>
+<p><strong>Expectation Propagation</strong></p>
+<details class="info"><summary>Numpy</summary><ul>
+<li><a href="https://github.com/thangbui/geepee">Authors Code</a></li>
+</ul>
+</details>
+<p><strong>MCMC</strong></p>
+<details class="tip"><summary>Pyro</summary><ul>
+<li><a href="https://fehiepsi.github.io/blog/deep-gaussian-process/">Blog Post</a> by a Pyro Developer</li>
+</ul>
+</details>
+<p><strong>Random Feature Expansions</strong></p>
+<details class="info"><summary>TensorFlow</summary><ul>
+<li><a href="https://github.com/mauriziofilippone/deep_gp_random_features">Authors Code</a></li>
+<li><a href="https://keras.io/examples/keras_recipes/quasi_svm/">RFF Layer</a></li>
+</ul>
+</details>
+<details class="tip"><summary>Edward2</summary><ul>
+<li><a href="https://github.com/google/edward2/blob/master/edward2/tensorflow/layers/random_feature.py">Bayesian Layers</a> - keras-like layers</li>
+</ul>
+</details>
                 
                   
                 
