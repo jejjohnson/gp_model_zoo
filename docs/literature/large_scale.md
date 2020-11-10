@@ -25,8 +25,6 @@ source: large_scale.md
     
     -> [Code]()
 
-
-
 ??? abstract "When Gaussian Process Meets Big Data: A Review of Scalable GPs - (2019)"
 
     > A great review paper on GPs and how to scale them. Goes over most of the SOTA.
@@ -45,11 +43,20 @@ source: large_scale.md
     -> [Code](https://github.com/idelbrid/Randomly-Projected-Additive-GPs) (**PyTorch**)
 
 ??? info "Efficiently Sampling Functions from Gaussian Process Posteriors - Wilson et. al. (16-2020)"
-    > Uses a path-wise sampling scheme.
+    > Uses a path-wise sampling scheme to efficiently sample for GP posteriors. Motivates the use for GP priors for monte carlo estimation schemes.
     
-    -> [Paper](https://arxiv.org/abs/2002.09309)
+    -> [Tweet 1](https://twitter.com/avt_im/status/1281266970025959425) | [Tweet 2](https://twitter.com/avt_im/status/1326125319078686721?s=20) 
 
-    -> [Code](https://github.com/aterenin/SparseGaussianProcesses.jl)
+    -> [Blog](https://sml-group.cc/blog/2020-gp-sampling/)
+
+    -> [Video](https://icml.cc/virtual/2020/poster/6461)
+
+    -> [Paper](https://arxiv.org/abs/2002.09309)
+    
+
+    - Code - [![Julia](https://raw.githubusercontent.com/JuliaLang/julia/master/doc/src/assets/logo.svg){:height="25px" width="40px"}](https://github.com/aterenin/SparseGaussianProcesses.jl) | [![GPFlow](https://github.com/GPflow/GPflow/raw/develop/doc/source/_static/gpflow_logo.svg){:height="25px" width="60px"}](https://github.com/j-wilson/GPflowSampling)
+
+
 
 ??? tip "Fast Matrix Square Roots with Applications to Gaussian Processes and Bayesian Optimization by Pleiss et. al. (2020)"
     -> [Paper](https://arxiv.org/abs/2006.11267)
