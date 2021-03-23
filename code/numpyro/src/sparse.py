@@ -107,7 +107,7 @@ def SparseGP(X, y):
     # trace term
     # ================================
     # t = tr(Kff - Qff) / noise
-    # t = - t / 2.0
+    # t /= - 2.0
     # ================================
     Kffdiag = jnp.diag(rbf_kernel(X, X, η, ℓ))
     Qffdiag = jnp.power(W, 2).sum(axis=1)
