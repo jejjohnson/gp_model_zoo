@@ -1,7 +1,8 @@
+import time
+
 import jax
 import jax.numpy as np
-import time
-from numpyro.infer import MCMC, NUTS, HMC, SVI, Trace_ELBO
+from numpyro.infer import HMC, MCMC, NUTS, SVI, Trace_ELBO
 
 
 def run_nuts_inference(model, rng_key, X, Y, n_warmup, n_samples, n_chains):
