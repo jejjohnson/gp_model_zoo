@@ -10,7 +10,7 @@ import numpyro.distributions as dist
 import seaborn as sns
 from chex import Array
 from jax import random
-from jax.scipy.linalg import cho_solve, cholesky
+from jax.scipy.linalg import cholesky, solve_triangular
 from numpyro.infer import SVI, Trace_ELBO
 from numpyro.infer.autoguide import AutoDelta
 from numpyro.optim import Adam
@@ -89,11 +89,11 @@ def SparseGP(X, y):
     Kuu = add_to_diagonal(Kuu, jitter)
 
     # cholesky factorization
-    Luu = jax.scipy.linalg.cholesky(Kuu, lower=True)
+    Luu = cholesky(Kuu, lower=True)
     Luu = numpyro.deterministic("Luu", Luu)
 
     # W matrix
-    W = jax.scipy.linalg.solve_triangular(Luu, Kuf, lower=True)
+    W = solve_triangular(Luu, Kuf, lower=True)
     W = numpyro.deterministic("W", W).T
 
     # ================================
@@ -182,7 +182,6 @@ def get_cond_params(
 
     params = deepcopy(learned_params)
     n_samples = x.shape[0]
-    m_samples = learned_params["x_u"].shape[0]
 
     # calculate the cholesky factorization
     Kuu = rbf_kernel(
@@ -193,7 +192,7 @@ def get_cond_params(
 
     Kuf = rbf_kernel(params["x_u"], x, params["variance"], params["length_scale"])
 
-    W = jax.scipy.linalg.solve_triangular(Luu, Kuf, lower=True)
+    W = solve_triangular(Luu, Kuf, lower=True)
     D = np.ones(n_samples) * params["obs_noise"]
 
     W_Dinv = W / D
@@ -213,10 +212,10 @@ def get_cond_params(
 def _pred_factorize(params, xtest):
 
     Kux = rbf_kernel(params["x_u"], xtest, params["variance"], params["length_scale"])
-    Ws = jax.scipy.linalg.solve_triangular(params["Luu"], Kux, lower=True)
+    Ws = solve_triangular(params["Luu"], Kux, lower=True)
     # pack
     pack = jnp.concatenate([params["W_Dinv_y"], Ws], axis=1)
-    Linv_pack = jax.scipy.linalg.solve_triangular(params["L"], pack, lower=True)
+    Linv_pack = solve_triangular(params["L"], pack, lower=True)
     # unpack
     Linv_W_Dinv_y = Linv_pack[:, : params["W_Dinv_y"].shape[1]]
     Linv_Ws = Linv_pack[:, params["W_Dinv_y"].shape[1] :]
