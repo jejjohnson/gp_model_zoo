@@ -5,10 +5,10 @@ import jax.numpy as jnp
 import numpy as np
 from chex import Array
 from jax.scipy.linalg import cho_factor, cho_solve
-from scipy.cluster.vq import kmeans2
+from sklearn.cluster import KMeans
 
 
-def identity_mat(n_samples: int, constant: float = 1.0) -> Array:
+def identity_matrix(n_samples: int, constant: float = 1.0) -> Array:
     return constant * jnp.eye(n_samples)
 
 
@@ -29,15 +29,15 @@ def cholesky_factorization(K: Array, Y: Array) -> Tuple[Array, bool]:
 
 
 def cov_to_stddev(cov: Array,) -> Array:
-
     return jnp.sqrt(jnp.diag(cov))
 
 
-def compute_ci_bounds(std: Array, ci: int = 96) -> Array:
-    ci_lower = (100 - ci) / 2
-    ci_upper = (100 + ci) / 2
-
-    return std
+def compute_ci_std(var: Array, ci_prct: int = 96) -> Array:
+    
+    
+    ci = (100.0 - ci_prct) / 2.0
+    
+    return ci * jnp.sqrt(var)
 
 
 def summarize_posterior(preds, ci=96):
@@ -49,21 +49,22 @@ def summarize_posterior(preds, ci=96):
     return preds_mean, preds_lower, preds_upper
 
 
-def init_inducing_kmeans(x: Array, n_inducing: int) -> Array:
+def init_inducing_kmeans(x: Array, n_inducing: int, seed: int=123, **kwargs) -> Array:
     # conver to numpy array
     x = np.array(x)
 
     # calculate k-means
-    x_u_init = kmeans2(x, n_inducing, minit="points")[0]
+    clf = KMeans(n_clusters=n_inducing, random_state=seed, **kwargs).fit(x)
 
     # convert to jax array
-    x_u_init = jnp.array(x_u_init)
+    x_u_init = jnp.array(clf.cluster_centers_)
 
     return x_u_init
 
 
-def init_inducing_subsample(key, x: Array, n_inducing: int) -> Array:
-
+def init_inducing_subsample(x: Array, n_inducing: int, seed: int=123) -> Array:
+    
+    key = jax.random.PRNGKey(seed)
     # random permutation and subsample
     x_u_init = jax.random.permutation(key, x)[:n_inducing]
 

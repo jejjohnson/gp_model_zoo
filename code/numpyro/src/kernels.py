@@ -5,6 +5,36 @@ import jax.numpy as jnp
 import numpy as np
 from chex import Array, dataclass
 
+@dataclass
+class Kernel:
+    
+    def cross_covariance(self, X, Y):
+        return NotImplementedError
+    
+    def gram(self, X):
+        return self.cross_covariance(X, X)
+    
+    def diag(self, X):
+        return NotImplementedError
+    
+@dataclass
+class RBF(Kernel):
+    variance : Array
+    length_scale : Array
+        
+    def cross_covariance(self, X, Y):
+        # distance formula
+        deltaXsq = cross_covariance(
+            sqeuclidean_distance, X / self.length_scale, Y / self.length_scale
+        )
+
+        # rbf function
+        K = self.variance * jnp.exp(-0.5 * deltaXsq)
+        return K
+
+    def diag(self, X):
+        return self.variance * jnp.ones(X.shape[0])
+
 
 # squared euclidean distance
 def sqeuclidean_distance(x: Array, y: Array) -> float:
