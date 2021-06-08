@@ -2,8 +2,8 @@ import jax
 import jax.numpy as jnp
 
 
-def small_sample_demo(
-    n_train: int = 50, n_test: int = 1_000, noise: float = 0.2, seed: int = 123
+def regression_simple(
+    n_train: int = 50, n_test: int = 1_000, noise: float = 0.2, seed: int = 123, buffer: float=0.1
 ):
     key = jax.random.PRNGKey(seed)
     x = (
@@ -14,13 +14,13 @@ def small_sample_demo(
     f = lambda x: jnp.sin(4 * x) + jnp.cos(2 * x)
     signal = f(x)
     y = signal + jax.random.normal(key, shape=signal.shape) * noise
-    xtest = jnp.linspace(-3.1, 3.1, n_test).reshape(-1, 1)
+    xtest = jnp.linspace(-3.0 - buffer, 3.0 + buffer, n_test).reshape(-1, 1)
     ytest = f(xtest)
     return x, y, xtest, ytest
 
 
-def large_sample_demo(
-    n_train: int = 1_000, n_test: int = 1_000, noise: float = 0.2, seed: int = 123
+def regression_complex(
+    n_train: int = 1_000, n_test: int = 1_000, noise: float = 0.2, seed: int = 123, buffer: float=0.1
 ):
     key = jax.random.PRNGKey(seed)
 
@@ -34,6 +34,6 @@ def large_sample_demo(
     signal = f(x)
     y = signal + noise * jax.random.normal(key, shape=signal.shape)
 
-    xtest = jnp.linspace(-1.1, 1.1, n_test).reshape(-1, 1)
+    xtest = jnp.linspace(-1.0 - buffer, 1.0 + buffer, n_test).reshape(-1, 1)
     ytest = f(xtest)
     return x, y, xtest, ytest
