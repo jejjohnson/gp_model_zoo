@@ -4,20 +4,22 @@ import jax.numpy as jnp
 from typing import Callable, Optional, Tuple
 from .moment import MomentTransform
 from chex import Array, dataclass
+from scipy.special import factorial
+from sklearn.utils.extmath import cartesian
+from numpy.polynomial.hermite_e import hermegauss, hermeval
 
 
-def init_unscented_transform(
+def init_gausshermite_transform(
     gp_pred,
     n_features: int,
-    alpha: float = 1.0,
-    beta: float = 1.0,
+    degree: int = 20,
     kappa: Optional[float] = None,
 ):
 
-    wm, wc = get_unscented_weights(n_features, kappa, alpha, beta)
-
-    Wm, Wc = wm, jnp.diag(wc)
-    sigma_pts = get_unscented_sigma_points(n_features, kappa, alpha)
+    wm = get_quadrature_weights(n_features=n_features, degree=degree)
+    wc = wm
+    Wm, Wc = wm, jnp.diag(wm)
+    sigma_pts = get_quadrature_sigma_points(n_features=n_features, degree=degree)
 
     def predict_mean(x, x_cov):
 
@@ -159,43 +161,25 @@ def init_unscented_transform(
     )
 
 
-def init_unscented_spherical_transform(gp_pred, n_features):
-    return init_unscented_transform(
-        gp_pred=gp_pred, n_features=n_features, alpha=1.0, beta=0.0, kappa=0.0
-    )
-
-
-def get_unscented_sigma_points(
-    n_features: int, kappa: Optional[float] = None, alpha: float = 1.0
-) -> Tuple[chex.Array, chex.Array]:
-    """Generate Unscented samples"""
-
-    # calculate kappa value
-    if kappa is None:
-        kappa = jnp.maximum(3.0 - n_features, 0.0)
-
-    lam = alpha ** 2 * (n_features + kappa) - n_features
-    c = jnp.sqrt(n_features + lam)
-    return jnp.hstack(
-        (jnp.zeros((n_features, 1)), c * jnp.eye(n_features), -c * jnp.eye(n_features))
-    )
-
-
-def get_unscented_weights(
+def get_quadrature_sigma_points(
     n_features: int,
-    kappa: Optional[float] = None,
-    alpha: float = 1.0,
-    beta: float = 2.0,
-) -> Tuple[float, float]:
+    degree: int = 3,
+) -> Array:
+    """Generate Unscented samples"""
+    # 1D sigma-points (x) and weights (w)
+    x, w = hermegauss(degree)
+    # nD sigma-points by cartesian product
+    return cartesian([x] * n_features).T  # column/sigma-point
+
+
+def get_quadrature_weights(
+    n_features: int,
+    degree: int = 3,
+) -> Array:
     """Generate normalizers for MCMC samples"""
 
-    # calculate kappa value
-    if kappa is None:
-        kappa = jnp.maximum(3.0 - n_features, 0.0)
-
-    lam = alpha ** 2 * (n_features + kappa) - n_features
-    wm = 1.0 / (2.0 * (n_features + lam)) * jnp.ones(2 * n_features + 1)
-    wc = wm.copy()
-    wm = jax.ops.index_update(wm, 0, lam / (n_features + lam))
-    wc = jax.ops.index_update(wc, 0, wm[0] + (1 - alpha ** 2 + beta))
-    return wm, wc
+    # 1D sigma-points (x) and weights (w)
+    x, w = hermegauss(degree)
+    # hermegauss() provides weights that cause posdef errors
+    w = factorial(degree) / (degree ** 2 * hermeval(x, [0] * (degree - 1) + [1]) ** 2)
+    return jnp.prod(cartesian([w] * n_features), axis=1)
