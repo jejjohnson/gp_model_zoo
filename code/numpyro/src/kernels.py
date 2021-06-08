@@ -4,24 +4,26 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 from chex import Array, dataclass
+from flax import struct
 
-@dataclass
+
+@struct.dataclass
 class Kernel:
-    
     def cross_covariance(self, X, Y):
         return NotImplementedError
-    
+
     def gram(self, X):
         return self.cross_covariance(X, X)
-    
+
     def diag(self, X):
         return NotImplementedError
-    
-@dataclass
+
+
+@struct.dataclass
 class RBF(Kernel):
-    variance : Array
-    length_scale : Array
-        
+    variance: Array
+    length_scale: Array
+
     def cross_covariance(self, X, Y):
         # distance formula
         deltaXsq = cross_covariance(

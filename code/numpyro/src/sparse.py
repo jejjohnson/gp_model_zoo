@@ -1,5 +1,6 @@
 from jax.scipy.linalg import cholesky, solve_triangular
 from .utils import add_to_diagonal
+from .base import Predictive
 from copy import deepcopy
 from typing import Callable, Tuple
 import jax.numpy as jnp
@@ -87,7 +88,7 @@ class SGPVFE:
 
 
 @struct.dataclass
-class SGPPredictive:
+class SGPPredictive(Predictive):
     X: Array
     y: Array
     x_u: Array
@@ -132,38 +133,78 @@ class SGPPredictive:
 
         Qss = Ws.T @ Ws
 
-        cov = Kxx - Qss + Linv_Ws.T @ Linv_Ws
+        Σ = Kxx - Qss + Linv_Ws.T @ Linv_Ws
 
-        cov_shape = self.y.T.shape[:-1] + (n_test_samples, n_test_samples)
-        cov = jnp.reshape(cov, cov_shape)
+        Σ_shape = self.y.T.shape[:-1] + (n_test_samples, n_test_samples)
+        Σ = jnp.reshape(Σ, Σ_shape)
 
-        return cov
+        return Σ.reshape([1, 2, 0])
 
-    def predict_f(self, xtest, full_covariance: bool = False, noiseless: bool = False):
-
+    def _predict(self, xtest, full_covariance: bool = False, noiseless: bool = False):
         n_test_samples = xtest.shape[0]
 
         Ws, Linv_W_Dinv_y, Linv_Ws = self._pred_factorize(xtest)
 
         loc_shape = self.y.T.shape[:-1] + (xtest.shape[0],)
-        loc = (Linv_W_Dinv_y.T @ Linv_Ws).reshape(loc_shape)
+        μ = (Linv_W_Dinv_y.T @ Linv_Ws).reshape(loc_shape)
 
-        Kxx = self.kernel.gram(xtest)
+        if full_covariance:
+            Kxx = self.kernel.gram(xtest)
+
+            if not noiseless:
+                Kxx = add_to_diagonal(Kxx, self.obs_noise)
+
+            Qss = Ws.T @ Ws
+
+            Σ = Kxx - Qss + Linv_Ws.T @ Linv_Ws
+
+            Σ_shape = self.y.T.shape[:-1] + (n_test_samples, n_test_samples)
+            Σ = jnp.reshape(Σ, Σ_shape)
+
+            return μ, Σ.reshape([1, 2, 0])
+        else:
+            Kxx = self.kernel.diag(xtest)
+
+            if not noiseless:
+                Kxx += self.obs_noise
+
+            Qss = jnp.power(Ws, 2).sum(axis=0)
+
+            σ = Kxx - Qss + jnp.power(Linv_Ws, 2).sum(axis=0)
+
+            cov_shape = self.y.T.shape[:-1] + (n_test_samples,)
+
+            σ = jnp.reshape(σ, cov_shape)
+
+            return μ.T, σ.T
+
+    def predict_var(self, xtest, noiseless=False):
+
+        n_test_samples = xtest.shape[0]
+
+        Ws, _, Linv_Ws = self._pred_factorize(xtest)
+
+        Kxx = self.kernel.diag(xtest)
 
         if not noiseless:
-            Kxx = add_to_diagonal(Kxx, self.obs_noise)
+            Kxx += self.obs_noise
 
-        Qss = Ws.T @ Ws
+        Qss = jnp.power(Ws, 2).sum(axis=0)
 
-        cov = Kxx - Qss + Linv_Ws.T @ Linv_Ws
+        σ = Kxx - Qss + jnp.power(Linv_Ws, 2).sum(axis=0)
 
-        cov_shape = self.y.T.shape[:-1] + (n_test_samples, n_test_samples)
-        cov = jnp.reshape(cov, cov_shape)
+        cov_shape = self.y.T.shape[:-1] + (n_test_samples,)
 
-        return loc, cov
+        σ = jnp.reshape(σ, cov_shape)
 
-    def predict_var(self, xtest):
-        return jnp.diag(self.predict_cov(xtest))
+        return σ.T
+
+
+def init_sgp_predictive(kernel, params, x, y, jitter):
+
+    return SGPPredictive(
+        **get_cond_params(kernel=kernel, params=params, x=x, y=y, jitter=jitter)
+    )
 
 
 def vfe_precompute(X, X_u, obs_noise, kernel, jitter: float = 1e-5):
