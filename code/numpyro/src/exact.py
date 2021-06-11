@@ -8,6 +8,8 @@ from chex import Array, dataclass
 import numpyro
 import numpyro.distributions as dist
 from flax import struct
+from .means import zero_mean
+from .kernels import RBF
 
 
 @struct.dataclass
@@ -131,6 +133,46 @@ class GPRPredictive(Predictive):
             σ += self.obs_noise
 
         return σ
+
+
+def init_default_gp_model(n_features=1, inference="map", n_inducing=100, jitter=1e-5):
+    def numpyro_model(X, y):
+        if inference == "map" or "vi_mf" or "vi_full":
+            # Set priors on hyperparameters.
+            η = numpyro.sample("variance", dist.HalfCauchy(scale=5.0),)
+            ℓ = numpyro.sample(
+                "length_scale", dist.Gamma(2.0, 1.0), sample_shape=(n_features,)
+            )
+            σ = numpyro.sample("obs_noise", dist.HalfCauchy(scale=5.0))
+        elif inference == "mll":
+
+            # set params and constraints on hyperparams
+            η = numpyro.param(
+                "variance",
+                init_value=jnp.ones(n_features),
+                constraints=dist.constraints.positive,
+            )
+            ℓ = numpyro.param(
+                "length_scale", init_value=1.0, constraints=dist.constraints.positive
+            )
+            σ = numpyro.param(
+                "obs_noise", init_value=0.01, onstraints=dist.constraints.positive
+            )
+        else:
+            raise ValueError(f"Unrecognized inference scheme: {inference}")
+
+        # Kernel Function
+        rbf_kernel = RBF(variance=η, length_scale=ℓ)
+
+        # GP Model
+        gp_model = GPRModel(
+            X=X, y=y, mean=zero_mean, kernel=rbf_kernel, obs_noise=σ, jitter=jitter
+        )
+
+        # Sample y according SGP
+        return gp_model.to_numpyro(y=y)
+
+    return numpyro_model
 
 
 def get_cond_params(

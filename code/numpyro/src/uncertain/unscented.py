@@ -4,6 +4,9 @@ import jax.numpy as jnp
 from typing import Callable, Optional, Tuple
 from .moment import MomentTransform
 from chex import Array, dataclass
+import tensorflow_probability.substrates.jax as tfp
+
+dist = tfp.distributions
 
 
 def init_unscented_transform(
@@ -26,7 +29,7 @@ def init_unscented_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -50,7 +53,7 @@ def init_unscented_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -70,7 +73,7 @@ def init_unscented_transform(
         # ===================
         if full_covariance:
             # (N,P,M) - (N,P,1) -> (N,P,M)
-            dfydx = y_mu_sigma - y_mu[:, None]
+            dfydx = y_mu_sigma - y_mu[..., None]
 
             # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
             cov = jnp.einsum("ijk,jl,mlk->ikm", dfydx, Wc, dfydx.T)
@@ -78,7 +81,7 @@ def init_unscented_transform(
         else:
 
             # (N,P,M) - (N,P,1) -> (N,P,M)
-            dfydx = y_mu_sigma - y_mu[:, None]
+            dfydx = y_mu_sigma - y_mu[..., None]
 
             # (N,M,P) @ (M,) -> (N,P)
             var = jnp.einsum("ijk,j->ik", dfydx ** 2, wc)
@@ -92,7 +95,7 @@ def init_unscented_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -111,7 +114,7 @@ def init_unscented_transform(
         # Covariance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
-        dfydx = y_mu_sigma - y_mu[:, None]
+        dfydx = y_mu_sigma - y_mu[..., None]
 
         # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
         y_cov = jnp.einsum("ijk,jl,mlk->ikm", dfydx, Wc, dfydx.T)
@@ -125,7 +128,7 @@ def init_unscented_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -144,12 +147,109 @@ def init_unscented_transform(
         # Variance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
-        dfydx = y_mu_sigma - y_mu[:, None]
+        dfydx = y_mu_sigma - y_mu[..., None]
 
         # (N,M,P) @ (M,) -> (N,P)
         var = jnp.einsum("ijk,j->ik", dfydx ** 2, wc)
 
         return var
+
+    return MomentTransform(
+        predict_mean=predict_mean,
+        predict_cov=predict_cov,
+        predict_f=predict_f,
+        predict_var=predict_var,
+    )
+
+
+def init_unscented_uni_transform(gp_pred, cov_type: str = "diag"):
+
+    if cov_type == "diag":
+        z = dist.MultivariateNormalDiag
+    elif cov_type == "full":
+        z = dist.MultivariateNormalFullCovariance
+    else:
+        raise ValueError(f"Unrecognized covariance type: {cov_type}")
+
+    def predict_mean(x, x_cov):
+
+        # create distribution
+        x_dist = z(x, x_cov)
+
+        # get shape of data
+        N, D = x_dist.mean().shape
+
+        # get sigma param
+        n_sigma = 2 * D
+
+        # get delta
+        offset = x_dist.covariance().ndim - 3 + 1
+        delta = jnp.diagonal(
+            jnp.sqrt(D * x_dist.covariance()), axis1=offset, axis2=offset + 1
+        )
+
+        x_mc_samples_pve = x_dist.mean()[..., None] + delta
+        x_mc_samples_nve = x_dist.mean()[..., None] - delta
+
+        y_mu_sigma_pve = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(
+            x_mc_samples_pve
+        )
+        y_mu_sigma_nve = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(
+            x_mc_samples_nve
+        )
+        y_mu_sigma = y_mu_sigma_pve + y_mu_sigma_nve
+
+        y_mu = jnp.mean(y_mu_sigma, axis=2) / n_sigma
+
+        return y_mu
+
+    def predict_f(x, x_cov, full_covariance=False):
+        # create distribution
+        x_dist = z(x, x_cov)
+
+        # get shape of data
+        N, D = x_dist.mean().shape
+
+        # get sigma param
+        n_sigma = 2 * D
+
+        # get delta
+
+        delta = jnp.sqrt(D * x_dist.covariance())
+        if cov_type == "full":
+            offset = x_dist.covariance().ndim - 3 + 1
+            delta = jnp.diagonal(delta, axis1=offset, axis2=offset + 1)
+
+        print(delta.shape, x_dist.covariance().ndim)
+
+        x_mc_samples_pve = x_dist.mean()[..., None] + delta
+        x_mc_samples_nve = x_dist.mean()[..., None] - delta
+
+        print(x_mc_samples_pve.shape)
+
+        y_mu_sigma_pve = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(
+            x_mc_samples_pve
+        )
+        y_mu_sigma_nve = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(
+            x_mc_samples_nve
+        )
+        print(y_mu_sigma_nve.shape)
+        y_mu_sigma = y_mu_sigma_pve + y_mu_sigma_nve
+
+        y_mu = jnp.sum(y_mu_sigma, axis=2) / n_sigma
+
+        y_var = jnp.std(y_mu_sigma, axis=2)
+        print(y_mu_sigma.min(), y_mu_sigma.max(), y_mu_sigma.shape)
+
+        return y_mu, y_var
+
+    def predict_cov(x, x_cov):
+
+        raise NotImplementedError()
+
+    def predict_var(x, x_cov):
+
+        raise NotImplementedError()
 
     return MomentTransform(
         predict_mean=predict_mean,

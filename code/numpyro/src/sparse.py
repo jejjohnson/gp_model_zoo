@@ -1,6 +1,8 @@
 from jax.scipy.linalg import cholesky, solve_triangular
-from .utils import add_to_diagonal
+from .utils import add_to_diagonal, init_inducing_kmeans
 from .base import Predictive
+from .means import zero_mean
+from .kernels import RBF
 from copy import deepcopy
 from typing import Callable, Tuple
 import jax.numpy as jnp
@@ -198,6 +200,60 @@ class SGPPredictive(Predictive):
         σ = jnp.reshape(σ, cov_shape)
 
         return σ.T
+
+
+def init_default_sgp_model(
+    Xtrain, n_features=1, inference="map", n_inducing=100, jitter=1e-5
+):
+
+    X_u_init = init_inducing_kmeans(Xtrain, n_inducing, seed=123)
+
+    def numpyro_model(X, y):
+
+        if inference == "map" or "vi_mf" or "vi_full":
+            # Set priors on hyperparameters.
+            η = numpyro.sample("variance", dist.HalfCauchy(scale=5.0))
+            ℓ = numpyro.sample(
+                "length_scale", dist.Gamma(2.0, 1.0), sample_shape=(n_features,)
+            )
+            σ = numpyro.sample("obs_noise", dist.HalfCauchy(scale=5.0))
+        elif inference == "mll":
+
+            # set params and constraints on hyperparams
+            η = numpyro.param(
+                "variance", init_value=1.0, constraints=dist.constraints.positive
+            )
+            ℓ = numpyro.param(
+                "length_scale",
+                init_value=jnp.ones(n_features),
+                constraints=dist.constraints.positive,
+            )
+            σ = numpyro.param(
+                "obs_noise", init_value=0.01, onstraints=dist.constraints.positive
+            )
+        else:
+            raise ValueError(f"Unrecognized inference scheme: {inference}")
+
+        x_u = numpyro.param("x_u", init_value=X_u_init)
+
+        # Kernel Function
+        rbf_kernel = RBF(variance=η, length_scale=ℓ)
+
+        # GP Model
+        gp_model = SGPVFE(
+            X=X,
+            X_u=x_u,
+            y=y,
+            mean=zero_mean,
+            kernel=rbf_kernel,
+            obs_noise=σ,
+            jitter=jitter,
+        )
+
+        # Sample y according SGP
+        return gp_model.to_numpyro(y=y)
+
+    return numpyro_model
 
 
 def init_sgp_predictive(kernel, params, x, y, jitter):

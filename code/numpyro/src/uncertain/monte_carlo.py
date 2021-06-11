@@ -10,47 +10,59 @@ import tensorflow_probability.substrates.jax as tfp
 dist = tfp.distributions
 
 
-def init_mc_transform(gp_pred, n_features: int, n_samples: int):
+def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
 
-    z = dist.Normal(loc=jnp.zeros((n_features,)), scale=jnp.ones(n_features))
-
+    if cov_type == "diag":
+        z = dist.MultivariateNormalDiag
+    elif cov_type == "full":
+        z = dist.MultivariateNormalFullCovariance
+    else:
+        raise ValueError(f"Unrecognized covariance type: {cov_type}")
     wm, wc = get_mc_weights(n_samples)
 
     def predict_mean(key, x, x_cov):
 
-        # sigma points
-        sigma_pts = z.sample((n_samples,), key)
+        # create distribution
+        x_dist = z(x, x_cov)
 
-        # cholesky for input covariance (D,D)
-        L = jnp.linalg.cholesky(x_cov)
-        x_mc_samples = x[:, None] + L @ sigma_pts.T
+        # sample
+        x_mc_samples = x_dist.sample((n_samples,), key)
+
+        # # cholesky for input covariance (D,D)
+        # L = jnp.linalg.cholesky(x_cov)
+        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
+        # x_mc_samples = x[..., None] + L @ sigma_pts.T
 
         # function predictions over mc samples
-        # (P,M) = (D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=1)(x_mc_samples)
+        # (N,P,M) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
         # print(y_mu_mc.shape, x_mc_samples.shape)
 
         # mean of mc samples
         # (P,) = (P,M)
-        y_mu = jnp.mean(y_mu_mc, axis=1)
+        y_mu = jnp.mean(y_mu_mc, axis=2)
         # print(y_mu.shape, y_mu_mc.shape)
 
         return y_mu
 
     def predict_f(key, x, x_cov, full_covariance=False):
 
-        # sigma points
-        sigma_pts = z.sample((n_samples,), key)
-        # cholesky for input covariance
-        L = jnp.linalg.cholesky(x_cov)
+        # create distribution
+        # print(x.min(), x.max(), x_cov.min(), x_cov.max())
+        x_dist = z(x, x_cov)
 
-        # calculate sigma points
-        # (D,M) = (D,1) + (D,D)@(D,M)
-        x_mc_samples = x[:, None] + L @ sigma_pts.T
+        # sample
+        x_mc_samples = x_dist.sample((n_samples,), key)
+        # print(x_mc_samples.min(), x_mc_samples.max())
+
+        # # cholesky for input covariance (D,D)
+        # L = jnp.linalg.cholesky(x_cov)
+        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
+        # x_mc_samples = x[..., None] + L @ sigma_pts.T
 
         # function predictions over mc samples
-        # (N,P,M) = (D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(x_mc_samples)
+        # (N,P,M) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
 
         # mean of mc samples
         # (N,P,) = (N,P,M)
@@ -74,18 +86,20 @@ def init_mc_transform(gp_pred, n_features: int, n_samples: int):
 
     def predict_cov(key, x, x_cov):
 
-        # sigma points
-        sigma_pts = z.sample((n_samples,), key)
-        # cholesky for input covariance
-        L = jnp.linalg.cholesky(x_cov)
+        # create distribution
+        x_dist = z(x, x_cov)
 
-        # calculate sigma points
-        # (D,M) = (D,1) + (D,D)@(D,M)
-        x_mc_samples = x[:, None] + L @ sigma_pts.T
+        # sample
+        x_mc_samples = x_dist.sample((n_samples,), key)
+
+        # # cholesky for input covariance (D,D)
+        # L = jnp.linalg.cholesky(x_cov)
+        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
+        # x_mc_samples = x[..., None] + L @ sigma_pts.T
 
         # function predictions over mc samples
-        # (N,P,M) = (D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(x_mc_samples)
+        # (N,P,M) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
 
         # mean of mc samples
         # (N,P,M) -> (N,P)
@@ -94,7 +108,7 @@ def init_mc_transform(gp_pred, n_features: int, n_samples: int):
         # Covariance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
-        dfydx = y_mu_mc - y_mu[:, None]
+        dfydx = y_mu_mc - y_mu[..., None]
 
         # (N,P,M) @ (N,P,M) -> (N,N,P)
         cov = wc * jnp.einsum("ijk,klm->imj", dfydx, dfydx.T)
@@ -103,14 +117,20 @@ def init_mc_transform(gp_pred, n_features: int, n_samples: int):
 
     def predict_var(key, x, x_cov):
 
-        # sigma points
-        sigma_pts = z.sample((n_samples,), key)
-        # cholesky for input covariance
-        L = jnp.linalg.cholesky(x_cov)
+        # create distribution
+        x_dist = z(x, x_cov)
 
-        # calculate sigma points
-        # (D,M) = (D,1) + (D,D)@(D,M)
-        x_mc_samples = x[:, None] + L @ sigma_pts.T
+        # sample
+        x_mc_samples = x_dist.sample((n_samples,), key)
+
+        # # cholesky for input covariance (D,D)
+        # L = jnp.linalg.cholesky(x_cov)
+        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
+        # x_mc_samples = x[..., None] + L @ sigma_pts.T
+
+        # function predictions over mc samples
+        # (N,P,M) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
 
         # function predictions over mc samples
         # (N,P,M) = (D,M)

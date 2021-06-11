@@ -12,7 +12,7 @@ from numpy.polynomial.hermite_e import hermegauss, hermeval
 def init_gausshermite_transform(
     gp_pred,
     n_features: int,
-    degree: int = 20,
+    degree: int = 3,
     kappa: Optional[float] = None,
 ):
 
@@ -28,7 +28,7 @@ def init_gausshermite_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -52,7 +52,7 @@ def init_gausshermite_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -72,7 +72,7 @@ def init_gausshermite_transform(
         # ===================
         if full_covariance:
             # (N,P,M) - (N,P,1) -> (N,P,M)
-            dfydx = y_mu_sigma - y_mu[:, None]
+            dfydx = y_mu_sigma - y_mu[..., None]
 
             # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
             cov = jnp.einsum("ijk,jl,mlk->ikm", dfydx, Wc, dfydx.T)
@@ -80,7 +80,7 @@ def init_gausshermite_transform(
         else:
 
             # (N,P,M) - (N,P,1) -> (N,P,M)
-            dfydx = y_mu_sigma - y_mu[:, None]
+            dfydx = y_mu_sigma - y_mu[..., None]
 
             # (N,M,P) @ (M,) -> (N,P)
             var = jnp.einsum("ijk,j->ik", dfydx ** 2, wc)
@@ -94,7 +94,7 @@ def init_gausshermite_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -113,7 +113,7 @@ def init_gausshermite_transform(
         # Covariance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
-        dfydx = y_mu_sigma - y_mu[:, None]
+        dfydx = y_mu_sigma - y_mu[..., None]
 
         # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
         y_cov = jnp.einsum("ijk,jl,mlk->ikm", dfydx, Wc, dfydx.T)
@@ -127,7 +127,7 @@ def init_gausshermite_transform(
 
         # calculate sigma points
         # (D,M) = (D,1) + (D,D)@(D,M)
-        x_sigma_samples = x[:, None] + L @ sigma_pts
+        x_sigma_samples = x[..., None] + L @ sigma_pts
         # ===================
         # Mean
         # ===================
@@ -146,7 +146,7 @@ def init_gausshermite_transform(
         # Variance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
-        dfydx = y_mu_sigma - y_mu[:, None]
+        dfydx = y_mu_sigma - y_mu[..., None]
 
         # (N,M,P) @ (M,) -> (N,P)
         var = jnp.einsum("ijk,j->ik", dfydx ** 2, wc)
