@@ -140,68 +140,6 @@ class TaylorO2Transform(TaylorO1Transform):
         return cov
 
 
-def init_taylor_o1_transform(gp_pred):
-    meanf = lambda x: gp_pred.predict_mean(x)
-    varf = lambda x: gp_pred.predict_var(x, noiseless=True)
-    vary = lambda x: gp_pred.predict_var(x, noiseless=False)
-    covf = lambda x: gp_pred.predict_cov(x)
-    _f = lambda x: gp_pred.predict_mean(x[None, :]).squeeze()
-    meandf = jax.vmap(jax.grad(_f))
-
-    def predict_mean(x, x_cov):
-
-        return meanf(x)
-
-    def predict_f(x, x_cov, full_covariance=False, noiseless: bool = False):
-
-        # sigma points
-        y_mu = meanf(x)
-
-        # gradient
-        dmu_dx = meandf(x)
-
-        # correction
-        cov_correction = dmu_dx @ x_cov @ dmu_dx.T
-
-        if full_covariance:
-
-            cov = covf(x) + cov_correction
-
-            return y_mu, cov
-        else:
-            # (P,M) = (P,M) - (P, 1)
-            if noiseless:
-                var = varf(x)
-            else:
-                var = vary(x)
-
-            var += jnp.diagonal(cov_correction).reshape(-1, 1)
-            return y_mu, var
-
-    def predict_cov(x, x_cov):
-
-        # gradient
-        dmu_dx = meandf(x)
-
-        # correction
-        cov_correction = dmu_dx @ x_cov @ dmu_dx.T
-
-        cov = covf(x) + cov_correction
-
-        return cov
-
-    def predict_var(x, x_cov):
-
-        raise NotImplementedError()
-
-    return MomentTransform(
-        predict_mean=predict_mean,
-        predict_cov=predict_cov,
-        predict_f=predict_f,
-        predict_var=predict_var,
-    )
-
-
 def get_mc_weights(n_samples: int = 100) -> Tuple[float, float]:
     """Generate normalizers for MCMC samples"""
     mean = 1.0 / n_samples
