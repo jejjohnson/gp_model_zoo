@@ -263,7 +263,7 @@ def init_gp_predictive(
             if not noiseless:
                 σ += obs_noise
 
-            return μ, σ
+            return μ, σ[:, None]
 
     def predict_var(xtest, noiseless=False):
 
@@ -279,7 +279,7 @@ def init_gp_predictive(
         if not noiseless:
             σ += obs_noise
 
-        return σ
+        return σ[:, None]
 
     def predict_f(xtest, full_covariance: bool = False):
 

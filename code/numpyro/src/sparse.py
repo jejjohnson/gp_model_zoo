@@ -138,9 +138,10 @@ class SGPPredictive(Predictive):
         Σ = Kxx - Qss + Linv_Ws.T @ Linv_Ws
 
         Σ_shape = self.y.T.shape[:-1] + (n_test_samples, n_test_samples)
+
         Σ = jnp.reshape(Σ, Σ_shape)
 
-        return Σ.reshape([1, 2, 0])
+        return jnp.transpose(Σ, [1, 2, 0])
 
     def _predict(self, xtest, full_covariance: bool = False, noiseless: bool = False):
         n_test_samples = xtest.shape[0]

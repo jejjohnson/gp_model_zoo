@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from .moment import MomentTransform
+from .moment import MomentTransform, MomentTransformClass
 import jax
 from chex import Array, dataclass
 import jax.numpy as jnp
@@ -8,6 +8,129 @@ import jax.random as jr
 import tensorflow_probability.substrates.jax as tfp
 
 dist = tfp.distributions
+import abc
+from distrax._src.utils.jittable import Jittable
+
+
+class MCTransform(MomentTransformClass):
+    def __init__(self, gp_pred, n_samples: int, cov_type: bool = "diag"):
+        self.gp_pred = gp_pred
+        self.n_samples = n_samples
+        if cov_type == "diag":
+            self.z = dist.MultivariateNormalDiag
+        elif cov_type == "full":
+            self.z = dist.MultivariateNormalFullCovariance
+        else:
+            raise ValueError(f"Unrecognized covariance type: {cov_type}")
+        self.wm, self.wc = get_mc_weights(n_samples)
+
+    def predict_f(self, key, x, x_cov, full_covariance=False):
+
+        # create distribution
+        # print(x.min(), x.max(), x_cov.min(), x_cov.max())
+        x_dist = self.z(x, x_cov)
+
+        # sample
+        x_mc_samples = x_dist.sample((self.n_samples,), key)
+
+        # function predictions over mc samples
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(self.gp_pred.predict_mean, in_axes=0, out_axes=1)(
+            x_mc_samples
+        )
+
+        # mean of mc samples
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
+
+        if full_covariance:
+            # ===================
+            # Covariance
+            # ===================
+            # (N,P,M) - (N,P,1) -> (N,P,M)
+            dfydx = y_mu_mc - y_mu[..., None]
+
+            # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
+
+            Wc = jnp.eye(self.n_samples) * self.wc
+            cov = jnp.einsum("ijk,jl,mlk->ikm", dfydx, Wc, dfydx.T)
+
+            # cov = self.wc * jnp.einsum("ijk,lmn->ilk", dfydx, dfydx)
+
+            return y_mu, cov
+        else:
+            # (N,P) = (N,M,P)
+            var = jnp.var(y_mu_mc, axis=1)
+
+            return y_mu, var
+
+    def predict_mean(self, key, x, x_cov):
+
+        # create distribution
+        x_dist = self.z(x, x_cov)
+
+        # sample
+        x_mc_samples = x_dist.sample((self.n_samples,), key)
+
+        # function predictions over mc samples
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(self.gp_pred.predict_mean, in_axes=0, out_axes=1)(
+            x_mc_samples
+        )
+
+        # mean of mc samples
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
+
+        return y_mu
+
+    def predict_cov(self, key, x, x_cov):
+
+        # create distribution
+        x_dist = self.z(x, x_cov)
+
+        # sample
+        x_mc_samples = x_dist.sample((self.n_samples,), key)
+
+        # function predictions over mc samples
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(self.gp_pred.predict_mean, in_axes=0, out_axes=1)(
+            x_mc_samples
+        )
+
+        # mean of mc samples
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
+        # ===================
+        # Covariance
+        # ===================
+        # (N,P,M) - (N,P,1) -> (N,P,M)
+        dfydx = y_mu_mc - y_mu[..., None]
+
+        # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
+        cov = self.wc * jnp.einsum("ijk,lmn->ikl", dfydx, dfydx.T)
+
+        return y_mu, cov
+
+    def predict_var(self, key, x, x_cov):
+
+        # create distribution
+        x_dist = self.z(x, x_cov)
+
+        # sample
+        x_mc_samples = x_dist.sample((self.n_samples,), key)
+
+        # function predictions over mc samples
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(self.gp_pred.predict_mean, in_axes=0, out_axes=1)(
+            x_mc_samples
+        )
+
+        # variance of mc samples
+        # (N,P,) = (N,M,P)
+        y_var = jnp.var(y_mu_mc, axis=1)
+
+        return y_var
 
 
 def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
@@ -28,20 +151,13 @@ def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
         # sample
         x_mc_samples = x_dist.sample((n_samples,), key)
 
-        # # cholesky for input covariance (D,D)
-        # L = jnp.linalg.cholesky(x_cov)
-        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
-        # x_mc_samples = x[..., None] + L @ sigma_pts.T
-
         # function predictions over mc samples
-        # (N,P,M) = f(N,D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
-        # print(y_mu_mc.shape, x_mc_samples.shape)
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=1)(x_mc_samples)
 
         # mean of mc samples
-        # (P,) = (P,M)
-        y_mu = jnp.mean(y_mu_mc, axis=2)
-        # print(y_mu.shape, y_mu_mc.shape)
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
 
         return y_mu
 
@@ -53,35 +169,29 @@ def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
 
         # sample
         x_mc_samples = x_dist.sample((n_samples,), key)
-        # print(x_mc_samples.min(), x_mc_samples.max())
-
-        # # cholesky for input covariance (D,D)
-        # L = jnp.linalg.cholesky(x_cov)
-        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
-        # x_mc_samples = x[..., None] + L @ sigma_pts.T
 
         # function predictions over mc samples
-        # (N,P,M) = f(N,D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=1)(x_mc_samples)
 
         # mean of mc samples
-        # (N,P,) = (N,P,M)
-        y_mu = jnp.mean(y_mu_mc, axis=2)
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
 
         if full_covariance:
             # ===================
             # Covariance
             # ===================
             # (N,P,M) - (N,P,1) -> (N,P,M)
-            dfydx = y_mu_mc - y_mu[:, None]
+            dfydx = y_mu_mc - y_mu[..., None]
 
-            # (N,P,M) @ (N,P,M) -> (N,N,P)
-            cov = wc * jnp.einsum("ijk,klm->imj", dfydx, dfydx.T)
+            # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
+            cov = wc * jnp.einsum("ijk,lmn->ikl", dfydx, dfydx.T)
 
             return y_mu, cov
         else:
-            # (P,M) = (P,M) - (P, 1)
-            var = jnp.var(y_mu_mc, axis=2)
+            # (N,P) = (N,M,P)
+            var = jnp.var(y_mu_mc, axis=1)
             return y_mu, var
 
     def predict_cov(key, x, x_cov):
@@ -92,28 +202,23 @@ def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
         # sample
         x_mc_samples = x_dist.sample((n_samples,), key)
 
-        # # cholesky for input covariance (D,D)
-        # L = jnp.linalg.cholesky(x_cov)
-        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
-        # x_mc_samples = x[..., None] + L @ sigma_pts.T
-
         # function predictions over mc samples
-        # (N,P,M) = f(N,D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=1)(x_mc_samples)
 
         # mean of mc samples
-        # (N,P,M) -> (N,P)
-        y_mu = jnp.mean(y_mu_mc, axis=2)
+        # (N,P,) = (N,M,P)
+        y_mu = jnp.mean(y_mu_mc, axis=1)
         # ===================
         # Covariance
         # ===================
         # (N,P,M) - (N,P,1) -> (N,P,M)
         dfydx = y_mu_mc - y_mu[..., None]
 
-        # (N,P,M) @ (N,P,M) -> (N,N,P)
-        cov = wc * jnp.einsum("ijk,klm->imj", dfydx, dfydx.T)
+        # (N,M,P) @ (M,M) @ (N,M,P) -> (N,P,D)
+        cov = wc * jnp.einsum("ijk,lmn->ikl", dfydx, dfydx.T)
 
-        return cov
+        return y_mu, cov
 
     def predict_var(key, x, x_cov):
 
@@ -123,22 +228,13 @@ def init_mc_transform(gp_pred, n_samples: int, cov_type: bool = "diag"):
         # sample
         x_mc_samples = x_dist.sample((n_samples,), key)
 
-        # # cholesky for input covariance (D,D)
-        # L = jnp.linalg.cholesky(x_cov)
-        # # (N,D,M) = (N,D,1) + (D,D)@(D,M)
-        # x_mc_samples = x[..., None] + L @ sigma_pts.T
-
         # function predictions over mc samples
-        # (N,P,M) = f(N,D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=2)(x_mc_samples)
+        # (N,M,P) = f(N,D,M)
+        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=0, out_axes=1)(x_mc_samples)
 
-        # function predictions over mc samples
-        # (N,P,M) = (D,M)
-        y_mu_mc = jax.vmap(gp_pred.predict_mean, in_axes=2, out_axes=2)(x_mc_samples)
-
-        # variance of mc samples
-        # (N,P,M) -> (N,P)
-        y_var = jnp.var(y_mu_mc, axis=2)
+        # mean of mc samples
+        # (N,P,) = (N,M,P)
+        y_var = jnp.var(y_mu_mc, axis=1)
 
         return y_var
 
